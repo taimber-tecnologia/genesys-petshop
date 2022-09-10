@@ -1,6 +1,6 @@
 package br.com.salomaotech.genesys.model.financeiro;
 
-import br.com.salomaotech.genesys.model.venda.VendaModelo;
+import br.com.salomaotech.genesys.model.venda.cliente.VendaModelo;
 import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import br.com.salomaotech.sistema.algoritmos.Datas;
 import br.com.salomaotech.sistema.jpa.JPQL;

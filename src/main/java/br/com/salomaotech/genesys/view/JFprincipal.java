@@ -42,6 +42,7 @@ public class JFprincipal extends javax.swing.JFrame {
         jBatalhoFornecedores = new javax.swing.JButton();
         jBatalhoProdutos = new javax.swing.JButton();
         jBatalhoVenda = new javax.swing.JButton();
+        jBatalhoPdv = new javax.swing.JButton();
         jBatalhoFinanceiro = new javax.swing.JButton();
         jToolBar2 = new javax.swing.JToolBar();
         jLabel3 = new javax.swing.JLabel();
@@ -186,6 +187,13 @@ public class JFprincipal extends javax.swing.JFrame {
         jBatalhoVenda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBarTopo.add(jBatalhoVenda);
 
+        jBatalhoPdv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pdv64x.png"))); // NOI18N
+        jBatalhoPdv.setText("PDV");
+        jBatalhoPdv.setFocusable(false);
+        jBatalhoPdv.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBatalhoPdv.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBarTopo.add(jBatalhoPdv);
+
         jBatalhoFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/financeiro64x.png"))); // NOI18N
         jBatalhoFinanceiro.setText("Financeiro");
         jBatalhoFinanceiro.setFocusable(false);
@@ -312,6 +320,7 @@ public class JFprincipal extends javax.swing.JFrame {
     public javax.swing.JButton jBatalhoConfiguracoesEmpresa;
     public javax.swing.JButton jBatalhoFinanceiro;
     public javax.swing.JButton jBatalhoFornecedores;
+    public javax.swing.JButton jBatalhoPdv;
     public javax.swing.JButton jBatalhoProdutos;
     public javax.swing.JButton jBatalhoVenda;
     public javax.swing.JButton jBpaginador;
