@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="Conexao" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <!-- Entidades mapeadas -->
+    <class>br.com.salomaotech.sistema.jpa.ModeloTeste</class>
+    <class>br.com.salomaotech.sistema.jpa.ModeloDeTeste</class>
+    <class>br.com.salomaotech.doutorpetshopdesktop.model.financeiro.generico.FinanceiroGenericoModelo</class>
+    <class>br.com.salomaotech.genesys.model.centro_custo.CentroCustoModelo</class>
+    <class>br.com.salomaotech.genesys.model.animal.AnimalModelo</class>
+    <class>br.com.salomaotech.genesys.model.fornecedor.FornecedorModelo</class>
+    <class>br.com.salomaotech.genesys.model.financeiro.FinanceiroModelo</class>
+    <class>br.com.salomaotech.genesys.model.venda.VendaModeloItem</class>
+    <class>br.com.salomaotech.genesys.model.venda.VendaModelo</class>
+    <class>br.com.salomaotech.genesys.model.produto.ProdutoModelo</class>
+    <class>br.com.salomaotech.genesys.model.vacina.VacinaModelo</class>
+    <class>br.com.salomaotech.genesys.model.empresa.EmpresaModelo</class>
+    <class>br.com.salomaotech.genesys.model.cliente.ClienteModelo</class>
+    <class>br.com.salomaotech.genesys.model.agenda.AgendaModelo</class>
+    <properties>
+      <!-- Configurações da conexão -->
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby:target/arquivos/banco;create=true"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+      <property name="javax.persistence.jdbc.password" value="root"/>
+      <!-- Configurações específicas do Hibernate -->
+      <property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.format_sql" value="true"/>
+      <property name="hibernate.connection.charSet" value="UTF-8"/>
+    </properties>
+  </persistence-unit>
+</persistence>
