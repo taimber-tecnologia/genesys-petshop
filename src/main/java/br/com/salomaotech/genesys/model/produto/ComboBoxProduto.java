@@ -2,9 +2,11 @@ package br.com.salomaotech.genesys.model.produto;
 
 import br.com.salomaotech.sistema.jpa.JPQL;
 import br.com.salomaotech.sistema.jpa.Repository;
+import br.com.salomaotech.sistema.patterns.Command;
 import java.awt.event.ActionEvent;
 import java.util.LinkedHashMap;
 import java.util.List;
+import static java.util.Objects.isNull;
 import javax.swing.JComboBox;
 
 public class ComboBoxProduto {
@@ -12,11 +14,19 @@ public class ComboBoxProduto {
     private final JComboBox jComboBox;
     private List<ProdutoModelo> produtoModeloList;
     private final LinkedHashMap produtoMap = new LinkedHashMap();
+    private final Command command;
     private long idProdutoSelecionado;
 
     public ComboBoxProduto(JComboBox jComboBox) {
 
+        this(jComboBox, null);
+
+    }
+
+    public ComboBoxProduto(JComboBox jComboBox, Command command) {
+
         this.jComboBox = jComboBox;
+        this.command = command;
         this.idProdutoSelecionado = 0;
         addEventos();
 
@@ -41,6 +51,12 @@ public class ComboBoxProduto {
             } catch (Exception ex) {
 
                 idProdutoSelecionado = 0;
+
+            }
+
+            if (!isNull(this.command)) {
+
+                command.executar(idProdutoSelecionado);
 
             }
 
@@ -74,6 +90,12 @@ public class ComboBoxProduto {
 
                 jComboBox.setSelectedItem(produto.getNome());
                 idProdutoSelecionado = idProduto;
+
+                if (!isNull(this.command)) {
+
+                    command.executar(idProdutoSelecionado);
+
+                }
 
             }
 
