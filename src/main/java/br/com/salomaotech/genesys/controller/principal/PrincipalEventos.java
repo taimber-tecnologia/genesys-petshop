@@ -6,9 +6,8 @@ import br.com.salomaotech.genesys.controller.empresa.EmpresaController;
 import br.com.salomaotech.genesys.controller.cliente.ClienteController;
 import br.com.salomaotech.genesys.controller.financeiro.FinanceiroController;
 import br.com.salomaotech.genesys.controller.fornecedor.FornecedorController;
-import br.com.salomaotech.genesys.controller.venda.cliente.VendaController;
 import br.com.salomaotech.genesys.controller.produto.ProdutoController;
-import br.com.salomaotech.genesys.controller.venda.pdv.PdvController;
+import br.com.salomaotech.genesys.controller.venda.VendaController;
 import br.com.salomaotech.genesys.model.configuracoes.PastasSistema;
 import br.com.salomaotech.genesys.view.JFprincipal;
 import br.com.salomaotech.sistema.algoritmos.ExecutaProgramaExterno;
@@ -214,13 +213,6 @@ public class PrincipalEventos {
 
         });
 
-        /* atalho para venda */
-        view.jBatalhoVenda.addActionListener((ActionEvent e) -> {
-
-            new VendaController().construir();
-
-        });
-
         /* atalho para fornecedores */
         view.jBatalhoFornecedores.addActionListener((ActionEvent e) -> {
 
@@ -235,10 +227,10 @@ public class PrincipalEventos {
 
         });
 
-        /* atalho para pdv */
-        view.jBatalhoPdv.addActionListener((ActionEvent e) -> {
+        /* atalho para venda */
+        view.jBatalhoVenda.addActionListener((ActionEvent e) -> {
 
-            new PdvController().construir();
+            new VendaController().construir();
 
         });
 

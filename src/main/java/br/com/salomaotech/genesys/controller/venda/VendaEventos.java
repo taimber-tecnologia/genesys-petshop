@@ -1,27 +1,29 @@
-package br.com.salomaotech.genesys.controller.venda.pdv;
+package br.com.salomaotech.genesys.controller.venda;
 
 import br.com.salomaotech.genesys.model.produto.ComboBoxProduto;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
-import br.com.salomaotech.genesys.view.JFpdv;
+import br.com.salomaotech.genesys.view.JFvenda;
+import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import br.com.salomaotech.sistema.jpa.Repository;
 import br.com.salomaotech.sistema.patterns.Command;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import static java.util.Objects.isNull;
 
-public class PdvEventos implements Command {
+public class VendaEventos implements Command {
 
-    private final JFpdv view;
-    private PdvMetodos pdvMetodos;
+    private final JFvenda view;
+    private VendaMetodos vendaMetodos;
     private ComboBoxProduto comboBoxProduto;
     private ProdutoModelo produtoModelo = new ProdutoModelo();
 
-    public PdvEventos(JFpdv view) {
+    public VendaEventos(JFvenda view) {
         this.view = view;
     }
 
-    public void setPdvMetodos(PdvMetodos pdvMetodos) {
-        this.pdvMetodos = pdvMetodos;
+    public void setVendaMetodos(VendaMetodos vendaMetodos) {
+        this.vendaMetodos = vendaMetodos;
     }
 
     public void setComboBoxProduto(ComboBoxProduto comboBoxProduto) {
@@ -33,7 +35,7 @@ public class PdvEventos implements Command {
         if (!isNull(comboBoxProduto)) {
 
             produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(comboBoxProduto.getIdSelecionado());
-            pdvMetodos.apresentarItem(produtoModelo);
+            vendaMetodos.exibirProdutoSelecionado(produtoModelo);
 
         }
 
@@ -57,7 +59,7 @@ public class PdvEventos implements Command {
             @Override
             public void keyReleased(KeyEvent e) {
 
-                pdvMetodos.calcularItem(produtoModelo);
+                view.jTprodutoTotal.setText(ConverteNumeroParaMoedaBr.converter(vendaMetodos.calcularProdutoSelecionado(produtoModelo).toString()));
 
             }
 
@@ -79,9 +81,30 @@ public class PdvEventos implements Command {
             @Override
             public void keyReleased(KeyEvent e) {
 
-                pdvMetodos.calcularItem(produtoModelo);
+                view.jTprodutoTotal.setText(ConverteNumeroParaMoedaBr.converter(vendaMetodos.calcularProdutoSelecionado(produtoModelo).toString()));
 
             }
+
+        });
+
+        /* limpar produto selecionado */
+        view.jBprodutoLimpaItem.addActionListener((ActionEvent e) -> {
+
+            vendaMetodos.limparProdutoSelecionado();
+
+        });
+
+        /* adiciona um item de produto */
+        view.jBprodutoAdicionaItem.addActionListener((ActionEvent e) -> {
+
+            vendaMetodos.adicionarProdutoNaLista(produtoModelo);
+
+        });
+
+        /* finalizar venda */
+        view.jBvendaFinaliza.addActionListener((ActionEvent e) -> {
+
+            vendaMetodos.finalizarVenda();
 
         });
 

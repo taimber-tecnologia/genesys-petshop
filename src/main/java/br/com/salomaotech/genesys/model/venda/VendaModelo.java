@@ -1,4 +1,4 @@
-package br.com.salomaotech.genesys.model.venda.cliente;
+package br.com.salomaotech.genesys.model.venda;
 
 import br.com.salomaotech.sistema.patterns.Modelo;
 import java.io.Serializable;
@@ -27,13 +27,11 @@ public class VendaModelo implements Modelo, Serializable {
     private Calendar data;
 
     private long idCliente;
-    private long idAnimal;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VendaModeloItem> vendaModeloItemList = new ArrayList();
 
     private BigDecimal entrada = new BigDecimal(0);
-    private BigDecimal desconto = new BigDecimal(0);
     private BigDecimal juros = new BigDecimal(0);
     private String formaPagamento;
     private boolean finalizado;
@@ -73,14 +71,6 @@ public class VendaModelo implements Modelo, Serializable {
         this.idCliente = idCliente;
     }
 
-    public long getIdAnimal() {
-        return idAnimal;
-    }
-
-    public void setIdAnimal(long idAnimal) {
-        this.idAnimal = idAnimal;
-    }
-
     public List<VendaModeloItem> getVendaModeloItemList() {
         return vendaModeloItemList;
     }
@@ -95,14 +85,6 @@ public class VendaModelo implements Modelo, Serializable {
 
     public void setEntrada(BigDecimal entrada) {
         this.entrada = entrada;
-    }
-
-    public BigDecimal getDesconto() {
-        return desconto;
-    }
-
-    public void setDesconto(BigDecimal desconto) {
-        this.desconto = desconto;
     }
 
     public BigDecimal getJuros() {
@@ -157,9 +139,11 @@ public class VendaModelo implements Modelo, Serializable {
 
         BigDecimal valorTotal = new BigDecimal(0);
 
-        for (VendaModeloItem VendaModeloItemTemp : vendaModeloItemList) {
+        for (VendaModeloItem vendaModeloItem : vendaModeloItemList) {
 
-            BigDecimal valorCalculado = VendaModeloItemTemp.getQuantidade().multiply(VendaModeloItemTemp.getValor());
+            BigDecimal quantidade = vendaModeloItem.getQuantidade();
+            BigDecimal desconto = vendaModeloItem.getDesconto();
+            BigDecimal valorCalculado = (vendaModeloItem.getValor().multiply(quantidade)).subtract(desconto);
             valorTotal = valorTotal.add(valorCalculado);
 
         }
@@ -176,13 +160,10 @@ public class VendaModelo implements Modelo, Serializable {
         /* 2 - subtrai entrada */
         valor = valor.subtract(entrada);
 
-        /* 3 - subtrai desconto */
-        valor = valor.subtract(desconto);
-
-        /* 4 - calcula o valor real do juros em cima do valor */
+        /* 3 - calcula o valor real do juros em cima do valor */
         BigDecimal valorRealDoJuros = valor.multiply(juros).divide(new BigDecimal(100));
 
-        /* 5 - adiciona juros */
+        /* 4 - adiciona juros */
         valor = valor.add(valorRealDoJuros);
 
         return valor;

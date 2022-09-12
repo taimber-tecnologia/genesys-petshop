@@ -1,6 +1,5 @@
-package br.com.salomaotech.genesys.model.venda.cliente;
+package br.com.salomaotech.genesys.model.venda;
 
-import br.com.salomaotech.genesys.model.animal.AnimalModelo;
 import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.sistema.algoritmos.Datas;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
@@ -51,8 +50,7 @@ public class VendaPesquisa {
         for (VendaModelo vendaModelo : vendaModeloList) {
 
             /* modelos auxiliares */
-            AnimalModelo animalModelo = (AnimalModelo) new Repository(new AnimalModelo()).findById(vendaModelo.getIdAnimal());
-            ClienteModelo clienteModelo = (ClienteModelo) new Repository(new ClienteModelo()).findById(animalModelo.getIdCliente());
+            ClienteModelo clienteModelo = (ClienteModelo) new Repository(new ClienteModelo()).findById(vendaModelo.getIdCliente());
 
             /* venda finalizado */
             String vendaFinalizado;
@@ -74,7 +72,6 @@ public class VendaPesquisa {
                 Datas.calendarParaStringBr(vendaModelo.getData()),
                 clienteModelo.getNome(),
                 clienteModelo.getTelefone(),
-                animalModelo.getNome(),
                 ConverteNumeroParaMoedaBr.converter(vendaModelo.getValorTotal().toString()),
                 vendaFinalizado
 

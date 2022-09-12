@@ -33,10 +33,9 @@ public class PrincipalEventosTest {
         assertEquals(true, view.jBpaginador.getActionListeners().length == 1);
         assertEquals(true, view.jLabrirSuporte.getMouseListeners().length == 1);
         assertEquals(true, view.jBatalhoAnimais.getMouseListeners().length == 1);
-        assertEquals(true, view.jBatalhoVenda.getActionListeners().length == 1);
         assertEquals(true, view.jBatalhoFornecedores.getActionListeners().length == 1);
         assertEquals(true, view.jBatalhoFinanceiro.getActionListeners().length == 1);
-        assertEquals(true, view.jBatalhoPdv.getActionListeners().length == 1);
+        assertEquals(true, view.jBatalhoVenda.getActionListeners().length == 1);
 
     }
 

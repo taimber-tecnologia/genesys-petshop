@@ -1,4 +1,4 @@
-package br.com.salomaotech.genesys.model.venda.cliente;
+package br.com.salomaotech.genesys.model.venda;
 
 import br.com.salomaotech.genesys.model.financeiro.FinanceiroMovimenta;
 import br.com.salomaotech.genesys.model.produto.ProdutoMovimenta;

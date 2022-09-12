@@ -1,4 +1,4 @@
-package br.com.salomaotech.genesys.model.venda.cliente;
+package br.com.salomaotech.genesys.model.venda;
 
 import br.com.salomaotech.sistema.patterns.Modelo;
 import java.io.Serializable;
@@ -15,11 +15,10 @@ public class VendaModeloItem implements Modelo, Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String descricao;
-    private BigDecimal valor = new BigDecimal(0);
     private long idProduto;
+    private BigDecimal valor = new BigDecimal(0);
     private BigDecimal quantidade = new BigDecimal(0);
-    private String medida;
+    private BigDecimal desconto = new BigDecimal(0);
 
     @Override
     public long getId() {
@@ -31,12 +30,12 @@ public class VendaModeloItem implements Modelo, Serializable {
         this.id = id;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public long getIdProduto() {
+        return idProduto;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setIdProduto(long idProduto) {
+        this.idProduto = idProduto;
     }
 
     public BigDecimal getValor() {
@@ -47,14 +46,6 @@ public class VendaModeloItem implements Modelo, Serializable {
         this.valor = valor;
     }
 
-    public long getIdProduto() {
-        return idProduto;
-    }
-
-    public void setIdProduto(long idProduto) {
-        this.idProduto = idProduto;
-    }
-
     public BigDecimal getQuantidade() {
         return quantidade;
     }
@@ -63,12 +54,12 @@ public class VendaModeloItem implements Modelo, Serializable {
         this.quantidade = quantidade;
     }
 
-    public String getMedida() {
-        return medida;
+    public BigDecimal getDesconto() {
+        return desconto;
     }
 
-    public void setMedida(String medida) {
-        this.medida = medida;
+    public void setDesconto(BigDecimal desconto) {
+        this.desconto = desconto;
     }
 
 }
