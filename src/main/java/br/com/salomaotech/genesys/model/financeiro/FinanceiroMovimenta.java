@@ -24,9 +24,7 @@ public class FinanceiroMovimenta {
         financeiroModelo.setData(data);
         financeiroModelo.setValor(valor);
         financeiroModelo.setDescricao(descricao);
-        financeiroModelo.setIdCentroCusto(vendaModelo.getIdCentroCusto());
         financeiroModelo.setIsDespesa(false);
-        financeiroModelo.setIsPago(false);
         financeiroModelo.setIdVenda(vendaModelo.getId());
         financeiroModelo.setIsPago(vendaModelo.isIsPago());
         financeiroModelo.setIdCliente(vendaModelo.getIdCliente());
@@ -37,8 +35,8 @@ public class FinanceiroMovimenta {
     private void gerarParcelas(VendaModelo vendaModelo) {
 
         BigDecimal numeroParcelas = BigDecimais.formatarParaBigDecimal(String.valueOf(vendaModelo.getNumeroParcelas()));
-        BigDecimal valorParcela = BigDecimais.dividir(vendaModelo.getValorTotal(), numeroParcelas);
-        BigDecimal valorDiferenca = vendaModelo.getValorTotal().subtract(valorParcela.multiply(numeroParcelas));
+        BigDecimal valorParcela = BigDecimais.dividir(vendaModelo.getValor(), numeroParcelas);
+        BigDecimal valorDiferenca = vendaModelo.getValor().subtract(valorParcela.multiply(numeroParcelas));
 
         /* itera parcelas */
         for (int i = 1; i <= vendaModelo.getNumeroParcelas(); i++) {
@@ -74,7 +72,7 @@ public class FinanceiroMovimenta {
             } else {
 
                 /* movimenta o financeiro com apenas 1 lançamento */
-                cadastrarFinanceiro(vendaModelo.getData(), vendaModelo.getValorTotal(), "Venda de nº " + vendaModelo.getId());
+                cadastrarFinanceiro(vendaModelo.getData(), vendaModelo.getValor(), "Venda de nº " + vendaModelo.getId());
 
             }
 

@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.model.financeiro;
 
-import br.com.salomaotech.genesys.model.financeiro.FinanceiroModelo;
-import br.com.salomaotech.genesys.model.financeiro.FinanceiroMovimenta;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.sistema.jpa.JPQL;
 import br.com.salomaotech.sistema.jpa.Repository;
@@ -24,7 +22,6 @@ public class FinanceiroMovimentaTest {
         new Repository(new VendaModelo()).deleteTodos();
         vendaModelo = new VendaModelo();
         vendaModelo.setData(Calendar.getInstance());
-        vendaModelo.setFinalizado(true);
         vendaModelo.setNumeroParcelas(numeroParcelas);
         new Repository(vendaModelo).save();
 

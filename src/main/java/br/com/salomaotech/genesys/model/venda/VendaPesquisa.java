@@ -52,30 +52,13 @@ public class VendaPesquisa {
             /* modelos auxiliares */
             ClienteModelo clienteModelo = (ClienteModelo) new Repository(new ClienteModelo()).findById(vendaModelo.getIdCliente());
 
-            /* venda finalizado */
-            String vendaFinalizado;
-
-            /* valida se o venda foi finalizado */
-            if (vendaModelo.isFinalizado()) {
-
-                vendaFinalizado = "Sim";
-
-            } else {
-
-                vendaFinalizado = "Nao";
-
-            }
-
             /* popula linhas da DefaultTableModel */
             Object[] linhaDefaultTableModel = new Object[]{
                 vendaModelo.getId(),
                 Datas.calendarParaStringBr(vendaModelo.getData()),
                 clienteModelo.getNome(),
                 clienteModelo.getTelefone(),
-                ConverteNumeroParaMoedaBr.converter(vendaModelo.getValorTotal().toString()),
-                vendaFinalizado
-
-            };
+                ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()),};
 
             defaultTableModel.insertRow(contador, linhaDefaultTableModel);
             contador++;

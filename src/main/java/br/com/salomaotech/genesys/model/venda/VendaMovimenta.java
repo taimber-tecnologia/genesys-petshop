@@ -15,20 +15,6 @@ public class VendaMovimenta {
         financeiroMovimenta = new FinanceiroMovimenta(vendaModelo);
     }
 
-    private void setarVendaComoFinalizada() {
-
-        vendaModelo.setFinalizado(true);
-        new Repository(vendaModelo).save();
-
-    }
-
-    private void setarVendaComoAberta() {
-
-        vendaModelo.setFinalizado(false);
-        new Repository(vendaModelo).save();
-
-    }
-
     private void baixarEstoque() {
 
         vendaModelo.getVendaModeloItemList().forEach(vendaModeloItem -> {
@@ -55,7 +41,7 @@ public class VendaMovimenta {
 
     public void finalizar() {
 
-        setarVendaComoFinalizada();
+        new Repository(vendaModelo).save();
         baixarEstoque();
         financeiroMovimenta.adicionar();
 
@@ -63,7 +49,7 @@ public class VendaMovimenta {
 
     public void reabrir() {
 
-        setarVendaComoAberta();
+        new Repository(vendaModelo).save();
         voltarEstoque();
         financeiroMovimenta.remover();
 
@@ -71,13 +57,7 @@ public class VendaMovimenta {
 
     public void excluir() {
 
-        /* só volta para o estoque se a venda já estiver sido finalizada */
-        if (vendaModelo.isFinalizado()) {
-
-            voltarEstoque();
-
-        }
-
+        voltarEstoque();
         financeiroMovimenta.remover();
 
     }

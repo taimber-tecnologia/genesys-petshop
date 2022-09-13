@@ -1,17 +1,19 @@
 package br.com.salomaotech.genesys.controller.venda_concluir;
 
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
+import br.com.salomaotech.genesys.view.JFvenda;
 import br.com.salomaotech.genesys.view.JFvendaConcluir;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
 
 public class VendaConcluirController {
 
     private final JFvendaConcluir view = new JFvendaConcluir();
-    private final VendaConcluirEventos vendaConcluirEventos = new VendaConcluirEventos(view);
+    private final VendaConcluirEventos vendaConcluirEventos;
     private final VendaConcluirMetodos vendaConcluirMetodos;
 
-    public VendaConcluirController(VendaModelo vendaModelo) {
-        vendaConcluirMetodos = new VendaConcluirMetodos(view, vendaModelo);
+    public VendaConcluirController(VendaModelo vendaModelo, JFvenda viewVenda) {
+        vendaConcluirMetodos = new VendaConcluirMetodos(view, vendaModelo, viewVenda);
+        vendaConcluirEventos = new VendaConcluirEventos(view);
     }
 
     public void construir() {
@@ -25,6 +27,7 @@ public class VendaConcluirController {
         vendaConcluirEventos.addEventos();
 
         /* metodos */
+        vendaConcluirMetodos.habilitarCampos();
         vendaConcluirMetodos.exibirVenda();
 
     }

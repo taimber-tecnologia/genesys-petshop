@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import static java.util.Objects.isNull;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,18 +25,13 @@ public class VendaModelo implements Modelo, Serializable {
     @Temporal(TemporalType.DATE)
     private Calendar data;
 
-    private long idCliente;
-
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VendaModeloItem> vendaModeloItemList = new ArrayList();
 
-    private BigDecimal entrada = new BigDecimal(0);
-    private BigDecimal juros = new BigDecimal(0);
     private String formaPagamento;
-    private boolean finalizado;
     private int numeroParcelas;
     private boolean isPago;
-    private long idCentroCusto;
+    private long idCliente;
 
     @Override
     public long getId() {
@@ -54,21 +48,7 @@ public class VendaModelo implements Modelo, Serializable {
     }
 
     public void setData(Calendar data) {
-
-        if (!isNull(data)) {
-
-            this.data = data;
-
-        }
-
-    }
-
-    public long getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(long idCliente) {
-        this.idCliente = idCliente;
+        this.data = data;
     }
 
     public List<VendaModeloItem> getVendaModeloItemList() {
@@ -79,36 +59,12 @@ public class VendaModelo implements Modelo, Serializable {
         this.vendaModeloItemList = vendaModeloItemList;
     }
 
-    public BigDecimal getEntrada() {
-        return entrada;
-    }
-
-    public void setEntrada(BigDecimal entrada) {
-        this.entrada = entrada;
-    }
-
-    public BigDecimal getJuros() {
-        return juros;
-    }
-
-    public void setJuros(BigDecimal juros) {
-        this.juros = juros;
-    }
-
     public String getFormaPagamento() {
         return formaPagamento;
     }
 
     public void setFormaPagamento(String formaPagamento) {
         this.formaPagamento = formaPagamento;
-    }
-
-    public boolean isFinalizado() {
-        return finalizado;
-    }
-
-    public void setFinalizado(boolean finalizado) {
-        this.finalizado = finalizado;
     }
 
     public int getNumeroParcelas() {
@@ -127,12 +83,12 @@ public class VendaModelo implements Modelo, Serializable {
         this.isPago = isPago;
     }
 
-    public long getIdCentroCusto() {
-        return idCentroCusto;
+    public long getIdCliente() {
+        return idCliente;
     }
 
-    public void setIdCentroCusto(long idCentroCusto) {
-        this.idCentroCusto = idCentroCusto;
+    public void setIdCliente(long idCliente) {
+        this.idCliente = idCliente;
     }
 
     public BigDecimal getValor() {
@@ -149,24 +105,6 @@ public class VendaModelo implements Modelo, Serializable {
         }
 
         return valorTotal;
-
-    }
-
-    public BigDecimal getValorTotal() {
-
-        /* 1 - pega o valor */
-        BigDecimal valor = getValor();
-
-        /* 2 - subtrai entrada */
-        valor = valor.subtract(entrada);
-
-        /* 3 - calcula o valor real do juros em cima do valor */
-        BigDecimal valorRealDoJuros = valor.multiply(juros).divide(new BigDecimal(100));
-
-        /* 4 - adiciona juros */
-        valor = valor.add(valorRealDoJuros);
-
-        return valor;
 
     }
 
