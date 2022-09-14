@@ -27,10 +27,23 @@ public class CentroCustoPesquisa {
 
         for (CentroCustoModelo centroCustoModelo : centroCustoModeloList) {
 
+            String editavel;
+
+            if (centroCustoModelo.isEditavel()) {
+
+                editavel = "Sim";
+
+            } else {
+
+                editavel = "Nao";
+
+            }
+
             Object[] linhaDefaultTableModel = new Object[]{
                 centroCustoModelo.getId(),
                 centroCustoModelo.getCodigo(),
-                centroCustoModelo.getNome()
+                centroCustoModelo.getNome(),
+                editavel
 
             };
 

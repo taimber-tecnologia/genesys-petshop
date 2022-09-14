@@ -1,7 +1,7 @@
 package br.com.salomaotech.genesys;
 
 import br.com.salomaotech.genesys.controller.principal.PrincipalController;
-import br.com.salomaotech.genesys.model.centro_custo.CentroCustoPadrao;
+import br.com.salomaotech.genesys.model.centro_custo.CentroCustoInicializa;
 import br.com.salomaotech.genesys.view.JFinicializar;
 import br.com.salomaotech.sistema.jpa.ConexaoSingleton;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
@@ -10,7 +10,7 @@ public class App {
 
     private static void carregarConfiguracoesPadrao() {
 
-        new CentroCustoPadrao().cadastrar();
+        new CentroCustoInicializa().cadastrar();
 
     }
 

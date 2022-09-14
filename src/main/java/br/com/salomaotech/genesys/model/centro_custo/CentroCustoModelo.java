@@ -15,6 +15,7 @@ public class CentroCustoModelo implements Modelo, Serializable {
     private long id;
     private String codigo;
     private String nome;
+    private boolean editavel = true;
 
     @Override
     public long getId() {
@@ -46,6 +47,14 @@ public class CentroCustoModelo implements Modelo, Serializable {
 
         return codigo + " - " + nome;
 
+    }
+
+    public boolean isEditavel() {
+        return editavel;
+    }
+
+    public void setEditavel(boolean editavel) {
+        this.editavel = editavel;
     }
 
 }

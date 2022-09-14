@@ -1,5 +1,6 @@
 package br.com.salomaotech.genesys.model.financeiro;
 
+import br.com.salomaotech.genesys.model.centro_custo.CentroCustoModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import br.com.salomaotech.sistema.algoritmos.Datas;
@@ -18,6 +19,23 @@ public class FinanceiroMovimenta {
         this.vendaModelo = vendaModelo;
     }
 
+    private long retornaIdCentroCustoVenda() {
+
+        try {
+
+            JPQL jpql = new JPQL(new CentroCustoModelo());
+            jpql.addParametroIgual("codigo", "2.1.2");
+            List<CentroCustoModelo> centroCustoModelo = new Repository(new CentroCustoModelo()).getResults(jpql.construirSelect());
+            return centroCustoModelo.get(0).getId();
+
+        } catch (Exception ex) {
+
+            return 0;
+
+        }
+
+    }
+
     private void cadastrarFinanceiro(Calendar data, BigDecimal valor, String descricao) {
 
         FinanceiroModelo financeiroModelo = new FinanceiroModelo();
@@ -28,6 +46,7 @@ public class FinanceiroMovimenta {
         financeiroModelo.setIdVenda(vendaModelo.getId());
         financeiroModelo.setIsPago(vendaModelo.isIsPago());
         financeiroModelo.setIdCliente(vendaModelo.getIdCliente());
+        financeiroModelo.setIdCentroCusto(retornaIdCentroCustoVenda());
         new Repository(financeiroModelo).save();
 
     }

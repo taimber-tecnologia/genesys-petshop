@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.model.centro_custo;
 
-import br.com.salomaotech.genesys.model.centro_custo.CentroCustoModelo;
 import static java.util.Objects.isNull;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -73,6 +72,24 @@ public class CentroCustoModeloTest {
 
         System.out.println("Testando classe CentroCustoModelo metodo: getNomeCompleto");
         assertEquals(true, centroCustoModelo.getNomeCompleto().equals(nomeCompleto));
+
+    }
+
+    @Test
+    public void testIsEditavel() {
+
+        System.out.println("Testando classe CentroCustoModelo metodo: isEditavel");
+        assertEquals(true, centroCustoModelo.isEditavel());
+
+    }
+
+    @Test
+    public void setEditavel() {
+
+        centroCustoModelo.setEditavel(false);
+
+        System.out.println("Testando classe CentroCustoModelo metodo: setEditavel");
+        assertEquals(false, centroCustoModelo.isEditavel());
 
     }
 

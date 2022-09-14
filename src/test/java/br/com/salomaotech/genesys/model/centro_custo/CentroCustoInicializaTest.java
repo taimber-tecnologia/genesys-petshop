@@ -3,9 +3,9 @@ package br.com.salomaotech.genesys.model.centro_custo;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class CentroCustoPadraoTest {
+public class CentroCustoInicializaTest {
 
-    public CentroCustoPadraoTest() {
+    public CentroCustoInicializaTest() {
 
     }
 
@@ -13,7 +13,7 @@ public class CentroCustoPadraoTest {
     public void testCadastrar() {
 
         System.out.println("cadastrar");
-        CentroCustoPadrao instance = new CentroCustoPadrao();
+        CentroCustoInicializa instance = new CentroCustoInicializa();
         instance.cadastrar();
 
     }

@@ -106,8 +106,8 @@ public class JFcentroCusto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTcadastroCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTcadastroNome, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(531, Short.MAX_VALUE))
+                    .addComponent(jTcadastroNome, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(418, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,11 +160,11 @@ public class JFcentroCusto extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Código", "Nome"
+                "ID", "Código", "Nome", "Editável"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -179,6 +179,9 @@ public class JFcentroCusto extends javax.swing.JFrame {
             jTresultados.getColumnModel().getColumn(1).setMinWidth(125);
             jTresultados.getColumnModel().getColumn(1).setPreferredWidth(125);
             jTresultados.getColumnModel().getColumn(1).setMaxWidth(125);
+            jTresultados.getColumnModel().getColumn(3).setMinWidth(90);
+            jTresultados.getColumnModel().getColumn(3).setPreferredWidth(90);
+            jTresultados.getColumnModel().getColumn(3).setMaxWidth(90);
         }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

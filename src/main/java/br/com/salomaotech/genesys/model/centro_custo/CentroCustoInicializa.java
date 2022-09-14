@@ -5,11 +5,11 @@ import br.com.salomaotech.sistema.jpa.Repository;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class CentroCustoPadrao {
+public class CentroCustoInicializa {
 
     private final Map<String, String> dados = new LinkedHashMap();
 
-    public CentroCustoPadrao() {
+    public CentroCustoInicializa() {
 
         dados.put("1.1", "Despesas administrativas e comerciais");
         dados.put("1.1.1", "Aluguel");
@@ -93,6 +93,7 @@ public class CentroCustoPadrao {
                 CentroCustoModelo centroCustoModelo = new CentroCustoModelo();
                 centroCustoModelo.setCodigo(codigo);
                 centroCustoModelo.setNome(dados.get(codigo));
+                centroCustoModelo.setEditavel(false);
                 new Repository(centroCustoModelo).save();
 
             }

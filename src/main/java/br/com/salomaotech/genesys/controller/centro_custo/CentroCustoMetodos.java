@@ -30,8 +30,11 @@ public class CentroCustoMetodos {
 
     public void habilitarCampos() {
 
-        boolean isIdAberto = view.getId() != 0;
-        view.jBcadastroExcluir.setEnabled(isIdAberto);
+        Repository repository = new Repository(new CentroCustoModelo());
+        CentroCustoModelo centroCustoModelo = (CentroCustoModelo) repository.findById(view.getId());
+
+        view.jBcadastroExcluir.setEnabled(centroCustoModelo.isEditavel() && centroCustoModelo.getId() != 0);
+        view.jBcadastroSalvar.setEnabled(centroCustoModelo.isEditavel());
 
     }
 
