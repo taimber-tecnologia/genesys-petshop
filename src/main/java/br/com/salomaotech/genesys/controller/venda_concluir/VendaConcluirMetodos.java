@@ -1,5 +1,6 @@
 package br.com.salomaotech.genesys.controller.venda_concluir;
 
+import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaMovimenta;
 import br.com.salomaotech.genesys.view.JFvenda;
@@ -14,11 +15,13 @@ public class VendaConcluirMetodos {
     private final JFvendaConcluir view;
     private final VendaModelo vendaModelo;
     private final JFvenda viewVenda;
+    private final ComboBoxClientes comboBoxClientes;
 
-    public VendaConcluirMetodos(JFvendaConcluir view, VendaModelo vendaModelo, JFvenda viewVenda) {
+    public VendaConcluirMetodos(JFvendaConcluir view, VendaModelo vendaModelo, JFvenda viewVenda, ComboBoxClientes comboBoxClientes) {
         this.view = view;
         this.vendaModelo = vendaModelo;
         this.viewVenda = viewVenda;
+        this.comboBoxClientes = comboBoxClientes;
     }
 
     public void exibirVenda() {
@@ -98,6 +101,7 @@ public class VendaConcluirMetodos {
         vendaModelo.setFormaPagamento(view.jCforma.getSelectedItem().toString());
         vendaModelo.setNumeroParcelas(Integer.valueOf(view.jCparcela.getSelectedItem().toString()));
         vendaModelo.setIsPago(false);
+        vendaModelo.setIdCliente(comboBoxClientes.getIdSelecionado());
 
         switch (view.jCforma.getSelectedItem().toString()) {
 
