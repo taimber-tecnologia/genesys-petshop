@@ -1,4 +1,4 @@
-package br.com.salomaotech.genesys.controller.venda_conclui;
+package br.com.salomaotech.genesys.controller.venda.venda_conclui;
 
 import br.com.salomaotech.genesys.view.JFvendaConclui;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;

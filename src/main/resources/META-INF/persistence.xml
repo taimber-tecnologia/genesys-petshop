@@ -15,8 +15,8 @@
     <class>br.com.salomaotech.genesys.model.empresa.EmpresaModelo</class>
     <class>br.com.salomaotech.genesys.model.cliente.ClienteModelo</class>
     <class>br.com.salomaotech.genesys.model.agenda.AgendaModelo</class>
-    <class>br.com.salomaotech.genesys.model.venda.VendaModeloItem</class>
     <class>br.com.salomaotech.genesys.model.venda.VendaModelo</class>
+    <class>br.com.salomaotech.genesys.model.venda.VendaModeloItem</class>
     <properties>
       <!-- Configurações da conexão -->
       <property name="javax.persistence.jdbc.url" value="jdbc:derby:target/arquivos/banco;create=true"/>

@@ -1,4 +1,4 @@
-package br.com.salomaotech.genesys.controller.venda_visualiza;
+package br.com.salomaotech.genesys.controller.venda.venda_visualiza;
 
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaMovimenta;

@@ -1,4 +1,4 @@
-package br.com.salomaotech.genesys.controller.venda;
+package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
 import br.com.salomaotech.genesys.model.produto.ComboBoxProduto;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
