@@ -1,6 +1,6 @@
 package br.com.salomaotech.genesys.controller.venda;
 
-import br.com.salomaotech.genesys.controller.venda_concluir.VendaConcluirController;
+import br.com.salomaotech.genesys.controller.venda_conclui.VendaConcluirController;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModeloItem;

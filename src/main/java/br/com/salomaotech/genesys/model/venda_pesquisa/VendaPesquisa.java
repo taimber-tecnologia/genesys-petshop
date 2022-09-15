@@ -1,4 +1,4 @@
-package br.com.salomaotech.genesys.model.venda_pesquisar;
+package br.com.salomaotech.genesys.model.venda_pesquisa;
 
 import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;

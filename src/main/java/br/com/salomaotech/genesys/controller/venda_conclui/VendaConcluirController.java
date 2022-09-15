@@ -1,4 +1,4 @@
-package br.com.salomaotech.genesys.controller.venda_concluir;
+package br.com.salomaotech.genesys.controller.venda_conclui;
 
 import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;

@@ -1,7 +1,7 @@
-package br.com.salomaotech.genesys.controller.venda_pesquisar;
+package br.com.salomaotech.genesys.controller.venda_pesquisa;
 
 import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
-import br.com.salomaotech.genesys.model.venda_pesquisar.VendaPesquisa;
+import br.com.salomaotech.genesys.model.venda_pesquisa.VendaPesquisa;
 import br.com.salomaotech.genesys.view.JFvendaPesquisa;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
 import javax.swing.JFrame;

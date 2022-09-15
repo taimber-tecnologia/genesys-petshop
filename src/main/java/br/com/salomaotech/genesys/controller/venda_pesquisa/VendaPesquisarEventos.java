@@ -1,4 +1,4 @@
-package br.com.salomaotech.genesys.controller.venda_pesquisar;
+package br.com.salomaotech.genesys.controller.venda_pesquisa;
 
 import br.com.salomaotech.genesys.controller.venda.VendaController;
 import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
