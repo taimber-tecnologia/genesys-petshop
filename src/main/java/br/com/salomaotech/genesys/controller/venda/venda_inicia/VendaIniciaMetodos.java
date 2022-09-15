@@ -4,7 +4,7 @@ import br.com.salomaotech.genesys.controller.venda.venda_conclui.VendaConcluiCon
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
-import br.com.salomaotech.genesys.view.JFvenda;
+import br.com.salomaotech.genesys.view.JFvendaInicia;
 import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import br.com.salomaotech.sistema.jpa.Repository;
@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-public class VendaMetodos {
+public class VendaIniciaMetodos {
 
-    private final JFvenda view;
+    private final JFvendaInicia view;
     private final List<VendaModeloItem> vendaModeloItemList = new ArrayList();
 
-    public VendaMetodos(JFvenda view) {
+    public VendaIniciaMetodos(JFvendaInicia view) {
         this.view = view;
     }
 

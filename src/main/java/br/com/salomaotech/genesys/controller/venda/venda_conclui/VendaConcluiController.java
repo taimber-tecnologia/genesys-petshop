@@ -2,7 +2,7 @@ package br.com.salomaotech.genesys.controller.venda.venda_conclui;
 
 import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
-import br.com.salomaotech.genesys.view.JFvenda;
+import br.com.salomaotech.genesys.view.JFvendaInicia;
 import br.com.salomaotech.genesys.view.JFvendaConclui;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
 
@@ -14,7 +14,7 @@ public class VendaConcluiController {
     private final VendaConcluiMetodosCommand vendaConcluiMetodosCommand = new VendaConcluiMetodosCommand(view);
     private final ComboBoxClientes comboBoxClientes = new ComboBoxClientes(view.jCcliente, vendaConcluiMetodosCommand);
 
-    public VendaConcluiController(VendaModelo vendaModelo, JFvenda viewVenda) {
+    public VendaConcluiController(VendaModelo vendaModelo, JFvendaInicia viewVenda) {
 
         vendaConcluiMetodos = new VendaConcluiMetodos(view, vendaModelo, viewVenda, comboBoxClientes);
         vendaConcluiEventos = new VendaConcluiEventos(view);

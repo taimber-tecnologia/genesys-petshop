@@ -1,6 +1,6 @@
 package br.com.salomaotech.genesys.controller.venda.venda_pesquisa;
 
-import br.com.salomaotech.genesys.controller.venda.venda_inicia.VendaController;
+import br.com.salomaotech.genesys.controller.venda.venda_inicia.VendaIniciaController;
 import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.view.JFvendaPesquisa;
 import java.awt.event.ActionEvent;
@@ -30,7 +30,7 @@ public class VendaPesquisaEventos {
         /* atalho para cadastro */
         view.jBatalhoCadastro.addActionListener((ActionEvent e) -> {
 
-            new VendaController().construir();
+            new VendaIniciaController().construir();
             view.dispose();
 
         });

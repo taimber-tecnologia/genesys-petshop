@@ -69,7 +69,7 @@ public class FinanceiroMovimenta {
 
             }
 
-            String descricao = "Parcela nº " + i + "/" + vendaModelo.getNumeroParcelas() + " - Venda de nº " + vendaModelo.getId();
+            String descricao = "Parcela nº " + i + "/" + vendaModelo.getNumeroParcelas() + " - Venda código: " + vendaModelo.getId();
 
             /* cadastra o parcelamento */
             cadastrarFinanceiro(Datas.adicionarMesCalendar(vendaModelo.getData(), i), valorCalculado, descricao);
@@ -91,7 +91,7 @@ public class FinanceiroMovimenta {
             } else {
 
                 /* movimenta o financeiro com apenas 1 lançamento */
-                cadastrarFinanceiro(vendaModelo.getData(), vendaModelo.getValor(), "Venda de nº " + vendaModelo.getId());
+                cadastrarFinanceiro(vendaModelo.getData(), vendaModelo.getValor(), "Venda código: " + vendaModelo.getId());
 
             }
 

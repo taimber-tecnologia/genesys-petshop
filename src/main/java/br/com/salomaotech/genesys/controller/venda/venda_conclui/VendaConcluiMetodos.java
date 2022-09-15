@@ -3,7 +3,7 @@ package br.com.salomaotech.genesys.controller.venda.venda_conclui;
 import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaMovimenta;
-import br.com.salomaotech.genesys.view.JFvenda;
+import br.com.salomaotech.genesys.view.JFvendaInicia;
 import br.com.salomaotech.genesys.view.JFvendaConclui;
 import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
@@ -14,10 +14,10 @@ public class VendaConcluiMetodos {
 
     private final JFvendaConclui view;
     private final VendaModelo vendaModelo;
-    private final JFvenda viewVenda;
+    private final JFvendaInicia viewVenda;
     private final ComboBoxClientes comboBoxClientes;
 
-    public VendaConcluiMetodos(JFvendaConclui view, VendaModelo vendaModelo, JFvenda viewVenda, ComboBoxClientes comboBoxClientes) {
+    public VendaConcluiMetodos(JFvendaConclui view, VendaModelo vendaModelo, JFvendaInicia viewVenda, ComboBoxClientes comboBoxClientes) {
         this.view = view;
         this.vendaModelo = vendaModelo;
         this.viewVenda = viewVenda;
@@ -111,12 +111,12 @@ public class VendaConcluiMetodos {
 
             case "Dinheiro":
                 vendaModelo.setIsPago(true);
-                vendaModelo.setNumeroParcelas(1);
+                vendaModelo.setNumeroParcelas(0);
                 break;
 
             case "Debito":
                 vendaModelo.setIsPago(true);
-                vendaModelo.setNumeroParcelas(1);
+                vendaModelo.setNumeroParcelas(0);
                 break;
 
         }
