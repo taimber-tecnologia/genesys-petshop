@@ -8,6 +8,7 @@ import br.com.salomaotech.genesys.controller.financeiro.FinanceiroController;
 import br.com.salomaotech.genesys.controller.fornecedor.FornecedorController;
 import br.com.salomaotech.genesys.controller.produto.ProdutoController;
 import br.com.salomaotech.genesys.controller.venda.VendaController;
+import br.com.salomaotech.genesys.controller.venda_pesquisar.VendaPesquisarController;
 import br.com.salomaotech.genesys.model.configuracoes.PastasSistema;
 import br.com.salomaotech.genesys.view.JFprincipal;
 import br.com.salomaotech.sistema.algoritmos.ExecutaProgramaExterno;
@@ -230,7 +231,7 @@ public class PrincipalEventos {
         /* atalho para venda */
         view.jBatalhoVenda.addActionListener((ActionEvent e) -> {
 
-            new VendaController().construir();
+            new VendaPesquisarController().construir();
 
         });
 

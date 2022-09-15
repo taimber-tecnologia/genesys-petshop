@@ -1,6 +1,7 @@
-package br.com.salomaotech.genesys.model.venda;
+package br.com.salomaotech.genesys.model.venda_pesquisar;
 
 import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
+import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.sistema.algoritmos.Datas;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import br.com.salomaotech.sistema.jpa.JPQL;
