@@ -12,7 +12,15 @@ public class VendaVisualizaController {
     private final long id;
 
     public VendaVisualizaController(long id) {
+
         this.id = id;
+
+        /* metodos */
+        vendaVisualizaMetodos.abrirCadastro(id);
+
+        /* eventos */
+        vendaVisualizaEventos.setVendaVisualizaMetodos(vendaVisualizaMetodos);
+
     }
 
     public void construir() {
@@ -22,11 +30,12 @@ public class VendaVisualizaController {
         view.setVisible(true);
         view.setExtendedState(view.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 
-        /* eventos */
-        vendaVisualizaEventos.setVendaVisualizaMetodos(vendaVisualizaMetodos);
+        /* metodos */
+        vendaVisualizaMetodos.habilitarCampos();
 
-        /* exibe os dados */
-        vendaVisualizaMetodos.abrirCadastro(id);
+
+        /* eventos */
+        vendaVisualizaEventos.addEventos();
 
     }
 
