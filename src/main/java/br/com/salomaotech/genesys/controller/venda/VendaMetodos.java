@@ -1,6 +1,6 @@
 package br.com.salomaotech.genesys.controller.venda;
 
-import br.com.salomaotech.genesys.controller.venda_conclui.VendaConcluirController;
+import br.com.salomaotech.genesys.controller.venda_conclui.VendaConcluiController;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
@@ -106,7 +106,7 @@ public class VendaMetodos {
 
         VendaModelo vendaModelo = new VendaModelo();
         vendaModelo.setVendaModeloItemList(vendaModeloItemList);
-        new VendaConcluirController(vendaModelo, view).construir();
+        new VendaConcluiController(vendaModelo, view).construir();
 
     }
 

@@ -6,24 +6,24 @@ import br.com.salomaotech.genesys.view.JFvendaPesquisa;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
 import javax.swing.JFrame;
 
-public class VendaPesquisarController {
+public class VendaPesquisaController {
 
     private final JFvendaPesquisa view = new JFvendaPesquisa();
-    private final VendaPesquisarMetodos vendaPesquisarMetodos = new VendaPesquisarMetodos(view);
-    private final VendaPesquisarEventos vendaPesquisarEventos = new VendaPesquisarEventos(view);
+    private final VendaPesquisaMetodos vendaPesquisaMetodos = new VendaPesquisaMetodos(view);
+    private final VendaPesquisaEventos vendaPesquisaEventos = new VendaPesquisaEventos(view);
     private final ComboBoxClientes comboBoxClientesPesquisa = new ComboBoxClientes(view.jCpesquisaNomeCliente);
 
-    public VendaPesquisarController() {
+    public VendaPesquisaController() {
 
         /* preenche comboboxes */
         comboBoxClientesPesquisa.preencher();
 
         /* eventos */
-        vendaPesquisarEventos.setVendaPesquisarMetodos(vendaPesquisarMetodos);
-        vendaPesquisarEventos.setComboBoxClientesPesquisa(comboBoxClientesPesquisa);
+        vendaPesquisaEventos.setVendaPesquisaMetodos(vendaPesquisaMetodos);
+        vendaPesquisaEventos.setComboBoxClientesPesquisa(comboBoxClientesPesquisa);
 
         /* metodos */
-        vendaPesquisarMetodos.setComboBoxClientesPesquisa(comboBoxClientesPesquisa);
+        vendaPesquisaMetodos.setComboBoxClientesPesquisa(comboBoxClientesPesquisa);
 
     }
 
@@ -35,7 +35,7 @@ public class VendaPesquisarController {
         view.setExtendedState(view.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 
         /* eventos */
-        vendaPesquisarEventos.addEventos();
+        vendaPesquisaEventos.addEventos();
 
         /* exibe os dados */
         new VendaPesquisa(view.jTresultados, view.jCpaginador).pesquisar();

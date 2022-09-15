@@ -7,18 +7,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class VendaPesquisarEventos {
+public class VendaPesquisaEventos {
 
     private final JFvendaPesquisa view;
-    private VendaPesquisarMetodos vendaPesquisarMetodos;
+    private VendaPesquisaMetodos vendaPesquisaMetodos;
     private ComboBoxClientes comboBoxClientesPesquisa;
 
-    public VendaPesquisarEventos(JFvendaPesquisa view) {
+    public VendaPesquisaEventos(JFvendaPesquisa view) {
         this.view = view;
     }
 
-    public void setVendaPesquisarMetodos(VendaPesquisarMetodos vendaPesquisarMetodos) {
-        this.vendaPesquisarMetodos = vendaPesquisarMetodos;
+    public void setVendaPesquisaMetodos(VendaPesquisaMetodos vendaPesquisaMetodos) {
+        this.vendaPesquisaMetodos = vendaPesquisaMetodos;
     }
 
     public void setComboBoxClientesPesquisa(ComboBoxClientes comboBoxClientesPesquisa) {
@@ -38,14 +38,14 @@ public class VendaPesquisarEventos {
         /* pesquisa */
         view.jBpesquisa.addActionListener((ActionEvent e) -> {
 
-            vendaPesquisarMetodos.pesquisar();
+            vendaPesquisaMetodos.pesquisar();
 
         });
 
         /* paginador */
         view.jBpaginador.addActionListener((ActionEvent e) -> {
 
-            vendaPesquisarMetodos.pesquisar();
+            vendaPesquisaMetodos.pesquisar();
 
         });
 
@@ -65,7 +65,7 @@ public class VendaPesquisarEventos {
                 if (e.getClickCount() == 2) {
 
                     long id = (long) view.jTresultados.getModel().getValueAt(view.jTresultados.getSelectedRow(), 0);
-                    vendaPesquisarMetodos.abrirCadastro(id);
+                    vendaPesquisaMetodos.abrirCadastro(id);
 
                 }
 

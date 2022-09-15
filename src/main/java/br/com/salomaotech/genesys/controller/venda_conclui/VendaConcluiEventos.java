@@ -1,23 +1,23 @@
 package br.com.salomaotech.genesys.controller.venda_conclui;
 
-import br.com.salomaotech.genesys.view.JFvendaConcluir;
+import br.com.salomaotech.genesys.view.JFvendaConclui;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JOptionPane;
 
-public class VendaConcluirEventos {
+public class VendaConcluiEventos {
 
-    private final JFvendaConcluir view;
-    private VendaConcluirMetodos vendaConcluirMetodos;
+    private final JFvendaConclui view;
+    private VendaConcluiMetodos vendaConcluiMetodos;
 
-    public VendaConcluirEventos(JFvendaConcluir view) {
+    public VendaConcluiEventos(JFvendaConclui view) {
         this.view = view;
     }
 
-    public void setVendaConcluirMetodos(VendaConcluirMetodos vendaConcluirMetodos) {
-        this.vendaConcluirMetodos = vendaConcluirMetodos;
+    public void setVendaConcluiMetodos(VendaConcluiMetodos vendaConcluiMetodos) {
+        this.vendaConcluiMetodos = vendaConcluiMetodos;
     }
 
     public void addEventos() {
@@ -38,7 +38,7 @@ public class VendaConcluirEventos {
             @Override
             public void keyReleased(KeyEvent e) {
 
-                view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter(vendaConcluirMetodos.calcularTroco().toString()));
+                view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter(vendaConcluiMetodos.calcularTroco().toString()));
 
             }
 
@@ -54,12 +54,12 @@ public class VendaConcluirEventos {
         /* botão concluir */
         view.jBconcluir.addActionListener((ActionEvent e) -> {
 
-            VendaConcluirValidador vendaConcluirValidador = new VendaConcluirValidador(vendaConcluirMetodos.getVendaModelo());
+            VendaConcluiValidador vendaConcluirValidador = new VendaConcluiValidador(vendaConcluiMetodos.getVendaModelo());
 
             /* valida se a venda pode ser finalizada */
             if (vendaConcluirValidador.isValido()) {
 
-                vendaConcluirMetodos.finalizarVenda();
+                vendaConcluiMetodos.finalizarVenda();
 
             } else {
 
@@ -72,7 +72,7 @@ public class VendaConcluirEventos {
         /* forma de pagamento */
         view.jCforma.addActionListener((ActionEvent e) -> {
 
-            vendaConcluirMetodos.habilitarCampos();
+            vendaConcluiMetodos.habilitarCampos();
 
         });
 

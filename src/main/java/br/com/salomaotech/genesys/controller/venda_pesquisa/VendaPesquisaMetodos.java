@@ -5,12 +5,12 @@ import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.model.venda_pesquisa.VendaPesquisa;
 import br.com.salomaotech.genesys.view.JFvendaPesquisa;
 
-public class VendaPesquisarMetodos {
+public class VendaPesquisaMetodos {
 
     final JFvendaPesquisa view;
     private ComboBoxClientes comboBoxClientesPesquisa;
 
-    public VendaPesquisarMetodos(JFvendaPesquisa view) {
+    public VendaPesquisaMetodos(JFvendaPesquisa view) {
         this.view = view;
     }
 

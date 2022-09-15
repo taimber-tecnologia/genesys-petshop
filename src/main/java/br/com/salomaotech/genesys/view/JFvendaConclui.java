@@ -8,12 +8,12 @@ package br.com.salomaotech.genesys.view;
  *
  * @author usuario
  */
-public class JFvendaConcluir extends javax.swing.JFrame {
+public class JFvendaConclui extends javax.swing.JFrame {
 
     /**
      * Creates new form JFvendaConcluir
      */
-    public JFvendaConcluir() {
+    public JFvendaConclui() {
         initComponents();
     }
 
@@ -31,9 +31,6 @@ public class JFvendaConcluir extends javax.swing.JFrame {
         jCforma = new javax.swing.JComboBox<>();
         jLparcela = new javax.swing.JLabel();
         jCparcela = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jCdiasPrimeiraParcela = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTvalorTotal = new javax.swing.JTextField();
@@ -70,15 +67,6 @@ public class JFvendaConcluir extends javax.swing.JFrame {
         jCparcela.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jCparcela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setText("PRIMEIRA PARCELA:");
-
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel7.setText("DIAS");
-
-        jCdiasPrimeiraParcela.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jCdiasPrimeiraParcela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "15", "30", "60", "90", "120" }));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -92,13 +80,7 @@ public class JFvendaConcluir extends javax.swing.JFrame {
                 .addComponent(jLparcela)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jCparcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCdiasPrimeiraParcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,10 +90,7 @@ public class JFvendaConcluir extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jCforma)
                     .addComponent(jLparcela)
-                    .addComponent(jCparcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel7)
-                    .addComponent(jCdiasPrimeiraParcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCparcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -245,7 +224,7 @@ public class JFvendaConcluir extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTclienteCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,20 +291,21 @@ public class JFvendaConcluir extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFvendaConcluir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFvendaConclui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFvendaConcluir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFvendaConclui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFvendaConcluir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFvendaConclui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFvendaConcluir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFvendaConclui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFvendaConcluir().setVisible(true);
+                new JFvendaConclui().setVisible(true);
             }
         });
     }
@@ -335,16 +315,13 @@ public class JFvendaConcluir extends javax.swing.JFrame {
     public javax.swing.JButton jBconcluir;
     public javax.swing.JButton jBimprimir;
     public javax.swing.JComboBox<String> jCcliente;
-    public javax.swing.JComboBox<String> jCdiasPrimeiraParcela;
     public javax.swing.JComboBox<String> jCforma;
     public javax.swing.JComboBox<String> jCparcela;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    public javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    public javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLparcela;
     private javax.swing.JPanel jPanel1;

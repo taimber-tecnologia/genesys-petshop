@@ -3,12 +3,12 @@ package br.com.salomaotech.genesys.controller.venda_conclui;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import java.math.BigDecimal;
 
-public class VendaConcluirValidador {
+public class VendaConcluiValidador {
 
     private final VendaModelo vendaModelo;
     private String mensagensErro = "";
 
-    public VendaConcluirValidador(VendaModelo vendaModelo) {
+    public VendaConcluiValidador(VendaModelo vendaModelo) {
         this.vendaModelo = vendaModelo;
     }
 

@@ -4,20 +4,20 @@ import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaMovimenta;
 import br.com.salomaotech.genesys.view.JFvenda;
-import br.com.salomaotech.genesys.view.JFvendaConcluir;
+import br.com.salomaotech.genesys.view.JFvendaConclui;
 import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import java.math.BigDecimal;
 import java.util.Calendar;
 
-public class VendaConcluirMetodos {
+public class VendaConcluiMetodos {
 
-    private final JFvendaConcluir view;
+    private final JFvendaConclui view;
     private final VendaModelo vendaModelo;
     private final JFvenda viewVenda;
     private final ComboBoxClientes comboBoxClientes;
 
-    public VendaConcluirMetodos(JFvendaConcluir view, VendaModelo vendaModelo, JFvenda viewVenda, ComboBoxClientes comboBoxClientes) {
+    public VendaConcluiMetodos(JFvendaConclui view, VendaModelo vendaModelo, JFvenda viewVenda, ComboBoxClientes comboBoxClientes) {
         this.view = view;
         this.vendaModelo = vendaModelo;
         this.viewVenda = viewVenda;
@@ -55,9 +55,6 @@ public class VendaConcluirMetodos {
                 view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
                 view.jLparcela.setVisible(false);
                 view.jCparcela.setVisible(false);
-                view.jCdiasPrimeiraParcela.setVisible(false);
-                view.jLabel3.setVisible(false);
-                view.jLabel7.setVisible(false);
                 break;
 
             case "Debito":
@@ -66,9 +63,6 @@ public class VendaConcluirMetodos {
                 view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
                 view.jLparcela.setVisible(false);
                 view.jCparcela.setVisible(false);
-                view.jCdiasPrimeiraParcela.setVisible(false);
-                view.jLabel3.setVisible(false);
-                view.jLabel7.setVisible(false);
                 break;
 
             case "Pix":
@@ -77,9 +71,6 @@ public class VendaConcluirMetodos {
                 view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
                 view.jLparcela.setVisible(false);
                 view.jCparcela.setVisible(false);
-                view.jCdiasPrimeiraParcela.setVisible(false);
-                view.jLabel3.setVisible(false);
-                view.jLabel7.setVisible(false);
                 break;
 
             default:
@@ -88,11 +79,7 @@ public class VendaConcluirMetodos {
                 view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
                 view.jLparcela.setVisible(true);
                 view.jCparcela.setVisible(true);
-                view.jCdiasPrimeiraParcela.setVisible(true);
-                view.jLabel3.setVisible(true);
-                view.jLabel7.setVisible(true);
                 view.jCparcela.setSelectedIndex(0);
-                view.jCdiasPrimeiraParcela.setSelectedIndex(0);
 
         }
 
@@ -109,7 +96,6 @@ public class VendaConcluirMetodos {
         view.jCparcela.setEnabled(false);
         view.jCcliente.setEnabled(false);
         view.jTvalorRecebido.setText(ConverteNumeroParaMoedaBr.converter(view.jTvalorRecebido.getText()));
-        view.jCdiasPrimeiraParcela.setEnabled(false);
 
     }
 

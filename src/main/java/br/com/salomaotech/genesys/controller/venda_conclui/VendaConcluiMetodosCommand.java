@@ -2,17 +2,17 @@ package br.com.salomaotech.genesys.controller.venda_conclui;
 
 import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
-import br.com.salomaotech.genesys.view.JFvendaConcluir;
+import br.com.salomaotech.genesys.view.JFvendaConclui;
 import br.com.salomaotech.sistema.jpa.Repository;
 import br.com.salomaotech.sistema.patterns.Command;
 import static java.util.Objects.isNull;
 
-public class VendaConcluirMetodosCommand implements Command {
+public class VendaConcluiMetodosCommand implements Command {
 
-    private final JFvendaConcluir view;
+    private final JFvendaConclui view;
     private ComboBoxClientes comboBoxClientes;
 
-    public VendaConcluirMetodosCommand(JFvendaConcluir view) {
+    public VendaConcluiMetodosCommand(JFvendaConclui view) {
         this.view = view;
     }
 
