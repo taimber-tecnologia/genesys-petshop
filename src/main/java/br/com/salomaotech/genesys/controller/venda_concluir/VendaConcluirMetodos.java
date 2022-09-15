@@ -24,6 +24,10 @@ public class VendaConcluirMetodos {
         this.comboBoxClientes = comboBoxClientes;
     }
 
+    public VendaModelo getVendaModelo() {
+        return vendaModelo;
+    }
+
     public void exibirVenda() {
 
         view.jTvalorTotal.setText(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()));
@@ -51,6 +55,9 @@ public class VendaConcluirMetodos {
                 view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
                 view.jLparcela.setVisible(false);
                 view.jCparcela.setVisible(false);
+                view.jCdiasPrimeiraParcela.setVisible(false);
+                view.jLabel3.setVisible(false);
+                view.jLabel7.setVisible(false);
                 break;
 
             case "Debito":
@@ -59,6 +66,9 @@ public class VendaConcluirMetodos {
                 view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
                 view.jLparcela.setVisible(false);
                 view.jCparcela.setVisible(false);
+                view.jCdiasPrimeiraParcela.setVisible(false);
+                view.jLabel3.setVisible(false);
+                view.jLabel7.setVisible(false);
                 break;
 
             case "Pix":
@@ -67,6 +77,9 @@ public class VendaConcluirMetodos {
                 view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
                 view.jLparcela.setVisible(false);
                 view.jCparcela.setVisible(false);
+                view.jCdiasPrimeiraParcela.setVisible(false);
+                view.jLabel3.setVisible(false);
+                view.jLabel7.setVisible(false);
                 break;
 
             default:
@@ -75,7 +88,11 @@ public class VendaConcluirMetodos {
                 view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
                 view.jLparcela.setVisible(true);
                 view.jCparcela.setVisible(true);
+                view.jCdiasPrimeiraParcela.setVisible(true);
+                view.jLabel3.setVisible(true);
+                view.jLabel7.setVisible(true);
                 view.jCparcela.setSelectedIndex(0);
+                view.jCdiasPrimeiraParcela.setSelectedIndex(0);
 
         }
 
@@ -92,6 +109,7 @@ public class VendaConcluirMetodos {
         view.jCparcela.setEnabled(false);
         view.jCcliente.setEnabled(false);
         view.jTvalorRecebido.setText(ConverteNumeroParaMoedaBr.converter(view.jTvalorRecebido.getText()));
+        view.jCdiasPrimeiraParcela.setEnabled(false);
 
     }
 

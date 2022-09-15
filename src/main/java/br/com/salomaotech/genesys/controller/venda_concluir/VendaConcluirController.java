@@ -11,7 +11,8 @@ public class VendaConcluirController {
     private final JFvendaConcluir view = new JFvendaConcluir();
     private final VendaConcluirEventos vendaConcluirEventos;
     private final VendaConcluirMetodos vendaConcluirMetodos;
-    private final ComboBoxClientes comboBoxClientes = new ComboBoxClientes(view.jCcliente);
+    private final VendaConcluirMetodosCommand vendaConcluirMetodosCommand = new VendaConcluirMetodosCommand(view);
+    private final ComboBoxClientes comboBoxClientes = new ComboBoxClientes(view.jCcliente, vendaConcluirMetodosCommand);
 
     public VendaConcluirController(VendaModelo vendaModelo, JFvenda viewVenda) {
 
@@ -20,6 +21,9 @@ public class VendaConcluirController {
 
         /* preenche comboboxes */
         comboBoxClientes.preencher();
+
+        /* inicializa commands */
+        vendaConcluirMetodosCommand.setComboBoxClientes(comboBoxClientes);
 
     }
 

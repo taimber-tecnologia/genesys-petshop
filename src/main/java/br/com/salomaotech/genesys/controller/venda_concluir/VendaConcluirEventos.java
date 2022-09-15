@@ -5,6 +5,7 @@ import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.JOptionPane;
 
 public class VendaConcluirEventos {
 
@@ -53,7 +54,18 @@ public class VendaConcluirEventos {
         /* botão concluir */
         view.jBconcluir.addActionListener((ActionEvent e) -> {
 
-            vendaConcluirMetodos.finalizarVenda();
+            VendaConcluirValidador vendaConcluirValidador = new VendaConcluirValidador(vendaConcluirMetodos.getVendaModelo());
+
+            /* valida se a venda pode ser finalizada */
+            if (vendaConcluirValidador.isValido()) {
+
+                vendaConcluirMetodos.finalizarVenda();
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, vendaConcluirValidador.getMensagensErro());
+
+            }
 
         });
 
