@@ -99,7 +99,7 @@
                             <shadedArtifactAttached>true</shadedArtifactAttached>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>br.com.salomaotech.doutorpetshopdesktop.App</mainClass>
+                                    <mainClass>br.com.salomaotech.genesys.App</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
