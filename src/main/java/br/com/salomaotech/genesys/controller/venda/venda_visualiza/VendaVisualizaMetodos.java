@@ -1,6 +1,7 @@
 package br.com.salomaotech.genesys.controller.venda.venda_visualiza;
 
 import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
+import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
@@ -14,9 +15,14 @@ import javax.swing.table.DefaultTableModel;
 public class VendaVisualizaMetodos {
 
     private final JFvendaVisualiza view;
+    private ComboBoxClientes comboBoxClientes;
 
     public VendaVisualizaMetodos(JFvendaVisualiza view) {
         this.view = view;
+    }
+
+    public void setComboBoxClientes(ComboBoxClientes comboBoxClientes) {
+        this.comboBoxClientes = comboBoxClientes;
     }
 
     private void exibirProdutosSelecionados(List<VendaModeloItem> vendaModeloItemList) {
@@ -56,11 +62,11 @@ public class VendaVisualizaMetodos {
         view.setId(vendaModelo.getId());
         view.jTcodigo.setText(String.valueOf(vendaModelo.getId()));
         view.jDdata.setDate(vendaModelo.getData().getTime());
-        view.jTclienteNome.setText(clienteModelo.getNome());
+        comboBoxClientes.selecionarItemPorId(vendaModelo.getIdCliente());
         view.jTclienteCpf.setText(clienteModelo.getCpf());
-        view.jTpagamentoForma.setText(vendaModelo.getFormaPagamento());
-        view.jTpagamentoParcelas.setText(String.valueOf(vendaModelo.getNumeroParcelas()));
-        view.jTpagamentoValor.setText(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()));
+        view.jCforma.setSelectedItem(vendaModelo.getFormaPagamento());
+        view.jCparcela.setSelectedItem(String.valueOf(vendaModelo.getNumeroParcelas()));
+        view.jTpagamentoValor.setText(vendaModelo.getValor().toString());
         exibirProdutosSelecionados(vendaModelo.getVendaModeloItemList());
 
     }

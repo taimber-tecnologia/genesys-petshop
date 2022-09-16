@@ -5,6 +5,7 @@ import br.com.salomaotech.genesys.model.venda.VendaMovimenta;
 import br.com.salomaotech.genesys.view.JFvendaVisualiza;
 import br.com.salomaotech.sistema.jpa.Repository;
 import java.awt.event.ActionEvent;
+import static java.util.Objects.isNull;
 import javax.swing.JOptionPane;
 
 public class VendaVisualizaEventos {
@@ -21,6 +22,36 @@ public class VendaVisualizaEventos {
     }
 
     public void addEventos() {
+
+        /* salvar */
+        view.jBcadastroSalvar.addActionListener((ActionEvent e) -> {
+
+            VendaVisualizaValidador vendaVisualizaValidador = new VendaVisualizaValidador(view);
+
+            if (vendaVisualizaValidador.isValido()) {
+
+                VendaModelo vendaModelo = (VendaModelo) new Repository(new VendaModelo()).findById(view.getId());
+
+                if (!isNull(vendaModelo)) {
+
+                    /* realiza a movimentação de uma venda */
+                    VendaMovimenta vendaMovimenta = new VendaMovimenta(vendaModelo);
+                    vendaMovimenta.reabrir();
+                    vendaMovimenta.finalizar();
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Registro inexistente!");
+
+                }
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, vendaVisualizaValidador.getMensagensErro());
+
+            }
+
+        });
 
         /* excluir */
         view.jBcadastroExcluir.addActionListener((ActionEvent e) -> {

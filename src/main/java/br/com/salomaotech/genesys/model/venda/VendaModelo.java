@@ -31,6 +31,7 @@ public class VendaModelo implements Modelo, Serializable {
     private String formaPagamento;
     private int numeroParcelas;
     private boolean isPago;
+    private boolean finalizado;
     private long idCliente;
 
     @Override
@@ -81,6 +82,14 @@ public class VendaModelo implements Modelo, Serializable {
 
     public void setIsPago(boolean isPago) {
         this.isPago = isPago;
+    }
+
+    public boolean isFinalizado() {
+        return finalizado;
+    }
+
+    public void setFinalizado(boolean finalizado) {
+        this.finalizado = finalizado;
     }
 
     public long getIdCliente() {
