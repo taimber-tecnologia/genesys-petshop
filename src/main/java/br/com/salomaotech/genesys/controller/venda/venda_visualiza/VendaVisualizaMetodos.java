@@ -5,10 +5,12 @@ import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
+import br.com.salomaotech.genesys.model.venda.VendaMovimenta;
 import br.com.salomaotech.genesys.view.JFvendaVisualiza;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import br.com.salomaotech.sistema.jpa.Repository;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,6 +18,7 @@ public class VendaVisualizaMetodos {
 
     private final JFvendaVisualiza view;
     private ComboBoxClientes comboBoxClientes;
+    private List<VendaModeloItem> vendaModeloItemList = new ArrayList();
 
     public VendaVisualizaMetodos(JFvendaVisualiza view) {
         this.view = view;
@@ -61,12 +64,14 @@ public class VendaVisualizaMetodos {
         /* popula formulário */
         view.setId(vendaModelo.getId());
         view.jTcodigo.setText(String.valueOf(vendaModelo.getId()));
-        view.jDdata.setDate(vendaModelo.getData().getTime());
+        view.jDcadastroData.setDate(vendaModelo.getData().getTime());
+        view.jCcadastroPago.setSelected(vendaModelo.isIsPago());
         comboBoxClientes.selecionarItemPorId(vendaModelo.getIdCliente());
         view.jTclienteCpf.setText(clienteModelo.getCpf());
-        view.jCforma.setSelectedItem(vendaModelo.getFormaPagamento());
-        view.jCparcela.setSelectedItem(String.valueOf(vendaModelo.getNumeroParcelas()));
+        view.jCcadastroFormaPagamento.setSelectedItem(vendaModelo.getFormaPagamento());
+        view.jCnumeroDeParcelas.setSelectedItem(String.valueOf(vendaModelo.getNumeroParcelas()));
         view.jTpagamentoValor.setText(vendaModelo.getValor().toString());
+        vendaModeloItemList = vendaModelo.getVendaModeloItemList();
         exibirProdutosSelecionados(vendaModelo.getVendaModeloItemList());
 
     }
@@ -81,6 +86,26 @@ public class VendaVisualizaMetodos {
 
         VendaModelo vendaModelo = (VendaModelo) new Repository(new VendaModelo()).findById(id);
         popularFormulario(vendaModelo);
+
+    }
+
+    public VendaModelo salvar() {
+
+        VendaModelo vendaModelo = new VendaModelo();
+        vendaModelo.setId(view.getId());
+        vendaModelo.setData(view.jDcadastroData.getCalendar());
+        vendaModelo.setIdCliente(comboBoxClientes.getIdSelecionado());
+        vendaModelo.setVendaModeloItemList(vendaModeloItemList);
+        vendaModelo.setFormaPagamento(view.jCcadastroFormaPagamento.getSelectedItem().toString());
+        vendaModelo.setNumeroParcelas(Integer.valueOf(view.jCnumeroDeParcelas.getSelectedItem().toString()));
+        vendaModelo.setIsPago(view.jCcadastroPago.isSelected());
+
+        /* finaliza a venda */
+        VendaMovimenta vendaMovimenta = new VendaMovimenta(vendaModelo);
+        vendaMovimenta.reabrir();
+        vendaMovimenta.finalizar();
+
+        return vendaModelo;
 
     }
 

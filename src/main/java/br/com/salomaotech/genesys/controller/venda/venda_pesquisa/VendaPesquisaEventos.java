@@ -66,6 +66,7 @@ public class VendaPesquisaEventos {
 
                     long id = (long) view.jTresultados.getModel().getValueAt(view.jTresultados.getSelectedRow(), 0);
                     vendaPesquisaMetodos.abrirCadastro(id);
+                    view.dispose();
 
                 }
 

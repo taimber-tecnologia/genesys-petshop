@@ -5,7 +5,6 @@ import br.com.salomaotech.genesys.model.venda.VendaMovimenta;
 import br.com.salomaotech.genesys.view.JFvendaVisualiza;
 import br.com.salomaotech.sistema.jpa.Repository;
 import java.awt.event.ActionEvent;
-import static java.util.Objects.isNull;
 import javax.swing.JOptionPane;
 
 public class VendaVisualizaEventos {
@@ -30,18 +29,19 @@ public class VendaVisualizaEventos {
 
             if (vendaVisualizaValidador.isValido()) {
 
-                VendaModelo vendaModelo = (VendaModelo) new Repository(new VendaModelo()).findById(view.getId());
+                VendaModelo vendaModelo = vendaVisualizaMetodos.salvar();
 
-                if (!isNull(vendaModelo)) {
+                /* valida se salvou e atualiza os dados na view */
+                if (vendaModelo.getId() != 0) {
 
-                    /* realiza a movimentação de uma venda */
-                    VendaMovimenta vendaMovimenta = new VendaMovimenta(vendaModelo);
-                    vendaMovimenta.reabrir();
-                    vendaMovimenta.finalizar();
+                    /* atualiza a view */
+                    vendaVisualizaMetodos.popularFormulario(vendaModelo);
+                    vendaVisualizaMetodos.habilitarCampos();
+                    JOptionPane.showMessageDialog(null, "Venda atualizada! Acompanhe as contas a receber no seu financeiro.");
 
                 } else {
 
-                    JOptionPane.showMessageDialog(null, "Registro inexistente!");
+                    JOptionPane.showMessageDialog(null, "Falha ao tentar salvar registro.");
 
                 }
 
