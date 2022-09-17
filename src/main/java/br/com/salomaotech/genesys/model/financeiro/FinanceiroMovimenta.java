@@ -72,7 +72,7 @@ public class FinanceiroMovimenta {
             String descricao = "Parcela nº " + i + "/" + vendaModelo.getNumeroParcelas() + " - Venda código: " + vendaModelo.getId();
 
             /* cadastra o parcelamento */
-            cadastrarFinanceiro(Datas.adicionarMesCalendar(vendaModelo.getData(), i), valorCalculado, descricao);
+            cadastrarFinanceiro(Datas.adicionarMesCalendar(vendaModelo.getData(), (i - 1)), valorCalculado, descricao);
 
         }
 
