@@ -131,4 +131,13 @@ public class Repository {
 
     }
 
+    /**
+     * Limpa o cache em memória
+     */
+    public void limparCache() {
+
+        dao.limparCache();
+
+    }
+
 }

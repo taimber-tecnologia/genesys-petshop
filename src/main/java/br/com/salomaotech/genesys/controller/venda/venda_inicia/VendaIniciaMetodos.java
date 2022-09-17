@@ -16,7 +16,8 @@ import javax.swing.table.DefaultTableModel;
 public class VendaIniciaMetodos {
 
     private final JFvendaInicia view;
-    private final List<VendaModeloItem> vendaModeloItemList = new ArrayList();
+    private VendaModelo vendaModelo = new VendaModelo();
+    private List<VendaModeloItem> vendaModeloItemList = new ArrayList();
 
     public VendaIniciaMetodos(JFvendaInicia view) {
         this.view = view;
@@ -54,6 +55,14 @@ public class VendaIniciaMetodos {
         /* atualiza a view */
         limparProdutoSelecionado();
         exibirProdutosSelecionados();
+
+    }
+
+    public void removerProdutoNaLista() {
+
+        vendaModeloItemList.remove(view.jTprodutoSelecionado.getSelectedRow());
+        exibirProdutosSelecionados();
+        habilitarCamposDeExcluirProdutoAdicionado();
 
     }
 
@@ -102,11 +111,37 @@ public class VendaIniciaMetodos {
 
     }
 
+    public void habilitarCamposDeExcluirVenda() {
+
+        view.jBvendaExcluir.setVisible(vendaModelo.getId() != 0);
+
+    }
+
+    public void habilitarCamposDeExcluirProdutoAdicionado() {
+
+        view.jBprodutoSelecionadoRemoverItem.setEnabled(view.jTprodutoSelecionado.getSelectedRow() != -1);
+
+    }
+
     public void finalizarVenda() {
 
-        VendaModelo vendaModelo = new VendaModelo();
         vendaModelo.setVendaModeloItemList(vendaModeloItemList);
         new VendaConcluiController(vendaModelo, view).construir();
+
+    }
+
+    public boolean excluir() {
+
+        return new Repository(new VendaModelo()).delete(vendaModelo.getId());
+
+    }
+
+    public void abrirCadastro(long id) {
+
+        view.setId(id);
+        vendaModelo = (VendaModelo) new Repository(new VendaModelo()).findById(id);
+        vendaModeloItemList = vendaModelo.getVendaModeloItemList();
+        exibirProdutosSelecionados();
 
     }
 

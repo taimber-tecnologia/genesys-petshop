@@ -109,11 +109,11 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Data", "Cliente", "Telefone", "Valor R$"
+                "Código", "Data", "Cliente", "Telefone", "Valor R$", "Revisões"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -131,6 +131,9 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
             jTresultados.getColumnModel().getColumn(4).setMinWidth(125);
             jTresultados.getColumnModel().getColumn(4).setPreferredWidth(125);
             jTresultados.getColumnModel().getColumn(4).setMaxWidth(125);
+            jTresultados.getColumnModel().getColumn(5).setMinWidth(90);
+            jTresultados.getColumnModel().getColumn(5).setPreferredWidth(90);
+            jTresultados.getColumnModel().getColumn(5).setMaxWidth(90);
         }
 
         jLabel3.setText("Página:");

@@ -215,4 +215,9 @@ public class DaoTest {
 
     }
 
+    @Test
+    public void testLimparCache() {
+
+    }
+
 }

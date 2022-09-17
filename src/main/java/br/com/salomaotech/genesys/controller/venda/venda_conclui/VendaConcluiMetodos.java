@@ -9,6 +9,7 @@ import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import java.math.BigDecimal;
 import java.util.Calendar;
+import static java.util.Objects.isNull;
 
 public class VendaConcluiMetodos {
 
@@ -30,9 +31,23 @@ public class VendaConcluiMetodos {
 
     public void exibirVenda() {
 
+        /* valida a data, se não houver uma defina a atual */
+        if (!isNull(vendaModelo.getData())) {
+
+            view.jDdata.setCalendar(vendaModelo.getData());
+
+        } else {
+
+            view.jDdata.setCalendar(Calendar.getInstance());
+
+        }
+
         view.jTvalorTotal.setText(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()));
         view.jTvalorRecebido.setText(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()));
         view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
+        comboBoxClientes.selecionarItemPorId(vendaModelo.getIdCliente());
+        view.jCforma.setSelectedItem(vendaModelo.getFormaPagamento());
+        view.jCparcela.setSelectedItem(String.valueOf(vendaModelo.getNumeroParcelas()));
 
     }
 
@@ -46,6 +61,13 @@ public class VendaConcluiMetodos {
     }
 
     public void habilitarCampos() {
+
+        /* evita erro de index */
+        if (view.jCforma.getSelectedIndex() == -1) {
+
+            view.jCforma.setSelectedIndex(0);
+
+        }
 
         switch (view.jCforma.getSelectedItem().toString()) {
 
@@ -101,7 +123,7 @@ public class VendaConcluiMetodos {
 
     public void finalizarVenda() {
 
-        vendaModelo.setData(Calendar.getInstance());
+        vendaModelo.setData(view.jDdata.getCalendar());
         vendaModelo.setFormaPagamento(view.jCforma.getSelectedItem().toString());
         vendaModelo.setNumeroParcelas(Integer.valueOf(view.jCparcela.getSelectedItem().toString()));
         vendaModelo.setIsPago(false);
@@ -121,8 +143,20 @@ public class VendaConcluiMetodos {
 
         }
 
-        /* finaliza a venda */
-        new VendaMovimenta(vendaModelo).finalizar();
+        VendaMovimenta vendaMovimenta = new VendaMovimenta(vendaModelo);
+
+        /* se o ID for diferente de zero então está atualizando */
+        if (vendaModelo.getId() == 0) {
+
+            vendaMovimenta.finalizar();
+
+        } else {
+
+            vendaMovimenta.reabrir();
+            vendaMovimenta.finalizar();
+
+        }
+
         executarAposFinalizarVenda();
 
     }

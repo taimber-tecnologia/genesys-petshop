@@ -1,6 +1,6 @@
 package br.com.salomaotech.genesys.controller.venda.venda_pesquisa;
 
-import br.com.salomaotech.genesys.controller.venda.venda_visualiza.VendaVisualizaController;
+import br.com.salomaotech.genesys.controller.venda.venda_inicia.VendaIniciaController;
 import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.model.venda.VendaPesquisa;
 import br.com.salomaotech.genesys.view.JFvendaPesquisa;
@@ -29,7 +29,7 @@ public class VendaPesquisaMetodos {
 
     public void abrirCadastro(long id) {
 
-        new VendaVisualizaController(id).construir();
+        new VendaIniciaController().abrirCadastro(id);
 
     }
 

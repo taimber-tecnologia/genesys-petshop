@@ -29,11 +29,20 @@ public class VendaIniciaController {
 
         /* metodos */
         vendaIniciaMetodos.habilitarCamposDeAdicionarProduto(new ProdutoModelo());
+        vendaIniciaMetodos.habilitarCamposDeExcluirVenda();
 
         /* eventos */
         vendaIniciaEventos.addEventos();
         vendaIniciaEventos.setComboBoxProduto(comboBoxProduto);
         vendaIniciaEventos.setVendaIniciaMetodos(vendaIniciaMetodos);
+
+    }
+
+    public void abrirCadastro(long id) {
+
+        construir();
+        vendaIniciaMetodos.abrirCadastro(id);
+        vendaIniciaMetodos.habilitarCamposDeExcluirVenda();
 
     }
 

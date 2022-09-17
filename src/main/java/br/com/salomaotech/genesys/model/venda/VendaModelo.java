@@ -32,6 +32,7 @@ public class VendaModelo implements Modelo, Serializable {
     private int numeroParcelas;
     private boolean isPago;
     private long idCliente;
+    private int revisoes;
 
     @Override
     public long getId() {
@@ -89,6 +90,14 @@ public class VendaModelo implements Modelo, Serializable {
 
     public void setIdCliente(long idCliente) {
         this.idCliente = idCliente;
+    }
+
+    public int getRevisoes() {
+        return revisoes;
+    }
+
+    public void setRevisoes(int revisoes) {
+        this.revisoes = revisoes;
     }
 
     public BigDecimal getValor() {

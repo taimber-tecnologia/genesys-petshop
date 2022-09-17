@@ -41,6 +41,7 @@ public class VendaMovimenta {
 
     public void finalizar() {
 
+        vendaModelo.setRevisoes(vendaModelo.getRevisoes() + 1);
         new Repository(vendaModelo).save();
         baixarEstoque();
         financeiroMovimenta.adicionar();

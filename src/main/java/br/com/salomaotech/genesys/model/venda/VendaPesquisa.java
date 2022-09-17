@@ -58,7 +58,9 @@ public class VendaPesquisa {
                 Datas.calendarParaStringBr(vendaModelo.getData()),
                 clienteModelo.getNome(),
                 clienteModelo.getTelefone(),
-                ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()),};
+                ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()),
+                vendaModelo.getRevisoes()
+            };
 
             defaultTableModel.insertRow(contador, linhaDefaultTableModel);
             contador++;

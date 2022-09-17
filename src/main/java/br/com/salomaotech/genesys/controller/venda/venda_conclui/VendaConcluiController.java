@@ -16,7 +16,10 @@ public class VendaConcluiController {
 
     public VendaConcluiController(VendaModelo vendaModelo, JFvendaInicia viewVenda) {
 
+        /* metodos */
         vendaConcluiMetodos = new VendaConcluiMetodos(view, vendaModelo, viewVenda, comboBoxClientes);
+
+        /* eventos */
         vendaConcluiEventos = new VendaConcluiEventos(view);
 
         /* preenche comboboxes */
