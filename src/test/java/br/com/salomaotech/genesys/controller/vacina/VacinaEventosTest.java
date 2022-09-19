@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.vacina;
 
-import br.com.salomaotech.genesys.controller.vacina.VacinaEventos;
 import br.com.salomaotech.genesys.view.JFvacina;
 import org.junit.Test;
 import static org.junit.Assert.*;

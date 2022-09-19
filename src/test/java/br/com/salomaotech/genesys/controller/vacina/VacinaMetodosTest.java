@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.vacina;
 
-import br.com.salomaotech.genesys.controller.vacina.VacinaMetodos;
 import br.com.salomaotech.genesys.model.animal.AnimalModelo;
 import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.model.vacina.ComboBoxVacinas;
