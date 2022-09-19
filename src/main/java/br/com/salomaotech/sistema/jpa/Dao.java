@@ -221,14 +221,20 @@ public class Dao<E> {
 
     /**
      * Limpa o cache em memória
+     *
+     * @return
      */
-    public void limparCache() {
+    public boolean limparCache() {
 
         try {
 
             conexao.getManager().clear();
 
+            return true;
+
         } catch (Exception ex) {
+
+            return false;
 
         }
 

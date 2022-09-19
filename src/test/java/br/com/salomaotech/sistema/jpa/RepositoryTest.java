@@ -5,16 +5,12 @@ import static org.junit.Assert.*;
 
 public class RepositoryTest {
 
+    private ModeloDeTeste modeloDeTeste = new ModeloDeTeste();
+    private Repository repository = new Repository(modeloDeTeste);
+
     @Test
     public void testSave() {
 
-        /* entidade */
-        ModeloDeTeste modelo = new ModeloDeTeste();
-
-        /* salva */
-        Repository repository = new Repository(modelo);
-
-        /* testa */
         System.out.println("Testando repository metodo: save");
         assertEquals(true, repository.save() != 0);
 
@@ -23,16 +19,11 @@ public class RepositoryTest {
     @Test
     public void testGetResults() {
 
-        /* entidade */
-        ModeloDeTeste modelo = new ModeloDeTeste();
-
-        /* salva */
-        Repository repository = new Repository(modelo);
-        int resultadosAntesDeSalvar = repository.getResults(new JPQL(modelo).construirSelect()).size();
+        /* conta o número de registros antes de criar um novo, depois compara se a quantidade aumentou */
+        int resultadosAntesDeSalvar = repository.getResults(new JPQL(modeloDeTeste).construirSelect()).size();
         repository.save();
-        int resultadosDepoisDeSalvar = repository.getResults(new JPQL(modelo).construirSelect()).size();
+        int resultadosDepoisDeSalvar = repository.getResults(new JPQL(modeloDeTeste).construirSelect()).size();
 
-        /* testa */
         System.out.println("Testando repository metodo: getResults");
         assertEquals(true, resultadosDepoisDeSalvar > resultadosAntesDeSalvar);
 
@@ -41,49 +32,34 @@ public class RepositoryTest {
     @Test
     public void testFindById() {
 
-        /* entidade */
-        ModeloDeTeste modelo = new ModeloDeTeste();
-
-        /* salva */
-        Repository repository = new Repository(modelo);
+        /* cria o registro */
         repository.save();
 
-        /* testa */
         System.out.println("Testando repository metodo: findById");
-        assertEquals(true, repository.findById(modelo.getId()).getId() != 0);
+        assertEquals(true, repository.findById(modeloDeTeste.getId()).getId() != 0);
 
     }
 
     @Test
     public void testDelete() {
 
-        /* entidade */
-        ModeloDeTeste modelo = new ModeloDeTeste();
-
         /* salva e depois deleta */
-        Repository repository = new Repository(modelo);
         repository.save();
-        repository.delete(modelo.getId());
+        repository.delete(modeloDeTeste.getId());
 
-        /* testa */
         System.out.println("Testando repository metodo: delete");
-        assertEquals(true, repository.findById(modelo.getId()).getId() == 0);
+        assertEquals(true, repository.findById(modeloDeTeste.getId()).getId() == 0);
 
     }
 
     @Test
     public void testDeleteTodos() {
 
-        /* entidade */
-        ModeloDeTeste modelo = new ModeloDeTeste();
-
         /* salva e depois deleta todos os registros */
-        Repository repository = new Repository(modelo);
         repository.save();
         repository.deleteTodos();
-        int resultados = repository.getResults(new JPQL(modelo).construirSelect()).size();
+        int resultados = repository.getResults(new JPQL(modeloDeTeste).construirSelect()).size();
 
-        /* testa */
         System.out.println("Testando repository metodo: deleteTodos");
         assertEquals(true, resultados == 0);
 
@@ -97,17 +73,16 @@ public class RepositoryTest {
 
         /* simula cadastro */
         int i = 0;
-
         for (i = 0; i <= 10; i++) {
 
-            ModeloDeTeste modelo = new ModeloDeTeste();
-            modelo.setNome("Teste " + i);
-            new Repository(modelo).save();
+            modeloDeTeste = new ModeloDeTeste();
+            modeloDeTeste.setNome("Teste " + i);
+            new Repository(modeloDeTeste).save();
 
         }
 
         /* esperado todos os registros */
-        Repository repository = new Repository(new ModeloDeTeste());
+        repository = new Repository(new ModeloDeTeste());
         System.out.println("Testando classe Repository metodo: countTodos etapa 01");
         assertEquals(true, repository.countTodos(null) == i);
 
@@ -142,6 +117,12 @@ public class RepositoryTest {
 
     @Test
     public void testLimparCache() {
+
+        /* cria o registro */
+        repository.save();
+
+        System.out.println("Testando classe Repository metodo: limparCache");
+        assertEquals(true, repository.limparCache());
 
     }
 

@@ -133,10 +133,12 @@ public class Repository {
 
     /**
      * Limpa o cache em memória
+     *
+     * @return
      */
-    public void limparCache() {
+    public boolean limparCache() {
 
-        dao.limparCache();
+        return dao.limparCache();
 
     }
 

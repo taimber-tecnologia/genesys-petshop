@@ -6,107 +6,75 @@ import static org.junit.Assert.*;
 
 public class DaoTest {
 
+    private ModeloDeTeste modeloDeTeste = new ModeloDeTeste();
+    private final Dao dao = new Dao(ModeloDeTeste.class, "Conexao");
+
     @Test
     public void testCreate() {
 
-        /* entidade */
-        ModeloDeTeste agenda = new ModeloDeTeste();
-        agenda.setNome("Teste");
+        /* cria o registro */
+        dao.create(modeloDeTeste);
 
-        /* cria um novo registro no banco de dados */
-        Dao dao = new Dao(ModeloDeTeste.class, "Conexao");
-        dao.create(agenda);
-
-        /* testa */
         System.out.println("Testando classe Dao metodo: create");
-        assertEquals(true, agenda.getId() != 0);
+        assertEquals(true, modeloDeTeste.getId() != 0);
 
     }
 
     @Test
     public void testUpdate() {
 
-        /* entidade */
-        ModeloDeTeste agenda = new ModeloDeTeste();
-        agenda.setNome("Teste");
+        /* cria o registro */
+        dao.create(modeloDeTeste);
 
-        /* cria um novo registro no banco de dados */
-        Dao dao = new Dao(ModeloDeTeste.class, "Conexao");
-        dao.create(agenda);
-
-        /* atualiza o nome */
-        agenda.setNome("Teste 2");
-
-        /* faz a alteração dos dados do registro */
-        dao.update(agenda);
-
-        /* pesquisa no banco de dados para ver se encontra o registro já atualizado */
-        ModeloDeTeste agendaFind = (ModeloDeTeste) dao.findById(agenda.getId());
+        /* atualiza o registro e realiza pesquisa */
+        modeloDeTeste.setNome("Teste");
+        dao.update(modeloDeTeste);
+        modeloDeTeste = (ModeloDeTeste) dao.findById(modeloDeTeste.getId());
 
         System.out.println("Testando classe Dao metodo: update");
-        assertEquals(true, agenda.getNome().equals(agendaFind.getNome()));
+        assertEquals(true, modeloDeTeste.getNome().equals(modeloDeTeste.getNome()));
 
     }
 
     @Test
     public void testDelete() {
 
-        /* entidade */
-        ModeloDeTeste agenda = new ModeloDeTeste();
-        agenda.setNome("Teste");
-
-        /* cria um novo registro no banco de dados */
-        Dao dao = new Dao(ModeloDeTeste.class, "Conexao");
-        dao.create(agenda);
-
-        /* deleta o registro */
-        dao.delete(agenda.getId());
+        /* cria o registro e deleta-o em seguida */
+        dao.create(modeloDeTeste);
+        dao.delete(modeloDeTeste.getId());
 
         System.out.println("Testando classe Dao metodo: delete");
-        assertEquals(true, isNull(dao.findById(agenda.getId())));
+        assertEquals(true, isNull(dao.findById(modeloDeTeste.getId())));
 
     }
 
     @Test
     public void testFindById() {
 
-        /* entidade */
-        ModeloDeTeste agenda = new ModeloDeTeste();
-        agenda.setNome("Teste");
-
-        /* cria um novo registro no banco de dados */
-        Dao dao = new Dao(ModeloDeTeste.class, "Conexao");
-        dao.create(agenda);
+        /* cria o registro */
+        dao.create(modeloDeTeste);
 
         System.out.println("Testando classe Dao metodo: findById");
-        assertEquals(false, isNull(dao.findById(agenda.getId())));
+        assertEquals(false, isNull(dao.findById(modeloDeTeste.getId())));
 
     }
 
     @Test
     public void testFindBySqlQuery() {
 
-        /* conexão DAO */
-        Dao dao = new Dao(ModeloDeTeste.class, "Conexao");
-
         /* deleta todos os registros */
         dao.deleteTodos();
 
-        /* itera e simula cadastro na DAO */
+        /* simula o cadastro de registros */
         int i = 0;
-
         for (i = 0; i <= 10; i++) {
 
-            /* entidade */
-            ModeloDeTeste agenda = new ModeloDeTeste();
-            agenda.setNome("Teste");
-
-            /* cria um novo registro no banco de dados */
-            dao.create(agenda);
+            modeloDeTeste = new ModeloDeTeste();
+            modeloDeTeste.setNome("Teste");
+            dao.create(modeloDeTeste);
 
         }
 
-        /* parâmetro SQL */
         String sqlParametros = "SELECT objeto FROM " + ModeloDeTeste.class.getSimpleName() + " objeto WHERE objeto.nome='Teste'";
 
         System.out.println("Testando classe Dao metodo: findBySqlQuery etapa 01");
@@ -144,18 +112,9 @@ public class DaoTest {
     @Test
     public void testFindTodos() {
 
-        /* dao */
-        Dao dao = new Dao(ModeloDeTeste.class, "Conexao");
-
-        /* quantidade de registros antigos */
+        /* conta a quantidade de registros atual, e após isto adicione mais um */
         long quantidadeDeRegistrosAntigos = dao.findTodos().size();
-
-        /* entidade */
-        ModeloDeTeste agenda = new ModeloDeTeste();
-        agenda.setNome("Teste");
-
-        /* cria um novo registro no banco de dados */
-        dao.create(agenda);
+        dao.create(modeloDeTeste);
 
         System.out.println("Testando classe Dao metodo: findTodos");
         assertEquals(true, dao.findTodos().size() > quantidadeDeRegistrosAntigos);
@@ -165,15 +124,8 @@ public class DaoTest {
     @Test
     public void testDeleteTodos() {
 
-        /* dao */
-        Dao dao = new Dao(ModeloDeTeste.class, "Conexao");
-
-        /* entidade */
-        ModeloDeTeste agenda = new ModeloDeTeste();
-        agenda.setNome("Teste");
-
-        /* cria um novo registro no banco de dados */
-        dao.create(agenda);
+        /* cria pelo menos um registro e deleta todos */
+        dao.create(modeloDeTeste);
         dao.deleteTodos();
 
         System.out.println("Testando classe Dao metodo: deleteTodos");
@@ -184,23 +136,16 @@ public class DaoTest {
     @Test
     public void testCountTodos() {
 
-        /* modelo */
-        ModeloDeTeste agenda = new ModeloDeTeste();
-
-        /* dao */
-        Dao dao = new Dao(ModeloDeTeste.class, "Conexao");
-
         /* deleta todos os registros */
         dao.deleteTodos();
 
-        /* itera e simula cadastro na DAO */
+        /* simula o cadastro de registros */
         int i = 0;
-
         for (i = 0; i <= 10; i++) {
 
-            agenda = new ModeloDeTeste();
-            agenda.setNome("Teste " + i);
-            dao.create(agenda);
+            modeloDeTeste = new ModeloDeTeste();
+            modeloDeTeste.setNome("Teste " + i);
+            dao.create(modeloDeTeste);
 
         }
 
@@ -208,7 +153,7 @@ public class DaoTest {
         assertEquals(true, dao.countTodos(null) == i);
 
         System.out.println("Testando classe dao metodo: countTodos etapa 02");
-        assertEquals(true, dao.countTodos("WHERE objeto.nome='" + agenda.getNome() + "'") == 1);
+        assertEquals(true, dao.countTodos("WHERE objeto.nome='" + modeloDeTeste.getNome() + "'") == 1);
 
         System.out.println("Testando classe dao metodo: countTodos etapa 03");
         assertEquals(true, dao.countTodos("WHERE objeto.nome LIKE '%Teste%'") == i);
@@ -217,6 +162,12 @@ public class DaoTest {
 
     @Test
     public void testLimparCache() {
+
+        /* cria o registro */
+        dao.create(modeloDeTeste);
+
+        System.out.println("Testando classe dao metodo: limparCache");
+        assertEquals(true, dao.limparCache());
 
     }
 
