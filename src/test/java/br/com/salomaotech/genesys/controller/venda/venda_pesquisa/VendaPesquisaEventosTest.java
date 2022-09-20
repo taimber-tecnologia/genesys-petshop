@@ -1,46 +1,35 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
 package br.com.salomaotech.genesys.controller.venda.venda_pesquisa;
 
-import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
+import br.com.salomaotech.genesys.view.JFvendaPesquisa;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-/**
- *
- * @author usuario
- */
 public class VendaPesquisaEventosTest {
-    
-    public VendaPesquisaEventosTest() {
-    }
+
+    private final JFvendaPesquisa view = new JFvendaPesquisa();
+    private final VendaPesquisaEventos vendaPesquisaEventos = new VendaPesquisaEventos(view);
 
     @Test
     public void testSetVendaPesquisaMetodos() {
-        System.out.println("setVendaPesquisaMetodos");
-        VendaPesquisaMetodos vendaPesquisaMetodos = null;
-        VendaPesquisaEventos instance = null;
-        instance.setVendaPesquisaMetodos(vendaPesquisaMetodos);
-        fail("The test case is a prototype.");
+
     }
 
     @Test
     public void testSetComboBoxClientesPesquisa() {
-        System.out.println("setComboBoxClientesPesquisa");
-        ComboBoxClientes comboBoxClientesPesquisa = null;
-        VendaPesquisaEventos instance = null;
-        instance.setComboBoxClientesPesquisa(comboBoxClientesPesquisa);
-        fail("The test case is a prototype.");
+
     }
 
     @Test
     public void testAddEventos() {
-        System.out.println("addEventos");
-        VendaPesquisaEventos instance = null;
-        instance.addEventos();
-        fail("The test case is a prototype.");
+
+        vendaPesquisaEventos.addEventos();
+        System.out.println("Testando classe VendaPesquisaEventos metodo: addEventos");
+        assertEquals(true, view.jBatalhoCadastro.getActionListeners().length == 1);
+        assertEquals(true, view.jBpesquisa.getActionListeners().length == 1);
+        assertEquals(true, view.jBpaginador.getActionListeners().length == 1);
+        assertEquals(true, view.jBpesquisaNomeClienteRefresh.getActionListeners().length == 1);
+        assertEquals(true, view.jTresultados.getMouseListeners().length == 3);
+
     }
-    
+
 }

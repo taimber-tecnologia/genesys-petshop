@@ -20,11 +20,9 @@ import static org.junit.Assert.*;
 
 public class VendaConcluiMetodosTest {
 
-    /* views */
     private final JFvendaConclui view = new JFvendaConclui();
     private final JFvendaInicia viewVenda = new JFvendaInicia();
 
-    /* modelos */
     private ProdutoModelo produtoModelo = new ProdutoModelo();
     private final List<VendaModeloItem> vendaModeloItemList = new ArrayList();
     private final VendaModelo vendaModelo = new VendaModelo();
@@ -60,7 +58,7 @@ public class VendaConcluiMetodosTest {
         clienteModelo.setCpf("000.000.000-00");
         new Repository(clienteModelo).save();
 
-        /* simula cadastro de venda */
+        /* adiciona os dados da venda */
         new Repository(new VendaModelo()).deleteTodos();
         vendaModelo.setData(Calendar.getInstance());
         vendaModelo.setVendaModeloItemList(vendaModeloItemList);

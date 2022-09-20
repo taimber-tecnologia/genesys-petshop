@@ -1,55 +1,50 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
 package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
-import br.com.salomaotech.genesys.model.produto.ComboBoxProduto;
+import br.com.salomaotech.genesys.view.JFvendaInicia;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-/**
- *
- * @author usuario
- */
 public class VendaIniciaEventosTest {
-    
+
+    private final JFvendaInicia view = new JFvendaInicia();
+    private final VendaIniciaEventos vendaIniciaEventos = new VendaIniciaEventos(view);
+
     public VendaIniciaEventosTest() {
+
     }
 
     @Test
     public void testSetVendaIniciaMetodos() {
-        System.out.println("setVendaIniciaMetodos");
-        VendaIniciaMetodos vendaIniciaMetodos = null;
-        VendaIniciaEventos instance = null;
-        instance.setVendaIniciaMetodos(vendaIniciaMetodos);
-        fail("The test case is a prototype.");
+
     }
 
     @Test
     public void testSetComboBoxProduto() {
-        System.out.println("setComboBoxProduto");
-        ComboBoxProduto comboBoxProduto = null;
-        VendaIniciaEventos instance = null;
-        instance.setComboBoxProduto(comboBoxProduto);
-        fail("The test case is a prototype.");
+
     }
 
     @Test
     public void testAddEventos() {
-        System.out.println("addEventos");
-        VendaIniciaEventos instance = null;
-        instance.addEventos();
-        fail("The test case is a prototype.");
+
+        vendaIniciaEventos.addEventos();
+
+        System.out.println("Testando classe VendaIniciaEventos metodo: addEventos");
+        assertEquals(true, view.jTprodutoQuantidade.getKeyListeners().length == 1);
+        assertEquals(true, view.jTprodutoDesconto.getKeyListeners().length == 1);
+        assertEquals(true, view.jBprodutoLimpaItem.getActionListeners().length == 1);
+        assertEquals(true, view.jBprodutoAdicionaItem.getActionListeners().length == 1);
+        assertEquals(true, view.jBvendaFinaliza.getActionListeners().length == 1);
+        assertEquals(true, view.jBvendaExcluir.getActionListeners().length == 1);
+        assertEquals(true, view.jTprodutoSelecionado.getMouseListeners().length == 3);
+        assertEquals(true, view.jTprodutoSelecionado.getKeyListeners().length == 2);
+        assertEquals(true, view.jBprodutoSelecionadoRemoverItem.getActionListeners().length == 1);
+        assertEquals(true, view.getWindowListeners().length == 1);
+
     }
 
     @Test
     public void testExecutar() {
-        System.out.println("executar");
-        Object arg = null;
-        VendaIniciaEventos instance = null;
-        instance.executar(arg);
-        fail("The test case is a prototype.");
+
     }
-    
+
 }

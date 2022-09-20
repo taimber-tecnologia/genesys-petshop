@@ -36,10 +36,21 @@ public class VendaIniciaMetodos {
     public void limparProdutoSelecionado() {
 
         exibirProdutoSelecionado(new ProdutoModelo());
-        view.jCprodutoLista.setSelectedIndex(0);
         view.jTprodutoQuantidade.setText("");
         view.jTprodutoDesconto.setText("");
         view.jTprodutoTotal.setText("");
+
+        /* evita erro de indexOfBounds no select */
+        try {
+
+            view.jCprodutoLista.setSelectedIndex(0);
+
+        } catch (Exception ex) {
+
+            view.jCprodutoLista.addItem("");
+            view.jCprodutoLista.setSelectedIndex(0);
+
+        }
 
     }
 
@@ -60,7 +71,14 @@ public class VendaIniciaMetodos {
 
     public void removerProdutoNaLista() {
 
-        vendaModeloItemList.remove(view.jTprodutoSelecionado.getSelectedRow());
+        try {
+
+            vendaModeloItemList.remove(view.jTprodutoSelecionado.getSelectedRow());
+
+        } catch (Exception ex) {
+
+        }
+
         exibirProdutosSelecionados();
         habilitarCamposDeExcluirProdutoAdicionado();
 

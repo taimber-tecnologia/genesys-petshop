@@ -38,11 +38,12 @@ public class VendaIniciaController {
 
     }
 
-    public void abrirCadastro(long id) {
+    public JFvendaInicia abrirCadastro(long id) {
 
         construir();
         vendaIniciaMetodos.abrirCadastro(id);
         vendaIniciaMetodos.habilitarCamposDeExcluirVenda();
+        return view;
 
     }
 
