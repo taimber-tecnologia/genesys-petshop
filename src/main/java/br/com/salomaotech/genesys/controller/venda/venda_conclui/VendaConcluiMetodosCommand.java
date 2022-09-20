@@ -23,7 +23,7 @@ public class VendaConcluiMetodosCommand implements Command {
     @Override
     public void executar(Object arg) {
 
-        if (!isNull(this.comboBoxClientes)) {
+        if (!isNull(comboBoxClientes)) {
 
             ClienteModelo clienteModelo = (ClienteModelo) new Repository(new ClienteModelo()).findById(comboBoxClientes.getIdSelecionado());
             view.jTclienteCpf.setText(clienteModelo.getCpf());

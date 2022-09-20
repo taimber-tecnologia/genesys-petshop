@@ -7,13 +7,7 @@ import org.junit.Test;
 public class VendaConcluiEventosTest {
 
     private final JFvendaConclui view = new JFvendaConclui();
-    private final VendaConcluiEventos vendaConcluiEventos;
-
-    public VendaConcluiEventosTest() {
-
-        vendaConcluiEventos = new VendaConcluiEventos(view);
-
-    }
+    private final VendaConcluiEventos vendaConcluiEventos = new VendaConcluiEventos(view);
 
     @Test
     public void testSetVendaConcluiMetodos() {

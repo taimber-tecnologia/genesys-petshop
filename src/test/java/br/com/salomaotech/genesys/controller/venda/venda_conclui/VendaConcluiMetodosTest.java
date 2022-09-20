@@ -46,7 +46,7 @@ public class VendaConcluiMetodosTest {
         produtoModelo.setQuantidade(new BigDecimal(50));
         new Repository(produtoModelo).save();
 
-        /* adiciona item de venda */
+        /* simula seleção de item de produto */
         VendaModeloItem vendaModeloItem = new VendaModeloItem();
         vendaModeloItem.setIdProduto(produtoModelo.getId());
         vendaModeloItem.setValor(produtoModelo.getValorVenda());
@@ -57,6 +57,7 @@ public class VendaConcluiMetodosTest {
         /* simula cadastro de cliente */
         new Repository(new ClienteModelo()).deleteTodos();
         clienteModelo.setNome("Teste");
+        clienteModelo.setCpf("000.000.000-00");
         new Repository(clienteModelo).save();
 
         /* simula cadastro de venda */
@@ -100,11 +101,11 @@ public class VendaConcluiMetodosTest {
     public void testCalcularTroco() {
 
         BigDecimal valorRecebido = new BigDecimal(205);
+        BigDecimal valorTroco = valorRecebido.subtract(vendaModelo.getValor());
         view.jTvalorRecebido.setText(valorRecebido.toString());
-        BigDecimal trocoEsperado = valorRecebido.subtract(vendaModelo.getValor());
 
         System.out.println("Testando classe VendaConcluiMetodos metodo: calcularTroco");
-        assertEquals(true, vendaConcluiMetodos.calcularTroco().equals(trocoEsperado));
+        assertEquals(true, vendaConcluiMetodos.calcularTroco().equals(valorTroco));
 
     }
 
@@ -119,6 +120,7 @@ public class VendaConcluiMetodosTest {
         assertEquals(true, view.jTvalorTroco.getText().equals(ConverteNumeroParaMoedaBr.converter("0")));
         assertEquals(false, view.jLparcela.isVisible());
         assertEquals(false, view.jCparcela.isVisible());
+        assertEquals(true, view.jCforma.getSelectedIndex() == 2);
 
         view.jCforma.setSelectedItem("Debito");
         vendaConcluiMetodos.habilitarCampos();
@@ -128,6 +130,7 @@ public class VendaConcluiMetodosTest {
         assertEquals(true, view.jTvalorTroco.getText().equals(ConverteNumeroParaMoedaBr.converter("0")));
         assertEquals(false, view.jLparcela.isVisible());
         assertEquals(false, view.jCparcela.isVisible());
+        assertEquals(true, view.jCforma.getSelectedIndex() == 0);
 
         view.jCforma.setSelectedItem("Pix");
         vendaConcluiMetodos.habilitarCampos();
@@ -137,6 +140,7 @@ public class VendaConcluiMetodosTest {
         assertEquals(true, view.jTvalorTroco.getText().equals(ConverteNumeroParaMoedaBr.converter("0")));
         assertEquals(false, view.jLparcela.isVisible());
         assertEquals(false, view.jCparcela.isVisible());
+        assertEquals(true, view.jCforma.getSelectedIndex() == 3);
 
         view.jCforma.setSelectedItem("Credito");
         vendaConcluiMetodos.habilitarCampos();
@@ -146,6 +150,7 @@ public class VendaConcluiMetodosTest {
         assertEquals(true, view.jTvalorTroco.getText().equals(ConverteNumeroParaMoedaBr.converter("0")));
         assertEquals(true, view.jLparcela.isVisible());
         assertEquals(true, view.jCparcela.isVisible());
+        assertEquals(true, view.jCforma.getSelectedIndex() == 1);
 
     }
 
@@ -174,12 +179,15 @@ public class VendaConcluiMetodosTest {
         vendaConcluiMetodos.finalizarVenda();
         produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(produtoModelo.getId());
 
+        /* testa o número de revisões */
         System.out.println("Testando classe VendaConcluiMetodos metodo: finalizarVenda checa número de revisões");
         assertEquals(true, vendaModelo.getRevisoes() == 1);
 
+        /* testa a baixa no estoque */
         System.out.println("Testando classe VendaConcluiMetodos metodo: finalizarVenda checa baixa em estoque");
         assertEquals(true, produtoModelo.getQuantidade().equals(new BigDecimal(49)));
 
+        /* testa lançamentos financeiros */
         System.out.println("Testando classe VendaConcluiMetodos metodo: finalizarVenda checa lançamentos em financeiro");
         JPQL jpql = new JPQL(new FinanceiroModelo());
         jpql.addParametroIgual("idVenda", vendaModelo.getId());
