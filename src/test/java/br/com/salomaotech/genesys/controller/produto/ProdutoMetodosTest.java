@@ -46,6 +46,21 @@ public class ProdutoMetodosTest {
     @Test
     public void testSetComboBoxFornecedores() {
 
+        boolean isErro = false;
+
+        try {
+
+            produtoMetodos.setComboBoxFornecedores(comboBoxFornecedores);
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe ProdutoMetodos metodo: setComboBoxFornecedores");
+        assertEquals(false, isErro);
+
     }
 
     @Test

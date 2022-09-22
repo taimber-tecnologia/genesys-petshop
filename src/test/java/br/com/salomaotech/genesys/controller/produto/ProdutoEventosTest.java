@@ -1,6 +1,8 @@
 package br.com.salomaotech.genesys.controller.produto;
 
+import br.com.salomaotech.genesys.model.produto.ComboBoxProdutoCategoria;
 import br.com.salomaotech.genesys.view.JFproduto;
+import javax.swing.JComboBox;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -12,20 +14,80 @@ public class ProdutoEventosTest {
     @Test
     public void testSetComboBoxProdutoCategoriaCadastro() {
 
+        boolean isErro = false;
+
+        try {
+
+            produtoEventos.setComboBoxProdutoCategoriaCadastro(new ComboBoxProdutoCategoria(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe ProdutoEventos metodo: setComboBoxProdutoCategoriaCadastro");
+        assertEquals(false, isErro);
+
     }
 
     @Test
     public void testSetComboBoxProdutoCategoriaPesquisa() {
+
+        boolean isErro = false;
+
+        try {
+
+            produtoEventos.setComboBoxProdutoCategoriaPesquisa(new ComboBoxProdutoCategoria(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe ProdutoEventos metodo: setComboBoxProdutoCategoriaPesquisa");
+        assertEquals(false, isErro);
 
     }
 
     @Test
     public void testSetComboBoxFornecedores() {
 
+        boolean isErro = false;
+
+        try {
+
+            produtoEventos.setComboBoxProdutoCategoriaPesquisa(new ComboBoxProdutoCategoria(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe ProdutoEventos metodo: setComboBoxProdutoCategoriaPesquisa");
+        assertEquals(false, isErro);
+
     }
 
     @Test
     public void testSetProdutoMetodos() {
+
+        boolean isErro = false;
+
+        try {
+
+            produtoEventos.setProdutoMetodos(new ProdutoMetodos(view));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe ProdutoEventos metodo: setProdutoMetodos");
+        assertEquals(false, isErro);
 
     }
 
