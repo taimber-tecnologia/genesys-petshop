@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.animal;
 
-import br.com.salomaotech.genesys.controller.animal.AnimalValidador;
 import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.view.JFanimal;

@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.fornecedor;
 
-import br.com.salomaotech.genesys.controller.fornecedor.FornecedorMetodos;
 import br.com.salomaotech.genesys.model.fornecedor.FornecedorModelo;
 import br.com.salomaotech.genesys.view.JFfornecedor;
 import br.com.salomaotech.sistema.jpa.Repository;

@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.vacina;
 
-import br.com.salomaotech.genesys.controller.vacina.VacinaValidador;
 import br.com.salomaotech.genesys.view.JFvacina;
 import java.util.Calendar;
 import org.junit.Test;

@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.centro_custo;
 
-import br.com.salomaotech.genesys.controller.centro_custo.CentroCustoValidador;
 import br.com.salomaotech.genesys.model.centro_custo.CentroCustoModelo;
 import br.com.salomaotech.genesys.view.JFcentroCusto;
 import br.com.salomaotech.sistema.jpa.Repository;

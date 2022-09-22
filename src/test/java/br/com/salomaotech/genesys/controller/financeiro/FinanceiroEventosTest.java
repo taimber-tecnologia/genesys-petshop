@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.financeiro;
 
-import br.com.salomaotech.genesys.controller.financeiro.FinanceiroEventos;
 import br.com.salomaotech.genesys.view.JFfinanceiro;
 import org.junit.Test;
 import static org.junit.Assert.*;

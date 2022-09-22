@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.principal;
 
-import br.com.salomaotech.genesys.controller.principal.PrincipalMetodos;
 import br.com.salomaotech.genesys.model.agenda.AgendaModelo;
 import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.view.JFprincipal;

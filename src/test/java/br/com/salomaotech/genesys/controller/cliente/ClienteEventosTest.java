@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.cliente;
 
-import br.com.salomaotech.genesys.controller.cliente.ClienteEventos;
 import br.com.salomaotech.genesys.view.JFcliente;
 import org.junit.Test;
 import static org.junit.Assert.*;

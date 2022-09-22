@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.animal;
 
-import br.com.salomaotech.genesys.controller.animal.AnimalEventos;
 import br.com.salomaotech.genesys.view.JFanimal;
 import org.junit.Test;
 import static org.junit.Assert.*;

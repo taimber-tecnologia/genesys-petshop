@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.agenda;
 
-import br.com.salomaotech.genesys.controller.agenda.AgendaController;
 import static java.util.Objects.isNull;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -11,6 +10,21 @@ public class AgendaControllerTest {
 
     @Test
     public void testConstruir() {
+
+        boolean isErro = false;
+
+        try {
+
+            agendaController.construir();
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AgendaController metodo: construir");
+        assertEquals(false, isErro);
 
     }
 

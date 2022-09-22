@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.produto;
 
-import br.com.salomaotech.genesys.controller.produto.ProdutoMetodos;
 import br.com.salomaotech.genesys.model.fornecedor.ComboBoxFornecedores;
 import br.com.salomaotech.genesys.model.fornecedor.FornecedorModelo;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;

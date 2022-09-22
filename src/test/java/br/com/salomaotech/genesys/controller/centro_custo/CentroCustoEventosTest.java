@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.centro_custo;
 
-import br.com.salomaotech.genesys.controller.centro_custo.CentroCustoEventos;
 import br.com.salomaotech.genesys.view.JFcentroCusto;
 import org.junit.Test;
 import static org.junit.Assert.*;

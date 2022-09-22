@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.empresa;
 
-import br.com.salomaotech.genesys.controller.empresa.EmpresaValidador;
 import br.com.salomaotech.genesys.model.empresa.EmpresaModelo;
 import br.com.salomaotech.genesys.view.JFempresa;
 import br.com.salomaotech.sistema.jpa.Repository;

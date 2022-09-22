@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.empresa;
 
-import br.com.salomaotech.genesys.controller.empresa.EmpresaEventos;
 import br.com.salomaotech.genesys.view.JFempresa;
 import org.junit.Test;
 import static org.junit.Assert.*;

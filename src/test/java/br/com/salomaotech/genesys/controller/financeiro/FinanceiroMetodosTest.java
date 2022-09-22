@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.financeiro;
 
-import br.com.salomaotech.genesys.controller.financeiro.FinanceiroMetodos;
 import br.com.salomaotech.genesys.model.centro_custo.CentroCustoModelo;
 import br.com.salomaotech.genesys.model.centro_custo.ComboBoxCentroCusto;
 import br.com.salomaotech.genesys.model.financeiro.FinanceiroModelo;

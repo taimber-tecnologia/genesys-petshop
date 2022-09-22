@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.agenda;
 
-import br.com.salomaotech.genesys.controller.agenda.AgendaMetodos;
 import br.com.salomaotech.genesys.model.agenda.AgendaModelo;
 import br.com.salomaotech.genesys.model.animal.AnimalModelo;
 import br.com.salomaotech.genesys.model.animal.ComboBoxAnimais;

@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.cliente;
 
-import br.com.salomaotech.genesys.controller.cliente.ClienteMetodos;
 import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.view.JFcliente;
 import br.com.salomaotech.sistema.jpa.Repository;

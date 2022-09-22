@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.produto;
 
-import br.com.salomaotech.genesys.controller.produto.ProdutoValidador;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.view.JFproduto;
 import br.com.salomaotech.sistema.jpa.Repository;

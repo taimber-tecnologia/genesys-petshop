@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.agenda;
 
-import br.com.salomaotech.genesys.controller.agenda.AgendaEventos;
 import br.com.salomaotech.genesys.view.JFagenda;
 import org.junit.Test;
 import static org.junit.Assert.*;

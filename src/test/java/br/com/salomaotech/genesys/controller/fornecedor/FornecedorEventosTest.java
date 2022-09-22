@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.fornecedor;
 
-import br.com.salomaotech.genesys.controller.fornecedor.FornecedorEventos;
 import br.com.salomaotech.genesys.view.JFfornecedor;
 import org.junit.Test;
 import static org.junit.Assert.*;
