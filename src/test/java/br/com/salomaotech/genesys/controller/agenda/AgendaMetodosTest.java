@@ -10,6 +10,7 @@ import br.com.salomaotech.sistema.jpa.Repository;
 import br.com.salomaotech.sistema.swing.PopUp;
 import java.util.Calendar;
 import static java.util.Objects.isNull;
+import javax.swing.JComboBox;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -66,15 +67,60 @@ public class AgendaMetodosTest {
     @Test
     public void testSetComboBoxClientesCadastro() {
 
+        boolean isErro = false;
+
+        try {
+
+            agendaMetodos.setComboBoxClientesCadastro(new ComboBoxClientes(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AgendaMetodos método: setComboBoxClientesCadastro");
+        assertEquals(false, isErro);
+
     }
 
     @Test
     public void testSetComboBoxClientesPesquisa() {
 
+        boolean isErro = false;
+
+        try {
+
+            agendaMetodos.setComboBoxClientesPesquisa(new ComboBoxClientes(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AgendaMetodos método: setComboBoxClientesPesquisa");
+        assertEquals(false, isErro);
+
     }
 
     @Test
     public void testSetComboBoxAnimaisCadastro() {
+
+        boolean isErro = false;
+
+        try {
+
+            agendaMetodos.setComboBoxAnimaisCadastro(new ComboBoxAnimais(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AgendaMetodos método: setComboBoxAnimaisCadastro");
+        assertEquals(false, isErro);
 
     }
 

@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.model.centro_custo;
 
-import br.com.salomaotech.genesys.model.centro_custo.CentroCustoModelo;
-import br.com.salomaotech.genesys.model.centro_custo.ComboBoxCentroCusto;
 import br.com.salomaotech.sistema.jpa.Repository;
 import javax.swing.JComboBox;
 import static org.junit.Assert.assertEquals;

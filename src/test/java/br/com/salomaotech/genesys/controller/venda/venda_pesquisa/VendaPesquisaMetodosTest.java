@@ -72,6 +72,21 @@ public class VendaPesquisaMetodosTest {
     @Test
     public void testSetComboBoxClientesPesquisa() {
 
+        boolean isErro = false;
+
+        try {
+
+            vendaPesquisaMetodos.setComboBoxClientesPesquisa(comboBoxClientesPesquisa);
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe VendaPesquisaMetodos metodo: setComboBoxClientesPesquisa");
+        assertEquals(false, isErro);
+
     }
 
     @Test

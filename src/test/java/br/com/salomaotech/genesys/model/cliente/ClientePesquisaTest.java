@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.model.cliente;
 
-import br.com.salomaotech.genesys.model.cliente.ClientePesquisa;
-import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.view.JFcliente;
 import br.com.salomaotech.sistema.jpa.Repository;
 import org.junit.Test;
@@ -26,20 +24,40 @@ public class ClientePesquisaTest {
     @Test
     public void testSetNome() {
 
-        clientePesquisa.setNome(clienteModelo.getNome());
-        clientePesquisa.pesquisar();
+        boolean isErro = false;
+
+        try {
+
+            clientePesquisa.setNome(clienteModelo.getNome());
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
         System.out.println("Testando classe ClientePesquisa metodo: setNome");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        assertEquals(false, isErro);
 
     }
 
     @Test
     public void testSetCpf() {
 
-        clientePesquisa.setCpf(clienteModelo.getCpf());
-        clientePesquisa.pesquisar();
+        boolean isErro = false;
+
+        try {
+
+            clientePesquisa.setCpf(clienteModelo.getCpf());
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
         System.out.println("Testando classe ClientePesquisa metodo: setCpf");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        assertEquals(false, isErro);
 
     }
 

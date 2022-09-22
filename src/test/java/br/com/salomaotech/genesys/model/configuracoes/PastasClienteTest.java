@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.model.configuracoes;
 
-import br.com.salomaotech.genesys.model.configuracoes.PastasCliente;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

@@ -1,6 +1,8 @@
 package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
+import br.com.salomaotech.genesys.model.produto.ComboBoxProduto;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
+import javax.swing.JComboBox;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -9,17 +11,43 @@ public class VendaIniciaEventosTest {
     private final JFvendaInicia view = new JFvendaInicia();
     private final VendaIniciaEventos vendaIniciaEventos = new VendaIniciaEventos(view);
 
-    public VendaIniciaEventosTest() {
-
-    }
-
     @Test
     public void testSetVendaIniciaMetodos() {
+
+        boolean isErro = false;
+
+        try {
+
+            vendaIniciaEventos.setVendaIniciaMetodos(new VendaIniciaMetodos(view));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe VendaIniciaEventos metodo: setVendaIniciaMetodos");
+        assertEquals(false, isErro);
 
     }
 
     @Test
     public void testSetComboBoxProduto() {
+
+        boolean isErro = false;
+
+        try {
+
+            vendaIniciaEventos.setComboBoxProduto(new ComboBoxProduto(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe VendaIniciaEventos metodo: setComboBoxProduto");
+        assertEquals(false, isErro);
 
     }
 
@@ -44,6 +72,21 @@ public class VendaIniciaEventosTest {
 
     @Test
     public void testExecutar() {
+
+        boolean isErro = false;
+
+        try {
+
+            vendaIniciaEventos.executar(null);
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe VendaIniciaEventos metodo: executar");
+        assertEquals(false, isErro);
 
     }
 

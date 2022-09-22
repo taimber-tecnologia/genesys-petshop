@@ -33,6 +33,21 @@ public class VendaConcluiMetodosCommandTest {
     @Test
     public void testSetComboBoxClientes() {
 
+        boolean isErro = false;
+
+        try {
+
+            vendaConcluiMetodosCommand.setComboBoxClientes(comboBoxClientes);
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe VendaConcluiMetodosCommand metodo: setComboBoxClientes");
+        assertEquals(false, isErro);
+
     }
 
     @Test

@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.model.centro_custo;
 
-import br.com.salomaotech.genesys.model.centro_custo.CentroCustoModelo;
-import br.com.salomaotech.genesys.model.centro_custo.CentroCustoPesquisa;
 import br.com.salomaotech.genesys.view.JFcentroCusto;
 import br.com.salomaotech.sistema.jpa.Repository;
 import org.junit.Test;
@@ -26,10 +24,20 @@ public class CentroCustoPesquisaTest {
     @Test
     public void testSetNome() {
 
-        centroCustoPesquisa.setNome(centroCustoModelo.getNome());
-        centroCustoPesquisa.pesquisar();
+        boolean isErro = false;
+
+        try {
+
+            centroCustoPesquisa.setNome(centroCustoModelo.getNome());
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
         System.out.println("Testando classe CentroCustoPesquisa metodo: setNome");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        assertEquals(false, isErro);
 
     }
 

@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.model.animal;
 
-import br.com.salomaotech.genesys.model.animal.AnimalPesquisa;
-import br.com.salomaotech.genesys.model.animal.AnimalModelo;
 import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.view.JFanimal;
 import br.com.salomaotech.sistema.jpa.Repository;
@@ -34,20 +32,40 @@ public class AnimalPesquisaTest {
     @Test
     public void testSetNome() {
 
-        animalPesquisa.setNome("Teste");
-        animalPesquisa.pesquisar();
+        boolean isErro = false;
+
+        try {
+
+            animalPesquisa.setNome("Teste");
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
         System.out.println("Testando classe AnimalPesquisa metodo: setNome");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        assertEquals(false, isErro);
 
     }
 
     @Test
     public void testSetIdCliente() {
 
-        animalPesquisa.setIdCliente(clienteModelo.getId());
-        animalPesquisa.pesquisar();
+        boolean isErro = false;
+
+        try {
+
+            animalPesquisa.setIdCliente(clienteModelo.getId());
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
         System.out.println("Testando classe AnimalPesquisa metodo: setIdCliente");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        assertEquals(false, isErro);
 
     }
 

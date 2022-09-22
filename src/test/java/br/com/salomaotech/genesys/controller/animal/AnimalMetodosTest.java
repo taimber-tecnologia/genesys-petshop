@@ -9,6 +9,7 @@ import br.com.salomaotech.sistema.swing.PopUp;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import static java.util.Objects.isNull;
+import javax.swing.JComboBox;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -59,10 +60,40 @@ public class AnimalMetodosTest {
     @Test
     public void testSetComboBoxClientesCadastro() {
 
+        boolean isErro = false;
+
+        try {
+
+            animalMetodos.setComboBoxClientesCadastro(new ComboBoxClientes(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AnimalMetodos método: setComboBoxClientesCadastro");
+        assertEquals(false, isErro);
+
     }
 
     @Test
     public void testSetComboBoxClientesPesquisa() {
+
+        boolean isErro = false;
+
+        try {
+
+            animalMetodos.setComboBoxClientesPesquisa(new ComboBoxClientes(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AnimalMetodos método: setComboBoxClientesPesquisa");
+        assertEquals(false, isErro);
 
     }
 

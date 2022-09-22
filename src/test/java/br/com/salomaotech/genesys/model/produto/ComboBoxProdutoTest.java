@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.model.produto;
 
-import br.com.salomaotech.genesys.model.produto.ComboBoxProduto;
-import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.sistema.jpa.Repository;
 import java.math.BigDecimal;
 import javax.swing.JComboBox;

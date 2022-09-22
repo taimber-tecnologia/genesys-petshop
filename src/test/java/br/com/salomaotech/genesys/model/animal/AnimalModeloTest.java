@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.model.animal;
 
-import br.com.salomaotech.genesys.model.animal.AnimalModelo;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import static java.util.Objects.isNull;

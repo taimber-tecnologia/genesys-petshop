@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.model.agenda;
 
-import br.com.salomaotech.genesys.model.agenda.AgendaPesquisa;
-import br.com.salomaotech.genesys.model.agenda.AgendaModelo;
 import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.view.JFagenda;
 import br.com.salomaotech.sistema.jpa.Repository;
@@ -37,30 +35,60 @@ public class AgendaPesquisaTest {
     @Test
     public void testSetDataAgenda() {
 
-        agendaPesquisa.setDataAgenda(calendar);
-        agendaPesquisa.pesquisar();
+        boolean isErro = false;
+
+        try {
+
+            agendaPesquisa.setDataAgenda(calendar);
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
         System.out.println("Testando classe AgendaPesquisa método: setDataAgenda");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        assertEquals(false, isErro);
 
     }
 
     @Test
     public void testSetIdCliente() {
 
-        agendaPesquisa.setIdCliente(clienteModelo.getId());
-        agendaPesquisa.pesquisar();
+        boolean isErro = false;
+
+        try {
+
+            agendaPesquisa.setIdCliente(clienteModelo.getId());
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
         System.out.println("Testando classe AgendaPesquisa método: setIdCliente");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        assertEquals(false, isErro);
 
     }
 
     @Test
     public void testSetStatus() {
 
-        agendaPesquisa.setStatus(agendaModelo.getStatus());
-        agendaPesquisa.pesquisar();
+        boolean isErro = false;
+
+        try {
+
+            agendaPesquisa.setStatus(agendaModelo.getStatus());
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
         System.out.println("Testando classe AgendaPesquisa método: setStatus");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        assertEquals(false, isErro);
 
     }
 

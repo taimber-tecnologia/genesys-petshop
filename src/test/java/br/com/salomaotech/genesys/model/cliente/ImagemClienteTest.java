@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.model.cliente;
 
-import br.com.salomaotech.genesys.model.cliente.ImagemCliente;
 import br.com.salomaotech.genesys.view.JFcliente;
 import javax.swing.JPanel;
 import org.junit.Test;

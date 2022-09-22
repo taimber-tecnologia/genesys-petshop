@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.model.cliente;
 
-import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
-import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.sistema.jpa.Repository;
 import javax.swing.JComboBox;
 import org.junit.Test;

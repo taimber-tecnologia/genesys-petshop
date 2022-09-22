@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.model.produto;
 
-import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.fornecedor.FornecedorModelo;
 import java.math.BigDecimal;
 import static java.util.Objects.isNull;

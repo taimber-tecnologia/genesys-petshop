@@ -1,6 +1,10 @@
 package br.com.salomaotech.genesys.controller.animal;
 
+import br.com.salomaotech.genesys.model.animal.ComboBoxAnimalEspecie;
+import br.com.salomaotech.genesys.model.animal.ComboBoxAnimalRaca;
+import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.view.JFanimal;
+import javax.swing.JComboBox;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -12,25 +16,100 @@ public class AnimalEventosTest {
     @Test
     public void testSetAnimalMetodos() {
 
+        boolean isErro = false;
+
+        try {
+
+            animalEventos.setAnimalMetodos(new AnimalMetodos(view));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AnimalEventos método: setAnimalMetodos");
+        assertEquals(false, isErro);
+
     }
 
     @Test
     public void testSetComboBoxClientesCadastro() {
+
+        boolean isErro = false;
+
+        try {
+
+            animalEventos.setComboBoxClientesCadastro(new ComboBoxClientes(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AnimalEventos método: setComboBoxClientesCadastro");
+        assertEquals(false, isErro);
 
     }
 
     @Test
     public void testSetComboBoxClientesPesquisa() {
 
+        boolean isErro = false;
+
+        try {
+
+            animalEventos.setComboBoxClientesPesquisa(new ComboBoxClientes(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AnimalEventos método: setComboBoxClientesPesquisa");
+        assertEquals(false, isErro);
+
     }
 
     @Test
     public void testSetComboBoxAnimalRaca() {
 
+        boolean isErro = false;
+
+        try {
+
+            animalEventos.setComboBoxAnimalRaca(new ComboBoxAnimalRaca(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AnimalEventos método: setComboBoxAnimalRaca");
+        assertEquals(false, isErro);
+
     }
 
     @Test
     public void testSetComboBoxAnimalEspecie() {
+
+        boolean isErro = false;
+
+        try {
+
+            animalEventos.setComboBoxAnimalEspecie(new ComboBoxAnimalEspecie(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AnimalEventos método: setComboBoxAnimalEspecie");
+        assertEquals(false, isErro);
 
     }
 

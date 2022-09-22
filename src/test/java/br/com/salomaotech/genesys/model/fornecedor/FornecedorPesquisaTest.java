@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.model.fornecedor;
 
-import br.com.salomaotech.genesys.model.fornecedor.FornecedorPesquisa;
-import br.com.salomaotech.genesys.model.fornecedor.FornecedorModelo;
 import br.com.salomaotech.genesys.view.JFfornecedor;
 import br.com.salomaotech.sistema.jpa.Repository;
 import org.junit.Test;
@@ -26,20 +24,40 @@ public class FornecedorPesquisaTest {
     @Test
     public void testSetNome() {
 
-        fornecedorPesquisa.setNome(fornecedorModelo.getNome());
-        fornecedorPesquisa.pesquisar();
+        boolean isErro = false;
+
+        try {
+
+            fornecedorPesquisa.setNome(fornecedorModelo.getNome());
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
         System.out.println("Testando classe FornecedorPesquisa metodo: setNome");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        assertEquals(false, isErro);
 
     }
 
     @Test
     public void testSetCnpj() {
 
-        fornecedorPesquisa.setCnpj(fornecedorModelo.getCnpj());
-        fornecedorPesquisa.pesquisar();
+        boolean isErro = false;
+
+        try {
+
+            fornecedorPesquisa.setCnpj(fornecedorModelo.getCnpj());
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
         System.out.println("Testando classe FornecedorPesquisa metodo: setCnpj");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        assertEquals(false, isErro);
 
     }
 

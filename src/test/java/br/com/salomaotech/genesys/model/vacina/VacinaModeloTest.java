@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.model.vacina;
 
-import br.com.salomaotech.genesys.model.vacina.VacinaModelo;
 import java.util.Calendar;
 import static java.util.Objects.isNull;
 import org.junit.Test;

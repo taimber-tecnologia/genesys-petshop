@@ -12,6 +12,21 @@ public class PrincipalEventosTest {
     @Test
     public void testSetPrincipalMetodos() {
 
+        boolean isErro = false;
+
+        try {
+
+            principalEventos.setPrincipalMetodos(new PrincipalMetodos(view));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe PrincipalEventos metodo: setPrincipalMetodos");
+        assertEquals(false, isErro);
+
     }
 
     @Test

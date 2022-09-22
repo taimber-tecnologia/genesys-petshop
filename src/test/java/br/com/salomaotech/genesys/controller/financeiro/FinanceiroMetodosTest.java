@@ -52,6 +52,21 @@ public class FinanceiroMetodosTest {
     @Test
     public void testSetComboBoxCentroCusto() {
 
+        boolean isErro = false;
+
+        try {
+
+            financeiroMetodos.setComboBoxCentroCusto(comboBoxCentroCusto);
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe FinanceiroMetodos metodo: setComboBoxCentroCusto");
+        assertEquals(false, isErro);
+
     }
 
     @Test

@@ -12,6 +12,21 @@ public class EmpresaEventosTest {
     @Test
     public void testSetEmpresaMetodos() {
 
+        boolean isErro = false;
+
+        try {
+
+            empresaEventos.setEmpresaMetodos(new EmpresaMetodos(view));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe EmpresaEventos metodo: setEmpresaMetodos");
+        assertEquals(false, isErro);
+
     }
 
     @Test

@@ -1,184 +1,175 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
 package br.com.salomaotech.genesys.model.venda;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import static java.util.Objects.isNull;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author usuario
- */
 public class VendaModeloTest {
-    
-    public VendaModeloTest() {
-    }
+
+    private final VendaModelo vendaModelo = new VendaModelo();
 
     @Test
     public void testGetId() {
-        System.out.println("getId");
-        VendaModelo instance = new VendaModelo();
-        long expResult = 0L;
-        long result = instance.getId();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+
+        System.out.println("Testando classe VendaModelo metodo: getId");
+        assertEquals(true, vendaModelo.getId() == 0);
+
     }
 
     @Test
     public void testSetId() {
-        System.out.println("setId");
-        long id = 0L;
-        VendaModelo instance = new VendaModelo();
-        instance.setId(id);
-        fail("The test case is a prototype.");
+
+        long id = 1;
+        vendaModelo.setId(id);
+
+        System.out.println("Testando classe VendaModelo metodo: setId");
+        assertEquals(true, vendaModelo.getId() == id);
+
     }
 
     @Test
     public void testGetData() {
-        System.out.println("getData");
-        VendaModelo instance = new VendaModelo();
-        Calendar expResult = null;
-        Calendar result = instance.getData();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+
+        System.out.println("Testando classe VendaModelo metodo: getData");
+        assertEquals(true, isNull(vendaModelo.getData()));
+
     }
 
     @Test
     public void testSetData() {
-        System.out.println("setData");
-        Calendar data = null;
-        VendaModelo instance = new VendaModelo();
-        instance.setData(data);
-        fail("The test case is a prototype.");
+
+        Calendar data = Calendar.getInstance();
+        vendaModelo.setData(data);
+
+        System.out.println("Testando classe VendaModelo metodo: setData");
+        assertEquals(true, vendaModelo.getData().equals(data));
+
     }
 
     @Test
     public void testGetVendaModeloItemList() {
-        System.out.println("getVendaModeloItemList");
-        VendaModelo instance = new VendaModelo();
-        List<VendaModeloItem> expResult = null;
-        List<VendaModeloItem> result = instance.getVendaModeloItemList();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+
+        System.out.println("Testando classe VendaModelo metodo: getVendaModeloItemList");
+        assertEquals(true, vendaModelo.getVendaModeloItemList().isEmpty());
+
     }
 
     @Test
     public void testSetVendaModeloItemList() {
-        System.out.println("setVendaModeloItemList");
-        List<VendaModeloItem> vendaModeloItemList = null;
-        VendaModelo instance = new VendaModelo();
-        instance.setVendaModeloItemList(vendaModeloItemList);
-        fail("The test case is a prototype.");
+
+        List<VendaModeloItem> vendaModeloItemList = new ArrayList();
+        vendaModelo.setVendaModeloItemList(vendaModeloItemList);
+
+        System.out.println("Testando classe VendaModelo metodo: setVendaModeloItemList");
+        assertEquals(true, vendaModelo.getVendaModeloItemList().equals(vendaModeloItemList));
+
     }
 
     @Test
     public void testGetFormaPagamento() {
-        System.out.println("getFormaPagamento");
-        VendaModelo instance = new VendaModelo();
-        String expResult = "";
-        String result = instance.getFormaPagamento();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+
+        System.out.println("Testando classe VendaModelo metodo: getFormaPagamento");
+        assertEquals(true, isNull(vendaModelo.getFormaPagamento()));
+
     }
 
     @Test
     public void testSetFormaPagamento() {
-        System.out.println("setFormaPagamento");
-        String formaPagamento = "";
-        VendaModelo instance = new VendaModelo();
-        instance.setFormaPagamento(formaPagamento);
-        fail("The test case is a prototype.");
+
+        String formaPagamento = "Debito";
+        vendaModelo.setFormaPagamento(formaPagamento);
+
+        System.out.println("Testando classe VendaModelo metodo: setFormaPagamento");
+        assertEquals(true, vendaModelo.getFormaPagamento().equals(formaPagamento));
+
     }
 
     @Test
     public void testGetNumeroParcelas() {
-        System.out.println("getNumeroParcelas");
-        VendaModelo instance = new VendaModelo();
-        int expResult = 0;
-        int result = instance.getNumeroParcelas();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+
+        System.out.println("Testando classe VendaModelo metodo: getNumeroParcelas");
+        assertEquals(true, vendaModelo.getNumeroParcelas() == 0);
+
     }
 
     @Test
     public void testSetNumeroParcelas() {
-        System.out.println("setNumeroParcelas");
-        int numeroParcelas = 0;
-        VendaModelo instance = new VendaModelo();
-        instance.setNumeroParcelas(numeroParcelas);
-        fail("The test case is a prototype.");
+
+        int numeroParcelas = 10;
+        vendaModelo.setNumeroParcelas(numeroParcelas);
+
+        System.out.println("Testando classe VendaModelo metodo: setNumeroParcelas");
+        assertEquals(true, vendaModelo.getNumeroParcelas() == numeroParcelas);
+
     }
 
     @Test
     public void testIsIsPago() {
-        System.out.println("isIsPago");
-        VendaModelo instance = new VendaModelo();
-        boolean expResult = false;
-        boolean result = instance.isIsPago();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+
+        System.out.println("Testando classe VendaModelo metodo: isIsPago");
+        assertEquals(false, vendaModelo.isIsPago());
+
     }
 
     @Test
     public void testSetIsPago() {
-        System.out.println("setIsPago");
-        boolean isPago = false;
-        VendaModelo instance = new VendaModelo();
-        instance.setIsPago(isPago);
-        fail("The test case is a prototype.");
+
+        boolean isPago = true;
+        vendaModelo.setIsPago(isPago);
+
+        System.out.println("Testando classe VendaModelo metodo: setIsPago");
+        assertEquals(true, vendaModelo.isIsPago());
+
     }
 
     @Test
     public void testGetIdCliente() {
-        System.out.println("getIdCliente");
-        VendaModelo instance = new VendaModelo();
-        long expResult = 0L;
-        long result = instance.getIdCliente();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+
+        System.out.println("Testando classe VendaModelo metodo: getIdCliente");
+        assertEquals(true, vendaModelo.getIdCliente() == 0);
+
     }
 
     @Test
     public void testSetIdCliente() {
-        System.out.println("setIdCliente");
-        long idCliente = 0L;
-        VendaModelo instance = new VendaModelo();
-        instance.setIdCliente(idCliente);
-        fail("The test case is a prototype.");
+
+        long idCliente = 1;
+        vendaModelo.setIdCliente(idCliente);
+
+        System.out.println("Testando classe VendaModelo metodo: setIdCliente");
+        assertEquals(true, vendaModelo.getIdCliente() == idCliente);
+
     }
 
     @Test
     public void testGetRevisoes() {
-        System.out.println("getRevisoes");
-        VendaModelo instance = new VendaModelo();
-        int expResult = 0;
-        int result = instance.getRevisoes();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+
+        System.out.println("Testando classe VendaModelo metodo: getRevisoes");
+        assertEquals(true, vendaModelo.getRevisoes() == 0);
+
     }
 
     @Test
     public void testSetRevisoes() {
-        System.out.println("setRevisoes");
-        int revisoes = 0;
-        VendaModelo instance = new VendaModelo();
-        instance.setRevisoes(revisoes);
-        fail("The test case is a prototype.");
+
+        int revisoes = 5;
+        vendaModelo.setRevisoes(revisoes);
+
+        System.out.println("Testando classe VendaModelo metodo: setRevisoes");
+        assertEquals(true, vendaModelo.getRevisoes() == revisoes);
+
     }
 
     @Test
     public void testGetValor() {
-        System.out.println("getValor");
-        VendaModelo instance = new VendaModelo();
-        BigDecimal expResult = null;
-        BigDecimal result = instance.getValor();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+
+        System.out.println("Testando classe VendaModelo metodo: getValor");
+        assertEquals(true, vendaModelo.getValor().equals(new BigDecimal(0)));
+
     }
-    
+
 }

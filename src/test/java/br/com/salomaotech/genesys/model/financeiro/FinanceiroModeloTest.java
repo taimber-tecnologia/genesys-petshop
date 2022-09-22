@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.model.financeiro;
 
-import br.com.salomaotech.genesys.model.financeiro.FinanceiroModelo;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import static java.util.Objects.isNull;

@@ -12,6 +12,21 @@ public class FornecedorEventosTest {
     @Test
     public void testSetFornecedorMetodos() {
 
+        boolean isErro = false;
+
+        try {
+
+            fornecedorEventos.setFornecedorMetodos(new FornecedorMetodos(view));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe FornecedorEventos metodo: setFornecedorMetodos");
+        assertEquals(false, isErro);
+
     }
 
     @Test

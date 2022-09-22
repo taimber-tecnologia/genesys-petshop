@@ -12,6 +12,21 @@ public class ClienteEventosTest {
     @Test
     public void testSetClienteMetodos() {
 
+        boolean isErro = false;
+
+        try {
+
+            clienteEventos.setClienteMetodos(new ClienteMetodos(view));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe ClienteEventos método: setClienteMetodos");
+        assertEquals(false, isErro);
+
     }
 
     @Test

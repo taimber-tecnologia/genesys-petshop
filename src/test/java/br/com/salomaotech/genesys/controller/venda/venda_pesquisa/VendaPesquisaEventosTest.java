@@ -1,6 +1,8 @@
 package br.com.salomaotech.genesys.controller.venda.venda_pesquisa;
 
+import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.view.JFvendaPesquisa;
+import javax.swing.JComboBox;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -12,10 +14,40 @@ public class VendaPesquisaEventosTest {
     @Test
     public void testSetVendaPesquisaMetodos() {
 
+        boolean isErro = false;
+
+        try {
+
+            vendaPesquisaEventos.setVendaPesquisaMetodos(new VendaPesquisaMetodos(view));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe VendaPesquisaEventos metodo: setVendaPesquisaMetodos");
+        assertEquals(false, isErro);
+
     }
 
     @Test
     public void testSetComboBoxClientesPesquisa() {
+
+        boolean isErro = false;
+
+        try {
+
+            vendaPesquisaEventos.setComboBoxClientesPesquisa(new ComboBoxClientes(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe VendaPesquisaEventos metodo: setComboBoxClientesPesquisa");
+        assertEquals(false, isErro);
 
     }
 

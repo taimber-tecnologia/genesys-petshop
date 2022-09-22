@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.model.fornecedor;
 
-import br.com.salomaotech.genesys.model.fornecedor.FornecedorModelo;
 import static java.util.Objects.isNull;
 import org.junit.Test;
 import static org.junit.Assert.*;

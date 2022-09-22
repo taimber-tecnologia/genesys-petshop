@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.model.vacina;
 
-import br.com.salomaotech.genesys.model.vacina.VacinaModelo;
-import br.com.salomaotech.genesys.model.vacina.VacinaPesquisa;
 import br.com.salomaotech.genesys.model.animal.AnimalModelo;
 import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.view.JFvacina;

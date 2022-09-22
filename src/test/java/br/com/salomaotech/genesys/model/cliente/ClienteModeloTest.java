@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.model.cliente;
 
-import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import java.util.Calendar;
 import static java.util.Objects.isNull;
 import org.junit.Test;

@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.model.produto;
 
-import br.com.salomaotech.genesys.model.produto.ProdutoPesquisa;
-import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.view.JFproduto;
 import br.com.salomaotech.sistema.jpa.Repository;
 import java.math.BigDecimal;
@@ -12,7 +10,7 @@ public class ProdutoPesquisaTest {
 
     private final JFproduto view = new JFproduto();
     private final ProdutoModelo produtoModelo = new ProdutoModelo();
-    private ProdutoPesquisa produtoPesquisa;
+    private ProdutoPesquisa produtoPesquisa = new ProdutoPesquisa(view.jTresultados);
 
     public ProdutoPesquisaTest() {
 
@@ -28,22 +26,40 @@ public class ProdutoPesquisaTest {
     @Test
     public void testSetNome() {
 
-        produtoPesquisa = new ProdutoPesquisa(view.jTresultados);
-        produtoPesquisa.setNome(produtoModelo.getNome());
-        produtoPesquisa.pesquisar();
+        boolean isErro = false;
+
+        try {
+
+            produtoPesquisa.setNome(produtoModelo.getNome());
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
         System.out.println("Testando classe ProdutoPesquisa metodo: setNome");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        assertEquals(false, isErro);
 
     }
 
     @Test
     public void testSetCategoria() {
 
-        produtoPesquisa = new ProdutoPesquisa(view.jTresultados);
-        produtoPesquisa.setCategoria(produtoModelo.getCategoria());
-        produtoPesquisa.pesquisar();
+        boolean isErro = false;
+
+        try {
+
+            produtoPesquisa.setCategoria(produtoModelo.getCategoria());
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
         System.out.println("Testando classe ProdutoPesquisa metodo: setCategoria");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        assertEquals(false, isErro);
 
     }
 

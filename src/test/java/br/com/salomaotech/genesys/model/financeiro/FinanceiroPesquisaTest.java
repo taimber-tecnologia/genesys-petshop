@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.model.financeiro;
 
-import br.com.salomaotech.genesys.model.financeiro.FinanceiroModelo;
-import br.com.salomaotech.genesys.model.financeiro.FinanceiroPesquisa;
 import br.com.salomaotech.genesys.model.centro_custo.CentroCustoModelo;
 import br.com.salomaotech.genesys.view.JFfinanceiro;
 import br.com.salomaotech.sistema.jpa.Repository;
@@ -40,20 +38,40 @@ public class FinanceiroPesquisaTest {
     @Test
     public void testSetDataInicialDate() {
 
-        financeiroPesquisa.setDataInicialDate(calendar);
-        financeiroPesquisa.pesquisar();
+        boolean isErro = false;
+
+        try {
+
+            financeiroPesquisa.setDataInicialDate(calendar);
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
         System.out.println("Testando classe FinanceiroPesquisa metodo: setDataInicialDate");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        assertEquals(false, isErro);
 
     }
 
     @Test
     public void testSetDataFinalDate() {
 
-        financeiroPesquisa.setDataFinalDate(calendar);
-        financeiroPesquisa.pesquisar();
+        boolean isErro = false;
+
+        try {
+
+            financeiroPesquisa.setDataFinalDate(calendar);
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
         System.out.println("Testando classe FinanceiroPesquisa metodo: setDataFinalDate");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        assertEquals(false, isErro);
 
     }
 

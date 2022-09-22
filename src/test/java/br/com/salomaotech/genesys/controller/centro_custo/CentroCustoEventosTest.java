@@ -12,6 +12,21 @@ public class CentroCustoEventosTest {
     @Test
     public void testSetCentroCustoMetodos() {
 
+        boolean isErro = false;
+
+        try {
+
+            centroCustoEventos.setCentroCustoMetodos(new CentroCustoMetodos(view));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe CentroCustoEventos metodo: setCentroCustoMetodos");
+        assertEquals(false, isErro);
+
     }
 
     @Test

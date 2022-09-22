@@ -1,6 +1,9 @@
 package br.com.salomaotech.genesys.controller.agenda;
 
+import br.com.salomaotech.genesys.model.animal.ComboBoxAnimais;
+import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.view.JFagenda;
+import javax.swing.JComboBox;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -12,20 +15,80 @@ public class AgendaEventosTest {
     @Test
     public void testSetAgendaMetodos() {
 
+        boolean isErro = false;
+
+        try {
+
+            agendaEventos.setAgendaMetodos(new AgendaMetodos(view));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AgendaEventos método: setAgendaMetodos");
+        assertEquals(false, isErro);
+
     }
 
     @Test
     public void testSetComboBoxClientesCadastro() {
+
+        boolean isErro = false;
+
+        try {
+
+            agendaEventos.setComboBoxClientesCadastro(new ComboBoxClientes(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AgendaEventos método: setComboBoxClientesCadastro");
+        assertEquals(false, isErro);
 
     }
 
     @Test
     public void testSetComboBoxClientesPesquisa() {
 
+        boolean isErro = false;
+
+        try {
+
+            agendaEventos.setComboBoxClientesPesquisa(new ComboBoxClientes(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AgendaEventos método: setComboBoxClientesPesquisa");
+        assertEquals(false, isErro);
+
     }
 
     @Test
     public void testSetComboBoxAnimaisCadastro() {
+
+        boolean isErro = false;
+
+        try {
+
+            agendaEventos.setComboBoxAnimaisCadastro(new ComboBoxAnimais(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AgendaEventos método: setComboBoxAnimaisCadastro");
+        assertEquals(false, isErro);
 
     }
 

@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.model.animal;
 
-import br.com.salomaotech.genesys.model.animal.ComboBoxAnimais;
-import br.com.salomaotech.genesys.model.animal.AnimalModelo;
 import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.sistema.jpa.Repository;
 import javax.swing.JComboBox;

@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.model.fornecedor;
 
-import br.com.salomaotech.genesys.model.fornecedor.ComboBoxFornecedores;
-import br.com.salomaotech.genesys.model.fornecedor.FornecedorModelo;
 import br.com.salomaotech.sistema.jpa.Repository;
 import javax.swing.JComboBox;
 import org.junit.Test;

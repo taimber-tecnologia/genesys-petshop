@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.model.empresa;
 
-import br.com.salomaotech.genesys.model.empresa.ImagemEmpresa;
 import static java.util.Objects.isNull;
 import javax.swing.JPanel;
 import org.junit.Test;
