@@ -12,8 +12,8 @@ public class VendaConcluiEventosTest {
 
     private final JFvendaConclui view = new JFvendaConclui();
     private final JFvendaInicia jFvendaInicia = new JFvendaInicia();
-    private final VendaConcluiEventos vendaConcluiEventos = new VendaConcluiEventos(view);
     private final VendaModelo vendaModelo = new VendaModelo();
+    private final VendaConcluiEventos vendaConcluiEventos = new VendaConcluiEventos(view, vendaModelo);
     private final ComboBoxClientes comboBoxClientes = new ComboBoxClientes(new JComboBox());
 
     @Test
@@ -46,6 +46,7 @@ public class VendaConcluiEventosTest {
         assertEquals(true, view.jBcancelar.getActionListeners().length == 1);
         assertEquals(true, view.jBconcluir.getActionListeners().length == 1);
         assertEquals(true, view.jCforma.getActionListeners().length == 1);
+        assertEquals(true, view.jBimprimir.getActionListeners().length == 1);
 
     }
 

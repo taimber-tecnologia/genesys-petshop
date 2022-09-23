@@ -20,7 +20,7 @@ public class VendaConcluiController {
         vendaConcluiMetodos = new VendaConcluiMetodos(view, vendaModelo, viewVenda, comboBoxClientes);
 
         /* eventos */
-        vendaConcluiEventos = new VendaConcluiEventos(view);
+        vendaConcluiEventos = new VendaConcluiEventos(view, vendaModelo);
 
         /* preenche comboboxes */
         comboBoxClientes.preencher();

@@ -11,7 +11,7 @@ public class GerarPdfTest {
     public void testGerarPdf() {
 
         String pastaDeTeste = pathLocal + "gera_pdf/";
-        GerarPdf pdf = new GerarPdf(pastaDeTeste + "teste0001", null);
+        GerarPdf pdf = new GerarPdf(pastaDeTeste + "teste0001");
 
         for (int i = 0; i <= 10; i++) {
 
@@ -20,7 +20,7 @@ public class GerarPdfTest {
         }
 
         System.out.println("Testando classe GerarPdf metodo: gerar");
-        assertEquals(true, pdf.gerar("Teste unitário"));
+        assertEquals(true, pdf.gerar());
 
     }
 

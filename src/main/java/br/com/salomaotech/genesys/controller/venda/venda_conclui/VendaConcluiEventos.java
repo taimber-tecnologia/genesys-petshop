@@ -1,5 +1,8 @@
 package br.com.salomaotech.genesys.controller.venda.venda_conclui;
 
+import br.com.salomaotech.genesys.model.configuracoes.PastasSistema;
+import br.com.salomaotech.genesys.model.venda.VendaComprovantePdf;
+import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.view.JFvendaConclui;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import java.awt.event.ActionEvent;
@@ -11,9 +14,11 @@ public class VendaConcluiEventos {
 
     private final JFvendaConclui view;
     private VendaConcluiMetodos vendaConcluiMetodos;
+    private final VendaModelo vendaModelo;
 
-    public VendaConcluiEventos(JFvendaConclui view) {
+    public VendaConcluiEventos(JFvendaConclui view, VendaModelo vendaModelo) {
         this.view = view;
+        this.vendaModelo = vendaModelo;
     }
 
     public void setVendaConcluiMetodos(VendaConcluiMetodos vendaConcluiMetodos) {
@@ -73,6 +78,13 @@ public class VendaConcluiEventos {
         view.jCforma.addActionListener((ActionEvent e) -> {
 
             vendaConcluiMetodos.habilitarCampos();
+
+        });
+
+        /* botão imprimir */
+        view.jBimprimir.addActionListener((ActionEvent e) -> {
+
+            new VendaComprovantePdf(new PastasSistema().getSubPastaImpressao(), vendaModelo.getId()).gerar();
 
         });
 

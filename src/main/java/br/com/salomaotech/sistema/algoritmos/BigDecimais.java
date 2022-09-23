@@ -26,6 +26,27 @@ public class BigDecimais {
     }
 
     /**
+     * Formata String para BigDecimal com casas decimais
+     *
+     * @param numero Número em String
+     * @param numeroCasasDecimais Número de casas decimais
+     * @return BigDecimal
+     */
+    public static BigDecimal formatarParaBigDecimalComCasaDecimal(String numero, int numeroCasasDecimais) {
+
+        try {
+
+            return new BigDecimal(numero.replace(",", ".")).setScale(numeroCasasDecimais, RoundingMode.FLOOR);
+
+        } catch (Exception ex) {
+
+            return new BigDecimal(0);
+
+        }
+
+    }
+
+    /**
      * Divide um número exemplo 1000/3 = 333.33
      *
      * @param valor Valor a ser dividido

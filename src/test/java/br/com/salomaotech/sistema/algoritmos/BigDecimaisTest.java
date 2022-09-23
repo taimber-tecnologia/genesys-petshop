@@ -30,6 +30,29 @@ public class BigDecimaisTest {
     }
 
     @Test
+    public void testFormatarParaBigDecimalComCasaDecimal() {
+
+        System.out.println("Testando classe BigDecimais metodo: formatarParaBigDecimalComCasaDecimal etapa 01");
+        assertEquals(true, BigDecimais.formatarParaBigDecimalComCasaDecimal("199,99", 3).equals(new BigDecimal("199.990")));
+
+        System.out.println("Testando classe BigDecimais metodo: formatarParaBigDecimalComCasaDecimal etapa 02");
+        assertEquals(true, BigDecimais.formatarParaBigDecimalComCasaDecimal("199,999,99", 3).equals(new BigDecimal("0")));
+
+        System.out.println("Testando classe BigDecimais metodo: formatarParaBigDecimalComCasaDecimal etapa 03");
+        assertEquals(true, BigDecimais.formatarParaBigDecimalComCasaDecimal("199.999.99", 3).equals(new BigDecimal("0")));
+
+        System.out.println("Testando classe BigDecimais metodo: formatarParaBigDecimalComCasaDecimal etapa 04");
+        assertEquals(true, BigDecimais.formatarParaBigDecimalComCasaDecimal("199.999,99", 3).equals(new BigDecimal("0")));
+
+        System.out.println("Testando classe BigDecimais metodo: formatarParaBigDecimalComCasaDecimal etapa 05");
+        assertEquals(true, BigDecimais.formatarParaBigDecimalComCasaDecimal("199.999.999,999,99", 3).equals(new BigDecimal("0")));
+
+        System.out.println("Testando classe BigDecimais metodo: formatarParaBigDecimalComCasaDecimal etapa 06");
+        assertEquals(true, BigDecimais.formatarParaBigDecimalComCasaDecimal("abc123", 3).equals(new BigDecimal("0")));
+
+    }
+
+    @Test
     public void testDividir() {
 
         System.out.println("Testando classe BigDecimais metodo: dividir etapa 01");
