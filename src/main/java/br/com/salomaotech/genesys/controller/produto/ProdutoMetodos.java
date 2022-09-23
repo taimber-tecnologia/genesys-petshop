@@ -1,6 +1,7 @@
 package br.com.salomaotech.genesys.controller.produto;
 
 import br.com.salomaotech.genesys.model.fornecedor.ComboBoxFornecedores;
+import br.com.salomaotech.genesys.model.produto.ImagemProduto;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.produto.ProdutoPesquisa;
 import br.com.salomaotech.genesys.view.JFproduto;
@@ -39,6 +40,8 @@ public class ProdutoMetodos {
     public void resetarView() {
 
         popularFormulario(new ProdutoModelo());
+        view.jPdadosPerfilFoto.removeAll();
+        view.jPdadosPerfilFoto.repaint();
         view.jTnome.requestFocus();
         view.jCmedida.setSelectedIndex(-1);
 
@@ -60,6 +63,8 @@ public class ProdutoMetodos {
 
         boolean isIdAberto = view.getId() != 0;
         view.jBcadastroExcluir.setEnabled(isIdAberto);
+        view.jBadicionaFoto.setEnabled(isIdAberto);
+        view.jBremoveFoto.setEnabled(isIdAberto);
 
     }
 
@@ -72,6 +77,16 @@ public class ProdutoMetodos {
         popUp.adicionarMenu(view.jTdescricao);
         popUp.adicionarMenu(view.jTquantidade);
         popUp.adicionarMenu(view.jTestoqueMinimo);
+
+    }
+
+    public void abrirCadastro(long id) {
+
+        Repository repository = new Repository(new ProdutoModelo());
+        ProdutoModelo produtoModelo = (ProdutoModelo) repository.findById(id);
+        popularFormulario(produtoModelo);
+        new ImagemProduto().exibir(String.valueOf(id), view.jPdadosPerfilFoto);
+        habilitarCampos();
 
     }
 

@@ -31,28 +31,4 @@ public class PastasClienteTest {
 
     }
 
-    @Test
-    public void testGetSubPastaDeAnexosVenda() {
-
-        System.out.println("Testando classe PastasCliente método: getSubPastaDeAnexosVenda");
-        assertEquals(true, new PastasCliente("1").getSubPastaDeAnexosVenda("1").equals(pathLocal + "/target/arquivos/cliente/1/venda/1"));
-
-    }
-
-    @Test
-    public void testGetSubPastaDeAnexosDebito() {
-
-        System.out.println("Testando classe PastasCliente método: getSubPastaDeAnexosDebito");
-        assertEquals(true, new PastasCliente("1").getSubPastaDeAnexosDebito("1").equals(pathLocal + "/target/arquivos/cliente/1/debito/1"));
-
-    }
-
-    @Test
-    public void testGetSubPastaDeAnexosAnamnese() {
-
-        System.out.println("Testando classe PastasCliente método: getSubPastaDeAnexosAnamnese");
-        assertEquals(true, new PastasCliente("1").getSubPastaDeAnexosAnamnese("1").equals(pathLocal + "/target/arquivos/cliente/1/anamnese/1"));
-
-    }
-
 }

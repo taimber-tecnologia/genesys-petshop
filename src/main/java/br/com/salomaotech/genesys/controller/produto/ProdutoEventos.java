@@ -3,10 +3,10 @@ package br.com.salomaotech.genesys.controller.produto;
 import br.com.salomaotech.genesys.controller.fornecedor.FornecedorController;
 import br.com.salomaotech.genesys.model.fornecedor.ComboBoxFornecedores;
 import br.com.salomaotech.genesys.model.produto.ComboBoxProdutoCategoria;
+import br.com.salomaotech.genesys.model.produto.ImagemProduto;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.produto.ProdutoPesquisa;
 import br.com.salomaotech.genesys.view.JFproduto;
-import br.com.salomaotech.sistema.jpa.Repository;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -108,12 +108,8 @@ public class ProdutoEventos {
 
                 if (e.getClickCount() == 2) {
 
-                    long id = (long) view.jTresultados.getModel().getValueAt(view.jTresultados.getSelectedRow(), 0);
-                    Repository repository = new Repository(new ProdutoModelo());
-                    ProdutoModelo produtoModelo = (ProdutoModelo) repository.findById(id);
-                    produtoMetodos.popularFormulario(produtoModelo);
-                    produtoMetodos.habilitarCampos();
                     view.jTabaPrincipal.setSelectedIndex(0);
+                    produtoMetodos.abrirCadastro((long) view.jTresultados.getModel().getValueAt(view.jTresultados.getSelectedRow(), 0));
 
                 }
 
@@ -198,6 +194,28 @@ public class ProdutoEventos {
         view.jBpesquisaFornecedor.addActionListener((ActionEvent e) -> {
 
             new FornecedorController().construir();
+
+        });
+
+        /* adicionar foto */
+        view.jBadicionaFoto.addActionListener((ActionEvent e) -> {
+
+            if (ImagemProduto.upload(String.valueOf(view.getId())) == true) {
+
+                new ImagemProduto().exibir(String.valueOf(view.getId()), view.jPdadosPerfilFoto);
+
+            }
+
+        });
+
+        /* remover foto */
+        view.jBremoveFoto.addActionListener((ActionEvent e) -> {
+
+            if (JOptionPane.showConfirmDialog(null, "Excluir foto do produto?") == 0) {
+
+                ImagemProduto.remover(String.valueOf(view.getId()), view.jPdadosPerfilFoto);
+
+            }
 
         });
 

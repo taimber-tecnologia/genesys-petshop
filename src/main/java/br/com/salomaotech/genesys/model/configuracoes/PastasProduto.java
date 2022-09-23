@@ -1,6 +1,6 @@
 package br.com.salomaotech.genesys.model.configuracoes;
 
-public class PastasCliente {
+public class PastasProduto {
 
     private final String pastaRaiz;
     private final String subPastaDeFotosDoPerfil;
@@ -9,15 +9,15 @@ public class PastasCliente {
     /**
      * Construtor
      *
-     * @param idCliente ID do cliente
+     * @param idProduto ID do produto
      */
-    public PastasCliente(String idCliente) {
+    public PastasProduto(String idProduto) {
 
         /* pasta raiz */
-        pastaRaiz = new PastasSistema().getPastaRaiz() + "cliente/" + idCliente + "/";
+        pastaRaiz = new PastasSistema().getPastaRaiz() + "produto/" + idProduto + "/";
 
         /* subpastas */
-        subPastaDeFotosDoPerfil = pastaRaiz + "foto_perfil/";
+        subPastaDeFotosDoPerfil = pastaRaiz + "foto_produto/";
         subPastaDeTemporarios = pastaRaiz + "temporario/";
 
     }
