@@ -64,6 +64,7 @@ public class JFvendaInicia extends javax.swing.JFrame {
         jTvendaValorTotal = new javax.swing.JTextField();
         jBvendaFinaliza = new javax.swing.JButton();
         jBvendaExcluir = new javax.swing.JButton();
+        jBimprimir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Vendas - Genesys PetShop");
@@ -321,6 +322,8 @@ public class JFvendaInicia extends javax.swing.JFrame {
         jBvendaExcluir.setForeground(new java.awt.Color(255, 255, 255));
         jBvendaExcluir.setText("EXCLUIR VENDA");
 
+        jBimprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/impressora32x.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -338,7 +341,8 @@ public class JFvendaInicia extends javax.swing.JFrame {
                                 .addComponent(jBvendaFinaliza)
                                 .addGap(18, 18, 18)
                                 .addComponent(jBvendaExcluir)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jBimprimir)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -354,7 +358,8 @@ public class JFvendaInicia extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jBvendaFinaliza, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                            .addComponent(jBvendaExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jBvendaExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBimprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
 
@@ -404,6 +409,7 @@ public class JFvendaInicia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton jBimprimir;
     public javax.swing.JButton jBprodutoAdicionaItem;
     public javax.swing.JButton jBprodutoLimpaItem;
     public javax.swing.JButton jBprodutoSelecionadoRemoverItem;

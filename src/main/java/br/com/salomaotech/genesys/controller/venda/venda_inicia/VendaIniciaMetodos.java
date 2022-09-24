@@ -132,6 +132,7 @@ public class VendaIniciaMetodos {
     public void habilitarCamposDeExcluirVenda() {
 
         view.jBvendaExcluir.setVisible(vendaModelo.getId() != 0);
+        view.jBimprimir.setVisible(vendaModelo.getId() != 0);
 
     }
 

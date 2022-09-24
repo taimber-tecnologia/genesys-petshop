@@ -1,8 +1,10 @@
 package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
+import br.com.salomaotech.genesys.model.configuracoes.PastasSistema;
 import br.com.salomaotech.genesys.model.produto.ComboBoxProduto;
 import br.com.salomaotech.genesys.model.produto.ImagemProduto;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
+import br.com.salomaotech.genesys.model.venda.VendaComprovantePdf;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaMovimenta;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
@@ -226,6 +228,13 @@ public class VendaIniciaEventos implements Command {
             public void windowDeactivated(WindowEvent e) {
 
             }
+
+        });
+
+        /* botão imprimir */
+        view.jBimprimir.addActionListener((ActionEvent e) -> {
+
+            new VendaComprovantePdf(new PastasSistema().getSubPastaImpressao(), view.getId()).gerar();
 
         });
 

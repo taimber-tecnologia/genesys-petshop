@@ -12,12 +12,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class ImagemProduto {
 
-    /**
-     * Faz o upload para a pasta da imagem de produto
-     *
-     * @param idProduto ID de cadastro do produto
-     * @return True para conseguiu fazer o upload
-     */
     public static boolean upload(String idProduto) {
 
         String pathDestino = new PastasProduto(idProduto).getSubPastaDeFotosDoPerfil();
@@ -39,7 +33,7 @@ public class ImagemProduto {
 
             /* redimensiona a imagem copiada */
             File arquivo = new File(copiaArquivosComDialogo.getListaDeArquivosCopiados().get(0));
-            ImagemRedimensiona imagemRedimensiona = new ImagemRedimensiona(arquivo.getAbsolutePath(), arquivo.getAbsolutePath(), 192);
+            ImagemRedimensiona imagemRedimensiona = new ImagemRedimensiona(arquivo.getAbsolutePath(), arquivo.getAbsolutePath(), 230);
             imagemRedimensiona.redimensionar();
             return arquivo.exists();
 
@@ -54,13 +48,6 @@ public class ImagemProduto {
 
     }
 
-    /**
-     * Exibe a imagem de perfil
-     *
-     * @param idProduto ID de cadastro do produto
-     * @param painel JPanel onde será exibida a imagem
-     * @return true sucesso
-     */
     public boolean exibir(String idProduto, JPanel painel) {
 
         try {
@@ -79,18 +66,13 @@ public class ImagemProduto {
 
     }
 
-    /**
-     * Remove a imagem do perfil
-     *
-     * @param idProduto ID de cadastro do produto
-     * @param jPanel JPanel onde será exibida a imagem
-     * @return true sucesso
-     */
     public static boolean remover(String idProduto, JPanel jPanel) {
 
-        /* remove da view e do disco */
+        /* atualiza a view */
         jPanel.removeAll();
         jPanel.repaint();
+
+        /* remove da view e do disco */
         return RemovePastaDeArquivos.remover(new PastasProduto(idProduto).getSubPastaDeFotosDoPerfil());
 
     }

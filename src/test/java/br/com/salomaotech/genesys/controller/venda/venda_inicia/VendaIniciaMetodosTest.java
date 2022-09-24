@@ -169,12 +169,14 @@ public class VendaIniciaMetodosTest {
         vendaIniciaMetodos.habilitarCamposDeExcluirVenda();
         System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCamposDeExcluirVenda etapa 01");
         assertEquals(false, view.jBvendaExcluir.isVisible());
+        assertEquals(false, view.jBimprimir.isVisible());
 
         /* esperado todos os campos visiveis */
         vendaIniciaMetodos.abrirCadastro(vendaModelo.getId());
         vendaIniciaMetodos.habilitarCamposDeExcluirVenda();
         System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCamposDeExcluirVenda etapa 02");
         assertEquals(true, view.jBvendaExcluir.isVisible());
+        assertEquals(true, view.jBimprimir.isVisible());
 
     }
 

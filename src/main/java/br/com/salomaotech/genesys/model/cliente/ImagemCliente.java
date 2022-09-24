@@ -12,12 +12,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class ImagemCliente {
 
-    /**
-     * Faz o upload para a pasta da imagem de profile
-     *
-     * @param idCliente ID de cadastro do cliente
-     * @return True para conseguiu fazer o upload
-     */
     public static boolean upload(String idCliente) {
 
         String pathDestino = new PastasCliente(idCliente).getSubPastaDeFotosDoPerfil();
@@ -54,13 +48,6 @@ public class ImagemCliente {
 
     }
 
-    /**
-     * Exibe a imagem de perfil
-     *
-     * @param idCliente ID de cadastro do cliente
-     * @param painel JPanel onde será exibida a imagem
-     * @return true sucesso
-     */
     public boolean exibir(String idCliente, JPanel painel) {
 
         try {
@@ -79,18 +66,13 @@ public class ImagemCliente {
 
     }
 
-    /**
-     * Remove a imagem do perfil
-     *
-     * @param idCliente ID de cadastro do cliente
-     * @param jPanel JPanel onde será exibida a imagem
-     * @return true sucesso
-     */
     public static boolean remover(String idCliente, JPanel jPanel) {
 
-        /* remove da view e do disco */
+        /* atualiza a view */
         jPanel.removeAll();
         jPanel.repaint();
+
+        /* remove da view e do disco */
         return RemovePastaDeArquivos.remover(new PastasCliente(idCliente).getSubPastaDeFotosDoPerfil());
 
     }

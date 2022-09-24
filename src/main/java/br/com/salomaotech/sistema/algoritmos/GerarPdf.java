@@ -4,6 +4,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,7 +16,7 @@ public class GerarPdf {
 
     private final String pathDeSaidaDoArquivo;
     private final List conteudoDoCorpoDoDocumento = new ArrayList();
-    private final Document documento = new Document();
+    private final Document document = new Document();
 
     public GerarPdf(String pathDeSaidaDoArquivo) {
 
@@ -31,7 +32,13 @@ public class GerarPdf {
 
     public void addConteudo(String conteudo) {
 
-        this.conteudoDoCorpoDoDocumento.add(conteudo);
+        conteudoDoCorpoDoDocumento.add(conteudo);
+
+    }
+
+    public void addConteudo(PdfPTable pdfPTable) {
+
+        conteudoDoCorpoDoDocumento.add(pdfPTable);
 
     }
 
@@ -43,23 +50,33 @@ public class GerarPdf {
             CriaPastaLocal.criar(new File(this.pathDeSaidaDoArquivo).getParent());
 
             /* abre o documento */
-            PdfWriter.getInstance(documento, new FileOutputStream(pathDeSaidaDoArquivo));
-            documento.open();
+            PdfWriter.getInstance(document, new FileOutputStream(pathDeSaidaDoArquivo));
+            document.open();
 
             /* adiciona as linhas de conteúdo do corpo do documento */
             this.conteudoDoCorpoDoDocumento.forEach(linha -> {
 
                 try {
 
-                    this.documento.add(new Paragraph((String) linha, new Font(Font.FontFamily.COURIER, 8, Font.NORMAL)));
+                    switch (linha.getClass().getName()) {
 
-                } catch (DocumentException ex) {
+                        case "java.lang.String":
+                            document.add(new Paragraph((String) linha, new Font(Font.FontFamily.COURIER, 8, Font.NORMAL)));
+                            break;
+
+                        case "com.itextpdf.text.pdf.PdfPTable":
+                            document.add((PdfPTable) linha);
+                            break;
+
+                    }
+
+                } catch (DocumentException | java.lang.NullPointerException ex) {
 
                 }
 
             });
 
-            documento.close();
+            document.close();
             return new File(pathDeSaidaDoArquivo).exists();
 
         } catch (DocumentException | IOException | java.lang.NullPointerException ex) {
