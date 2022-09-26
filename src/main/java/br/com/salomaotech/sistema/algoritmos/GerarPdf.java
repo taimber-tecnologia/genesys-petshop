@@ -4,6 +4,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.File;
@@ -16,11 +17,20 @@ public class GerarPdf {
 
     private final String pathDeSaidaDoArquivo;
     private final List conteudoDoCorpoDoDocumento = new ArrayList();
-    private final Document document = new Document();
+    private final Document document;
+    private final int largura = 257;
+    private final int altura = 400;
+    private final int margemEsquerda = 8;
+    private final int margemDireita = 0;
+    private final int margemTopo = 5;
+    private final int margemRodape = 5;
 
     public GerarPdf(String pathDeSaidaDoArquivo) {
 
         this.pathDeSaidaDoArquivo = pathDeSaidaDoArquivo + ".pdf";
+
+        /* novo documento */
+        document = new Document(new Rectangle(largura, altura), margemEsquerda, margemDireita, margemTopo, margemRodape);
 
     }
 

@@ -25,6 +25,8 @@ public class VendaModelo implements Modelo, Serializable {
     @Temporal(TemporalType.DATE)
     private Calendar data;
 
+    private String hora;
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VendaModeloItem> vendaModeloItemList = new ArrayList();
 
@@ -50,6 +52,14 @@ public class VendaModelo implements Modelo, Serializable {
 
     public void setData(Calendar data) {
         this.data = data;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 
     public List<VendaModeloItem> getVendaModeloItemList() {

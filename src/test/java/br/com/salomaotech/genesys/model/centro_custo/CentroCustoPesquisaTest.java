@@ -46,7 +46,7 @@ public class CentroCustoPesquisaTest {
 
         /* utilizando filtro: nenhum */
         centroCustoPesquisa = new CentroCustoPesquisa(view.jTresultados);
-        view.jTpesquisaNome.setText("");
+        view.jTpesquisaNome.setText(null);
         centroCustoPesquisa.pesquisar();
         System.out.println("Testando classe CentroCustoPesquisa metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);

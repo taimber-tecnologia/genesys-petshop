@@ -73,7 +73,7 @@ public class VendaConcluiMetodos {
 
             case "Dinheiro":
                 view.jTvalorRecebido.setEditable(true);
-                view.jTvalorRecebido.setText("");
+                view.jTvalorRecebido.setText(null);
                 view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
                 view.jLparcela.setVisible(false);
                 view.jCparcela.setVisible(false);
@@ -124,6 +124,7 @@ public class VendaConcluiMetodos {
     public void finalizarVenda() {
 
         vendaModelo.setData(view.jDdata.getCalendar());
+        vendaModelo.setHora(Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + ":" + Calendar.getInstance().get(Calendar.MINUTE));
         vendaModelo.setFormaPagamento(view.jCforma.getSelectedItem().toString());
         vendaModelo.setNumeroParcelas(Integer.valueOf(view.jCparcela.getSelectedItem().toString()));
         vendaModelo.setIsPago(false);

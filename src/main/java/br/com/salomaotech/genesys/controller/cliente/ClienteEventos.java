@@ -50,6 +50,7 @@ public class ClienteEventos {
                 /* valida se salvou e atualiza os dados na view */
                 if (clienteModelo.getId() != 0) {
 
+                    view.jTabaCadastro.setSelectedIndex(0);
                     clienteMetodos.popularFormulario(clienteModelo);
                     clienteMetodos.habilitarCampos();
                     new ClientePesquisa(view.jTresultados).pesquisar();

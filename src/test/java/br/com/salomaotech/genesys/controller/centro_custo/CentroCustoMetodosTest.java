@@ -130,7 +130,7 @@ public class CentroCustoMetodosTest {
     public void testPesquisar() {
 
         /* usando filtro: nenhum */
-        view.jTpesquisaNome.setText("");
+        view.jTpesquisaNome.setText(null);
         centroCustoMetodos.pesquisar();
         System.out.println("Testando classe CentroCustoMetodos metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);

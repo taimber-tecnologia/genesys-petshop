@@ -58,7 +58,7 @@ public class VendaComprovantePdf {
         gerarPdf.addConteudo("");
         gerarPdf.addConteudo("==================================================");
         gerarPdf.addConteudo("Data: " + dataBr);
-        gerarPdf.addConteudo("Hora: ");
+        gerarPdf.addConteudo("Hora: " + vendaModelo.getHora());
         gerarPdf.addConteudo("Cliente: Teste");
         gerarPdf.addConteudo("Codigo: " + vendaModelo.getId());
         gerarPdf.addConteudo("==================================================");
@@ -126,7 +126,7 @@ public class VendaComprovantePdf {
         pdfPTable.setHorizontalAlignment(Element.ALIGN_LEFT);
         pdfPTable.addCell(createCell("Vencimento", Element.ALIGN_LEFT, Font.BOLD));
         pdfPTable.addCell(createCell("Valor", Element.ALIGN_LEFT, Font.BOLD));
-        pdfPTable.addCell(createCell("Forma de pagamento", Element.ALIGN_LEFT, Font.BOLD));
+        pdfPTable.addCell(createCell("Forma pgto.", Element.ALIGN_LEFT, Font.BOLD));
         pdfPTable.addCell(createCell(dataBr, Element.ALIGN_LEFT, Font.NORMAL));
         pdfPTable.addCell(createCell(valorTotalBr, Element.ALIGN_LEFT, Font.NORMAL));
         pdfPTable.addCell(createCell(vendaModelo.getFormaPagamento(), Element.ALIGN_LEFT, Font.NORMAL));

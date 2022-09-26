@@ -26,21 +26,21 @@ public class CentroCustoValidadorTest {
     public void testIsValido() {
 
         /* usando filtro: nenhum */
-        view.jTcadastroCodigo.setText("");
-        view.jTcadastroNome.setText("");
+        view.jTcadastroCodigo.setText(null);
+        view.jTcadastroNome.setText(null);
         centroCustoValidador = new CentroCustoValidador(view, centroCustoModelo.getId());
         System.out.println("Testando classe CentroCustoValidador metodo: isValido etapa 01");
         assertEquals(false, centroCustoValidador.isValido());
 
         /* usando filtro: codigo */
         view.jTcadastroCodigo.setText("1.2");
-        view.jTcadastroNome.setText("");
+        view.jTcadastroNome.setText(null);
         centroCustoValidador = new CentroCustoValidador(view, centroCustoModelo.getId());
         System.out.println("Testando classe CentroCustoValidador metodo: isValido etapa 02");
         assertEquals(false, centroCustoValidador.isValido());
 
         /* usando filtro: nome */
-        view.jTcadastroCodigo.setText("");
+        view.jTcadastroCodigo.setText(null);
         view.jTcadastroNome.setText("Teste");
         centroCustoValidador = new CentroCustoValidador(view, centroCustoModelo.getId());
         System.out.println("Testando classe CentroCustoValidador metodo: isValido etapa 03");
@@ -73,8 +73,8 @@ public class CentroCustoValidadorTest {
     public void testGetMensagensErro() {
 
         /* usando filtro: nenhum */
-        view.jTcadastroCodigo.setText("");
-        view.jTcadastroNome.setText("");
+        view.jTcadastroCodigo.setText(null);
+        view.jTcadastroNome.setText(null);
         centroCustoValidador = new CentroCustoValidador(view, centroCustoModelo.getId());
         centroCustoValidador.isValido();
         System.out.println("Testando classe CentroCustoValidador metodo: getMensagensErro etapa 01");
@@ -82,14 +82,14 @@ public class CentroCustoValidadorTest {
 
         /* usando filtro: codigo */
         view.jTcadastroCodigo.setText("1.2");
-        view.jTcadastroNome.setText("");
+        view.jTcadastroNome.setText(null);
         centroCustoValidador = new CentroCustoValidador(view, centroCustoModelo.getId());
         centroCustoValidador.isValido();
         System.out.println("Testando classe CentroCustoValidador metodo: getMensagensErro etapa 02");
         assertEquals(true, centroCustoValidador.getMensagensErro().length() > 0);
 
         /* usando filtro: nome */
-        view.jTcadastroCodigo.setText("");
+        view.jTcadastroCodigo.setText(null);
         view.jTcadastroNome.setText("Teste");
         centroCustoValidador = new CentroCustoValidador(view, centroCustoModelo.getId());
         centroCustoValidador.isValido();

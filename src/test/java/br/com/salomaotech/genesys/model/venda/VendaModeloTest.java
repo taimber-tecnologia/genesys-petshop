@@ -51,6 +51,25 @@ public class VendaModeloTest {
     }
 
     @Test
+    public void testSetHora() {
+
+        String hora = "11:17";
+        vendaModelo.setHora(hora);
+
+        System.out.println("Testando classe VendaModelo metodo: setHora");
+        assertEquals(true, vendaModelo.getHora().equals(hora));
+
+    }
+
+    @Test
+    public void testGetHora() {
+
+        System.out.println("Testando classe VendaModelo metodo: getHora");
+        assertEquals(true, isNull(vendaModelo.getHora()));
+
+    }
+
+    @Test
     public void testGetVendaModeloItemList() {
 
         System.out.println("Testando classe VendaModelo metodo: getVendaModeloItemList");

@@ -36,9 +36,9 @@ public class VendaIniciaMetodos {
     public void limparProdutoSelecionado() {
 
         exibirProdutoSelecionado(new ProdutoModelo());
-        view.jTprodutoQuantidade.setText("");
-        view.jTprodutoDesconto.setText("");
-        view.jTprodutoTotal.setText("");
+        view.jTprodutoQuantidade.setText(null);
+        view.jTprodutoDesconto.setText(null);
+        view.jTprodutoTotal.setText(null);
 
         /* evita erro de indexOfBounds no select */
         try {
