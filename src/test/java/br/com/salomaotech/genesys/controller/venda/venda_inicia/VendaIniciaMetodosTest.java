@@ -151,14 +151,14 @@ public class VendaIniciaMetodosTest {
         /* esperado todos os campos visiveis */
         vendaIniciaMetodos.habilitarCamposDeAdicionarProduto(produtoModelo);
         System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCamposDeAdicionarProduto etapa 01");
-        assertEquals(true, view.jBprodutoAdicionaItem.isVisible());
-        assertEquals(true, view.jBprodutoLimpaItem.isVisible());
+        assertEquals(true, view.jBprodutoAdicionaItem.isEnabled());
+        assertEquals(true, view.jBprodutoLimpaItem.isEnabled());
 
         /* esperados todos os campos não visiveis */
         vendaIniciaMetodos.habilitarCamposDeAdicionarProduto(new ProdutoModelo());
         System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCamposDeAdicionarProduto etapa 02");
-        assertEquals(false, view.jBprodutoAdicionaItem.isVisible());
-        assertEquals(false, view.jBprodutoLimpaItem.isVisible());
+        assertEquals(false, view.jBprodutoAdicionaItem.isEnabled());
+        assertEquals(false, view.jBprodutoLimpaItem.isEnabled());
 
     }
 
@@ -168,15 +168,15 @@ public class VendaIniciaMetodosTest {
         /* esperados todos os campos não visiveis */
         vendaIniciaMetodos.habilitarCamposDeExcluirVenda();
         System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCamposDeExcluirVenda etapa 01");
-        assertEquals(false, view.jBvendaExcluir.isVisible());
-        assertEquals(false, view.jBimprimir.isVisible());
+        assertEquals(false, view.jBvendaExcluir.isEnabled());
+        assertEquals(false, view.jBimprimir.isEnabled());
 
         /* esperado todos os campos visiveis */
         vendaIniciaMetodos.abrirCadastro(vendaModelo.getId());
         vendaIniciaMetodos.habilitarCamposDeExcluirVenda();
         System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCamposDeExcluirVenda etapa 02");
-        assertEquals(true, view.jBvendaExcluir.isVisible());
-        assertEquals(true, view.jBimprimir.isVisible());
+        assertEquals(true, view.jBvendaExcluir.isEnabled());
+        assertEquals(true, view.jBimprimir.isEnabled());
 
     }
 

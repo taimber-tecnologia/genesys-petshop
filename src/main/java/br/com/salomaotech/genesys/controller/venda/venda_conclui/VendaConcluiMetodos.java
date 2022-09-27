@@ -110,8 +110,8 @@ public class VendaConcluiMetodos {
     public void executarAposFinalizarVenda() {
 
         viewVenda.dispose();
-        view.jBconcluir.setVisible(false);
-        view.jBcancelar.setVisible(false);
+        view.jBconcluir.setEnabled(false);
+        view.jBcancelar.setEnabled(false);
         view.jBimprimir.setEnabled(true);
         view.jCforma.setEnabled(false);
         view.jTvalorRecebido.setEnabled(false);

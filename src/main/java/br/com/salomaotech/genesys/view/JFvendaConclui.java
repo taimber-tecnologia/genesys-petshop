@@ -41,9 +41,9 @@ public class JFvendaConclui extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTvalorTroco = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
+        jBimprimir = new javax.swing.JButton();
         jBconcluir = new javax.swing.JButton();
         jBcancelar = new javax.swing.JButton();
-        jBimprimir = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jCcliente = new javax.swing.JComboBox<>();
@@ -174,22 +174,23 @@ public class JFvendaConclui extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jBconcluir.setBackground(new java.awt.Color(0, 153, 102));
-        jBconcluir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jBconcluir.setText("CONCLUIR");
-
-        jBcancelar.setBackground(new java.awt.Color(255, 153, 0));
-        jBcancelar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jBcancelar.setText("CANCELAR");
-
+        jBimprimir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jBimprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/impressora64x.png"))); // NOI18N
         jBimprimir.setText("IMPRIMIR");
         jBimprimir.setEnabled(false);
+
+        jBconcluir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBconcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/concluir64x.png"))); // NOI18N
+        jBconcluir.setText("CONCLUIR");
+
+        jBcancelar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBcancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/excluir64x.png"))); // NOI18N
+        jBcancelar.setText("CANCELAR");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -198,21 +199,21 @@ public class JFvendaConclui extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBimprimir, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
                     .addComponent(jBconcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBcancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBimprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jBcancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jBconcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBconcluir)
                 .addGap(18, 18, 18)
-                .addComponent(jBcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBcancelar)
+                .addGap(18, 18, 18)
                 .addComponent(jBimprimir)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -284,7 +285,7 @@ public class JFvendaConclui extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 

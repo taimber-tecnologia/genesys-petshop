@@ -124,15 +124,15 @@ public class VendaIniciaMetodos {
 
     public void habilitarCamposDeAdicionarProduto(ProdutoModelo produtoModelo) {
 
-        view.jBprodutoAdicionaItem.setVisible(produtoModelo.getId() != 0);
-        view.jBprodutoLimpaItem.setVisible(produtoModelo.getId() != 0);
+        view.jBprodutoAdicionaItem.setEnabled(produtoModelo.getId() != 0);
+        view.jBprodutoLimpaItem.setEnabled(produtoModelo.getId() != 0);
 
     }
 
     public void habilitarCamposDeExcluirVenda() {
 
-        view.jBvendaExcluir.setVisible(vendaModelo.getId() != 0);
-        view.jBimprimir.setVisible(vendaModelo.getId() != 0);
+        view.jBvendaExcluir.setEnabled(vendaModelo.getId() != 0);
+        view.jBimprimir.setEnabled(vendaModelo.getId() != 0);
 
     }
 

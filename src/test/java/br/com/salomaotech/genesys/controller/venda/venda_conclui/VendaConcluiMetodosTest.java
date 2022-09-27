@@ -159,8 +159,8 @@ public class VendaConcluiMetodosTest {
 
         System.out.println("Testando classe VendaConcluiMetodos metodo: executarAposFinalizarVenda");
         assertEquals(false, viewVenda.isVisible());
-        assertEquals(false, view.jBconcluir.isVisible());
-        assertEquals(false, view.jBcancelar.isVisible());
+        assertEquals(false, view.jBconcluir.isEnabled());
+        assertEquals(false, view.jBcancelar.isEnabled());
         assertEquals(true, view.jBimprimir.isEnabled());
         assertEquals(false, view.jCforma.isEnabled());
         assertEquals(false, view.jTvalorRecebido.isEnabled());
