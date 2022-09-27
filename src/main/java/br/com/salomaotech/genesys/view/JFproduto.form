@@ -526,8 +526,8 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPdadosPerfilFoto" max="32767" attributes="0"/>
                               <Component id="jToolBar3" pref="222" max="32767" attributes="0"/>
+                              <Component id="jPdadosPerfilFoto" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -537,7 +537,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPdadosPerfilFoto" max="32767" attributes="0"/>
+                          <Component id="jPdadosPerfilFoto" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jToolBar3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -607,7 +607,7 @@
                     <Component class="javax.swing.JButton" name="jBremoveFoto">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/icones/remove-item24x.png"/>
+                          <Image iconType="3" name="/icones/remove-item32x.png"/>
                         </Property>
                         <Property name="enabled" type="boolean" value="false"/>
                         <Property name="focusable" type="boolean" value="false"/>

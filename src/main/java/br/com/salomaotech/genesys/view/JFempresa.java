@@ -90,7 +90,7 @@ public class JFempresa extends javax.swing.JFrame {
         jBadicionaFoto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar3.add(jBadicionaFoto);
 
-        jBremoveFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/remove-item24x.png"))); // NOI18N
+        jBremoveFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/remove-item32x.png"))); // NOI18N
         jBremoveFoto.setEnabled(false);
         jBremoveFoto.setFocusable(false);
         jBremoveFoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

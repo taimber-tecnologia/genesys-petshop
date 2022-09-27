@@ -10,20 +10,20 @@ public class ImagemRedimensiona {
 
     private final String pathOrigem;
     private final String pathDestino;
-    private final int altura;
+    private final int largura;
 
     /**
      * Construtor
      *
      * @param pathOrigem Path de origem da imagem
      * @param pathDestino Path de destino da imagem
-     * @param altura Nova altura da imagem
+     * @param largura Nova largura da imagem
      */
-    public ImagemRedimensiona(String pathOrigem, String pathDestino, int altura) {
+    public ImagemRedimensiona(String pathOrigem, String pathDestino, int largura) {
 
         this.pathOrigem = pathOrigem;
         this.pathDestino = pathDestino;
-        this.altura = altura;
+        this.largura = largura;
 
     }
 
@@ -37,7 +37,7 @@ public class ImagemRedimensiona {
         try {
 
             /* arquivo de origem */
-            File arquivo = new File(this.pathOrigem);
+            File arquivo = new File(pathOrigem);
 
             /* valida o nome da imagem */
             if (arquivo.getName().lastIndexOf('.') > 0) {
@@ -47,13 +47,13 @@ public class ImagemRedimensiona {
 
                 /* grava */
                 BufferedImage imagemOriginal = ImageIO.read(arquivo);
-                BufferedImage miniatura = Scalr.resize(imagemOriginal, Scalr.Method.AUTOMATIC, Scalr.Mode.AUTOMATIC, this.altura, Scalr.OP_ANTIALIAS);
+                BufferedImage miniatura = Scalr.resize(imagemOriginal, Scalr.Method.AUTOMATIC, Scalr.Mode.AUTOMATIC, largura, Scalr.OP_ANTIALIAS);
                 ImageIO.write(miniatura, extensao, new File(this.pathDestino));
 
             }
 
             /* retorna se o arquivo gerado tem a dimensão desejada */
-            return ImageIO.read(new File(this.pathDestino)).getHeight() == this.altura;
+            return ImageIO.read(new File(pathDestino)).getHeight() == largura;
 
         } catch (IOException ex) {
 
