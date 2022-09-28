@@ -187,4 +187,22 @@ public class ProdutoModeloTest {
 
     }
 
+    @Test
+    public void testGetPeso() {
+
+        System.out.println("Testando classe ProdutoModelo metodo: getPeso");
+        assertEquals(true, produtoModelo.getPeso().equals(new BigDecimal(0)));
+
+    }
+
+    @Test
+    public void testSetPeso() {
+
+        BigDecimal peso = new BigDecimal(100);
+        produtoModelo.setPeso(peso);
+        System.out.println("Testando classe ProdutoModelo metodo: setPeso");
+        assertEquals(true, produtoModelo.getPeso().equals(peso));
+
+    }
+
 }

@@ -34,6 +34,7 @@ public class ProdutoMetodos {
         view.jTestoqueMinimo.setText(produtoModelo.getEstoqueMinimo().toString());
         view.jCmedida.setSelectedItem(produtoModelo.getMedida());
         comboBoxFornecedores.selecionarItemPorId(produtoModelo.getIdFornecedor());
+        view.jTpeso.setText(produtoModelo.getPeso().toString());
 
     }
 
@@ -77,6 +78,7 @@ public class ProdutoMetodos {
         popUp.adicionarMenu(view.jTdescricao);
         popUp.adicionarMenu(view.jTquantidade);
         popUp.adicionarMenu(view.jTestoqueMinimo);
+        popUp.adicionarMenu(view.jTpeso);
 
     }
 
@@ -103,6 +105,7 @@ public class ProdutoMetodos {
         produtoModelo.setEstoqueMinimo(BigDecimais.formatarParaBigDecimal(view.jTestoqueMinimo.getText()));
         produtoModelo.setMedida(view.jCmedida.getSelectedItem().toString());
         produtoModelo.setIdFornecedor(comboBoxFornecedores.getIdSelecionado());
+        produtoModelo.setPeso(BigDecimais.formatarParaBigDecimal(view.jTpeso.getText()));
         new Repository(produtoModelo).save();
         return produtoModelo;
 

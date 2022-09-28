@@ -30,6 +30,7 @@ public class ProdutoModelo implements Modelo, Serializable {
     private BigDecimal quantidade = new BigDecimal(0);
     private BigDecimal estoqueMinimo = new BigDecimal(0);
     private String medida;
+    private BigDecimal peso = new BigDecimal(0);
 
     @Override
     public long getId() {
@@ -111,6 +112,14 @@ public class ProdutoModelo implements Modelo, Serializable {
 
     public void setMedida(String medida) {
         this.medida = medida;
+    }
+
+    public BigDecimal getPeso() {
+        return peso;
+    }
+
+    public void setPeso(BigDecimal peso) {
+        this.peso = peso;
     }
 
 }

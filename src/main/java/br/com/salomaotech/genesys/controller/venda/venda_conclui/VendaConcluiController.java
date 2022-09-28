@@ -9,8 +9,8 @@ import br.com.salomaotech.sistema.swing.MudaIconeJframe;
 public class VendaConcluiController {
 
     private final JFvendaConclui view = new JFvendaConclui();
-    private final VendaConcluiEventos vendaConcluiEventos;
     private final VendaConcluiMetodos vendaConcluiMetodos;
+    private final VendaConcluiEventos vendaConcluiEventos;
     private final VendaConcluiMetodosCommand vendaConcluiMetodosCommand = new VendaConcluiMetodosCommand(view);
     private final ComboBoxClientes comboBoxClientes = new ComboBoxClientes(view.jCcliente, vendaConcluiMetodosCommand);
 

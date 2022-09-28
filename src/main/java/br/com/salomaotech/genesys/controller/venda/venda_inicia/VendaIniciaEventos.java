@@ -1,5 +1,6 @@
 package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
+import br.com.salomaotech.genesys.controller.venda.venda_calcula.VendaCalculaController;
 import br.com.salomaotech.genesys.model.configuracoes.PastasSistema;
 import br.com.salomaotech.genesys.model.produto.ComboBoxProduto;
 import br.com.salomaotech.genesys.model.produto.ImagemProduto;
@@ -47,6 +48,9 @@ public class VendaIniciaEventos implements Command {
             produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(comboBoxProduto.getIdSelecionado());
             vendaIniciaMetodos.exibirProdutoSelecionado(produtoModelo);
             new ImagemProduto().exibir(String.valueOf(produtoModelo.getId()), view.jPdadosPerfilFoto);
+
+            /* habilita campos */
+            view.jBcalcularGranel.setEnabled(produtoModelo.getId() != 0);
 
         }
 
@@ -235,6 +239,17 @@ public class VendaIniciaEventos implements Command {
         view.jBimprimir.addActionListener((ActionEvent e) -> {
 
             new VendaComprovantePdf(new PastasSistema().getSubPastaImpressao(), view.getId()).gerar();
+
+        });
+
+        /* botão calcular granel */
+        view.jBcalcularGranel.addActionListener((ActionEvent e) -> {
+
+            if (!isNull(comboBoxProduto)) {
+
+                new VendaCalculaController((ProdutoModelo) new Repository(new ProdutoModelo()).findById(comboBoxProduto.getIdSelecionado())).construir();
+
+            }
 
         });
 

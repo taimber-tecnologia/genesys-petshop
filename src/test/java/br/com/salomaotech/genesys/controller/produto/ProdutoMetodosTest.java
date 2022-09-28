@@ -36,6 +36,7 @@ public class ProdutoMetodosTest {
         produtoModelo.setEstoqueMinimo(new BigDecimal(0));
         produtoModelo.setMedida("UNID");
         produtoModelo.setIdFornecedor(fornecedorModelo.getId());
+        produtoModelo.setPeso(new BigDecimal(10));
         new Repository(produtoModelo).save();
 
         /* metodos */
@@ -81,6 +82,7 @@ public class ProdutoMetodosTest {
         assertEquals(true, view.jTestoqueMinimo.getText().equals(produtoModelo.getEstoqueMinimo().toString()));
         assertEquals(true, view.jCmedida.getSelectedItem().equals(produtoModelo.getMedida()));
         assertEquals(true, comboBoxFornecedores.getIdSelecionado() == produtoModelo.getIdFornecedor());
+        assertEquals(true, view.jTpeso.getText().equals(produtoModelo.getPeso().toString()));
 
     }
 
@@ -102,6 +104,7 @@ public class ProdutoMetodosTest {
         assertEquals(true, view.jTestoqueMinimo.getText().equals("0"));
         assertEquals(true, view.jCmedida.getEditor().getItem().equals(""));
         assertEquals(true, comboBoxFornecedores.getIdSelecionado() == 0);
+        assertEquals(true, view.jTpeso.getText().equals("0"));
 
     }
 
@@ -144,6 +147,7 @@ public class ProdutoMetodosTest {
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTdescricao));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTquantidade));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTestoqueMinimo));
+        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTpeso));
 
     }
 
@@ -165,6 +169,7 @@ public class ProdutoMetodosTest {
         assertEquals(true, view.jTestoqueMinimo.getText().equals(produtoModelo.getEstoqueMinimo().toString()));
         assertEquals(true, view.jCmedida.getSelectedItem().equals(produtoModelo.getMedida()));
         assertEquals(true, comboBoxFornecedores.getIdSelecionado() == produtoModelo.getIdFornecedor());
+        assertEquals(true, view.jTpeso.getText().equals(produtoModelo.getPeso().toString()));
 
         /* foto do perfil */
         assertEquals(true, view.jPdadosPerfilFoto.getComponents().length == 0);
@@ -193,6 +198,7 @@ public class ProdutoMetodosTest {
         assertEquals(true, view.jTestoqueMinimo.getText().equals(produtoModelo.getEstoqueMinimo().toString()));
         assertEquals(true, view.jCmedida.getSelectedItem().equals(produtoModelo.getMedida()));
         assertEquals(true, comboBoxFornecedores.getIdSelecionado() == produtoModelo.getIdFornecedor());
+        assertEquals(true, view.jTpeso.getText().equals(produtoModelo.getPeso().toString()));
 
     }
 
