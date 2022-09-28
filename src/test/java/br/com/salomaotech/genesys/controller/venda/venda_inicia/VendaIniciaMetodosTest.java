@@ -91,7 +91,6 @@ public class VendaIniciaMetodosTest {
 
         System.out.println("Testando classe VendaIniciaMetodos metodo: exibirProdutoSelecionado");
         assertEquals(true, view.jTprodutoCodigo.getText().equals(String.valueOf(produtoModelo.getId())));
-        assertEquals(true, view.jTprodutoDescricao.getText().equals(produtoModelo.getDescricao()));
         assertEquals(true, view.jTprodutoPreco.getText().equals(ConverteNumeroParaMoedaBr.converter(produtoModelo.getValorVenda().toString())));
         assertEquals(true, view.jTprodutoTotal.getText().equals(ConverteNumeroParaMoedaBr.converter(vendaIniciaMetodos.calcularProdutoSelecionado(produtoModelo).toString())));
         assertEquals(true, view.jBprodutoAdicionaItem.isVisible());

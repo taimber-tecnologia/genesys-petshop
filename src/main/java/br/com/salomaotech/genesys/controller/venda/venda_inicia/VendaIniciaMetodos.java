@@ -26,7 +26,6 @@ public class VendaIniciaMetodos {
     public void exibirProdutoSelecionado(ProdutoModelo produtoModelo) {
 
         view.jTprodutoCodigo.setText(String.valueOf(produtoModelo.getId()));
-        view.jTprodutoDescricao.setText(produtoModelo.getDescricao());
         view.jTprodutoPreco.setText(ConverteNumeroParaMoedaBr.converter(produtoModelo.getValorVenda().toString()));
         view.jTprodutoTotal.setText(ConverteNumeroParaMoedaBr.converter(calcularProdutoSelecionado(produtoModelo).toString()));
         habilitarCamposDeAdicionarProduto(produtoModelo);
