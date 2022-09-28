@@ -130,6 +130,7 @@ public class JFvendaConclui extends javax.swing.JFrame {
         jTvalorRecebido.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jTvalorRecebido.setForeground(new java.awt.Color(255, 255, 255));
         jTvalorRecebido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTvalorRecebido.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
