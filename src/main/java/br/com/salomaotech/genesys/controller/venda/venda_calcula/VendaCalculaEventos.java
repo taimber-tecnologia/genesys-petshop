@@ -1,6 +1,8 @@
 package br.com.salomaotech.genesys.controller.venda.venda_calcula;
 
 import br.com.salomaotech.genesys.view.JFvendaCalcula;
+import br.com.salomaotech.sistema.algoritmos.BigDecimais;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -35,7 +37,7 @@ public class VendaCalculaEventos {
             @Override
             public void keyReleased(KeyEvent e) {
 
-                vendaCalculaMetodos.calcular(1);
+                vendaCalculaMetodos.calcularPorValor(BigDecimais.formatarParaBigDecimal(view.jTvalorDesejado.getText()));
 
             }
 
@@ -57,9 +59,16 @@ public class VendaCalculaEventos {
             @Override
             public void keyReleased(KeyEvent e) {
 
-                vendaCalculaMetodos.calcular(2);
+                vendaCalculaMetodos.calcularPorPeso(BigDecimais.formatarParaBigDecimal(view.jTpesoKg.getText()));
 
             }
+
+        });
+
+        /* fecha */
+        view.jBfechar.addActionListener((ActionEvent e) -> {
+
+            view.dispose();
 
         });
 

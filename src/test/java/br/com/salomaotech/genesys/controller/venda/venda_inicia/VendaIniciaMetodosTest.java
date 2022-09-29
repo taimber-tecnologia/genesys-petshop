@@ -99,6 +99,24 @@ public class VendaIniciaMetodosTest {
     }
 
     @Test
+    public void testLimparCalculosProdutoSelecionado() {
+
+        /* simula a inserção de dados */
+        view.jTprodutoQuantidade.setText("A");
+        view.jTprodutoDesconto.setText("B");
+        view.jTprodutoTotal.setText("C");
+
+        /* limpa os calculos do produto selecionado */
+        vendaIniciaMetodos.limparCalculosProdutoSelecionado();
+
+        System.out.println("Testando classe VendaIniciaMetodos metodo: limparCalculosProdutoSelecionado");
+        assertEquals(true, view.jTprodutoQuantidade.getText().length() == 0);
+        assertEquals(true, view.jTprodutoDesconto.getText().length() == 0);
+        assertEquals(true, view.jTprodutoTotal.getText().length() == 0);
+
+    }
+
+    @Test
     public void testLimparProdutoSelecionado() {
 
         vendaIniciaMetodos.limparProdutoSelecionado();

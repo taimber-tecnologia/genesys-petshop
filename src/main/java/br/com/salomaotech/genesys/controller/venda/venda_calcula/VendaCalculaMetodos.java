@@ -25,48 +25,31 @@ public class VendaCalculaMetodos {
         this.vendaIniciaMetodos = vendaIniciaMetodos;
     }
 
-    private BigDecimal calcularQuantidade(BigDecimal valor, int acao) {
-
-        BigDecimal resultado = new BigDecimal(0);
-
-        switch (acao) {
-
-            case 1:
-                resultado = BigDecimais.dividir(valor, produtoModelo.getValorVenda());
-                break;
-
-            case 2:
-                resultado = BigDecimais.dividir(valor, produtoModelo.getPeso());
-                break;
-
-        }
-
-        return resultado;
-
-    }
-
-    public void calcular(int acao) {
-
-        BigDecimal quantidade = new BigDecimal(0);
+    public void calcularPorValor(BigDecimal valorDesejado) {
 
         if (!isNull(produtoModelo)) {
 
-            switch (acao) {
+            /* divide o valor desejado pelo valor do produto */
+            BigDecimal resultado = BigDecimais.dividir(valorDesejado, produtoModelo.getValorVenda());
 
-                case 1:
-                    quantidade = calcularQuantidade(BigDecimais.formatarParaBigDecimal(view.jTvalorDesejado.getText()), acao);
-                    view.jTpesoKg.setText(null);
-                    break;
+            vendaIniciaMetodos.popularGranel(resultado, produtoModelo);
+            view.jTresultado.setText(resultado.toString());
+            view.jTpesoKg.setText(null);
 
-                case 2:
-                    quantidade = calcularQuantidade(BigDecimais.formatarParaBigDecimal(view.jTpesoKg.getText()), acao);
-                    view.jTvalorDesejado.setText(null);
-                    break;
+        }
 
-            }
+    }
 
-            /* repassa a quantidade para a tela inicial */
-            vendaIniciaMetodos.popularGranel(quantidade, produtoModelo);
+    public void calcularPorPeso(BigDecimal pesoDesejado) {
+
+        if (!isNull(produtoModelo)) {
+
+            /* divide o peso desejado pelo peso do produto */
+            BigDecimal resultado = BigDecimais.dividir(pesoDesejado, produtoModelo.getPeso());
+
+            vendaIniciaMetodos.popularGranel(resultado, produtoModelo);
+            view.jTresultado.setText(resultado.toString());
+            view.jTvalorDesejado.setText(null);
 
         }
 

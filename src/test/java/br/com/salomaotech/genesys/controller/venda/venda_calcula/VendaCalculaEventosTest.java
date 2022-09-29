@@ -1,30 +1,46 @@
 package br.com.salomaotech.genesys.controller.venda.venda_calcula;
 
+import br.com.salomaotech.genesys.view.JFvendaCalcula;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class VendaCalculaEventosTest {
 
-    public VendaCalculaEventosTest() {
-
-    }
+    private final JFvendaCalcula view = new JFvendaCalcula();
+    private final VendaCalculaMetodos vendaCalculaMetodos = new VendaCalculaMetodos(view);
+    private final VendaCalculaEventos vendaCalculaEventos = new VendaCalculaEventos(view);
 
     @Test
     public void testSetVendaCalculaMetodos() {
 
-        System.out.println("setVendaCalculaMetodos");
-        VendaCalculaMetodos vendaCalculaMetodos = null;
-        VendaCalculaEventos instance = null;
-        instance.setVendaCalculaMetodos(vendaCalculaMetodos);
+        boolean isErro = false;
+
+        try {
+
+            vendaCalculaEventos.setVendaCalculaMetodos(vendaCalculaMetodos);
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe VendaCalculaEventos metodo: setVendaCalculaMetodos");
+        assertEquals(false, isErro);
 
     }
 
     @Test
     public void testAddEventos() {
 
-        System.out.println("addEventos");
-        VendaCalculaEventos instance = null;
-        instance.addEventos();
+        /* adiciona eventos */
+        vendaCalculaEventos.addEventos();
+
+        /* testa se os eventos foram adicionados */
+        System.out.println("Testando classe VendaCalculaEventos metodo: addEventos");
+        assertEquals(true, view.jTvalorDesejado.getKeyListeners().length == 1);
+        assertEquals(true, view.jTpesoKg.getKeyListeners().length == 1);
+        assertEquals(true, view.jBfechar.getActionListeners().length == 1);
 
     }
 

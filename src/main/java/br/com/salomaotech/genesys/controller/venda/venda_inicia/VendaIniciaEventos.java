@@ -46,6 +46,7 @@ public class VendaIniciaEventos implements Command {
 
             produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(comboBoxProduto.getIdSelecionado());
             vendaIniciaMetodos.exibirProdutoSelecionado(produtoModelo);
+            vendaIniciaMetodos.limparCalculosProdutoSelecionado();
 
         }
 

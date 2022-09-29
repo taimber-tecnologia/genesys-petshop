@@ -30,6 +30,9 @@ public class JFvendaCalcula extends javax.swing.JFrame {
         jTvalorDesejado = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jTpesoKg = new javax.swing.JTextField();
+        jBfechar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jTresultado = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Calcular granel - Genesys PetShop");
@@ -56,6 +59,21 @@ public class JFvendaCalcula extends javax.swing.JFrame {
         jTpesoKg.setBorder(null);
         jTpesoKg.setCaretColor(new java.awt.Color(255, 255, 255));
 
+        jBfechar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBfechar.setText("FECHAR");
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("QUANTIDADE CALCULADA");
+
+        jTresultado.setEditable(false);
+        jTresultado.setBackground(new java.awt.Color(153, 0, 0));
+        jTresultado.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jTresultado.setForeground(new java.awt.Color(255, 255, 255));
+        jTresultado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTresultado.setBorder(null);
+        jTresultado.setCaretColor(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -66,7 +84,10 @@ public class JFvendaCalcula extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
                     .addComponent(jTpesoKg, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTvalorDesejado, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(jTvalorDesejado, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBfechar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTresultado, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -80,6 +101,12 @@ public class JFvendaCalcula extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTpesoKg, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jBfechar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -122,9 +149,12 @@ public class JFvendaCalcula extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton jBfechar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     public javax.swing.JTextField jTpesoKg;
+    public javax.swing.JTextField jTresultado;
     public javax.swing.JTextField jTvalorDesejado;
     // End of variables declaration//GEN-END:variables
 }

@@ -26,13 +26,19 @@ public class VendaIniciaMetodos {
 
     public void exibirProdutoSelecionado(ProdutoModelo produtoModelo) {
 
-        view.jTprodutoQuantidade.setText(null);
-        view.jTprodutoDesconto.setText(null);
         view.jTprodutoCodigo.setText(String.valueOf(produtoModelo.getId()));
         view.jTprodutoPreco.setText(ConverteNumeroParaMoedaBr.converter(produtoModelo.getValorVenda().toString()));
         view.jTprodutoTotal.setText(ConverteNumeroParaMoedaBr.converter(calcularProdutoSelecionado(produtoModelo).toString()));
         new ImagemProduto().exibir(String.valueOf(produtoModelo.getId()), view.jPdadosPerfilFoto);
         habilitarCamposDeAdicionarProduto(produtoModelo);
+
+    }
+
+    public void limparCalculosProdutoSelecionado() {
+
+        view.jTprodutoQuantidade.setText(null);
+        view.jTprodutoDesconto.setText(null);
+        view.jTprodutoTotal.setText(null);
 
     }
 
