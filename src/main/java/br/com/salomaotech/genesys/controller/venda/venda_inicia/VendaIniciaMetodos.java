@@ -1,6 +1,7 @@
 package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
 import br.com.salomaotech.genesys.controller.venda.venda_conclui.VendaConcluiController;
+import br.com.salomaotech.genesys.model.produto.ImagemProduto;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
@@ -25,21 +26,24 @@ public class VendaIniciaMetodos {
 
     public void exibirProdutoSelecionado(ProdutoModelo produtoModelo) {
 
+        view.jTprodutoQuantidade.setText(null);
+        view.jTprodutoDesconto.setText(null);
         view.jTprodutoCodigo.setText(String.valueOf(produtoModelo.getId()));
         view.jTprodutoPreco.setText(ConverteNumeroParaMoedaBr.converter(produtoModelo.getValorVenda().toString()));
         view.jTprodutoTotal.setText(ConverteNumeroParaMoedaBr.converter(calcularProdutoSelecionado(produtoModelo).toString()));
+        new ImagemProduto().exibir(String.valueOf(produtoModelo.getId()), view.jPdadosPerfilFoto);
         habilitarCamposDeAdicionarProduto(produtoModelo);
 
     }
 
     public void limparProdutoSelecionado() {
 
-        exibirProdutoSelecionado(new ProdutoModelo());
+        view.jTprodutoCodigo.setText(null);
+        view.jTprodutoPreco.setText(null);
         view.jTprodutoQuantidade.setText(null);
         view.jTprodutoDesconto.setText(null);
         view.jTprodutoTotal.setText(null);
 
-        /* evita erro de indexOfBounds no select */
         try {
 
             view.jCprodutoLista.setSelectedIndex(0);
@@ -125,6 +129,7 @@ public class VendaIniciaMetodos {
 
         view.jBprodutoAdicionaItem.setEnabled(produtoModelo.getId() != 0);
         view.jBprodutoLimpaItem.setEnabled(produtoModelo.getId() != 0);
+        view.jBcalcularGranel.setEnabled(produtoModelo.getId() != 0);
 
     }
 
@@ -160,6 +165,13 @@ public class VendaIniciaMetodos {
         vendaModelo = (VendaModelo) new Repository(new VendaModelo()).findById(id);
         vendaModeloItemList = vendaModelo.getVendaModeloItemList();
         exibirProdutosSelecionados();
+
+    }
+
+    public void popularGranel(BigDecimal quantidade, ProdutoModelo produtoModelo) {
+
+        view.jTprodutoQuantidade.setText(quantidade.toString());
+        exibirProdutoSelecionado(produtoModelo);
 
     }
 

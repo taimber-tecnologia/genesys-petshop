@@ -194,7 +194,7 @@
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTpeso" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <Component id="jTpeso" min="-2" pref="112" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="43" pref="43" max="-2" attributes="0"/>

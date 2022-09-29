@@ -98,11 +98,11 @@
                               <Component id="jTprodutoPreco" alignment="1" max="32767" attributes="0"/>
                               <Component id="jTprodutoCodigo" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTprodutoQuantidade" pref="150" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTprodutoQuantidade" max="32767" attributes="0"/>
                                       <Component id="jTprodutoDesconto" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jBcalcularGranel" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jTprodutoTotal" alignment="0" max="32767" attributes="0"/>
