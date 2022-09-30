@@ -68,13 +68,6 @@ public class PrincipalEventos {
 
         });
 
-        /* botão agenda */
-        view.jBpesquisar.addActionListener((ActionEvent e) -> {
-
-            principalMetodos.carregaAgendaDia();
-
-        });
-
         /* botão produto */
         view.jBatalhoProdutos.addActionListener((ActionEvent e) -> {
 

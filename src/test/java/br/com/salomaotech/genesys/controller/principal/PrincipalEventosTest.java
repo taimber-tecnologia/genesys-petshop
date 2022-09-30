@@ -40,7 +40,6 @@ public class PrincipalEventosTest {
         assertEquals(true, view.jBatalhoClientes.getActionListeners().length == 1);
         assertEquals(true, view.jBatalhoAgenda.getActionListeners().length == 1);
         assertEquals(true, view.jTagendaResultados.getMouseListeners().length == 3);
-        assertEquals(true, view.jBpesquisar.getActionListeners().length == 1);
         assertEquals(true, view.jBatalhoProdutos.getActionListeners().length == 1);
         assertEquals(true, view.jBatalhoConfiguracoesEmpresa.getActionListeners().length == 1);
         assertEquals(true, view.jLabrirAjuda.getMouseListeners().length == 1);
