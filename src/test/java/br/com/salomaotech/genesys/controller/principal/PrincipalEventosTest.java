@@ -50,6 +50,9 @@ public class PrincipalEventosTest {
         assertEquals(true, view.jBatalhoFornecedores.getActionListeners().length == 1);
         assertEquals(true, view.jBatalhoFinanceiro.getActionListeners().length == 1);
         assertEquals(true, view.jBatalhoVenda.getActionListeners().length == 1);
+        assertEquals(true, view.jMagenda.getActionListeners().length == 1);
+        assertEquals(true, view.jMfinanceiroPagar.getActionListeners().length == 1);
+        assertEquals(true, view.jMfinanceiroReceber.getActionListeners().length == 1);
 
     }
 

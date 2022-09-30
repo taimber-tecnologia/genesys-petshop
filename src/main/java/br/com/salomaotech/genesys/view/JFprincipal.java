@@ -50,6 +50,12 @@ public class JFprincipal extends javax.swing.JFrame {
         jLabrirAjuda = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabrirSuporte = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMnotificacoes = new javax.swing.JMenu();
+        jMagenda = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMfinanceiroPagar = new javax.swing.JMenuItem();
+        jMfinanceiroReceber = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Genesys PetShop - Taimber Software");
@@ -224,6 +230,26 @@ public class JFprincipal extends javax.swing.JFrame {
         jLabrirSuporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jToolBar2.add(jLabrirSuporte);
 
+        jMnotificacoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/notificar24x.png"))); // NOI18N
+        jMnotificacoes.setText("Notificações");
+
+        jMagenda.setText("Agenda");
+        jMnotificacoes.add(jMagenda);
+
+        jMenu1.setText("Financeiro");
+
+        jMfinanceiroPagar.setText("Pagar");
+        jMenu1.add(jMfinanceiroPagar);
+
+        jMfinanceiroReceber.setText("Receber");
+        jMenu1.add(jMfinanceiroReceber);
+
+        jMnotificacoes.add(jMenu1);
+
+        jMenuBar1.add(jMnotificacoes);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -244,11 +270,10 @@ public class JFprincipal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
-                        .addGap(16, 16, 16))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -309,6 +334,12 @@ public class JFprincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     public javax.swing.JLabel jLabrirAjuda;
     public javax.swing.JLabel jLabrirSuporte;
+    public javax.swing.JMenuItem jMagenda;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    public javax.swing.JMenuItem jMfinanceiroPagar;
+    public javax.swing.JMenuItem jMfinanceiroReceber;
+    public javax.swing.JMenu jMnotificacoes;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;

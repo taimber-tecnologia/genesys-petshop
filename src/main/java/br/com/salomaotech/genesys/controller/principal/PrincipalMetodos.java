@@ -1,6 +1,7 @@
 package br.com.salomaotech.genesys.controller.principal;
 
 import br.com.salomaotech.genesys.model.agenda.AgendaPesquisa;
+import br.com.salomaotech.genesys.model.notificacoes.Notificacoes;
 import br.com.salomaotech.genesys.view.JFprincipal;
 
 public class PrincipalMetodos {
@@ -18,6 +19,16 @@ public class PrincipalMetodos {
         agendaPesquisa.setDataAgenda(view.jDagendaDataSemana.getCalendar());
         agendaPesquisa.setStatus(view.jCpesquisaStatus.getSelectedItem().toString());
         agendaPesquisa.pesquisar();
+
+    }
+
+    public void carregaNotificacoes() {
+
+        Notificacoes notificacoes = new Notificacoes();
+        view.jMagenda.setText("Agenda - " + notificacoes.getAgenda());
+        view.jMfinanceiroPagar.setText("Pagar - " + notificacoes.getFinanceiroPagar());
+        view.jMfinanceiroReceber.setText("Receber - " + notificacoes.getFinanceiroReceber());
+        view.jMnotificacoes.setText("Notificações - " + notificacoes.total());
 
     }
 

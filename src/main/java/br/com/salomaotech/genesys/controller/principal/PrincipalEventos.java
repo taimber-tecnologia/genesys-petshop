@@ -227,6 +227,27 @@ public class PrincipalEventos {
 
         });
 
+        /* atalho para agenda */
+        view.jMagenda.addActionListener((ActionEvent e) -> {
+
+            new AgendaController().construir();
+
+        });
+
+        /* atalho para financeiro */
+        view.jMfinanceiroPagar.addActionListener((ActionEvent e) -> {
+
+            new FinanceiroController().construir();
+
+        });
+
+        /* atalho para financeiro */
+        view.jMfinanceiroReceber.addActionListener((ActionEvent e) -> {
+
+            new FinanceiroController().construir();
+
+        });
+
     }
 
 }

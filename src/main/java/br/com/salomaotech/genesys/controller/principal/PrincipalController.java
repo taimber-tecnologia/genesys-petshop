@@ -19,6 +19,7 @@ public class PrincipalController {
 
         /* metodos */
         principalMetodos.carregaAgendaDia();
+        principalMetodos.carregaNotificacoes();
 
         /* eventos */
         principalEventos.setPrincipalMetodos(principalMetodos);
