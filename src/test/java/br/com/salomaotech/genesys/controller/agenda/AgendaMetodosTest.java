@@ -214,43 +214,57 @@ public class AgendaMetodosTest {
     public void testPesquisar() {
 
         /* usando filtro: nenhum */
-        view.jDpesquisaData.setDate(null);
+        view.jDpesquisaDataInicio.setCalendar(null);
+        view.jDPesquisaDataFim.setCalendar(null);
         comboBoxClientesCadastro.selecionarItemPorId(0);
         view.jCpesquisaStatus.setSelectedItem("");
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* usando filtro: data */
-        view.jDpesquisaData.setCalendar(agendaModelo.getDataAgenda());
+        /* usando filtro: data inicial */
+        view.jDpesquisaDataInicio.setCalendar(agendaModelo.getDataAgenda());
+        view.jDPesquisaDataFim.setCalendar(null);
         comboBoxClientesCadastro.selecionarItemPorId(0);
         view.jCpesquisaStatus.setSelectedItem("");
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 02");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* usando filtro: ID do cliente */
-        view.jDpesquisaData.setDate(null);
-        comboBoxClientesCadastro.selecionarItemPorId(agendaModelo.getIdCliente());
+        /* usando filtro: data final */
+        view.jDpesquisaDataInicio.setCalendar(null);
+        view.jDPesquisaDataFim.setCalendar(agendaModelo.getDataAgenda());
+        comboBoxClientesCadastro.selecionarItemPorId(0);
         view.jCpesquisaStatus.setSelectedItem("");
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 03");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* usando filtro: status */
-        view.jDpesquisaData.setDate(null);
-        comboBoxClientesCadastro.selecionarItemPorId(0);
-        view.jCpesquisaStatus.setSelectedItem(agendaModelo.getStatus());
+        /* usando filtro: ID do cliente */
+        view.jDpesquisaDataInicio.setCalendar(null);
+        view.jDPesquisaDataFim.setCalendar(null);
+        comboBoxClientesCadastro.selecionarItemPorId(agendaModelo.getIdCliente());
+        view.jCpesquisaStatus.setSelectedItem("");
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 04");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* usando filtro: todos */
-        view.jDpesquisaData.setCalendar(agendaModelo.getDataAgenda());
-        comboBoxClientesCadastro.selecionarItemPorId(agendaModelo.getIdCliente());
+        /* usando filtro: status */
+        view.jDpesquisaDataInicio.setCalendar(null);
+        view.jDPesquisaDataFim.setCalendar(null);
+        comboBoxClientesCadastro.selecionarItemPorId(0);
         view.jCpesquisaStatus.setSelectedItem(agendaModelo.getStatus());
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 05");
+        assertEquals(true, view.jTresultados.getRowCount() > 0);
+
+        /* usando filtro: todos */
+        view.jDpesquisaDataInicio.setCalendar(agendaModelo.getDataAgenda());
+        view.jDPesquisaDataFim.setCalendar(null);
+        comboBoxClientesCadastro.selecionarItemPorId(agendaModelo.getIdCliente());
+        view.jCpesquisaStatus.setSelectedItem(agendaModelo.getStatus());
+        agendaMetodos.pesquisar();
+        System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 06");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
     }

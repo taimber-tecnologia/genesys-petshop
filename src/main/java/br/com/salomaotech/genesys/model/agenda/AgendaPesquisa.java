@@ -20,7 +20,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class AgendaPesquisa {
 
-    private Date dataAgenda;
+    private Date dataInicialDate;
+    private Date dataFinalDate;
     private long idCliente;
     private String status;
     private final JTable jTresultados;
@@ -31,11 +32,21 @@ public class AgendaPesquisa {
         this.jCpaginador = jCpaginador;
     }
 
-    public void setDataAgenda(Calendar dataAgenda) {
+    public void setDataInicialDate(Calendar dataInicialDate) {
 
-        if (!isNull(dataAgenda)) {
+        if (!isNull(dataInicialDate)) {
 
-            this.dataAgenda = dataAgenda.getTime();
+            this.dataInicialDate = dataInicialDate.getTime();
+
+        }
+
+    }
+
+    public void setDataFinalDate(Calendar dataFinalCalendar) {
+
+        if (!isNull(dataFinalCalendar)) {
+
+            this.dataFinalDate = dataFinalCalendar.getTime();
 
         }
 
@@ -111,11 +122,34 @@ public class AgendaPesquisa {
     public void pesquisar() {
 
         JPQL jpql = new JPQL(new AgendaModelo());
-        jpql.addParametroIgual("dataAgenda", dataAgenda);
         jpql.addOrderBy("dataAgenda", "ASC");
         jpql.addOrderBy("dataHora", "ASC");
         jpql.addOrderBy("dataMinuto", "ASC");
         jpql.addOrderBy("id", "ASC");
+
+        if (!isNull(dataInicialDate) && !isNull(dataFinalDate)) {
+
+            /* pesquisa entre datas */
+            jpql.addParametroMaiorIgual("dataAgenda", dataInicialDate);
+            jpql.addParametroMenorIgual("dataAgenda", dataFinalDate);
+
+        } else {
+
+            /* pesquisa exatamente a data inicial */
+            if (!isNull(dataInicialDate)) {
+
+                jpql.addParametroIgual("dataAgenda", dataInicialDate);
+
+            }
+
+            /* pesquisa da data final para trás */
+            if (!isNull(dataFinalDate)) {
+
+                jpql.addParametroMenorIgual("dataAgenda", dataFinalDate);
+
+            }
+
+        }
 
         /* valida status */
         if (!ValidaStringIsEmpty.isEmpty(status)) {

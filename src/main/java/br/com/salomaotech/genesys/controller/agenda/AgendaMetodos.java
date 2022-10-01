@@ -104,7 +104,8 @@ public class AgendaMetodos {
     public void pesquisar() {
 
         AgendaPesquisa AgendaPesquisa = new AgendaPesquisa(view.jTresultados, view.jCpaginador);
-        AgendaPesquisa.setDataAgenda(view.jDpesquisaData.getCalendar());
+        AgendaPesquisa.setDataInicialDate(view.jDpesquisaDataInicio.getCalendar());
+        AgendaPesquisa.setDataFinalDate(view.jDPesquisaDataFim.getCalendar());
         AgendaPesquisa.setIdCliente(comboBoxClientesPesquisa.getIdSelecionado());
         AgendaPesquisa.setStatus(view.jCpesquisaStatus.getSelectedItem().toString());
         AgendaPesquisa.pesquisar();

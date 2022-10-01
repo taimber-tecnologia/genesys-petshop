@@ -10,11 +10,11 @@ import org.junit.Test;
 
 public class FinanceiroPesquisaTest {
 
-    private JFfinanceiro view = new JFfinanceiro();
+    private final JFfinanceiro view = new JFfinanceiro();
     private final Calendar calendar = Calendar.getInstance();
     private final CentroCustoModelo centroCustoModelo = new CentroCustoModelo();
     private final FinanceiroModelo financeiroModelo = new FinanceiroModelo();
-    private FinanceiroPesquisa financeiroPesquisa = new FinanceiroPesquisa(view.jTresultados, view.jCpaginador, view.jLsaldo);
+    private final FinanceiroPesquisa financeiroPesquisa = new FinanceiroPesquisa(view.jTresultados, view.jCpaginador, view.jLsaldo);
 
     public FinanceiroPesquisaTest() {
 
@@ -120,8 +120,6 @@ public class FinanceiroPesquisaTest {
     public void testPesquisar() {
 
         /* usando filtro: nenhum */
-        view = new JFfinanceiro();
-        financeiroPesquisa = new FinanceiroPesquisa(view.jTresultados, view.jCpaginador, view.jLsaldo);
         financeiroPesquisa.setDataInicialDate(null);
         financeiroPesquisa.setDataFinalDate(null);
         financeiroPesquisa.setPagamentoRealizado(null);
@@ -131,8 +129,6 @@ public class FinanceiroPesquisaTest {
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: data inicial */
-        view = new JFfinanceiro();
-        financeiroPesquisa = new FinanceiroPesquisa(view.jTresultados, view.jCpaginador, view.jLsaldo);
         financeiroPesquisa.setDataInicialDate(calendar);
         financeiroPesquisa.setDataFinalDate(null);
         financeiroPesquisa.setPagamentoRealizado(null);
@@ -142,8 +138,6 @@ public class FinanceiroPesquisaTest {
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: data final */
-        view = new JFfinanceiro();
-        financeiroPesquisa = new FinanceiroPesquisa(view.jTresultados, view.jCpaginador, view.jLsaldo);
         financeiroPesquisa.setDataInicialDate(null);
         financeiroPesquisa.setDataFinalDate(calendar);
         financeiroPesquisa.setPagamentoRealizado(null);
@@ -153,8 +147,6 @@ public class FinanceiroPesquisaTest {
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: pagamento realizado */
-        view = new JFfinanceiro();
-        financeiroPesquisa = new FinanceiroPesquisa(view.jTresultados, view.jCpaginador, view.jLsaldo);
         financeiroPesquisa.setDataInicialDate(null);
         financeiroPesquisa.setDataFinalDate(null);
         financeiroPesquisa.setPagamentoRealizado("Sim");
@@ -164,8 +156,6 @@ public class FinanceiroPesquisaTest {
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: pagamento não realizado */
-        view = new JFfinanceiro();
-        financeiroPesquisa = new FinanceiroPesquisa(view.jTresultados, view.jCpaginador, view.jLsaldo);
         financeiroPesquisa.setDataInicialDate(null);
         financeiroPesquisa.setDataFinalDate(null);
         financeiroPesquisa.setPagamentoRealizado("Nao");
@@ -175,8 +165,6 @@ public class FinanceiroPesquisaTest {
         assertEquals(true, view.jTresultados.getRowCount() == 0);
 
         /* usando filtro: pagamento realizado todos */
-        view = new JFfinanceiro();
-        financeiroPesquisa = new FinanceiroPesquisa(view.jTresultados, view.jCpaginador, view.jLsaldo);
         financeiroPesquisa.setDataInicialDate(null);
         financeiroPesquisa.setDataFinalDate(null);
         financeiroPesquisa.setPagamentoRealizado("Todos");
@@ -186,8 +174,6 @@ public class FinanceiroPesquisaTest {
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: pagamento é uma despesa */
-        view = new JFfinanceiro();
-        financeiroPesquisa = new FinanceiroPesquisa(view.jTresultados, view.jCpaginador, view.jLsaldo);
         financeiroPesquisa.setDataInicialDate(null);
         financeiroPesquisa.setDataFinalDate(null);
         financeiroPesquisa.setPagamentoRealizado(null);
@@ -197,8 +183,6 @@ public class FinanceiroPesquisaTest {
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: pagamento é uma receita */
-        view = new JFfinanceiro();
-        financeiroPesquisa = new FinanceiroPesquisa(view.jTresultados, view.jCpaginador, view.jLsaldo);
         financeiroPesquisa.setDataInicialDate(null);
         financeiroPesquisa.setDataFinalDate(null);
         financeiroPesquisa.setPagamentoRealizado(null);
@@ -208,8 +192,6 @@ public class FinanceiroPesquisaTest {
         assertEquals(true, view.jTresultados.getRowCount() == 0);
 
         /* usando filtro: pagamento todos */
-        view = new JFfinanceiro();
-        financeiroPesquisa = new FinanceiroPesquisa(view.jTresultados, view.jCpaginador, view.jLsaldo);
         financeiroPesquisa.setDataInicialDate(null);
         financeiroPesquisa.setDataFinalDate(null);
         financeiroPesquisa.setPagamentoRealizado(null);
@@ -219,8 +201,6 @@ public class FinanceiroPesquisaTest {
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: todos */
-        view = new JFfinanceiro();
-        financeiroPesquisa = new FinanceiroPesquisa(view.jTresultados, view.jCpaginador, view.jLsaldo);
         financeiroPesquisa.setDataInicialDate(calendar);
         financeiroPesquisa.setDataFinalDate(calendar);
         financeiroPesquisa.setPagamentoRealizado("Sim");

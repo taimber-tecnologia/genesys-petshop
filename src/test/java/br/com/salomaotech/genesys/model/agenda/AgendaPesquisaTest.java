@@ -9,11 +9,11 @@ import static org.junit.Assert.*;
 
 public class AgendaPesquisaTest {
 
-    private JFagenda view = new JFagenda();
+    private final JFagenda view = new JFagenda();
     private final Calendar calendar = Calendar.getInstance();
     private final ClienteModelo clienteModelo = new ClienteModelo();
     private final AgendaModelo agendaModelo = new AgendaModelo();
-    private AgendaPesquisa agendaPesquisa = new AgendaPesquisa(view.jTresultados, view.jCpaginador);
+    private final AgendaPesquisa agendaPesquisa = new AgendaPesquisa(view.jTresultados, view.jCpaginador);
 
     public AgendaPesquisaTest() {
 
@@ -33,13 +33,13 @@ public class AgendaPesquisaTest {
     }
 
     @Test
-    public void testSetDataAgenda() {
+    public void testSetDataInicialDate() {
 
         boolean isErro = false;
 
         try {
 
-            agendaPesquisa.setDataAgenda(calendar);
+            agendaPesquisa.setDataInicialDate(calendar);
 
         } catch (Exception ex) {
 
@@ -47,7 +47,27 @@ public class AgendaPesquisaTest {
 
         }
 
-        System.out.println("Testando classe AgendaPesquisa método: setDataAgenda");
+        System.out.println("Testando classe AgendaPesquisa método: setDataInicialDate");
+        assertEquals(false, isErro);
+
+    }
+
+    @Test
+    public void testSetDataFinalDate() {
+
+        boolean isErro = false;
+
+        try {
+
+            agendaPesquisa.setDataFinalDate(calendar);
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AgendaPesquisa metodo: setDataFinalDate");
         assertEquals(false, isErro);
 
     }
@@ -96,53 +116,57 @@ public class AgendaPesquisaTest {
     public void testPesquisar() {
 
         /* usando filtro: nenhum */
-        view = new JFagenda();
-        agendaPesquisa = new AgendaPesquisa(view.jTresultados, view.jCpaginador);
-        agendaPesquisa.setDataAgenda(null);
+        agendaPesquisa.setDataInicialDate(null);
+        agendaPesquisa.setDataFinalDate(null);
         agendaPesquisa.setIdCliente(0);
         agendaPesquisa.setStatus(null);
         agendaPesquisa.pesquisar();
         System.out.println("Testando classe AgendaPesquisa método: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* usando filtro: data */
-        view = new JFagenda();
-        agendaPesquisa = new AgendaPesquisa(view.jTresultados, view.jCpaginador);
-        agendaPesquisa.setDataAgenda(calendar);
+        /* usando filtro: data inicial */
+        agendaPesquisa.setDataInicialDate(calendar);
+        agendaPesquisa.setDataFinalDate(null);
         agendaPesquisa.setIdCliente(0);
         agendaPesquisa.setStatus(null);
         agendaPesquisa.pesquisar();
         System.out.println("Testando classe AgendaPesquisa método: pesquisar etapa 02");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* usando filtro: cliente */
-        view = new JFagenda();
-        agendaPesquisa = new AgendaPesquisa(view.jTresultados, view.jCpaginador);
-        agendaPesquisa.setDataAgenda(null);
-        agendaPesquisa.setIdCliente(clienteModelo.getId());
+        /* usando filtro: data final */
+        agendaPesquisa.setDataInicialDate(null);
+        agendaPesquisa.setDataFinalDate(calendar);
+        agendaPesquisa.setIdCliente(0);
         agendaPesquisa.setStatus(null);
         agendaPesquisa.pesquisar();
         System.out.println("Testando classe AgendaPesquisa método: pesquisar etapa 03");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* usando filtro: status */
-        view = new JFagenda();
-        agendaPesquisa = new AgendaPesquisa(view.jTresultados, view.jCpaginador);
-        agendaPesquisa.setDataAgenda(null);
-        agendaPesquisa.setIdCliente(0);
-        agendaPesquisa.setStatus("Atendido");
+        /* usando filtro: cliente */
+        agendaPesquisa.setDataInicialDate(null);
+        agendaPesquisa.setDataFinalDate(null);
+        agendaPesquisa.setIdCliente(clienteModelo.getId());
+        agendaPesquisa.setStatus(null);
         agendaPesquisa.pesquisar();
         System.out.println("Testando classe AgendaPesquisa método: pesquisar etapa 04");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* usando filtro: todos */
-        view = new JFagenda();
-        agendaPesquisa = new AgendaPesquisa(view.jTresultados, view.jCpaginador);
-        agendaPesquisa.setDataAgenda(calendar);
-        agendaPesquisa.setIdCliente(clienteModelo.getId());
+        /* usando filtro: status */
+        agendaPesquisa.setDataInicialDate(null);
+        agendaPesquisa.setDataFinalDate(null);
+        agendaPesquisa.setIdCliente(0);
         agendaPesquisa.setStatus("Atendido");
         agendaPesquisa.pesquisar();
         System.out.println("Testando classe AgendaPesquisa método: pesquisar etapa 05");
+        assertEquals(true, view.jTresultados.getRowCount() > 0);
+
+        /* usando filtro: todos */
+        agendaPesquisa.setDataInicialDate(calendar);
+        agendaPesquisa.setDataFinalDate(calendar);
+        agendaPesquisa.setIdCliente(clienteModelo.getId());
+        agendaPesquisa.setStatus("Atendido");
+        agendaPesquisa.pesquisar();
+        System.out.println("Testando classe AgendaPesquisa método: pesquisar etapa 06");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
     }
