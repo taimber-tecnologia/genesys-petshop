@@ -107,6 +107,7 @@ public class FinanceiroMetodos {
         financeiroPesquisa.setDataInicialDate(view.jDpesquisaDataInicio.getCalendar());
         financeiroPesquisa.setDataFinalDate(view.jDPesquisaDataFim.getCalendar());
         financeiroPesquisa.setPagamentoRealizado(view.jCpesquisaPago.getSelectedItem().toString());
+        financeiroPesquisa.setPagamentoDespesa(view.jCpesquisaIsDespesa.getSelectedItem().toString());
         financeiroPesquisa.pesquisar();
 
     }

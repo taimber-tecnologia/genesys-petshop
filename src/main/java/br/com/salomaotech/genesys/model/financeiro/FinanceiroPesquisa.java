@@ -26,10 +26,11 @@ public class FinanceiroPesquisa {
 
     private final JTable jTresultados;
     private final JComboBox jCpaginador;
+    private final JLabel labelSaldo;
     private Date dataInicialDate;
     private Date dataFinalDate;
     private String pagamentoRealizado;
-    private final JLabel labelSaldo;
+    private String pagamentoDespesa;
 
     public FinanceiroPesquisa(JTable jTresultados, JComboBox jCpaginador, JLabel labelSaldo) {
         this.jTresultados = jTresultados;
@@ -60,6 +61,12 @@ public class FinanceiroPesquisa {
     public void setPagamentoRealizado(String pagamentoRealizado) {
 
         this.pagamentoRealizado = pagamentoRealizado;
+
+    }
+
+    public void setPagamentoDespesa(String pagamentoDespesa) {
+
+        this.pagamentoDespesa = pagamentoDespesa;
 
     }
 
@@ -206,6 +213,23 @@ public class FinanceiroPesquisa {
 
                 case "Nao":
                     jpql.addParametroIgual("isPago", false);
+                    break;
+
+            }
+
+        }
+
+        /* valida despesa */
+        if (!isNull(pagamentoDespesa)) {
+
+            switch (pagamentoDespesa) {
+
+                case "Pagar":
+                    jpql.addParametroIgual("isDespesa", true);
+                    break;
+
+                case "Receber":
+                    jpql.addParametroIgual("isDespesa", false);
                     break;
 
             }
