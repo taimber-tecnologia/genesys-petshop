@@ -55,6 +55,16 @@ public class FornecedorValidador {
 
         }
 
+        /* valida telefone */
+        if (ValidaStringIsEmpty.isEmpty(view.jTcontatoTelefone.getText())) {
+
+            mensagensErro = "Informe o telefone do fornecedor.";
+            view.jTabaCadastro.setSelectedIndex(2);
+            view.jTcontatoTelefone.requestFocus();
+            return false;
+
+        }
+
         return true;
 
     }

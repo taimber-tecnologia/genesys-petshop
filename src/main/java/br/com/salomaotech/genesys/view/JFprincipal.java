@@ -66,11 +66,11 @@ public class JFprincipal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Data", "Hora", "Cliente", "Telefone", "Animal", "Status"
+                "Código", "Data", "Hora", "Cliente", "Observações", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -88,12 +88,9 @@ public class JFprincipal extends javax.swing.JFrame {
             jTagendaResultados.getColumnModel().getColumn(2).setMinWidth(85);
             jTagendaResultados.getColumnModel().getColumn(2).setPreferredWidth(85);
             jTagendaResultados.getColumnModel().getColumn(2).setMaxWidth(85);
-            jTagendaResultados.getColumnModel().getColumn(4).setMinWidth(120);
-            jTagendaResultados.getColumnModel().getColumn(4).setPreferredWidth(120);
-            jTagendaResultados.getColumnModel().getColumn(4).setMaxWidth(120);
-            jTagendaResultados.getColumnModel().getColumn(6).setMinWidth(125);
-            jTagendaResultados.getColumnModel().getColumn(6).setPreferredWidth(125);
-            jTagendaResultados.getColumnModel().getColumn(6).setMaxWidth(125);
+            jTagendaResultados.getColumnModel().getColumn(5).setMinWidth(125);
+            jTagendaResultados.getColumnModel().getColumn(5).setPreferredWidth(125);
+            jTagendaResultados.getColumnModel().getColumn(5).setMaxWidth(125);
         }
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Agenda de hoje", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));

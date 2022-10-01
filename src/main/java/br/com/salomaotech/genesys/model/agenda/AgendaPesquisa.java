@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.model.agenda;
 
-import br.com.salomaotech.genesys.model.animal.AnimalModelo;
-import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.sistema.algoritmos.Datas;
 import br.com.salomaotech.sistema.algoritmos.ValidaStringIsEmpty;
 import br.com.salomaotech.sistema.jpa.JPQL;
@@ -22,7 +20,7 @@ public class AgendaPesquisa {
 
     private Date dataInicialDate;
     private Date dataFinalDate;
-    private long idCliente;
+    private String nomeCliente;
     private String status;
     private final JTable jTresultados;
     private final JComboBox jCpaginador;
@@ -52,8 +50,8 @@ public class AgendaPesquisa {
 
     }
 
-    public void setIdCliente(long idCliente) {
-        this.idCliente = idCliente;
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
     }
 
     public void setStatus(String status) {
@@ -70,18 +68,13 @@ public class AgendaPesquisa {
         /* itera a lista de dados do modelo */
         for (AgendaModelo agendaModelo : agendaModeloList) {
 
-            /* modelos auxiliares */
-            ClienteModelo clienteModelo = (ClienteModelo) new Repository(new ClienteModelo()).findById(agendaModelo.getIdCliente());
-            AnimalModelo animalModelo = (AnimalModelo) new Repository(new AnimalModelo()).findById(agendaModelo.getIdAnimal());
-
             /* popula linhas da DefaultTableModel */
             Object[] linhaDefaultTableModel = new Object[]{
                 agendaModelo.getId(),
                 Datas.calendarParaStringBr(agendaModelo.getDataAgenda()),
                 agendaModelo.getDataHora() + ":" + agendaModelo.getDataMinuto(),
-                clienteModelo.getNome(),
-                clienteModelo.getTelefone(),
-                animalModelo.getNome(),
+                agendaModelo.getNomeCliente(),
+                agendaModelo.getObservacoes(),
                 agendaModelo.getStatus()
 
             };
@@ -122,6 +115,7 @@ public class AgendaPesquisa {
     public void pesquisar() {
 
         JPQL jpql = new JPQL(new AgendaModelo());
+        jpql.addParametroLike("nomeCliente", nomeCliente);
         jpql.addOrderBy("dataAgenda", "ASC");
         jpql.addOrderBy("dataHora", "ASC");
         jpql.addOrderBy("dataMinuto", "ASC");
@@ -159,13 +153,6 @@ public class AgendaPesquisa {
                 jpql.addParametroIgual("status", status);
 
             }
-
-        }
-
-        /* valida ID de cliente */
-        if (idCliente != 0) {
-
-            jpql.addParametroIgual("idCliente", idCliente);
 
         }
 

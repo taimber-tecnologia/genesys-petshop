@@ -45,36 +45,19 @@ public class AgendaModeloTest {
     }
 
     @Test
-    public void testGetIdCliente() {
+    public void testGetNomeCliente() {
 
-        System.out.println("Testando classe AgendaModelo método getIdCliente");
-        assertEquals(true, agendaModelo.getIdCliente() == 0);
+        System.out.println("Testando classe AgendaModelo método getNomeCliente");
+        assertEquals(true, isNull(agendaModelo.getNomeCliente()));
 
     }
 
     @Test
-    public void testSetIdCliente() {
+    public void testSetNomeCliente() {
 
-        agendaModelo.setIdCliente(1);
+        agendaModelo.setNomeCliente("Teste");
         System.out.println("Testando classe AgendaModelo método setIdCliente");
-        assertEquals(true, agendaModelo.getIdCliente() == 1);
-
-    }
-
-    @Test
-    public void testGetNomeAnimal() {
-
-        System.out.println("Testando classe AgendaModelo método getNomeAnimal");
-        assertEquals(true, agendaModelo.getIdAnimal() == 0);
-
-    }
-
-    @Test
-    public void testSetNomeAnimal() {
-
-        agendaModelo.setIdAnimal(1);
-        System.out.println("Testando classe AgendaModelo método setNomeAnimal");
-        assertEquals(true, agendaModelo.getIdAnimal() == 1);
+        assertEquals(true, agendaModelo.getNomeCliente().equals("Teste"));
 
     }
 

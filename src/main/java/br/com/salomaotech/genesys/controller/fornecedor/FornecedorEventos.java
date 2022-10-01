@@ -49,6 +49,7 @@ public class FornecedorEventos {
                 /* valida se salvou e atualiza os dados na view */
                 if (fornecedorModelo.getId() != 0) {
 
+                    view.jTabaCadastro.setSelectedIndex(0);
                     fornecedorMetodos.popularFormulario(fornecedorModelo);
                     fornecedorMetodos.habilitarCampos();
                     new FornecedorPesquisa(view.jTresultados).pesquisar();

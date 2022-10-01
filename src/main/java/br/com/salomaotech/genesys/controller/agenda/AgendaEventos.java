@@ -1,13 +1,11 @@
 package br.com.salomaotech.genesys.controller.agenda;
 
-import br.com.salomaotech.genesys.controller.animal.AnimalController;
-import br.com.salomaotech.genesys.controller.cliente.ClienteController;
 import br.com.salomaotech.genesys.model.agenda.AgendaModelo;
 import br.com.salomaotech.genesys.model.agenda.AgendaPesquisa;
-import br.com.salomaotech.genesys.model.animal.ComboBoxAnimais;
-import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.view.JFagenda;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
@@ -16,9 +14,6 @@ public class AgendaEventos {
 
     private final JFagenda view;
     private AgendaMetodos agendaMetodos;
-    private ComboBoxClientes comboBoxClientesCadastro;
-    private ComboBoxClientes comboBoxClientesPesquisa;
-    private ComboBoxAnimais comboBoxAnimaisCadastro;
 
     public AgendaEventos(JFagenda view) {
         this.view = view;
@@ -26,18 +21,6 @@ public class AgendaEventos {
 
     public void setAgendaMetodos(AgendaMetodos agendaMetodos) {
         this.agendaMetodos = agendaMetodos;
-    }
-
-    public void setComboBoxClientesCadastro(ComboBoxClientes comboBoxClientesCadastro) {
-        this.comboBoxClientesCadastro = comboBoxClientesCadastro;
-    }
-
-    public void setComboBoxClientesPesquisa(ComboBoxClientes comboBoxClientesPesquisa) {
-        this.comboBoxClientesPesquisa = comboBoxClientesPesquisa;
-    }
-
-    public void setComboBoxAnimaisCadastro(ComboBoxAnimais comboBoxAnimaisCadastro) {
-        this.comboBoxAnimaisCadastro = comboBoxAnimaisCadastro;
     }
 
     public void addEventos() {
@@ -142,40 +125,29 @@ public class AgendaEventos {
 
         });
 
-        /* atalho para novo cliente */
-        view.jBpesquisaCliente.addActionListener((ActionEvent e) -> {
+        /* pesquisa */
+        view.jTpesquisaNomeCliente.addKeyListener(new KeyListener() {
 
-            new ClienteController().construir();
+            @Override
+            public void keyTyped(KeyEvent e) {
 
-        });
+            }
 
-        /* atualiza lista de clientes */
-        view.jBrefreshCliente.addActionListener((ActionEvent e) -> {
+            @Override
+            public void keyPressed(KeyEvent e) {
 
-            comboBoxClientesCadastro.preencher();
-            comboBoxClientesPesquisa.preencher();
+                if (e.getKeyCode() == 10) {
 
-        });
+                    agendaMetodos.pesquisar();
 
-        /* atualiza lista de clientes no campo de pesquisa */
-        view.jBpesquisaNomeClienteRefresh.addActionListener((ActionEvent e) -> {
+                }
 
-            comboBoxClientesCadastro.preencher();
-            comboBoxClientesPesquisa.preencher();
+            }
 
-        });
+            @Override
+            public void keyReleased(KeyEvent e) {
 
-        /* atalho para cadastro de animal */
-        view.jBpesquisaAnimal.addActionListener((ActionEvent e) -> {
-
-            new AnimalController().construir();
-
-        });
-
-        /* atualiza a lista de animais do cliente */
-        view.jBrefreshAnimais.addActionListener((ActionEvent e) -> {
-
-            comboBoxAnimaisCadastro.preencher();
+            }
 
         });
 

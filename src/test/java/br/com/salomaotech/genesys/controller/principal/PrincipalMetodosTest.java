@@ -1,7 +1,6 @@
 package br.com.salomaotech.genesys.controller.principal;
 
 import br.com.salomaotech.genesys.model.agenda.AgendaModelo;
-import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.view.JFprincipal;
 import br.com.salomaotech.sistema.jpa.Repository;
 import java.util.Calendar;
@@ -11,18 +10,11 @@ import static org.junit.Assert.*;
 public class PrincipalMetodosTest {
 
     private final JFprincipal view = new JFprincipal();
-    private final ClienteModelo clienteModelo = new ClienteModelo();
     private final AgendaModelo agendaModelo = new AgendaModelo();
     private final Calendar calendar = Calendar.getInstance();
     private PrincipalMetodos principalMetodos = new PrincipalMetodos(view);
 
     public PrincipalMetodosTest() {
-
-        /* simula cadastro de cliente */
-        new Repository(new ClienteModelo()).deleteTodos();
-        clienteModelo.setNome("Teste");
-        clienteModelo.setCpf("000.000.000-00");
-        new Repository(clienteModelo).save();
 
         /* simula cadastro de agenda */
         new Repository(new AgendaModelo()).deleteTodos();
@@ -30,7 +22,7 @@ public class PrincipalMetodosTest {
         agendaModelo.setDataHora("14");
         agendaModelo.setDataMinuto("30");
         agendaModelo.setObservacoes("Avaliação");
-        agendaModelo.setIdCliente(clienteModelo.getId());
+        agendaModelo.setNomeCliente("Teste");
         agendaModelo.setStatus("1 - Agendado");
         new Repository(agendaModelo).save();
 

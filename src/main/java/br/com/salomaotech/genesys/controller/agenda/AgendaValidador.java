@@ -22,24 +22,6 @@ public class AgendaValidador {
 
         }
 
-        /* valida cliente */
-        if (view.jCcadastroNomeCliente.getSelectedIndex() == 0) {
-
-            mensagensErro = "Informe o nome do cliente.";
-            view.jCcadastroNomeCliente.requestFocus();
-            return false;
-
-        }
-
-        /* valida animal */
-        if (view.jCcadastroNomeAnimal.getSelectedIndex() == 0) {
-
-            mensagensErro = "Informe o nome do animal.";
-            view.jCcadastroNomeAnimal.requestFocus();
-            return false;
-
-        }
-
         return true;
 
     }

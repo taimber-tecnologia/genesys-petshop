@@ -23,8 +23,7 @@ public class AgendaModelo implements Modelo, Serializable {
 
     private String dataHora;
     private String dataMinuto;
-    private long idCliente;
-    private long idAnimal;
+    private String nomeCliente;
     private String observacoes;
     private String status;
 
@@ -88,20 +87,12 @@ public class AgendaModelo implements Modelo, Serializable {
         this.dataMinuto = dataMinuto;
     }
 
-    public long getIdCliente() {
-        return idCliente;
+    public String getNomeCliente() {
+        return nomeCliente;
     }
 
-    public void setIdCliente(long idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public long getIdAnimal() {
-        return idAnimal;
-    }
-
-    public void setIdAnimal(long idAnimal) {
-        this.idAnimal = idAnimal;
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
     }
 
     public String getObservacoes() {

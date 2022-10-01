@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.model.agenda;
 
-import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.view.JFagenda;
 import br.com.salomaotech.sistema.jpa.Repository;
 import java.util.Calendar;
@@ -11,22 +10,15 @@ public class AgendaPesquisaTest {
 
     private final JFagenda view = new JFagenda();
     private final Calendar calendar = Calendar.getInstance();
-    private final ClienteModelo clienteModelo = new ClienteModelo();
     private final AgendaModelo agendaModelo = new AgendaModelo();
     private final AgendaPesquisa agendaPesquisa = new AgendaPesquisa(view.jTresultados, view.jCpaginador);
 
     public AgendaPesquisaTest() {
 
-        /* simula cadastro de cliente */
-        new Repository(new ClienteModelo()).deleteTodos();
-        clienteModelo.setNome("Teste");
-        clienteModelo.setCpf("000.000.000-00");
-        new Repository(clienteModelo).save();
-
         /* simula cadastro de agenda */
         new Repository(new AgendaModelo()).deleteTodos();
         agendaModelo.setDataAgenda(calendar);
-        agendaModelo.setIdCliente(clienteModelo.getId());
+        agendaModelo.setNomeCliente("Teste");
         agendaModelo.setStatus("Atendido");
         new Repository(agendaModelo).save();
 
@@ -73,13 +65,13 @@ public class AgendaPesquisaTest {
     }
 
     @Test
-    public void testSetIdCliente() {
+    public void testSetNomeCliente() {
 
         boolean isErro = false;
 
         try {
 
-            agendaPesquisa.setIdCliente(clienteModelo.getId());
+            agendaPesquisa.setNomeCliente(null);
 
         } catch (Exception ex) {
 
@@ -87,7 +79,7 @@ public class AgendaPesquisaTest {
 
         }
 
-        System.out.println("Testando classe AgendaPesquisa método: setIdCliente");
+        System.out.println("Testando classe AgendaPesquisa método: setNomeCliente");
         assertEquals(false, isErro);
 
     }
@@ -118,7 +110,7 @@ public class AgendaPesquisaTest {
         /* usando filtro: nenhum */
         agendaPesquisa.setDataInicialDate(null);
         agendaPesquisa.setDataFinalDate(null);
-        agendaPesquisa.setIdCliente(0);
+        agendaPesquisa.setNomeCliente(null);
         agendaPesquisa.setStatus(null);
         agendaPesquisa.pesquisar();
         System.out.println("Testando classe AgendaPesquisa método: pesquisar etapa 01");
@@ -127,7 +119,7 @@ public class AgendaPesquisaTest {
         /* usando filtro: data inicial */
         agendaPesquisa.setDataInicialDate(calendar);
         agendaPesquisa.setDataFinalDate(null);
-        agendaPesquisa.setIdCliente(0);
+        agendaPesquisa.setNomeCliente(null);
         agendaPesquisa.setStatus(null);
         agendaPesquisa.pesquisar();
         System.out.println("Testando classe AgendaPesquisa método: pesquisar etapa 02");
@@ -136,7 +128,7 @@ public class AgendaPesquisaTest {
         /* usando filtro: data final */
         agendaPesquisa.setDataInicialDate(null);
         agendaPesquisa.setDataFinalDate(calendar);
-        agendaPesquisa.setIdCliente(0);
+        agendaPesquisa.setNomeCliente(null);
         agendaPesquisa.setStatus(null);
         agendaPesquisa.pesquisar();
         System.out.println("Testando classe AgendaPesquisa método: pesquisar etapa 03");
@@ -145,7 +137,7 @@ public class AgendaPesquisaTest {
         /* usando filtro: cliente */
         agendaPesquisa.setDataInicialDate(null);
         agendaPesquisa.setDataFinalDate(null);
-        agendaPesquisa.setIdCliente(clienteModelo.getId());
+        agendaPesquisa.setNomeCliente(agendaModelo.getNomeCliente());
         agendaPesquisa.setStatus(null);
         agendaPesquisa.pesquisar();
         System.out.println("Testando classe AgendaPesquisa método: pesquisar etapa 04");
@@ -154,7 +146,7 @@ public class AgendaPesquisaTest {
         /* usando filtro: status */
         agendaPesquisa.setDataInicialDate(null);
         agendaPesquisa.setDataFinalDate(null);
-        agendaPesquisa.setIdCliente(0);
+        agendaPesquisa.setNomeCliente(null);
         agendaPesquisa.setStatus("Atendido");
         agendaPesquisa.pesquisar();
         System.out.println("Testando classe AgendaPesquisa método: pesquisar etapa 05");
@@ -163,7 +155,7 @@ public class AgendaPesquisaTest {
         /* usando filtro: todos */
         agendaPesquisa.setDataInicialDate(calendar);
         agendaPesquisa.setDataFinalDate(calendar);
-        agendaPesquisa.setIdCliente(clienteModelo.getId());
+        agendaPesquisa.setNomeCliente(agendaModelo.getNomeCliente());
         agendaPesquisa.setStatus("Atendido");
         agendaPesquisa.pesquisar();
         System.out.println("Testando classe AgendaPesquisa método: pesquisar etapa 06");

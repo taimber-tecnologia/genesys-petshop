@@ -18,6 +18,7 @@ public class FornecedorValidadorTest {
         new Repository(new FornecedorModelo()).deleteTodos();
         fornecedorModelo.setNome("Teste");
         fornecedorModelo.setCnpj("00.000.000/0001-00");
+        fornecedorModelo.setTelefone("62 0000-0000");
         new Repository(fornecedorModelo).save();
 
     }
@@ -28,6 +29,7 @@ public class FornecedorValidadorTest {
         /* usando filtro: nenhum */
         view.jTbasicoNome.setText(null);
         view.jFbasicoCnpj.setValue(null);
+        view.jTcontatoTelefone.setText(null);
         fornecedorValidador = new FornecedorValidador(view, fornecedorModelo.getId());
         System.out.println("Testando classe FornecedorValidador metodo: isValido etapa 01");
         assertEquals(false, fornecedorValidador.isValido());
@@ -35,6 +37,7 @@ public class FornecedorValidadorTest {
         /* usando filtro: nome */
         view.jTbasicoNome.setText(fornecedorModelo.getNome());
         view.jFbasicoCnpj.setValue(null);
+        view.jTcontatoTelefone.setText(null);
         fornecedorValidador = new FornecedorValidador(view, fornecedorModelo.getId());
         System.out.println("Testando classe FornecedorValidador metodo: isValido etapa 02");
         assertEquals(false, fornecedorValidador.isValido());
@@ -42,13 +45,15 @@ public class FornecedorValidadorTest {
         /* usando filtro: cnpj */
         view.jTbasicoNome.setText(null);
         view.jFbasicoCnpj.setText(fornecedorModelo.getCnpj());
+        view.jTcontatoTelefone.setText(null);
         fornecedorValidador = new FornecedorValidador(view, fornecedorModelo.getId());
         System.out.println("Testando classe FornecedorValidador metodo: isValido etapa 03");
         assertEquals(false, fornecedorValidador.isValido());
 
-        /* usando filtro: nascimento */
+        /* usando filtro: telefone */
         view.jTbasicoNome.setText(null);
-        view.jFbasicoCnpj.setValue(null);
+        view.jFbasicoCnpj.setText(null);
+        view.jTcontatoTelefone.setText(fornecedorModelo.getTelefone());
         fornecedorValidador = new FornecedorValidador(view, fornecedorModelo.getId());
         System.out.println("Testando classe FornecedorValidador metodo: isValido etapa 04");
         assertEquals(false, fornecedorValidador.isValido());
@@ -56,6 +61,7 @@ public class FornecedorValidadorTest {
         /* usando filtro: todos */
         view.jTbasicoNome.setText(fornecedorModelo.getNome());
         view.jFbasicoCnpj.setText(fornecedorModelo.getCnpj());
+        view.jTcontatoTelefone.setText(fornecedorModelo.getTelefone());
         fornecedorValidador = new FornecedorValidador(view, fornecedorModelo.getId());
         System.out.println("Testando classe FornecedorValidador metodo: isValido etapa 05");
         assertEquals(true, fornecedorValidador.isValido());
@@ -63,9 +69,9 @@ public class FornecedorValidadorTest {
         /* usando filtro: cnpj já em uso */
         view.jTbasicoNome.setText(fornecedorModelo.getNome());
         view.jFbasicoCnpj.setText(fornecedorModelo.getCnpj());
-
+        view.jTcontatoTelefone.setText(fornecedorModelo.getTelefone());
         fornecedorValidador = new FornecedorValidador(view, 0);
-        System.out.println("Testando classe FornecedorValidador metodo: isValido etapa 05");
+        System.out.println("Testando classe FornecedorValidador metodo: isValido etapa 06");
         assertEquals(false, fornecedorValidador.isValido());
 
     }
@@ -76,6 +82,7 @@ public class FornecedorValidadorTest {
         /* usando filtro: nenhum */
         view.jTbasicoNome.setText(null);
         view.jFbasicoCnpj.setValue(null);
+        view.jTcontatoTelefone.setText(null);
         fornecedorValidador = new FornecedorValidador(view, fornecedorModelo.getId());
         fornecedorValidador.isValido();
         System.out.println("Testando classe FornecedorValidador metodo: getMensagensErro etapa 01");
@@ -84,6 +91,7 @@ public class FornecedorValidadorTest {
         /* usando filtro: nome */
         view.jTbasicoNome.setText(fornecedorModelo.getNome());
         view.jFbasicoCnpj.setValue(null);
+        view.jTcontatoTelefone.setText(null);
         fornecedorValidador = new FornecedorValidador(view, fornecedorModelo.getId());
         fornecedorValidador.isValido();
         System.out.println("Testando classe FornecedorValidador metodo: getMensagensErro etapa 02");
@@ -92,14 +100,16 @@ public class FornecedorValidadorTest {
         /* usando filtro: cnpj */
         view.jTbasicoNome.setText(null);
         view.jFbasicoCnpj.setText(fornecedorModelo.getCnpj());
+        view.jTcontatoTelefone.setText(null);
         fornecedorValidador = new FornecedorValidador(view, fornecedorModelo.getId());
         fornecedorValidador.isValido();
         System.out.println("Testando classe FornecedorValidador metodo: getMensagensErro etapa 03");
         assertEquals(true, fornecedorValidador.getMensagensErro().length() > 0);
 
-        /* usando filtro: nascimento */
+        /* usando filtro: telefone */
         view.jTbasicoNome.setText(null);
-        view.jFbasicoCnpj.setValue(null);
+        view.jFbasicoCnpj.setText(null);
+        view.jTcontatoTelefone.setText(fornecedorModelo.getTelefone());
         fornecedorValidador = new FornecedorValidador(view, fornecedorModelo.getId());
         fornecedorValidador.isValido();
         System.out.println("Testando classe FornecedorValidador metodo: getMensagensErro etapa 04");
@@ -108,6 +118,7 @@ public class FornecedorValidadorTest {
         /* usando filtro: todos */
         view.jTbasicoNome.setText(fornecedorModelo.getNome());
         view.jFbasicoCnpj.setText(fornecedorModelo.getCnpj());
+        view.jTcontatoTelefone.setText(fornecedorModelo.getTelefone());
         fornecedorValidador = new FornecedorValidador(view, fornecedorModelo.getId());
         fornecedorValidador.isValido();
         System.out.println("Testando classe FornecedorValidador metodo: getMensagensErro etapa 05");
@@ -116,9 +127,10 @@ public class FornecedorValidadorTest {
         /* usando filtro: cnpj já em uso */
         view.jTbasicoNome.setText(fornecedorModelo.getNome());
         view.jFbasicoCnpj.setText(fornecedorModelo.getCnpj());
+        view.jTcontatoTelefone.setText(fornecedorModelo.getTelefone());
         fornecedorValidador = new FornecedorValidador(view, 0);
         fornecedorValidador.isValido();
-        System.out.println("Testando classe FornecedorValidador metodo: getMensagensErro etapa 05");
+        System.out.println("Testando classe FornecedorValidador metodo: getMensagensErro etapa 06");
         assertEquals(true, fornecedorValidador.getMensagensErro().length() > 0);
 
     }

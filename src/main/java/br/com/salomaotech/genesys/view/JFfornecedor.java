@@ -312,6 +312,7 @@ public class JFfornecedor extends javax.swing.JFrame {
 
         jTabaCadastro.addTab("Endereço", jPanel5);
 
+        jLabel19.setForeground(new java.awt.Color(153, 0, 0));
         jLabel19.setText("Telefone:");
 
         jLabel20.setText("E-mail:");
