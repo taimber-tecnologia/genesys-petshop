@@ -187,7 +187,7 @@ public class FinanceiroPesquisa {
 
         if (isDataAnterior) {
 
-            jpql.addParametroMenor("data", dataInicialDate);
+            jpql.addParametroMenorIgual("data", dataInicialDate);
 
         } else {
 
@@ -250,9 +250,6 @@ public class FinanceiroPesquisa {
             }
 
         }
-        
-        
-        System.out.println(">>: " + jpql.construirSelect());
 
         /* pesquisa os dados */
         Paginador paginador = new Paginador(jpql, jCpaginador, new FinanceiroModelo());

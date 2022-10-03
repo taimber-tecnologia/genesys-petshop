@@ -221,6 +221,11 @@ public class JPQLTest {
     }
 
     @Test
+    public void testAddParametroMenor() {
+
+    }
+
+    @Test
     public void testGetCondicaoWhere() {
 
         jpql = new JPQL(new ModeloDeTeste());

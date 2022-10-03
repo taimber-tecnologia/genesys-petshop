@@ -260,7 +260,8 @@ public class JFfinanceiro extends javax.swing.JFrame {
 
         jLabel10.setText("Contas:");
 
-        jCdataAnterior.setText("Anterior");
+        jCdataAnterior.setText("Anterior igual");
+        jCdataAnterior.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

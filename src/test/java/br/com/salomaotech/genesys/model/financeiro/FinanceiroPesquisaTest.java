@@ -79,40 +79,60 @@ public class FinanceiroPesquisaTest {
     @Test
     public void testSetPagamentoRealizado() {
 
-        financeiroPesquisa.setPagamentoRealizado("Sim");
-        financeiroPesquisa.pesquisar();
-        System.out.println("Testando classe FinanceiroPesquisa metodo: setPagamentoRealizado etapa 01");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        boolean isErro = false;
 
-        financeiroPesquisa.setPagamentoRealizado("Nao");
-        financeiroPesquisa.pesquisar();
-        System.out.println("Testando classe FinanceiroPesquisa metodo: setPagamentoRealizado etapa 02");
-        assertEquals(true, view.jTresultados.getRowCount() == 0);
+        try {
 
-        financeiroPesquisa.setPagamentoRealizado("Todos");
-        financeiroPesquisa.pesquisar();
-        System.out.println("Testando classe FinanceiroPesquisa metodo: setPagamentoRealizado etapa 03");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+            financeiroPesquisa.setPagamentoRealizado("Sim");
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe FinanceiroPesquisa metodo: setPagamentoRealizado");
+        assertEquals(false, isErro);
 
     }
 
     @Test
     public void testSetPagamentoDespesa() {
 
-        financeiroPesquisa.setPagamentoDespesa("Pagar");
-        financeiroPesquisa.pesquisar();
-        System.out.println("Testando classe FinanceiroPesquisa metodo: setPagamentoDespesa etapa 01");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        boolean isErro = false;
 
-        financeiroPesquisa.setPagamentoDespesa("Receber");
-        financeiroPesquisa.pesquisar();
-        System.out.println("Testando classe FinanceiroPesquisa metodo: setPagamentoDespesa etapa 02");
-        assertEquals(true, view.jTresultados.getRowCount() == 0);
+        try {
 
-        financeiroPesquisa.setPagamentoDespesa("Todos");
-        financeiroPesquisa.pesquisar();
-        System.out.println("Testando classe FinanceiroPesquisa metodo: setPagamentoDespesa etapa 03");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+            financeiroPesquisa.setPagamentoDespesa("Pagar");
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe FinanceiroPesquisa metodo: setPagamentoDespesa");
+        assertEquals(false, isErro);
+
+    }
+
+    @Test
+    public void testSetIsDataAnterior() {
+
+        boolean isErro = false;
+
+        try {
+
+            financeiroPesquisa.setIsDataAnterior(true);
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe FinanceiroPesquisa metodo: setIsDataAnterior");
+        assertEquals(false, isErro);
 
     }
 
@@ -124,6 +144,7 @@ public class FinanceiroPesquisaTest {
         financeiroPesquisa.setDataFinalDate(null);
         financeiroPesquisa.setPagamentoRealizado(null);
         financeiroPesquisa.setPagamentoDespesa(null);
+        financeiroPesquisa.setIsDataAnterior(false);
         financeiroPesquisa.pesquisar();
         System.out.println("Testando classe FinanceiroPesquisa metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -133,6 +154,7 @@ public class FinanceiroPesquisaTest {
         financeiroPesquisa.setDataFinalDate(null);
         financeiroPesquisa.setPagamentoRealizado(null);
         financeiroPesquisa.setPagamentoDespesa(null);
+        financeiroPesquisa.setIsDataAnterior(false);
         financeiroPesquisa.pesquisar();
         System.out.println("Testando classe FinanceiroPesquisa metodo: pesquisar etapa 02");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -142,6 +164,7 @@ public class FinanceiroPesquisaTest {
         financeiroPesquisa.setDataFinalDate(calendar);
         financeiroPesquisa.setPagamentoRealizado(null);
         financeiroPesquisa.setPagamentoDespesa(null);
+        financeiroPesquisa.setIsDataAnterior(false);
         financeiroPesquisa.pesquisar();
         System.out.println("Testando classe FinanceiroPesquisa metodo: pesquisar etapa 03");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -151,6 +174,7 @@ public class FinanceiroPesquisaTest {
         financeiroPesquisa.setDataFinalDate(null);
         financeiroPesquisa.setPagamentoRealizado("Sim");
         financeiroPesquisa.setPagamentoDespesa(null);
+        financeiroPesquisa.setIsDataAnterior(false);
         financeiroPesquisa.pesquisar();
         System.out.println("Testando classe FinanceiroPesquisa metodo: pesquisar etapa 04");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -160,6 +184,7 @@ public class FinanceiroPesquisaTest {
         financeiroPesquisa.setDataFinalDate(null);
         financeiroPesquisa.setPagamentoRealizado("Nao");
         financeiroPesquisa.setPagamentoDespesa(null);
+        financeiroPesquisa.setIsDataAnterior(false);
         financeiroPesquisa.pesquisar();
         System.out.println("Testando classe FinanceiroPesquisa metodo: pesquisar etapa 05");
         assertEquals(true, view.jTresultados.getRowCount() == 0);
@@ -169,6 +194,7 @@ public class FinanceiroPesquisaTest {
         financeiroPesquisa.setDataFinalDate(null);
         financeiroPesquisa.setPagamentoRealizado("Todos");
         financeiroPesquisa.setPagamentoDespesa(null);
+        financeiroPesquisa.setIsDataAnterior(false);
         financeiroPesquisa.pesquisar();
         System.out.println("Testando classe FinanceiroPesquisa metodo: pesquisar etapa 06");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -178,6 +204,7 @@ public class FinanceiroPesquisaTest {
         financeiroPesquisa.setDataFinalDate(null);
         financeiroPesquisa.setPagamentoRealizado(null);
         financeiroPesquisa.setPagamentoDespesa("Pagar");
+        financeiroPesquisa.setIsDataAnterior(false);
         financeiroPesquisa.pesquisar();
         System.out.println("Testando classe FinanceiroPesquisa metodo: pesquisar etapa 07");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -187,6 +214,7 @@ public class FinanceiroPesquisaTest {
         financeiroPesquisa.setDataFinalDate(null);
         financeiroPesquisa.setPagamentoRealizado(null);
         financeiroPesquisa.setPagamentoDespesa("Receber");
+        financeiroPesquisa.setIsDataAnterior(false);
         financeiroPesquisa.pesquisar();
         System.out.println("Testando classe FinanceiroPesquisa metodo: pesquisar etapa 08");
         assertEquals(true, view.jTresultados.getRowCount() == 0);
@@ -196,6 +224,7 @@ public class FinanceiroPesquisaTest {
         financeiroPesquisa.setDataFinalDate(null);
         financeiroPesquisa.setPagamentoRealizado(null);
         financeiroPesquisa.setPagamentoDespesa("Todos");
+        financeiroPesquisa.setIsDataAnterior(false);
         financeiroPesquisa.pesquisar();
         System.out.println("Testando classe FinanceiroPesquisa metodo: pesquisar etapa 09");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -205,6 +234,7 @@ public class FinanceiroPesquisaTest {
         financeiroPesquisa.setDataFinalDate(calendar);
         financeiroPesquisa.setPagamentoRealizado("Sim");
         financeiroPesquisa.setPagamentoDespesa("Todos");
+        financeiroPesquisa.setIsDataAnterior(true);
         financeiroPesquisa.pesquisar();
         System.out.println("Testando classe FinanceiroPesquisa metodo: pesquisar etapa 10");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
