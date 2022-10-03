@@ -4,6 +4,7 @@ import br.com.salomaotech.genesys.model.centro_custo.ComboBoxCentroCusto;
 import br.com.salomaotech.genesys.model.financeiro.FinanceiroPesquisa;
 import br.com.salomaotech.genesys.view.JFfinanceiro;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
+import java.util.Calendar;
 import javax.swing.JFrame;
 
 public class FinanceiroController {
@@ -44,6 +45,28 @@ public class FinanceiroController {
 
         /* exibe os dados */
         new FinanceiroPesquisa(view.jTresultados, view.jCpaginador, view.jLsaldo).pesquisar();
+
+    }
+
+    public void construirContasPagar() {
+
+        construir();
+        view.jTabaPrincipal.setSelectedIndex(1);
+        view.jDpesquisaDataInicio.setDate(Calendar.getInstance().getTime());
+        view.jCdataAnterior.setSelected(true);
+        view.jCpesquisaIsDespesa.setSelectedItem("Pagar");
+        financeiroMetodos.pesquisar();
+
+    }
+
+    public void construirContasReceber() {
+
+        construir();
+        view.jTabaPrincipal.setSelectedIndex(1);
+        view.jDpesquisaDataInicio.setDate(Calendar.getInstance().getTime());
+        view.jCdataAnterior.setSelected(true);
+        view.jCpesquisaIsDespesa.setSelectedItem("Receber");
+        financeiroMetodos.pesquisar();
 
     }
 

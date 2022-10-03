@@ -31,6 +31,7 @@ public class FinanceiroPesquisa {
     private Date dataFinalDate;
     private String pagamentoRealizado;
     private String pagamentoDespesa;
+    private boolean isDataAnterior;
 
     public FinanceiroPesquisa(JTable jTresultados, JComboBox jCpaginador, JLabel labelSaldo) {
         this.jTresultados = jTresultados;
@@ -67,6 +68,12 @@ public class FinanceiroPesquisa {
     public void setPagamentoDespesa(String pagamentoDespesa) {
 
         this.pagamentoDespesa = pagamentoDespesa;
+
+    }
+
+    public void setIsDataAnterior(boolean isDataAnterior) {
+
+        this.isDataAnterior = isDataAnterior;
 
     }
 
@@ -178,25 +185,33 @@ public class FinanceiroPesquisa {
         jpql.addOrderBy("data", "ASC");
         jpql.addOrderBy("idVenda", "ASC");
 
-        if (!isNull(dataInicialDate) && !isNull(dataFinalDate)) {
+        if (isDataAnterior) {
 
-            /* pesquisa entre datas */
-            jpql.addParametroMaiorIgual("data", dataInicialDate);
-            jpql.addParametroMenorIgual("data", dataFinalDate);
+            jpql.addParametroMenor("data", dataInicialDate);
 
         } else {
 
-            /* pesquisa exatamente a data inicial */
-            if (!isNull(dataInicialDate)) {
+            if (!isNull(dataInicialDate) && !isNull(dataFinalDate)) {
 
-                jpql.addParametroIgual("data", dataInicialDate);
-
-            }
-
-            /* pesquisa da data final para trás */
-            if (!isNull(dataFinalDate)) {
-
+                /* pesquisa entre datas */
+                jpql.addParametroMaiorIgual("data", dataInicialDate);
                 jpql.addParametroMenorIgual("data", dataFinalDate);
+
+            } else {
+
+                /* pesquisa exatamente a data inicial */
+                if (!isNull(dataInicialDate)) {
+
+                    jpql.addParametroIgual("data", dataInicialDate);
+
+                }
+
+                /* pesquisa da data final para trás */
+                if (!isNull(dataFinalDate)) {
+
+                    jpql.addParametroMenorIgual("data", dataFinalDate);
+
+                }
 
             }
 
@@ -235,6 +250,9 @@ public class FinanceiroPesquisa {
             }
 
         }
+        
+        
+        System.out.println(">>: " + jpql.construirSelect());
 
         /* pesquisa os dados */
         Paginador paginador = new Paginador(jpql, jCpaginador, new FinanceiroModelo());

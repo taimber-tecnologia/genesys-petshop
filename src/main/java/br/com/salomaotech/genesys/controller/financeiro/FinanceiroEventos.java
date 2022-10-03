@@ -154,6 +154,17 @@ public class FinanceiroEventos {
 
         });
 
+        /* opção de pesquisar data anterior */
+        view.jCdataAnterior.addActionListener((ActionEvent e) -> {
+
+            if (view.jCdataAnterior.isSelected()) {
+
+                view.jDPesquisaDataFim.setDate(null);
+
+            }
+
+        });
+
     }
 
 }

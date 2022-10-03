@@ -27,4 +27,44 @@ public class FinanceiroControllerTest {
 
     }
 
+    @Test
+    public void testConstruirContasPagar() {
+
+        boolean isErro = false;
+
+        try {
+
+            financeiroController.construirContasPagar();
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe FinanceiroController metodo: construirContasPagar");
+        assertEquals(false, isErro);
+
+    }
+
+    @Test
+    public void testConstruirContasReceber() {
+
+        boolean isErro = false;
+
+        try {
+
+            financeiroController.construirContasReceber();
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe FinanceiroController metodo: construirContasReceber");
+        assertEquals(false, isErro);
+
+    }
+
 }

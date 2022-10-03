@@ -119,6 +119,16 @@ public class JPQL {
 
     }
 
+    public void addParametroMenor(String chave, Object valor) {
+
+        if (!ValidaStringIsEmpty.isEmpty(chave) & !isNull(valor)) {
+
+            colunasPesquisar.add(geraItemColunaPesquisa(chave, valor, "<"));
+
+        }
+
+    }
+
     public void addOrderBy(String chave, Object valor) {
 
         if (!ValidaStringIsEmpty.isEmpty(chave) & !isNull(valor)) {

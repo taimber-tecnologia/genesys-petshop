@@ -4,6 +4,7 @@ import br.com.salomaotech.genesys.model.centro_custo.CentroCustoModelo;
 import br.com.salomaotech.genesys.model.centro_custo.ComboBoxCentroCusto;
 import br.com.salomaotech.genesys.model.financeiro.FinanceiroModelo;
 import br.com.salomaotech.genesys.view.JFfinanceiro;
+import br.com.salomaotech.sistema.algoritmos.Datas;
 import br.com.salomaotech.sistema.jpa.Repository;
 import br.com.salomaotech.sistema.swing.PopUp;
 import java.math.BigDecimal;
@@ -15,7 +16,7 @@ import static org.junit.Assert.*;
 public class FinanceiroMetodosTest {
 
     private final JFfinanceiro view = new JFfinanceiro();
-    private final Calendar calendar = Calendar.getInstance();
+    private Calendar calendar = Calendar.getInstance();
     private final CentroCustoModelo centroCustoModelo = new CentroCustoModelo();
     private FinanceiroModelo financeiroModelo = new FinanceiroModelo();
     private final FinanceiroMetodos financeiroMetodos = new FinanceiroMetodos(view);
@@ -29,16 +30,25 @@ public class FinanceiroMetodosTest {
         centroCustoModelo.setNome("Teste");
         new Repository(centroCustoModelo).save();
 
-        /* simula cadastro de financeiro */
+        /* remove registros financeiros anteriores */
         new Repository(new FinanceiroModelo()).deleteTodos();
-        financeiroModelo.setData(calendar);
-        financeiroModelo.setValor(new BigDecimal(100));
-        financeiroModelo.setDescricao("Teste A");
-        financeiroModelo.setIdCentroCusto(centroCustoModelo.getId());
-        financeiroModelo.setIsPago(true);
-        financeiroModelo.setIdCliente(1);
-        financeiroModelo.setIdVenda(2);
-        new Repository(financeiroModelo).save();
+        for (int i = 0; i <= 3; i++) {
+
+            /* atualiza o calendário */
+            calendar = Datas.adicionarMesCalendar(calendar, i);
+
+            /* simula cadastro de financeiro */
+            financeiroModelo = new FinanceiroModelo();
+            financeiroModelo.setData(calendar);
+            financeiroModelo.setValor(new BigDecimal(100));
+            financeiroModelo.setDescricao("Teste A");
+            financeiroModelo.setIdCentroCusto(centroCustoModelo.getId());
+            financeiroModelo.setIsPago(true);
+            financeiroModelo.setIdCliente(1);
+            financeiroModelo.setIdVenda(2);
+            new Repository(financeiroModelo).save();
+
+        }
 
         /* combobox de cadastro com lista de centro de custo */
         comboBoxCentroCusto = new ComboBoxCentroCusto(view.jCcadastroCentroCusto);
@@ -206,6 +216,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Todos");
+        view.jCdataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -214,6 +225,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(calendar.getTime());
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Todos");
+        view.jCdataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 02");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -222,6 +234,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(calendar.getTime());
         view.jCpesquisaPago.setSelectedItem("Todos");
+        view.jCdataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 03");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -230,88 +243,108 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(calendar.getTime());
         view.jDPesquisaDataFim.setDate(calendar.getTime());
         view.jCpesquisaPago.setSelectedItem("Todos");
+        view.jCdataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 04");
+        assertEquals(true, view.jTresultados.getRowCount() > 0);
+
+        /* usando filtro: data anterior */
+        view.jDpesquisaDataInicio.setDate(calendar.getTime());
+        view.jDPesquisaDataFim.setDate(null);
+        view.jCpesquisaPago.setSelectedItem("Todos");
+        view.jCdataAnterior.setSelected(true);
+        financeiroMetodos.pesquisar();
+        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 05");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: pago todos */
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Todos");
+        view.jCdataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
-        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 05");
+        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 06");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: pago sim */
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Sim");
+        view.jCdataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
-        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 06");
+        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 07");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: pago nao */
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Nao");
+        view.jCdataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
-        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 07");
+        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 08");
         assertEquals(true, view.jTresultados.getRowCount() == 0);
 
         /* usando filtro: data de inicio, pago sim */
         view.jDpesquisaDataInicio.setDate(calendar.getTime());
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Sim");
+        view.jCdataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
-        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 08");
+        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 09");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: data de inicio, pago nao */
         view.jDpesquisaDataInicio.setDate(calendar.getTime());
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Nao");
+        view.jCdataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
-        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 09");
+        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 10");
         assertEquals(true, view.jTresultados.getRowCount() == 0);
 
         /* usando filtro: data de inicio, pago todos */
         view.jDpesquisaDataInicio.setDate(calendar.getTime());
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Todos");
+        view.jCdataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
-        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 10");
+        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 11");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: data fim, pago sim */
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(calendar.getTime());
         view.jCpesquisaPago.setSelectedItem("Sim");
+        view.jCdataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
-        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 11");
+        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 12");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: data fim, pago nao */
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(calendar.getTime());
         view.jCpesquisaPago.setSelectedItem("Nao");
+        view.jCdataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
-        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 12");
+        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 13");
         assertEquals(true, view.jTresultados.getRowCount() == 0);
 
         /* usando filtro: data fim, pago todos */
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(calendar.getTime());
         view.jCpesquisaPago.setSelectedItem("Todos");
+        view.jCdataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
-        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 13");
+        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 14");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: todos */
         view.jDpesquisaDataInicio.setDate(calendar.getTime());
         view.jDPesquisaDataFim.setDate(calendar.getTime());
         view.jCpesquisaPago.setSelectedItem("Todos");
+        view.jCdataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
-        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 14");
+        System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 15");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
     }

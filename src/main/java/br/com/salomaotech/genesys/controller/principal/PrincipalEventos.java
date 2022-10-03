@@ -237,14 +237,14 @@ public class PrincipalEventos {
         /* atalho para financeiro */
         view.jMfinanceiroPagar.addActionListener((ActionEvent e) -> {
 
-            new FinanceiroController().construir();
+            new FinanceiroController().construirContasPagar();
 
         });
 
         /* atalho para financeiro */
         view.jMfinanceiroReceber.addActionListener((ActionEvent e) -> {
 
-            new FinanceiroController().construir();
+            new FinanceiroController().construirContasReceber();
 
         });
 
