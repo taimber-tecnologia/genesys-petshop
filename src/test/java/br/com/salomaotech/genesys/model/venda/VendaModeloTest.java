@@ -146,21 +146,20 @@ public class VendaModeloTest {
     }
 
     @Test
-    public void testGetIdCliente() {
+    public void testGetCpfCliente() {
 
-        System.out.println("Testando classe VendaModelo metodo: getIdCliente");
-        assertEquals(true, vendaModelo.getIdCliente() == 0);
+        System.out.println("Testando classe VendaModelo metodo: getCpfCliente");
+        assertEquals(true, isNull(vendaModelo.getCpfCliente()));
 
     }
 
     @Test
-    public void testSetIdCliente() {
+    public void testSetCpfCliente() {
 
-        long idCliente = 1;
-        vendaModelo.setIdCliente(idCliente);
+        vendaModelo.setCpfCliente("000.000.000-00");
 
-        System.out.println("Testando classe VendaModelo metodo: setIdCliente");
-        assertEquals(true, vendaModelo.getIdCliente() == idCliente);
+        System.out.println("Testando classe VendaModelo metodo: setCpfCliente");
+        assertEquals(true, vendaModelo.getCpfCliente().equals("000.000.000-00"));
 
     }
 

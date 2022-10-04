@@ -167,6 +167,7 @@ public class AnimalMetodosTest {
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTnomeCadastro));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTpesoCadastro));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTcaracteristicasCadastro));
+        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTpesquisaNome));
 
     }
 

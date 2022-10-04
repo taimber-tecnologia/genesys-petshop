@@ -1,11 +1,9 @@
 package br.com.salomaotech.genesys.model.financeiro;
 
 import br.com.salomaotech.genesys.model.centro_custo.CentroCustoModelo;
-import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import br.com.salomaotech.sistema.algoritmos.Datas;
-import br.com.salomaotech.sistema.algoritmos.ValidaStringIsEmpty;
 import br.com.salomaotech.sistema.jpa.JPQL;
 import br.com.salomaotech.sistema.jpa.Paginador;
 import br.com.salomaotech.sistema.jpa.Repository;
@@ -129,20 +127,6 @@ public class FinanceiroPesquisa {
             } else {
 
                 situacao = "Em aberto";
-
-            }
-
-            /* valida se está associado a um cliente */
-            if (financeiroModelo.getIdCliente() != 0) {
-
-                if (ValidaStringIsEmpty.isEmpty(descricao)) {
-
-                    descricao = "";
-
-                }
-
-                ClienteModelo clienteModelo = (ClienteModelo) new Repository(new ClienteModelo()).findById(financeiroModelo.getIdCliente());
-                descricao += " - " + clienteModelo.getNome();
 
             }
 

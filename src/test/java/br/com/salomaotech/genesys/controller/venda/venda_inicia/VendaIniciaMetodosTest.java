@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
-import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
@@ -22,7 +21,6 @@ public class VendaIniciaMetodosTest {
     private final ProdutoModelo produtoModelo = new ProdutoModelo();
     private final List<VendaModeloItem> vendaModeloItemList = new ArrayList();
     private final VendaModelo vendaModelo = new VendaModelo();
-    private final ClienteModelo clienteModelo = new ClienteModelo();
 
     public VendaIniciaMetodosTest() {
 
@@ -45,17 +43,11 @@ public class VendaIniciaMetodosTest {
         vendaModeloItem.setQuantidade(new BigDecimal(1));
         vendaModeloItemList.add(vendaModeloItem);
 
-        /* simula cadastro de cliente */
-        new Repository(new ClienteModelo()).deleteTodos();
-        clienteModelo.setNome("Teste");
-        clienteModelo.setCpf("000.000.000-00");
-        new Repository(clienteModelo).save();
-
         /* simula cadastro de venda */
         new Repository(new VendaModelo()).deleteTodos();
         vendaModelo.setData(Calendar.getInstance());
         vendaModelo.setVendaModeloItemList(vendaModeloItemList);
-        vendaModelo.setIdCliente(clienteModelo.getId());
+        vendaModelo.setCpfCliente("000.000.000-00");
         vendaModelo.setFormaPagamento("Credito");
         vendaModelo.setNumeroParcelas(3);
         new Repository(vendaModelo).save();

@@ -1,8 +1,6 @@
 package br.com.salomaotech.genesys.controller.venda.venda_pesquisa;
 
-import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.view.JFvendaPesquisa;
-import javax.swing.JComboBox;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -32,26 +30,6 @@ public class VendaPesquisaEventosTest {
     }
 
     @Test
-    public void testSetComboBoxClientesPesquisa() {
-
-        boolean isErro = false;
-
-        try {
-
-            vendaPesquisaEventos.setComboBoxClientesPesquisa(new ComboBoxClientes(new JComboBox()));
-
-        } catch (Exception ex) {
-
-            isErro = true;
-
-        }
-
-        System.out.println("Testando classe VendaPesquisaEventos metodo: setComboBoxClientesPesquisa");
-        assertEquals(false, isErro);
-
-    }
-
-    @Test
     public void testAddEventos() {
 
         vendaPesquisaEventos.addEventos();
@@ -59,8 +37,8 @@ public class VendaPesquisaEventosTest {
         assertEquals(true, view.jBatalhoCadastro.getActionListeners().length == 1);
         assertEquals(true, view.jBpesquisa.getActionListeners().length == 1);
         assertEquals(true, view.jBpaginador.getActionListeners().length == 1);
-        assertEquals(true, view.jBpesquisaNomeClienteRefresh.getActionListeners().length == 1);
         assertEquals(true, view.jTresultados.getMouseListeners().length == 3);
+        assertEquals(true, view.jTpesquisaCpf.getKeyListeners().length == 2);
 
     }
 

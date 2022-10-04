@@ -99,6 +99,7 @@ public class AnimalMetodos {
         popUp.adicionarMenu(view.jTnomeCadastro);
         popUp.adicionarMenu(view.jTpesoCadastro);
         popUp.adicionarMenu(view.jTcaracteristicasCadastro);
+        popUp.adicionarMenu(view.jTpesquisaNome);
 
     }
 

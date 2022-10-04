@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.model.venda;
 
-import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.view.JFvendaPesquisa;
 import br.com.salomaotech.sistema.jpa.Repository;
@@ -20,7 +19,6 @@ public class VendaPesquisaTest {
     private final ProdutoModelo produtoModelo = new ProdutoModelo();
     private final List<VendaModeloItem> vendaModeloItemList = new ArrayList();
     private final VendaModelo vendaModelo = new VendaModelo();
-    private final ClienteModelo clienteModelo = new ClienteModelo();
 
     public VendaPesquisaTest() {
 
@@ -42,17 +40,11 @@ public class VendaPesquisaTest {
         vendaModeloItem.setQuantidade(new BigDecimal(1));
         vendaModeloItemList.add(vendaModeloItem);
 
-        /* simula cadastro de cliente */
-        new Repository(new ClienteModelo()).deleteTodos();
-        clienteModelo.setNome("Teste");
-        clienteModelo.setCpf("000.000.000-00");
-        new Repository(clienteModelo).save();
-
         /* simula cadastro de venda */
         new Repository(new VendaModelo()).deleteTodos();
         vendaModelo.setData(calendar);
         vendaModelo.setVendaModeloItemList(vendaModeloItemList);
-        vendaModelo.setIdCliente(clienteModelo.getId());
+        vendaModelo.setCpfCliente("000.000.000-00");
         vendaModelo.setFormaPagamento("Credito");
         vendaModelo.setNumeroParcelas(3);
         new Repository(vendaModelo).save();
@@ -80,13 +72,13 @@ public class VendaPesquisaTest {
     }
 
     @Test
-    public void testSetIdCliente() {
+    public void testSetCpfCliente() {
 
         boolean isErro = false;
 
         try {
 
-            vendaPesquisa.setIdCliente(1);
+            vendaPesquisa.setCpfCliente("000.000.000-00");
 
         } catch (Exception ex) {
 
@@ -94,7 +86,7 @@ public class VendaPesquisaTest {
 
         }
 
-        System.out.println("Testando classe VendaPesquisa metodo: setIdCliente");
+        System.out.println("Testando classe VendaPesquisa metodo: setCpfCliente");
         assertEquals(false, isErro);
 
     }
@@ -104,28 +96,28 @@ public class VendaPesquisaTest {
 
         /* usando filtro: nenhum */
         view.jDpesquisaData.setCalendar(null);
-        vendaPesquisa.setIdCliente(0);
+        vendaPesquisa.setCpfCliente("");
         vendaPesquisa.pesquisar();
         System.out.println("Testando classe VendaPesquisa metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: data */
         view.jDpesquisaData.setCalendar(calendar);
-        vendaPesquisa.setIdCliente(0);
+        vendaPesquisa.setCpfCliente("");
         vendaPesquisa.pesquisar();
         System.out.println("Testando classe VendaPesquisa metodo: pesquisar etapa 02");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: cliente */
         view.jDpesquisaData.setCalendar(null);
-        vendaPesquisa.setIdCliente(clienteModelo.getId());
+        vendaPesquisa.setCpfCliente("000.000.000-00");
         vendaPesquisa.pesquisar();
         System.out.println("Testando classe VendaPesquisa metodo: pesquisar etapa 03");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: todos */
         view.jDpesquisaData.setCalendar(calendar);
-        vendaPesquisa.setIdCliente(clienteModelo.getId());
+        vendaPesquisa.setCpfCliente("000.000.000-00");
         vendaPesquisa.pesquisar();
         System.out.println("Testando classe VendaPesquisa metodo: pesquisar etapa 04");
         assertEquals(true, view.jTresultados.getRowCount() > 0);

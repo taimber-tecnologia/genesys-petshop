@@ -32,9 +32,8 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jDpesquisaData = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
-        jCpesquisaNomeCliente = new javax.swing.JComboBox<>();
         jBpesquisa = new javax.swing.JButton();
-        jBpesquisaNomeClienteRefresh = new javax.swing.JButton();
+        jTpesquisaCpf = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTresultados = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
@@ -61,11 +60,9 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
 
         jDpesquisaData.setDateFormatString("dd/MM/yyyy");
 
-        jLabel2.setText("Cliente:");
+        jLabel2.setText("CPF:");
 
         jBpesquisa.setText("Pesquisar");
-
-        jBpesquisaNomeClienteRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/atualizar16x.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -79,9 +76,7 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCpesquisaNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jBpesquisaNomeClienteRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTpesquisaCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBpesquisa)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -93,14 +88,12 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jDpesquisaData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCpesquisaNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jBpesquisa)
-                            .addComponent(jBpesquisaNomeClienteRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jTpesquisaCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBpesquisa))
+                        .addGap(0, 1, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -109,11 +102,11 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Data", "Cliente", "Telefone", "Valor R$", "Revisões"
+                "Código", "Data", "CPF", "Valor R$", "Revisões"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -128,12 +121,12 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
             jTresultados.getColumnModel().getColumn(1).setMinWidth(90);
             jTresultados.getColumnModel().getColumn(1).setPreferredWidth(90);
             jTresultados.getColumnModel().getColumn(1).setMaxWidth(90);
-            jTresultados.getColumnModel().getColumn(4).setMinWidth(125);
-            jTresultados.getColumnModel().getColumn(4).setPreferredWidth(125);
-            jTresultados.getColumnModel().getColumn(4).setMaxWidth(125);
-            jTresultados.getColumnModel().getColumn(5).setMinWidth(90);
-            jTresultados.getColumnModel().getColumn(5).setPreferredWidth(90);
-            jTresultados.getColumnModel().getColumn(5).setMaxWidth(90);
+            jTresultados.getColumnModel().getColumn(3).setMinWidth(125);
+            jTresultados.getColumnModel().getColumn(3).setPreferredWidth(125);
+            jTresultados.getColumnModel().getColumn(3).setMaxWidth(125);
+            jTresultados.getColumnModel().getColumn(4).setMinWidth(90);
+            jTresultados.getColumnModel().getColumn(4).setPreferredWidth(90);
+            jTresultados.getColumnModel().getColumn(4).setMaxWidth(90);
         }
 
         jLabel3.setText("Página:");
@@ -166,7 +159,7 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBpaginador)
@@ -217,9 +210,7 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
     public javax.swing.JButton jBatalhoCadastro;
     public javax.swing.JButton jBpaginador;
     public javax.swing.JButton jBpesquisa;
-    public javax.swing.JButton jBpesquisaNomeClienteRefresh;
     public javax.swing.JComboBox<String> jCpaginador;
-    public javax.swing.JComboBox<String> jCpesquisaNomeCliente;
     public com.toedter.calendar.JDateChooser jDpesquisaData;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -227,6 +218,7 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar jToolBar1;
+    public javax.swing.JTextField jTpesquisaCpf;
     public javax.swing.JTable jTresultados;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.controller.venda.venda_conclui;
 
-import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
-import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.model.financeiro.FinanceiroModelo;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
@@ -26,11 +24,7 @@ public class VendaConcluiMetodosTest {
     private ProdutoModelo produtoModelo = new ProdutoModelo();
     private final List<VendaModeloItem> vendaModeloItemList = new ArrayList();
     private final VendaModelo vendaModelo = new VendaModelo();
-    private final ClienteModelo clienteModelo = new ClienteModelo();
-
-    private final VendaConcluiMetodosCommand vendaConcluiMetodosCommand = new VendaConcluiMetodosCommand(view);
-    private final ComboBoxClientes comboBoxClientes = new ComboBoxClientes(view.jCcliente, vendaConcluiMetodosCommand);
-    private final VendaConcluiMetodos vendaConcluiMetodos = new VendaConcluiMetodos(view, vendaModelo, viewVenda, comboBoxClientes);
+    private final VendaConcluiMetodos vendaConcluiMetodos = new VendaConcluiMetodos(view, vendaModelo, viewVenda);
 
     public VendaConcluiMetodosTest() {
 
@@ -52,22 +46,13 @@ public class VendaConcluiMetodosTest {
         vendaModeloItem.setQuantidade(new BigDecimal(1));
         vendaModeloItemList.add(vendaModeloItem);
 
-        /* simula cadastro de cliente */
-        new Repository(new ClienteModelo()).deleteTodos();
-        clienteModelo.setNome("Teste");
-        clienteModelo.setCpf("000.000.000-00");
-        new Repository(clienteModelo).save();
-
         /* adiciona os dados da venda */
         new Repository(new VendaModelo()).deleteTodos();
         vendaModelo.setData(Calendar.getInstance());
         vendaModelo.setVendaModeloItemList(vendaModeloItemList);
-        vendaModelo.setIdCliente(clienteModelo.getId());
+        vendaModelo.setCpfCliente("000.000.000-00");
         vendaModelo.setFormaPagamento("Credito");
         vendaModelo.setNumeroParcelas(3);
-
-        /* preenche comboboxes */
-        comboBoxClientes.preencher();
 
     }
 
@@ -89,7 +74,7 @@ public class VendaConcluiMetodosTest {
         assertEquals(true, view.jTvalorTotal.getText().equals(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString())));
         assertEquals(true, view.jTvalorRecebido.getText().equals(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString())));
         assertEquals(true, view.jTvalorTroco.getText().equals(ConverteNumeroParaMoedaBr.converter("0")));
-        assertEquals(true, comboBoxClientes.getIdSelecionado() == clienteModelo.getId());
+        assertEquals(true, view.jTcpfCliente.getText().equals(vendaModelo.getCpfCliente()));
         assertEquals(true, view.jCforma.getSelectedItem().equals(vendaModelo.getFormaPagamento()));
         assertEquals(true, view.jCparcela.getSelectedItem().equals(String.valueOf(vendaModelo.getNumeroParcelas())));
 
@@ -165,7 +150,7 @@ public class VendaConcluiMetodosTest {
         assertEquals(false, view.jCforma.isEnabled());
         assertEquals(false, view.jTvalorRecebido.isEnabled());
         assertEquals(false, view.jCparcela.isEnabled());
-        assertEquals(false, view.jCcliente.isEnabled());
+        assertEquals(false, view.jTcpfCliente.isEnabled());
         assertEquals(true, view.jTvalorRecebido.getText().equals(ConverteNumeroParaMoedaBr.converter(view.jTvalorRecebido.getText())));
 
     }

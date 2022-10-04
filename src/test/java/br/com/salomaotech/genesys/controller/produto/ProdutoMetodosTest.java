@@ -148,6 +148,7 @@ public class ProdutoMetodosTest {
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTquantidade));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTestoqueMinimo));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTpeso));
+        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTpesquisaNome));
 
     }
 

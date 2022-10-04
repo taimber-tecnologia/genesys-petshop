@@ -33,7 +33,7 @@ public class VendaModelo implements Modelo, Serializable {
     private String formaPagamento;
     private int numeroParcelas;
     private boolean isPago;
-    private long idCliente;
+    private String cpfCliente;
     private int revisoes;
 
     @Override
@@ -94,12 +94,12 @@ public class VendaModelo implements Modelo, Serializable {
         this.isPago = isPago;
     }
 
-    public long getIdCliente() {
-        return idCliente;
+    public String getCpfCliente() {
+        return cpfCliente;
     }
 
-    public void setIdCliente(long idCliente) {
-        this.idCliente = idCliente;
+    public void setCpfCliente(String cpfCliente) {
+        this.cpfCliente = cpfCliente;
     }
 
     public int getRevisoes() {

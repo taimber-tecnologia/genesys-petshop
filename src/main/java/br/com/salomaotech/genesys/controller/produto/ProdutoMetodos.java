@@ -79,6 +79,7 @@ public class ProdutoMetodos {
         popUp.adicionarMenu(view.jTquantidade);
         popUp.adicionarMenu(view.jTestoqueMinimo);
         popUp.adicionarMenu(view.jTpeso);
+        popUp.adicionarMenu(view.jTpesquisaNome);
 
     }
 

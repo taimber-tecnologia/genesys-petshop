@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.venda.venda_pesquisa;
 
-import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.model.venda.VendaPesquisa;
 import br.com.salomaotech.genesys.view.JFvendaPesquisa;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
@@ -11,19 +10,11 @@ public class VendaPesquisaController {
     private final JFvendaPesquisa view = new JFvendaPesquisa();
     private final VendaPesquisaMetodos vendaPesquisaMetodos = new VendaPesquisaMetodos(view);
     private final VendaPesquisaEventos vendaPesquisaEventos = new VendaPesquisaEventos(view);
-    private final ComboBoxClientes comboBoxClientesPesquisa = new ComboBoxClientes(view.jCpesquisaNomeCliente);
 
     public VendaPesquisaController() {
 
-        /* preenche comboboxes */
-        comboBoxClientesPesquisa.preencher();
-
         /* eventos */
         vendaPesquisaEventos.setVendaPesquisaMetodos(vendaPesquisaMetodos);
-        vendaPesquisaEventos.setComboBoxClientesPesquisa(comboBoxClientesPesquisa);
-
-        /* metodos */
-        vendaPesquisaMetodos.setComboBoxClientesPesquisa(comboBoxClientesPesquisa);
 
     }
 
@@ -33,6 +24,9 @@ public class VendaPesquisaController {
         new MudaIconeJframe().alterar("venda64x", view);
         view.setVisible(true);
         view.setExtendedState(view.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+
+        /* metodos */
+        vendaPesquisaMetodos.addPopUpMenu();
 
         /* eventos */
         vendaPesquisaEventos.addEventos();

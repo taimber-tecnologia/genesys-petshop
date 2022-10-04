@@ -12,7 +12,7 @@ public class JFfinanceiro extends javax.swing.JFrame {
 
     private long id;
     private long idVenda;
-    private long idCliente;
+    private String cpfCliente;
 
     /**
      * Creates new form JFfinanceiro
@@ -37,12 +37,12 @@ public class JFfinanceiro extends javax.swing.JFrame {
         this.idVenda = idVenda;
     }
 
-    public long getIdCliente() {
-        return idCliente;
+    public String getCpfCliente() {
+        return cpfCliente;
     }
 
-    public void setIdCliente(long idCliente) {
-        this.idCliente = idCliente;
+    public void setCpfCliente(String cpfCliente) {
+        this.cpfCliente = cpfCliente;
     }
 
     /**

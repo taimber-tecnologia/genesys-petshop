@@ -45,7 +45,9 @@ public class AgendaMetodos {
     public void addPopUpMenu() {
 
         PopUp popUp = new PopUp();
+        popUp.adicionarMenu(view.jTcadastroNomeCliente);
         popUp.adicionarMenu(view.jTcadastroHistorico);
+        popUp.adicionarMenu(view.jTpesquisaNomeCliente);
 
     }
 

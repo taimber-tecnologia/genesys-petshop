@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.venda.venda_conclui;
 
-import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaMovimenta;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
@@ -16,13 +15,11 @@ public class VendaConcluiMetodos {
     private final JFvendaConclui view;
     private final VendaModelo vendaModelo;
     private final JFvendaInicia viewVenda;
-    private final ComboBoxClientes comboBoxClientes;
 
-    public VendaConcluiMetodos(JFvendaConclui view, VendaModelo vendaModelo, JFvendaInicia viewVenda, ComboBoxClientes comboBoxClientes) {
+    public VendaConcluiMetodos(JFvendaConclui view, VendaModelo vendaModelo, JFvendaInicia viewVenda) {
         this.view = view;
         this.vendaModelo = vendaModelo;
         this.viewVenda = viewVenda;
-        this.comboBoxClientes = comboBoxClientes;
     }
 
     public VendaModelo getVendaModelo() {
@@ -45,7 +42,7 @@ public class VendaConcluiMetodos {
         view.jTvalorTotal.setText(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()));
         view.jTvalorRecebido.setText(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()));
         view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
-        comboBoxClientes.selecionarItemPorId(vendaModelo.getIdCliente());
+        view.jTcpfCliente.setText(vendaModelo.getCpfCliente());
         view.jCforma.setSelectedItem(vendaModelo.getFormaPagamento());
         view.jCparcela.setSelectedItem(String.valueOf(vendaModelo.getNumeroParcelas()));
 
@@ -116,7 +113,7 @@ public class VendaConcluiMetodos {
         view.jCforma.setEnabled(false);
         view.jTvalorRecebido.setEnabled(false);
         view.jCparcela.setEnabled(false);
-        view.jCcliente.setEnabled(false);
+        view.jTcpfCliente.setEnabled(false);
         view.jTvalorRecebido.setText(ConverteNumeroParaMoedaBr.converter(view.jTvalorRecebido.getText()));
 
     }
@@ -128,7 +125,7 @@ public class VendaConcluiMetodos {
         vendaModelo.setFormaPagamento(view.jCforma.getSelectedItem().toString());
         vendaModelo.setNumeroParcelas(Integer.valueOf(view.jCparcela.getSelectedItem().toString()));
         vendaModelo.setIsPago(false);
-        vendaModelo.setIdCliente(comboBoxClientes.getIdSelecionado());
+        vendaModelo.setCpfCliente(view.jTcpfCliente.getText());
 
         switch (view.jCforma.getSelectedItem().toString()) {
 

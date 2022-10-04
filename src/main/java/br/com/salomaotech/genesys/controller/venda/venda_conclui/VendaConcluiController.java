@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.venda.venda_conclui;
 
-import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
 import br.com.salomaotech.genesys.view.JFvendaConclui;
@@ -11,22 +10,14 @@ public class VendaConcluiController {
     private final JFvendaConclui view = new JFvendaConclui();
     private final VendaConcluiMetodos vendaConcluiMetodos;
     private final VendaConcluiEventos vendaConcluiEventos;
-    private final VendaConcluiMetodosCommand vendaConcluiMetodosCommand = new VendaConcluiMetodosCommand(view);
-    private final ComboBoxClientes comboBoxClientes = new ComboBoxClientes(view.jCcliente, vendaConcluiMetodosCommand);
 
     public VendaConcluiController(VendaModelo vendaModelo, JFvendaInicia viewVenda) {
 
         /* metodos */
-        vendaConcluiMetodos = new VendaConcluiMetodos(view, vendaModelo, viewVenda, comboBoxClientes);
+        vendaConcluiMetodos = new VendaConcluiMetodos(view, vendaModelo, viewVenda);
 
         /* eventos */
         vendaConcluiEventos = new VendaConcluiEventos(view, vendaModelo);
-
-        /* preenche comboboxes */
-        comboBoxClientes.preencher();
-
-        /* inicializa commands */
-        vendaConcluiMetodosCommand.setComboBoxClientes(comboBoxClientes);
 
     }
 

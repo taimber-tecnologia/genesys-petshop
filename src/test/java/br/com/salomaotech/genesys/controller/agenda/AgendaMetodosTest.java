@@ -91,7 +91,9 @@ public class AgendaMetodosTest {
         /* testa se o menu de popup foi adicionado */
         PopUp popUp = new PopUp();
         System.out.println("Testando classe AgendaMetodos metodo: addPopUpMenu");
+        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTcadastroNomeCliente));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTcadastroHistorico));
+        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTpesquisaNomeCliente));
 
     }
 

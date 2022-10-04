@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.model.venda;
 
-import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.sistema.algoritmos.Datas;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import br.com.salomaotech.sistema.jpa.JPQL;
@@ -19,7 +18,7 @@ public class VendaPesquisa {
     private final JTable jTresultados;
     private final JComboBox jCpaginador;
     private Date data;
-    private long idCliente;
+    private String cpfCliente;
 
     public VendaPesquisa(JTable jTresultados, JComboBox jCpaginador) {
         this.jTresultados = jTresultados;
@@ -36,8 +35,8 @@ public class VendaPesquisa {
 
     }
 
-    public void setIdCliente(long idCliente) {
-        this.idCliente = idCliente;
+    public void setCpfCliente(String cpfCliente) {
+        this.cpfCliente = cpfCliente;
     }
 
     private void popularDados(List<VendaModelo> vendaModeloList) {
@@ -49,15 +48,11 @@ public class VendaPesquisa {
         /* itera a lista de dados do modelo */
         for (VendaModelo vendaModelo : vendaModeloList) {
 
-            /* modelos auxiliares */
-            ClienteModelo clienteModelo = (ClienteModelo) new Repository(new ClienteModelo()).findById(vendaModelo.getIdCliente());
-
             /* popula linhas da DefaultTableModel */
             Object[] linhaDefaultTableModel = new Object[]{
                 vendaModelo.getId(),
                 Datas.calendarParaStringBr(vendaModelo.getData()),
-                clienteModelo.getNome(),
-                clienteModelo.getTelefone(),
+                vendaModelo.getCpfCliente(),
                 ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()),
                 vendaModelo.getRevisoes()
             };
@@ -73,15 +68,9 @@ public class VendaPesquisa {
 
         JPQL jpql = new JPQL(new VendaModelo());
         jpql.addParametroIgual("data", data);
+        jpql.addParametroLike("cpfCliente", cpfCliente);
         jpql.addOrderBy("data", "ASC");
         jpql.addOrderBy("id", "ASC");
-
-        /* valida ID de cliente */
-        if (idCliente != 0) {
-
-            jpql.addParametroIgual("idCliente", idCliente);
-
-        }
 
         /* pesquisa os dados */
         Paginador paginador = new Paginador(jpql, jCpaginador, new VendaModelo());
