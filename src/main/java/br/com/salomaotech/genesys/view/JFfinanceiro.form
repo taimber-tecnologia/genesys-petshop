@@ -560,7 +560,7 @@
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="jCdataAnterior">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Anterior igual"/>
+                    <Property name="text" type="java.lang.String" value="Igual anterior"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
