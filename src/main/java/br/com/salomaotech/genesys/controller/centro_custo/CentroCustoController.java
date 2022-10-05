@@ -17,6 +17,7 @@ public class CentroCustoController {
         new MudaIconeJframe().alterar("centro-custo64x", view);
         view.setVisible(true);
         view.setExtendedState(view.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        view.jTabaPrincipal.setSelectedIndex(1);
         view.jTcadastroCodigo.requestFocus();
 
         /* metodos */

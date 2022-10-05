@@ -18,7 +18,6 @@ public class VendaPesquisa {
     private final JTable jTresultados;
     private final JComboBox jCpaginador;
     private Date data;
-    private String cpfCliente;
 
     public VendaPesquisa(JTable jTresultados, JComboBox jCpaginador) {
         this.jTresultados = jTresultados;
@@ -35,10 +34,6 @@ public class VendaPesquisa {
 
     }
 
-    public void setCpfCliente(String cpfCliente) {
-        this.cpfCliente = cpfCliente;
-    }
-
     private void popularDados(List<VendaModelo> vendaModeloList) {
 
         DefaultTableModel defaultTableModel = (DefaultTableModel) jTresultados.getModel();
@@ -52,9 +47,10 @@ public class VendaPesquisa {
             Object[] linhaDefaultTableModel = new Object[]{
                 vendaModelo.getId(),
                 Datas.calendarParaStringBr(vendaModelo.getData()),
-                vendaModelo.getCpfCliente(),
                 ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()),
+                vendaModelo.getNumeroParcelas(),
                 vendaModelo.getRevisoes()
+
             };
 
             defaultTableModel.insertRow(contador, linhaDefaultTableModel);
@@ -68,7 +64,6 @@ public class VendaPesquisa {
 
         JPQL jpql = new JPQL(new VendaModelo());
         jpql.addParametroIgual("data", data);
-        jpql.addParametroLike("cpfCliente", cpfCliente);
         jpql.addOrderBy("data", "ASC");
         jpql.addOrderBy("id", "ASC");
 

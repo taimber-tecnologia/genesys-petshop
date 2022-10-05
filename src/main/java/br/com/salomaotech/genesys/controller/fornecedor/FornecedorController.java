@@ -17,6 +17,7 @@ public class FornecedorController {
         new MudaIconeJframe().alterar("add-fornecedor64x", view);
         view.setVisible(true);
         view.setExtendedState(view.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        view.jTabaPrincipal.setSelectedIndex(1);
         view.jTbasicoNome.requestFocus();
 
         /* metodos */

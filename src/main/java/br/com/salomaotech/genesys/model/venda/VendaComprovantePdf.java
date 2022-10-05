@@ -59,7 +59,6 @@ public class VendaComprovantePdf {
         gerarPdf.addConteudo("==================================================");
         gerarPdf.addConteudo("Data: " + dataBr);
         gerarPdf.addConteudo("Hora: " + vendaModelo.getHora());
-        gerarPdf.addConteudo("Cliente: Teste");
         gerarPdf.addConteudo("Codigo: " + vendaModelo.getId());
         gerarPdf.addConteudo("==================================================");
         gerarPdf.addConteudo("=====================PRODUTOS=====================");

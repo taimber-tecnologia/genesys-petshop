@@ -33,6 +33,7 @@ public class FinanceiroController {
         new MudaIconeJframe().alterar("financeiro64x", view);
         view.setVisible(true);
         view.setExtendedState(view.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        view.jTabaPrincipal.setSelectedIndex(1);
         view.jTcadastroValor.requestFocus();
 
         /* metodos */

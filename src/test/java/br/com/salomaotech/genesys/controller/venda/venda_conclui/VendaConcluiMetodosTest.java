@@ -52,7 +52,6 @@ public class VendaConcluiMetodosTest {
         new Repository(new VendaModelo()).deleteTodos();
         vendaModelo.setData(Calendar.getInstance());
         vendaModelo.setVendaModeloItemList(vendaModeloItemList);
-        vendaModelo.setCpfCliente("000.000.000-00");
         vendaModelo.setFormaPagamento("Credito");
         vendaModelo.setNumeroParcelas(3);
 
@@ -83,7 +82,6 @@ public class VendaConcluiMetodosTest {
         assertEquals(true, view.jTvalorTotal.getText().equals(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString())));
         assertEquals(true, view.jTvalorRecebido.getText().equals(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString())));
         assertEquals(true, view.jTvalorTroco.getText().equals(ConverteNumeroParaMoedaBr.converter("0")));
-        assertEquals(true, view.jTcpfCliente.getText().equals(vendaModelo.getCpfCliente()));
         assertEquals(true, view.jCforma.getSelectedItem().equals(vendaModelo.getFormaPagamento()));
         assertEquals(true, view.jCparcela.getSelectedItem().equals(String.valueOf(vendaModelo.getNumeroParcelas())));
 
@@ -159,7 +157,6 @@ public class VendaConcluiMetodosTest {
         assertEquals(false, view.jCforma.isEnabled());
         assertEquals(false, view.jTvalorRecebido.isEnabled());
         assertEquals(false, view.jCparcela.isEnabled());
-        assertEquals(false, view.jTcpfCliente.isEnabled());
         assertEquals(true, view.jTvalorRecebido.getText().equals(ConverteNumeroParaMoedaBr.converter(view.jTvalorRecebido.getText())));
 
     }

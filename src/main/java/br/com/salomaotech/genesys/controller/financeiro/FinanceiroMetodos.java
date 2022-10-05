@@ -30,7 +30,6 @@ public class FinanceiroMetodos {
         comboBoxCentroCusto.selecionarItemPorId(financeiroModelo.getIdCentroCusto());
         view.jCcadastroPago.setSelected(financeiroModelo.isIsPago());
         view.setIdVenda(financeiroModelo.getIdVenda());
-        view.setCpfCliente(financeiroModelo.getCpfCliente());
 
         /* valida se é uma despesa */
         if (financeiroModelo.isIsDespesa()) {
@@ -89,7 +88,6 @@ public class FinanceiroMetodos {
         financeiroModelo.setIsDespesa(view.jCcadastroIsDespesa.getSelectedIndex() == 0);
         financeiroModelo.setIsPago(view.jCcadastroPago.isSelected());
         financeiroModelo.setIdVenda(view.getIdVenda());
-        financeiroModelo.setCpfCliente(view.getCpfCliente());
         new Repository(financeiroModelo).save();
         return financeiroModelo;
 

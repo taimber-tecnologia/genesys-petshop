@@ -28,7 +28,6 @@ public class FinanceiroModelo implements Modelo, Serializable {
     private boolean isDespesa;
     private boolean isPago;
     private long idVenda;
-    private String cpfCliente;
 
     @Override
     public long getId() {
@@ -100,14 +99,6 @@ public class FinanceiroModelo implements Modelo, Serializable {
 
     public void setIdVenda(long idVenda) {
         this.idVenda = idVenda;
-    }
-
-    public String getCpfCliente() {
-        return cpfCliente;
-    }
-
-    public void setCpfCliente(String cpfCliente) {
-        this.cpfCliente = cpfCliente;
     }
 
 }

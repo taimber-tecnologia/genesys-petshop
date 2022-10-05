@@ -15,7 +15,6 @@ public class VendaComprovantePdfTest {
 
         /* simula cadastro de venda */
         new Repository(new VendaModelo()).deleteTodos();
-        vendaModelo.setCpfCliente("000.000.000-00");
         new Repository(vendaModelo).save();
 
         /* gerador de comprovante PDF */

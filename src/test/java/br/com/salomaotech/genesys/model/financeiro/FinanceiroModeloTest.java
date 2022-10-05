@@ -157,22 +157,4 @@ public class FinanceiroModeloTest {
 
     }
 
-    @Test
-    public void testGetCpfCliente() {
-
-        System.out.println("Testando classe FinanceiroModelo metodo: getIdCliente");
-        assertEquals(true, isNull(financeiroModelo.getCpfCliente()));
-
-    }
-
-    @Test
-    public void testSetCpfCliente() {
-
-        financeiroModelo.setCpfCliente("000.000.000-00");
-
-        System.out.println("Testando classe FinanceiroModelo metodo: setIdCliente");
-        assertEquals(true, financeiroModelo.getCpfCliente().equals("000.000.000-00"));
-
-    }
-
 }

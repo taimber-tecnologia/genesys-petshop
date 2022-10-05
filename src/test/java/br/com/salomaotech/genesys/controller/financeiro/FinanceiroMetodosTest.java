@@ -44,7 +44,6 @@ public class FinanceiroMetodosTest {
             financeiroModelo.setDescricao("Teste A");
             financeiroModelo.setIdCentroCusto(centroCustoModelo.getId());
             financeiroModelo.setIsPago(true);
-            financeiroModelo.setCpfCliente("000.000.000-00");
             financeiroModelo.setIdVenda(2);
             new Repository(financeiroModelo).save();
 
@@ -94,7 +93,6 @@ public class FinanceiroMetodosTest {
         assertEquals(true, comboBoxCentroCusto.getIdSelecionado() == financeiroModelo.getIdCentroCusto());
         assertEquals(true, view.jCcadastroPago.isSelected() == financeiroModelo.isIsPago());
         assertEquals(true, view.getIdVenda() == financeiroModelo.getIdVenda());
-        assertEquals(true, view.getCpfCliente().equals(financeiroModelo.getCpfCliente()));
         assertEquals(true, view.jCcadastroIsDespesa.getSelectedIndex() == 1);
 
     }
@@ -168,7 +166,6 @@ public class FinanceiroMetodosTest {
         assertEquals(true, comboBoxCentroCusto.getIdSelecionado() == financeiroModelo.getIdCentroCusto());
         assertEquals(true, view.jCcadastroPago.isSelected() == financeiroModelo.isIsPago());
         assertEquals(true, view.getIdVenda() == financeiroModelo.getIdVenda());
-        assertEquals(true, view.getCpfCliente().equals(financeiroModelo.getCpfCliente()));
         assertEquals(true, view.jCcadastroIsDespesa.getSelectedIndex() == 1);
 
     }
@@ -192,7 +189,6 @@ public class FinanceiroMetodosTest {
         assertEquals(true, comboBoxCentroCusto.getIdSelecionado() == financeiroModelo.getIdCentroCusto());
         assertEquals(true, view.jCcadastroPago.isSelected() == financeiroModelo.isIsPago());
         assertEquals(true, view.getIdVenda() == financeiroModelo.getIdVenda());
-        assertEquals(true, view.getCpfCliente().equals(financeiroModelo.getCpfCliente()));
         assertEquals(true, view.jCcadastroIsDespesa.getSelectedIndex() == 1);
 
     }

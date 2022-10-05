@@ -45,7 +45,6 @@ public class FinanceiroMovimenta {
         financeiroModelo.setIsDespesa(false);
         financeiroModelo.setIdVenda(vendaModelo.getId());
         financeiroModelo.setIsPago(vendaModelo.isIsPago());
-        financeiroModelo.setCpfCliente(vendaModelo.getCpfCliente());
         financeiroModelo.setIdCentroCusto(retornaIdCentroCustoVenda());
         new Repository(financeiroModelo).save();
 

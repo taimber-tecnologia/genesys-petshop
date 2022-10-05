@@ -44,7 +44,6 @@ public class VendaPesquisaTest {
         new Repository(new VendaModelo()).deleteTodos();
         vendaModelo.setData(calendar);
         vendaModelo.setVendaModeloItemList(vendaModeloItemList);
-        vendaModelo.setCpfCliente("000.000.000-00");
         vendaModelo.setFormaPagamento("Credito");
         vendaModelo.setNumeroParcelas(3);
         new Repository(vendaModelo).save();
@@ -72,52 +71,28 @@ public class VendaPesquisaTest {
     }
 
     @Test
-    public void testSetCpfCliente() {
-
-        boolean isErro = false;
-
-        try {
-
-            vendaPesquisa.setCpfCliente("000.000.000-00");
-
-        } catch (Exception ex) {
-
-            isErro = true;
-
-        }
-
-        System.out.println("Testando classe VendaPesquisa metodo: setCpfCliente");
-        assertEquals(false, isErro);
-
-    }
-
-    @Test
     public void testPesquisar() {
 
         /* usando filtro: nenhum */
         view.jDpesquisaData.setCalendar(null);
-        vendaPesquisa.setCpfCliente("");
         vendaPesquisa.pesquisar();
         System.out.println("Testando classe VendaPesquisa metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: data */
         view.jDpesquisaData.setCalendar(calendar);
-        vendaPesquisa.setCpfCliente("");
         vendaPesquisa.pesquisar();
         System.out.println("Testando classe VendaPesquisa metodo: pesquisar etapa 02");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: cliente */
         view.jDpesquisaData.setCalendar(null);
-        vendaPesquisa.setCpfCliente("000.000.000-00");
         vendaPesquisa.pesquisar();
         System.out.println("Testando classe VendaPesquisa metodo: pesquisar etapa 03");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: todos */
         view.jDpesquisaData.setCalendar(calendar);
-        vendaPesquisa.setCpfCliente("000.000.000-00");
         vendaPesquisa.pesquisar();
         System.out.println("Testando classe VendaPesquisa metodo: pesquisar etapa 04");
         assertEquals(true, view.jTresultados.getRowCount() > 0);

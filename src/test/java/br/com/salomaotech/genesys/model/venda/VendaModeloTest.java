@@ -146,24 +146,6 @@ public class VendaModeloTest {
     }
 
     @Test
-    public void testGetCpfCliente() {
-
-        System.out.println("Testando classe VendaModelo metodo: getCpfCliente");
-        assertEquals(true, isNull(vendaModelo.getCpfCliente()));
-
-    }
-
-    @Test
-    public void testSetCpfCliente() {
-
-        vendaModelo.setCpfCliente("000.000.000-00");
-
-        System.out.println("Testando classe VendaModelo metodo: setCpfCliente");
-        assertEquals(true, vendaModelo.getCpfCliente().equals("000.000.000-00"));
-
-    }
-
-    @Test
     public void testGetRevisoes() {
 
         System.out.println("Testando classe VendaModelo metodo: getRevisoes");

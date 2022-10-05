@@ -45,6 +45,7 @@ public class AnimalController {
         new MudaIconeJframe().alterar("animal64x", view);
         view.setVisible(true);
         view.setExtendedState(view.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        view.jTabaPrincipal.setSelectedIndex(1);
         view.jTnomeCadastro.requestFocus();
 
         /* metodos */

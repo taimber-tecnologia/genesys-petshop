@@ -48,7 +48,6 @@ public class VendaConcluiMetodos {
         view.jTvalorTotal.setText(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()));
         view.jTvalorRecebido.setText(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()));
         view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
-        view.jTcpfCliente.setText(vendaModelo.getCpfCliente());
         view.jCforma.setSelectedItem(vendaModelo.getFormaPagamento());
         view.jCparcela.setSelectedItem(String.valueOf(vendaModelo.getNumeroParcelas()));
 
@@ -119,7 +118,6 @@ public class VendaConcluiMetodos {
         view.jCforma.setEnabled(false);
         view.jTvalorRecebido.setEnabled(false);
         view.jCparcela.setEnabled(false);
-        view.jTcpfCliente.setEnabled(false);
         view.jTvalorRecebido.setText(ConverteNumeroParaMoedaBr.converter(view.jTvalorRecebido.getText()));
 
     }
@@ -131,7 +129,6 @@ public class VendaConcluiMetodos {
         vendaModelo.setFormaPagamento(view.jCforma.getSelectedItem().toString());
         vendaModelo.setNumeroParcelas(Integer.valueOf(view.jCparcela.getSelectedItem().toString()));
         vendaModelo.setIsPago(false);
-        vendaModelo.setCpfCliente(view.jTcpfCliente.getText());
 
         switch (view.jCforma.getSelectedItem().toString()) {
 

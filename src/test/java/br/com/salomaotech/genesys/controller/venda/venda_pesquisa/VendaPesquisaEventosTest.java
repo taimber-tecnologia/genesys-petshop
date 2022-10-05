@@ -38,7 +38,6 @@ public class VendaPesquisaEventosTest {
         assertEquals(true, view.jBpesquisa.getActionListeners().length == 1);
         assertEquals(true, view.jBpaginador.getActionListeners().length == 1);
         assertEquals(true, view.jTresultados.getMouseListeners().length == 3);
-        assertEquals(true, view.jTpesquisaCpf.getKeyListeners().length == 1);
 
     }
 

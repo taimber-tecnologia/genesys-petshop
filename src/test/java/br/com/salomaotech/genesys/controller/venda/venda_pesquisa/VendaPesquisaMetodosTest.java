@@ -5,7 +5,6 @@ import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
 import br.com.salomaotech.genesys.view.JFvendaPesquisa;
 import br.com.salomaotech.sistema.jpa.Repository;
-import br.com.salomaotech.sistema.swing.PopUp;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -47,7 +46,6 @@ public class VendaPesquisaMetodosTest {
         new Repository(new VendaModelo()).deleteTodos();
         vendaModelo.setData(calendar);
         vendaModelo.setVendaModeloItemList(vendaModeloItemList);
-        vendaModelo.setCpfCliente("000.000.000-00");
         vendaModelo.setFormaPagamento("Credito");
         vendaModelo.setNumeroParcelas(3);
         new Repository(vendaModelo).save();
@@ -59,28 +57,24 @@ public class VendaPesquisaMetodosTest {
 
         /* usando filtro: nenhum */
         view.jDpesquisaData.setCalendar(null);
-        view.jTpesquisaCpf.setText(null);
         vendaPesquisaMetodos.pesquisar();
         System.out.println("Testando classe VendaPesquisaMetodos metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: data */
         view.jDpesquisaData.setCalendar(calendar);
-        view.jTpesquisaCpf.setText(null);
         vendaPesquisaMetodos.pesquisar();
         System.out.println("Testando classe VendaPesquisaMetodos metodo: pesquisar etapa 02");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: cliente */
         view.jDpesquisaData.setCalendar(null);
-        view.jTpesquisaCpf.setText("000.000.000-00");
         vendaPesquisaMetodos.pesquisar();
         System.out.println("Testando classe VendaPesquisaMetodos metodo: pesquisar etapa 03");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: todos */
         view.jDpesquisaData.setCalendar(calendar);
-        view.jTpesquisaCpf.setText("000.000.000-00");
         vendaPesquisaMetodos.pesquisar();
         System.out.println("Testando classe VendaPesquisaMetodos metodo: pesquisar etapa 04");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -89,14 +83,6 @@ public class VendaPesquisaMetodosTest {
 
     @Test
     public void testAddPopUpMenu() {
-
-        /* adiciona menu de popup */
-        vendaPesquisaMetodos.addPopUpMenu();
-        PopUp popUp = new PopUp();
-
-        /* testa se os eventos de pop menu foram adicionados */
-        System.out.println("Testando classe VendaPesquisaMetodos metodo: addPopUpMenu");
-        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTpesquisaCpf));
 
     }
 

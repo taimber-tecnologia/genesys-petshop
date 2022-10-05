@@ -107,10 +107,6 @@
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jDpesquisaData" min="-2" pref="130" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jTpesquisaCpf" min="-2" pref="195" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jBpesquisa" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -125,11 +121,7 @@
                       <Component id="jDpesquisaData" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTpesquisaCpf" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="jBpesquisa" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jBpesquisa" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -152,20 +144,10 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="CPF:"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="jBpesquisa">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pesquisar"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTpesquisaCpf">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -185,8 +167,8 @@
               <Table columnCount="5" rowCount="0">
                 <Column editable="false" title="C&#xf3;digo" type="java.lang.Object"/>
                 <Column editable="false" title="Data" type="java.lang.Object"/>
-                <Column editable="false" title="CPF" type="java.lang.Object"/>
                 <Column editable="false" title="Valor R$" type="java.lang.Object"/>
+                <Column editable="false" title="Parcelas" type="java.lang.Object"/>
                 <Column editable="false" title="Revis&#xf5;es" type="java.lang.Object"/>
               </Table>
             </Property>
@@ -207,7 +189,7 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="125" minWidth="125" prefWidth="125" resizable="true">
+                <Column maxWidth="90" minWidth="90" prefWidth="90" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
