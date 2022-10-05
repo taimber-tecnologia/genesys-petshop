@@ -5,6 +5,7 @@ import br.com.salomaotech.genesys.model.produto.ImagemProduto;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
+import br.com.salomaotech.genesys.model.venda.VendaMovimenta;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
 import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
@@ -18,7 +19,10 @@ public class VendaIniciaMetodos {
 
     private final JFvendaInicia view;
     private VendaModelo vendaModelo = new VendaModelo();
-    private List<VendaModeloItem> vendaModeloItemList = new ArrayList();
+    private final List<VendaModeloItem> vendaModeloItemList = new ArrayList();
+    private final List<VendaModeloItem> vendaModeloItemOriginalList = new ArrayList();
+    private final List<VendaModeloItem> vendaModeloItemBaixaList = new ArrayList();
+    private final List<VendaModeloItem> vendaModeloItemDevolveList = new ArrayList();
 
     public VendaIniciaMetodos(JFvendaInicia view) {
         this.view = view;
@@ -71,6 +75,7 @@ public class VendaIniciaMetodos {
         vendaModeloItem.setQuantidade(BigDecimais.formatarParaBigDecimal(view.jTprodutoQuantidade.getText()));
         vendaModeloItem.setDesconto(BigDecimais.formatarParaBigDecimal(view.jTprodutoDesconto.getText()));
         vendaModeloItemList.add(vendaModeloItem);
+        vendaModeloItemBaixaList.add(vendaModeloItem);
 
         /* atualiza a view */
         limparProdutoSelecionado();
@@ -82,6 +87,7 @@ public class VendaIniciaMetodos {
 
         try {
 
+            vendaModeloItemDevolveList.add(vendaModeloItemList.get(view.jTprodutoSelecionado.getSelectedRow()));
             vendaModeloItemList.remove(view.jTprodutoSelecionado.getSelectedRow());
 
         } catch (Exception ex) {
@@ -155,11 +161,15 @@ public class VendaIniciaMetodos {
     public void finalizarVenda() {
 
         vendaModelo.setVendaModeloItemList(vendaModeloItemList);
-        new VendaConcluiController(vendaModelo, view).construir();
+        new VendaConcluiController(vendaModelo, view, vendaModeloItemBaixaList, vendaModeloItemDevolveList).construir();
 
     }
 
     public boolean excluir() {
+
+        /* volta todos os produtos da venda ao estoque */
+        VendaMovimenta vendaMovimenta = new VendaMovimenta(vendaModelo, null, vendaModeloItemOriginalList);
+        vendaMovimenta.excluir();
 
         return new Repository(new VendaModelo()).delete(vendaModelo.getId());
 
@@ -169,7 +179,15 @@ public class VendaIniciaMetodos {
 
         view.setId(id);
         vendaModelo = (VendaModelo) new Repository(new VendaModelo()).findById(id);
-        vendaModeloItemList = vendaModelo.getVendaModeloItemList();
+
+        /* copia todos os itens de venda para as listas */
+        for (VendaModeloItem vendaModeloItem : vendaModelo.getVendaModeloItemList()) {
+
+            vendaModeloItemList.add(vendaModeloItem);
+            vendaModeloItemOriginalList.add(vendaModeloItem);
+
+        }
+
         exibirProdutosSelecionados();
 
     }

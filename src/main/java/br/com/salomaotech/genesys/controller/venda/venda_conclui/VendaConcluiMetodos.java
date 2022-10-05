@@ -1,6 +1,7 @@
 package br.com.salomaotech.genesys.controller.venda.venda_conclui;
 
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
+import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
 import br.com.salomaotech.genesys.model.venda.VendaMovimenta;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
 import br.com.salomaotech.genesys.view.JFvendaConclui;
@@ -8,6 +9,7 @@ import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.List;
 import static java.util.Objects.isNull;
 
 public class VendaConcluiMetodos {
@@ -15,11 +17,15 @@ public class VendaConcluiMetodos {
     private final JFvendaConclui view;
     private final VendaModelo vendaModelo;
     private final JFvendaInicia viewVenda;
+    private final List<VendaModeloItem> vendaModeloItemBaixaList;
+    private final List<VendaModeloItem> vendaModeloItemDevolveList;
 
-    public VendaConcluiMetodos(JFvendaConclui view, VendaModelo vendaModelo, JFvendaInicia viewVenda) {
+    public VendaConcluiMetodos(JFvendaConclui view, VendaModelo vendaModelo, JFvendaInicia viewVenda, List<VendaModeloItem> vendaModeloItemBaixaList, List<VendaModeloItem> vendaModeloItemDevolveList) {
         this.view = view;
         this.vendaModelo = vendaModelo;
         this.viewVenda = viewVenda;
+        this.vendaModeloItemBaixaList = vendaModeloItemBaixaList;
+        this.vendaModeloItemDevolveList = vendaModeloItemDevolveList;
     }
 
     public VendaModelo getVendaModelo() {
@@ -141,7 +147,7 @@ public class VendaConcluiMetodos {
 
         }
 
-        VendaMovimenta vendaMovimenta = new VendaMovimenta(vendaModelo);
+        VendaMovimenta vendaMovimenta = new VendaMovimenta(vendaModelo, vendaModeloItemBaixaList, vendaModeloItemDevolveList);
 
         /* se o ID for diferente de zero então está atualizando */
         if (vendaModelo.getId() == 0) {

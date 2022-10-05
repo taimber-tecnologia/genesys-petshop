@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class VendaConcluiControllerTest {
 
-    private final VendaConcluiController vendaConcluiController = new VendaConcluiController(new VendaModelo(), new JFvendaInicia());
+    private final VendaConcluiController vendaConcluiController = new VendaConcluiController(new VendaModelo(), new JFvendaInicia(), null, null);
 
     @Test
     public void testConstruir() {

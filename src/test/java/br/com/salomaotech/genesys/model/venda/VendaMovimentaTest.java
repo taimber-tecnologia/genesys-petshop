@@ -15,6 +15,8 @@ public class VendaMovimentaTest {
 
     private final ProdutoModelo produtoModelo = new ProdutoModelo();
     private final List<VendaModeloItem> vendaModeloItemList = new ArrayList();
+    private final List<VendaModeloItem> vendaModeloItemBaixaList = new ArrayList();
+    private final List<VendaModeloItem> vendaModeloItemDevolveList = new ArrayList();
     private final VendaModelo vendaModelo = new VendaModelo();
     private final VendaMovimenta vendaMovimenta;
 
@@ -45,8 +47,12 @@ public class VendaMovimentaTest {
         vendaModelo.setNumeroParcelas(3);
         new Repository(vendaModelo).save();
 
+        /* atualiza listas */
+        vendaModeloItemBaixaList.add(vendaModeloItem);
+        vendaModeloItemDevolveList.add(vendaModeloItem);
+
         /* seta venda */
-        vendaMovimenta = new VendaMovimenta(vendaModelo);
+        vendaMovimenta = new VendaMovimenta(vendaModelo, vendaModeloItemBaixaList, vendaModeloItemDevolveList);
 
     }
 

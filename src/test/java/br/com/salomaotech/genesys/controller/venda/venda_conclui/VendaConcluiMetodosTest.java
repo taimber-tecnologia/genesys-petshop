@@ -22,9 +22,11 @@ public class VendaConcluiMetodosTest {
     private final JFvendaInicia viewVenda = new JFvendaInicia();
 
     private ProdutoModelo produtoModelo = new ProdutoModelo();
-    private final List<VendaModeloItem> vendaModeloItemList = new ArrayList();
     private final VendaModelo vendaModelo = new VendaModelo();
-    private final VendaConcluiMetodos vendaConcluiMetodos = new VendaConcluiMetodos(view, vendaModelo, viewVenda);
+    private final List<VendaModeloItem> vendaModeloItemList = new ArrayList();
+    private final List<VendaModeloItem> vendaModeloItemBaixaList = new ArrayList();
+    private final List<VendaModeloItem> vendaModeloItemDevolveList = new ArrayList();
+    private final VendaConcluiMetodos vendaConcluiMetodos;
 
     public VendaConcluiMetodosTest() {
 
@@ -53,6 +55,13 @@ public class VendaConcluiMetodosTest {
         vendaModelo.setCpfCliente("000.000.000-00");
         vendaModelo.setFormaPagamento("Credito");
         vendaModelo.setNumeroParcelas(3);
+
+        /* atualiza listas */
+        vendaModeloItemBaixaList.add(vendaModeloItem);
+        vendaModeloItemDevolveList.add(vendaModeloItem);
+
+        /* metodos */
+        vendaConcluiMetodos = new VendaConcluiMetodos(view, vendaModelo, viewVenda, vendaModeloItemBaixaList, vendaModeloItemDevolveList);
 
     }
 

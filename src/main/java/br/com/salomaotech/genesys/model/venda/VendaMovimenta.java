@@ -3,25 +3,35 @@ package br.com.salomaotech.genesys.model.venda;
 import br.com.salomaotech.genesys.model.financeiro.FinanceiroMovimenta;
 import br.com.salomaotech.genesys.model.produto.ProdutoMovimenta;
 import br.com.salomaotech.sistema.jpa.Repository;
+import java.util.List;
+import static java.util.Objects.isNull;
 
 public class VendaMovimenta {
 
     private final VendaModelo vendaModelo;
     private final ProdutoMovimenta produtosMovimenta = new ProdutoMovimenta();
     private final FinanceiroMovimenta financeiroMovimenta;
+    private final List<VendaModeloItem> vendaModeloItemBaixaList;
+    private final List<VendaModeloItem> vendaModeloItemDevolveList;
 
-    public VendaMovimenta(VendaModelo vendaModelo) {
+    public VendaMovimenta(VendaModelo vendaModelo, List<VendaModeloItem> vendaModeloItemBaixaList, List<VendaModeloItem> vendaModeloItemDevolveList) {
         this.vendaModelo = vendaModelo;
         financeiroMovimenta = new FinanceiroMovimenta(vendaModelo);
+        this.vendaModeloItemBaixaList = vendaModeloItemBaixaList;
+        this.vendaModeloItemDevolveList = vendaModeloItemDevolveList;
     }
 
     private void baixarEstoque() {
 
-        vendaModelo.getVendaModeloItemList().forEach(vendaModeloItem -> {
+        if (!isNull(vendaModeloItemBaixaList)) {
 
-            produtosMovimenta.removerItemLista(vendaModeloItem.getIdProduto(), vendaModeloItem.getQuantidade());
+            vendaModeloItemBaixaList.forEach(vendaModeloItem -> {
 
-        });
+                produtosMovimenta.removerItemLista(vendaModeloItem.getIdProduto(), vendaModeloItem.getQuantidade());
+
+            });
+
+        }
 
         produtosMovimenta.movimentar();
 
@@ -29,11 +39,15 @@ public class VendaMovimenta {
 
     private void voltarEstoque() {
 
-        vendaModelo.getVendaModeloItemList().forEach(vendaModeloItem -> {
+        if (!isNull(vendaModeloItemDevolveList)) {
 
-            produtosMovimenta.adicionarItemLista(vendaModeloItem.getIdProduto(), vendaModeloItem.getQuantidade());
+            vendaModeloItemDevolveList.forEach(vendaModeloItem -> {
 
-        });
+                produtosMovimenta.adicionarItemLista(vendaModeloItem.getIdProduto(), vendaModeloItem.getQuantidade());
+
+            });
+
+        }
 
         produtosMovimenta.movimentar();
 

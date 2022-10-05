@@ -6,7 +6,6 @@ import br.com.salomaotech.genesys.model.produto.ComboBoxProduto;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.venda.VendaComprovantePdf;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
-import br.com.salomaotech.genesys.model.venda.VendaMovimenta;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import br.com.salomaotech.sistema.jpa.Repository;
@@ -124,14 +123,8 @@ public class VendaIniciaEventos implements Command {
 
             if (JOptionPane.showConfirmDialog(null, "Excluir registro?") == 0) {
 
-                VendaModelo vendaModelo = (VendaModelo) new Repository(new VendaModelo()).findById(view.getId());
-
                 /* valida se excluiu e atualiza os dados na view */
                 if (vendaIniciaMetodos.excluir()) {
-
-                    /* realiza a movimentação de uma venda */
-                    VendaMovimenta vendaMovimenta = new VendaMovimenta(vendaModelo);
-                    vendaMovimenta.excluir();
 
                     /* informa que foi excluido, e fecha a view */
                     JOptionPane.showMessageDialog(null, "Registro excluido! Acompanhe as contas a receber no seu financeiro.");
