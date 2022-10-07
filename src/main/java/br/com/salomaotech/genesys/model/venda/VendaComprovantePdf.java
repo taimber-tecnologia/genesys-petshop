@@ -54,8 +54,8 @@ public class VendaComprovantePdf {
         /* adiciona conteúdo ao gerador de PDF */
         gerarPdf = new GerarPdf(pathDestino);
         gerarPdf.addConteudo("");
-        gerarPdf.addConteudo(empresaModelo.getNome());
-        gerarPdf.addConteudo("");
+        gerarPdf.addConteudo("Empresa: " + empresaModelo.getNome());
+        gerarPdf.addConteudo("CNPJ: " + empresaModelo.getCnpj());
         gerarPdf.addConteudo("==================================================");
         gerarPdf.addConteudo("Data: " + dataBr);
         gerarPdf.addConteudo("Hora: " + vendaModelo.getHora());

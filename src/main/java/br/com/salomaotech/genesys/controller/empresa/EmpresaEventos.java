@@ -1,7 +1,6 @@
 package br.com.salomaotech.genesys.controller.empresa;
 
 import br.com.salomaotech.genesys.model.empresa.EmpresaModelo;
-import br.com.salomaotech.genesys.model.empresa.ImagemEmpresa;
 import br.com.salomaotech.genesys.view.JFempresa;
 import br.com.salomaotech.sistema.algoritmos.BuscaCep;
 import java.awt.event.ActionEvent;
@@ -71,28 +70,6 @@ public class EmpresaEventos {
                     JOptionPane.showMessageDialog(null, "Registro não excluido!");
 
                 }
-
-            }
-
-        });
-
-        /* adicionar foto */
-        view.jBadicionaFoto.addActionListener((ActionEvent e) -> {
-
-            if (ImagemEmpresa.upload()) {
-
-                new ImagemEmpresa().exibir(view.jPdadosPerfilFoto);
-
-            }
-
-        });
-
-        /* excluir foto */
-        view.jBremoveFoto.addActionListener((ActionEvent e) -> {
-
-            if (JOptionPane.showConfirmDialog(null, "Excluir foto da empresa?") == 0) {
-
-                ImagemEmpresa.remover(view.jPdadosPerfilFoto);
 
             }
 

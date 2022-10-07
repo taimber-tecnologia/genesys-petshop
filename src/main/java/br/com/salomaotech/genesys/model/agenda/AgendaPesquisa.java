@@ -24,6 +24,7 @@ public class AgendaPesquisa {
     private String status;
     private final JTable jTresultados;
     private final JComboBox jCpaginador;
+    private boolean isDataAnterior;
 
     public AgendaPesquisa(JTable jTresultados, JComboBox jCpaginador) {
         this.jTresultados = jTresultados;
@@ -56,6 +57,10 @@ public class AgendaPesquisa {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public void setIsDataAnterior(boolean isDataAnterior) {
+        this.isDataAnterior = isDataAnterior;
     }
 
     private void popularDados(List<AgendaModelo> agendaModeloList) {
@@ -121,25 +126,34 @@ public class AgendaPesquisa {
         jpql.addOrderBy("dataMinuto", "ASC");
         jpql.addOrderBy("id", "ASC");
 
-        if (!isNull(dataInicialDate) && !isNull(dataFinalDate)) {
+        if (isDataAnterior) {
 
-            /* pesquisa entre datas */
-            jpql.addParametroMaiorIgual("dataAgenda", dataInicialDate);
-            jpql.addParametroMenorIgual("dataAgenda", dataFinalDate);
+            /* pesquisa data igual menor */
+            jpql.addParametroMenorIgual("dataAgenda", dataInicialDate);
 
         } else {
 
-            /* pesquisa exatamente a data inicial */
-            if (!isNull(dataInicialDate)) {
+            if (!isNull(dataInicialDate) && !isNull(dataFinalDate)) {
 
-                jpql.addParametroIgual("dataAgenda", dataInicialDate);
-
-            }
-
-            /* pesquisa da data final para trás */
-            if (!isNull(dataFinalDate)) {
-
+                /* pesquisa entre datas */
+                jpql.addParametroMaiorIgual("dataAgenda", dataInicialDate);
                 jpql.addParametroMenorIgual("dataAgenda", dataFinalDate);
+
+            } else {
+
+                /* pesquisa exatamente a data inicial */
+                if (!isNull(dataInicialDate)) {
+
+                    jpql.addParametroIgual("dataAgenda", dataInicialDate);
+
+                }
+
+                /* pesquisa da data final para trás */
+                if (!isNull(dataFinalDate)) {
+
+                    jpql.addParametroMenorIgual("dataAgenda", dataFinalDate);
+
+                }
 
             }
 

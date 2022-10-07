@@ -63,12 +63,13 @@ public class AgendaMetodos {
 
     public void pesquisar() {
 
-        AgendaPesquisa AgendaPesquisa = new AgendaPesquisa(view.jTresultados, view.jCpaginador);
-        AgendaPesquisa.setDataInicialDate(view.jDpesquisaDataInicio.getCalendar());
-        AgendaPesquisa.setDataFinalDate(view.jDPesquisaDataFim.getCalendar());
-        AgendaPesquisa.setNomeCliente(view.jTpesquisaNomeCliente.getText());
-        AgendaPesquisa.setStatus(view.jCpesquisaStatus.getSelectedItem().toString());
-        AgendaPesquisa.pesquisar();
+        AgendaPesquisa agendaPesquisa = new AgendaPesquisa(view.jTresultados, view.jCpaginador);
+        agendaPesquisa.setDataInicialDate(view.jDpesquisaDataInicio.getCalendar());
+        agendaPesquisa.setDataFinalDate(view.jDPesquisaDataFim.getCalendar());
+        agendaPesquisa.setNomeCliente(view.jTpesquisaNomeCliente.getText());
+        agendaPesquisa.setStatus(view.jCpesquisaStatus.getSelectedItem().toString());
+        agendaPesquisa.setIsDataAnterior(view.jCdataAnterior.isSelected());
+        agendaPesquisa.pesquisar();
 
     }
 

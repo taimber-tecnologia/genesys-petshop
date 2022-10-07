@@ -119,57 +119,73 @@ public class AgendaMetodosTest {
     public void testPesquisar() {
 
         /* usando filtro: nenhum */
-        view.jDpesquisaDataInicio.setCalendar(null);
-        view.jDPesquisaDataFim.setCalendar(null);
+        view.jDpesquisaDataInicio.setDate(null);
+        view.jDPesquisaDataFim.setDate(null);
         view.jTcadastroNomeCliente.setText(null);
         view.jCpesquisaStatus.setSelectedItem("");
+        view.jCdataAnterior.setSelected(false);
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* usando filtro: data inicial */
-        view.jDpesquisaDataInicio.setCalendar(agendaModelo.getDataAgenda());
-        view.jDPesquisaDataFim.setCalendar(null);
+        /* usando filtro: data de inicio */
+        view.jDpesquisaDataInicio.setDate(calendar.getTime());
+        view.jDPesquisaDataFim.setDate(null);
         view.jTcadastroNomeCliente.setText(null);
         view.jCpesquisaStatus.setSelectedItem("");
+        view.jCdataAnterior.setSelected(false);
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 02");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* usando filtro: data final */
-        view.jDpesquisaDataInicio.setCalendar(null);
-        view.jDPesquisaDataFim.setCalendar(agendaModelo.getDataAgenda());
+        /* usando filtro: data de fim */
+        view.jDpesquisaDataInicio.setDate(null);
+        view.jDPesquisaDataFim.setDate(calendar.getTime());
         view.jTcadastroNomeCliente.setText(null);
         view.jCpesquisaStatus.setSelectedItem("");
+        view.jCdataAnterior.setSelected(false);
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 03");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: ID do cliente */
-        view.jDpesquisaDataInicio.setCalendar(null);
-        view.jDPesquisaDataFim.setCalendar(null);
+        view.jDpesquisaDataInicio.setDate(null);
+        view.jDPesquisaDataFim.setDate(null);
         view.jTcadastroNomeCliente.setText(agendaModelo.getNomeCliente());
         view.jCpesquisaStatus.setSelectedItem("");
+        view.jCdataAnterior.setSelected(false);
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 04");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* usando filtro: status */
-        view.jDpesquisaDataInicio.setCalendar(null);
-        view.jDPesquisaDataFim.setCalendar(null);
+        /* usando filtro: data anterior */
+        view.jDpesquisaDataInicio.setDate(calendar.getTime());
+        view.jDPesquisaDataFim.setDate(null);
         view.jTcadastroNomeCliente.setText(null);
-        view.jCpesquisaStatus.setSelectedItem(agendaModelo.getStatus());
+        view.jCpesquisaStatus.setSelectedItem("");
+        view.jCdataAnterior.setSelected(true);
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 05");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* usando filtro: todos */
-        view.jDpesquisaDataInicio.setCalendar(agendaModelo.getDataAgenda());
-        view.jDPesquisaDataFim.setCalendar(null);
-        view.jTcadastroNomeCliente.setText(agendaModelo.getNomeCliente());
+        /* usando filtro: status */
+        view.jDpesquisaDataInicio.setDate(null);
+        view.jDPesquisaDataFim.setDate(null);
+        view.jTcadastroNomeCliente.setText(null);
         view.jCpesquisaStatus.setSelectedItem(agendaModelo.getStatus());
+        view.jCdataAnterior.setSelected(false);
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 06");
+        assertEquals(true, view.jTresultados.getRowCount() > 0);
+
+        /* usando filtro: todos */
+        view.jDpesquisaDataInicio.setDate(calendar.getTime());
+        view.jDPesquisaDataFim.setDate(null);
+        view.jTcadastroNomeCliente.setText(agendaModelo.getNomeCliente());
+        view.jCpesquisaStatus.setSelectedItem(agendaModelo.getStatus());
+        view.jCdataAnterior.setSelected(true);
+        agendaMetodos.pesquisar();
+        System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 07");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
     }

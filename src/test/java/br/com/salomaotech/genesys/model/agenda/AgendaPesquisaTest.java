@@ -105,6 +105,26 @@ public class AgendaPesquisaTest {
     }
 
     @Test
+    public void testSetIsDataAnterior() {
+
+        boolean isErro = false;
+
+        try {
+
+            agendaPesquisa.setIsDataAnterior(true);
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AgendaPesquisa metodo: setIsDataAnterior");
+        assertEquals(false, isErro);
+
+    }
+
+    @Test
     public void testPesquisar() {
 
         /* usando filtro: nenhum */

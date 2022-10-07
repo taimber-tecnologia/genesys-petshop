@@ -36,9 +36,6 @@ public class JFempresa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jToolBar3 = new javax.swing.JToolBar();
-        jBadicionaFoto = new javax.swing.JButton();
-        jBremoveFoto = new javax.swing.JButton();
         jTabaCadastro = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jTbasicoNome = new javax.swing.JTextField();
@@ -70,7 +67,6 @@ public class JFempresa extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTenderecoComplemento = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
-        jPdadosPerfilFoto = new javax.swing.JPanel();
         jToolBar2 = new javax.swing.JToolBar();
         jBcadastroSalvar = new javax.swing.JButton();
         jBcadastroExcluir = new javax.swing.JButton();
@@ -78,26 +74,6 @@ public class JFempresa extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Empresa - Genesys PetShop");
         setMinimumSize(new java.awt.Dimension(1024, 694));
-
-        jToolBar3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jToolBar3.setFloatable(false);
-        jToolBar3.setRollover(true);
-
-        jBadicionaFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/photo-camera.png"))); // NOI18N
-        jBadicionaFoto.setEnabled(false);
-        jBadicionaFoto.setFocusable(false);
-        jBadicionaFoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBadicionaFoto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar3.add(jBadicionaFoto);
-
-        jBremoveFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/remove-item32x.png"))); // NOI18N
-        jBremoveFoto.setEnabled(false);
-        jBremoveFoto.setFocusable(false);
-        jBremoveFoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBremoveFoto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar3.add(jBremoveFoto);
-
-        jTabaCadastro.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
         jLabel6.setForeground(new java.awt.Color(153, 0, 0));
         jLabel6.setText("Nome:");
@@ -254,7 +230,7 @@ public class JFempresa extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addGap(12, 12, 12)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(285, Short.MAX_VALUE))
+                .addContainerGap(572, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,26 +285,10 @@ public class JFempresa extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
 
         jTabaCadastro.addTab("Endereço", jPanel2);
-
-        jPdadosPerfilFoto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPdadosPerfilFoto.setMaximumSize(new java.awt.Dimension(192, 192));
-        jPdadosPerfilFoto.setMinimumSize(new java.awt.Dimension(192, 192));
-        jPdadosPerfilFoto.setPreferredSize(new java.awt.Dimension(192, 192));
-
-        javax.swing.GroupLayout jPdadosPerfilFotoLayout = new javax.swing.GroupLayout(jPdadosPerfilFoto);
-        jPdadosPerfilFoto.setLayout(jPdadosPerfilFotoLayout);
-        jPdadosPerfilFotoLayout.setHorizontalGroup(
-            jPdadosPerfilFotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 188, Short.MAX_VALUE)
-        );
-        jPdadosPerfilFotoLayout.setVerticalGroup(
-            jPdadosPerfilFotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 188, Short.MAX_VALUE)
-        );
 
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
@@ -352,30 +312,19 @@ public class JFempresa extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabaCadastro)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jToolBar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPdadosPerfilFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
-            .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPdadosPerfilFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jToolBar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTabaCadastro)
-                        .addContainerGap())))
+                .addComponent(jTabaCadastro)
+                .addContainerGap())
         );
 
         pack();
@@ -418,11 +367,9 @@ public class JFempresa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jBadicionaFoto;
     public javax.swing.JButton jBcadastroExcluir;
     public javax.swing.JButton jBcadastroSalvar;
     public javax.swing.JButton jBenderecoBuscarCep;
-    public javax.swing.JButton jBremoveFoto;
     public javax.swing.JComboBox<String> jCenderecoUf;
     public javax.swing.JFormattedTextField jFbasicoCnpj;
     public javax.swing.JFormattedTextField jFenderecoCep;
@@ -441,7 +388,6 @@ public class JFempresa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    public javax.swing.JPanel jPdadosPerfilFoto;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTabbedPane jTabaCadastro;
     public javax.swing.JTextField jTbasicoNome;
@@ -455,6 +401,5 @@ public class JFempresa extends javax.swing.JFrame {
     public javax.swing.JTextField jTenderecoQuadra;
     public javax.swing.JTextField jTenderecoRua;
     private javax.swing.JToolBar jToolBar2;
-    private javax.swing.JToolBar jToolBar3;
     // End of variables declaration//GEN-END:variables
 }

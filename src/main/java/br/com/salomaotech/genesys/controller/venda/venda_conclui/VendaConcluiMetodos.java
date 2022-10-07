@@ -142,6 +142,11 @@ public class VendaConcluiMetodos {
                 vendaModelo.setNumeroParcelas(0);
                 break;
 
+            case "Pix":
+                vendaModelo.setIsPago(true);
+                vendaModelo.setNumeroParcelas(0);
+                break;
+
         }
 
         VendaMovimenta vendaMovimenta = new VendaMovimenta(vendaModelo, vendaModeloItemBaixaList, vendaModeloItemDevolveList);

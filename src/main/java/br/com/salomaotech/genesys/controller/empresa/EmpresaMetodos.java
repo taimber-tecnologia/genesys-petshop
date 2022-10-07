@@ -2,7 +2,6 @@ package br.com.salomaotech.genesys.controller.empresa;
 
 import br.com.salomaotech.genesys.model.empresa.EmpresaModelo;
 import br.com.salomaotech.genesys.model.empresa.EmpresaPesquisa;
-import br.com.salomaotech.genesys.model.empresa.ImagemEmpresa;
 import br.com.salomaotech.genesys.view.JFempresa;
 import br.com.salomaotech.sistema.jpa.Repository;
 import br.com.salomaotech.sistema.swing.PopUp;
@@ -47,8 +46,6 @@ public class EmpresaMetodos {
 
         boolean isIdAberto = view.getId() != 0;
         view.jBcadastroExcluir.setEnabled(isIdAberto);
-        view.jBadicionaFoto.setEnabled(isIdAberto);
-        view.jBremoveFoto.setEnabled(isIdAberto);
 
     }
 
@@ -76,7 +73,6 @@ public class EmpresaMetodos {
 
         EmpresaModelo empresaModelo = EmpresaPesquisa.getDadosEmpresa();
         popularFormulario(empresaModelo);
-        new ImagemEmpresa().exibir(view.jPdadosPerfilFoto);
 
     }
 
