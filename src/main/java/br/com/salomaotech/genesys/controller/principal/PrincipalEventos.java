@@ -7,6 +7,7 @@ import br.com.salomaotech.genesys.controller.cliente.ClienteController;
 import br.com.salomaotech.genesys.controller.financeiro.FinanceiroController;
 import br.com.salomaotech.genesys.controller.fornecedor.FornecedorController;
 import br.com.salomaotech.genesys.controller.produto.ProdutoController;
+import br.com.salomaotech.genesys.controller.servico.ServicoController;
 import br.com.salomaotech.genesys.controller.venda.venda_pesquisa.VendaPesquisaController;
 import br.com.salomaotech.genesys.model.configuracoes.PastasSistema;
 import br.com.salomaotech.genesys.view.JFprincipal;
@@ -245,6 +246,13 @@ public class PrincipalEventos {
         view.jMfinanceiroReceber.addActionListener((ActionEvent e) -> {
 
             new FinanceiroController().construirContasReceber();
+
+        });
+
+        /* atalho para serviços */
+        view.jBatalhoServicos.addActionListener((ActionEvent e) -> {
+
+            new ServicoController().construir();
 
         });
 

@@ -236,7 +236,7 @@ public class JFvendaInicia extends javax.swing.JFrame {
         jToolBar1.add(jBvendaExcluir);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel6.setText("  PRODUTO: ");
+        jLabel6.setText("  PRODUTO/SERVIÇO: ");
         jToolBar1.add(jLabel6);
 
         jCprodutoLista.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N

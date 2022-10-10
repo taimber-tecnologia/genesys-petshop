@@ -43,6 +43,7 @@ public class JFprincipal extends javax.swing.JFrame {
         jBatalhoAgenda = new javax.swing.JButton();
         jBatalhoFornecedores = new javax.swing.JButton();
         jBatalhoProdutos = new javax.swing.JButton();
+        jBatalhoServicos = new javax.swing.JButton();
         jBatalhoVenda = new javax.swing.JButton();
         jBatalhoFinanceiro = new javax.swing.JButton();
         jToolBar2 = new javax.swing.JToolBar();
@@ -188,6 +189,13 @@ public class JFprincipal extends javax.swing.JFrame {
         jBatalhoProdutos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBarTopo.add(jBatalhoProdutos);
 
+        jBatalhoServicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/servico64x.png"))); // NOI18N
+        jBatalhoServicos.setText("Serviços");
+        jBatalhoServicos.setFocusable(false);
+        jBatalhoServicos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBatalhoServicos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBarTopo.add(jBatalhoServicos);
+
         jBatalhoVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/venda64x.png"))); // NOI18N
         jBatalhoVenda.setText("Vendas");
         jBatalhoVenda.setFocusable(false);
@@ -320,6 +328,7 @@ public class JFprincipal extends javax.swing.JFrame {
     public javax.swing.JButton jBatalhoFinanceiro;
     public javax.swing.JButton jBatalhoFornecedores;
     public javax.swing.JButton jBatalhoProdutos;
+    public javax.swing.JButton jBatalhoServicos;
     public javax.swing.JButton jBatalhoVenda;
     public javax.swing.JButton jBpaginador;
     public javax.swing.JComboBox<String> jCpaginador;

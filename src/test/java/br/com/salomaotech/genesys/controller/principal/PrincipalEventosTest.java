@@ -53,6 +53,7 @@ public class PrincipalEventosTest {
         assertEquals(true, view.jMagenda.getActionListeners().length == 1);
         assertEquals(true, view.jMfinanceiroPagar.getActionListeners().length == 1);
         assertEquals(true, view.jMfinanceiroReceber.getActionListeners().length == 1);
+        assertEquals(true, view.jBatalhoServicos.getActionListeners().length == 1);
 
     }
 
