@@ -2,7 +2,7 @@ package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
 import br.com.salomaotech.genesys.controller.venda.venda_calcula.VendaCalculaController;
 import br.com.salomaotech.genesys.model.configuracoes.PastasSistema;
-import br.com.salomaotech.genesys.model.produto.ComboBoxProduto;
+import br.com.salomaotech.genesys.model.venda.ComboBoxItemVenda;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.venda.VendaComprovantePdf;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
@@ -24,7 +24,7 @@ public class VendaIniciaEventos implements Command {
 
     private final JFvendaInicia view;
     private VendaIniciaMetodos vendaIniciaMetodos;
-    private ComboBoxProduto comboBoxProduto;
+    private ComboBoxItemVenda comboBoxItemVenda;
     private ProdutoModelo produtoModelo = new ProdutoModelo();
 
     public VendaIniciaEventos(JFvendaInicia view) {
@@ -35,15 +35,15 @@ public class VendaIniciaEventos implements Command {
         this.vendaIniciaMetodos = vendaIniciaMetodos;
     }
 
-    public void setComboBoxProduto(ComboBoxProduto comboBoxProduto) {
-        this.comboBoxProduto = comboBoxProduto;
+    public void setComboBoxItemVenda(ComboBoxItemVenda comboBoxItemVenda) {
+        this.comboBoxItemVenda = comboBoxItemVenda;
     }
 
     private void carregarProduto() {
 
-        if (!isNull(comboBoxProduto)) {
+        if (!isNull(comboBoxItemVenda)) {
 
-            produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(comboBoxProduto.getIdSelecionado());
+            produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(comboBoxItemVenda.getIdSelecionado());
             vendaIniciaMetodos.exibirProdutoSelecionado(produtoModelo);
             vendaIniciaMetodos.limparCalculosProdutoSelecionado();
 
@@ -234,7 +234,7 @@ public class VendaIniciaEventos implements Command {
         /* botão calcular granel */
         view.jBcalcularGranel.addActionListener((ActionEvent e) -> {
 
-            if (!isNull(comboBoxProduto)) {
+            if (!isNull(comboBoxItemVenda)) {
 
                 new VendaCalculaController(produtoModelo, vendaIniciaMetodos).construir();
 

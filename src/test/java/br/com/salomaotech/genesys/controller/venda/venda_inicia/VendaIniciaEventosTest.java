@@ -1,6 +1,6 @@
 package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
-import br.com.salomaotech.genesys.model.produto.ComboBoxProduto;
+import br.com.salomaotech.genesys.model.venda.ComboBoxItemVenda;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
 import javax.swing.JComboBox;
 import static org.junit.Assert.assertEquals;
@@ -38,7 +38,7 @@ public class VendaIniciaEventosTest {
 
         try {
 
-            vendaIniciaEventos.setComboBoxProduto(new ComboBoxProduto(new JComboBox()));
+            vendaIniciaEventos.setComboBoxItemVenda(new ComboBoxItemVenda(new JComboBox(), null));
 
         } catch (Exception ex) {
 
@@ -46,7 +46,7 @@ public class VendaIniciaEventosTest {
 
         }
 
-        System.out.println("Testando classe VendaIniciaEventos metodo: setComboBoxProduto");
+        System.out.println("Testando classe VendaIniciaEventos metodo: setComboBoxItemVenda");
         assertEquals(false, isErro);
 
     }

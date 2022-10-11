@@ -1,6 +1,6 @@
 package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
-import br.com.salomaotech.genesys.model.produto.ComboBoxProduto;
+import br.com.salomaotech.genesys.model.venda.ComboBoxItemVenda;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
@@ -11,12 +11,12 @@ public class VendaIniciaController {
     private final JFvendaInicia view = new JFvendaInicia();
     private final VendaIniciaMetodos vendaIniciaMetodos = new VendaIniciaMetodos(view);
     private final VendaIniciaEventos vendaIniciaEventos = new VendaIniciaEventos(view);
-    private final ComboBoxProduto comboBoxProduto = new ComboBoxProduto(view.jCprodutoLista, vendaIniciaEventos);
+    private final ComboBoxItemVenda comboBoxItemVenda = new ComboBoxItemVenda(view.jCprodutoLista, vendaIniciaEventos);
 
     public VendaIniciaController() {
 
         /* preenche comboboxes */
-        comboBoxProduto.preencher();
+        comboBoxItemVenda.preencher();
 
     }
 
@@ -33,7 +33,7 @@ public class VendaIniciaController {
 
         /* eventos */
         vendaIniciaEventos.addEventos();
-        vendaIniciaEventos.setComboBoxProduto(comboBoxProduto);
+        vendaIniciaEventos.setComboBoxItemVenda(comboBoxItemVenda);
         vendaIniciaEventos.setVendaIniciaMetodos(vendaIniciaMetodos);
 
     }
