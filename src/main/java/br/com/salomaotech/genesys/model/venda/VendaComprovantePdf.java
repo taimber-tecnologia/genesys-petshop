@@ -3,6 +3,7 @@ package br.com.salomaotech.genesys.model.venda;
 import br.com.salomaotech.genesys.model.empresa.EmpresaModelo;
 import br.com.salomaotech.genesys.model.empresa.EmpresaPesquisa;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
+import br.com.salomaotech.genesys.model.servico.ServicoModelo;
 import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import br.com.salomaotech.sistema.algoritmos.Datas;
@@ -80,18 +81,31 @@ public class VendaComprovantePdf {
 
             for (VendaModeloItem vendaModeloItem : vendaModelo.getVendaModeloItemList()) {
 
-                /* modelos auxiliares */
-                ProdutoModelo produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(vendaModeloItem.getIdProduto());
-
                 /* calculos */
                 BigDecimal totalProduto = vendaModeloItem.getValor().multiply(vendaModeloItem.getQuantidade()).subtract(vendaModeloItem.getDesconto());
 
                 /* conversão de dados */
-                String nome = produtoModelo.getNome();
+                String nome = "";
                 String quantidade = BigDecimais.formatarParaBigDecimalComCasaDecimal(vendaModeloItem.getQuantidade().toString(), 2).toString();
                 String valorUnidade = BigDecimais.formatarParaBigDecimalComCasaDecimal(vendaModeloItem.getValor().toString(), 2).toString();
                 String desconto = BigDecimais.formatarParaBigDecimalComCasaDecimal(vendaModeloItem.getDesconto().toString(), 2).toString();
                 String total = BigDecimais.formatarParaBigDecimalComCasaDecimal(totalProduto.toString(), 2).toString();
+
+                /* valida se é um produto */
+                if (vendaModeloItem.getIdProduto() != 0) {
+
+                    ProdutoModelo produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(vendaModeloItem.getIdProduto());
+                    nome = produtoModelo.getNome();
+
+                }
+
+                /* valia se é um serviço */
+                if (vendaModeloItem.getIdServico() != 0) {
+
+                    ServicoModelo servicoModelo = (ServicoModelo) new Repository(new ServicoModelo()).findById(vendaModeloItem.getIdServico());
+                    nome = servicoModelo.getNome();
+
+                }
 
                 if (desconto.equals("0.00")) {
 

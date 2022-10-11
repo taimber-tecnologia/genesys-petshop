@@ -15,15 +15,23 @@ public class ProdutoMovimenta {
 
     public void adicionarItemLista(long id, BigDecimal quantidade) {
 
-        produtoModeloListAdiciona.add((ProdutoModelo) new Repository(new ProdutoModelo()).findById(id));
-        quantidadeListAdiciona.add(quantidade);
+        if (id != 0) {
+
+            produtoModeloListAdiciona.add((ProdutoModelo) new Repository(new ProdutoModelo()).findById(id));
+            quantidadeListAdiciona.add(quantidade);
+
+        }
 
     }
 
     public void removerItemLista(long id, BigDecimal quantidade) {
 
-        produtoModeloListRemove.add((ProdutoModelo) new Repository(new ProdutoModelo()).findById(id));
-        quantidadeListRemove.add(quantidade);
+        if (id != 0) {
+
+            produtoModeloListRemove.add((ProdutoModelo) new Repository(new ProdutoModelo()).findById(id));
+            quantidadeListRemove.add(quantidade);
+
+        }
 
     }
 
@@ -35,6 +43,7 @@ public class ProdutoMovimenta {
 
             /* atualiza a quantidade para mais */
             produtosModelo.setQuantidade(produtosModelo.getQuantidade().add(quantidadeListAdiciona.get(contador)));
+
             new Repository(produtosModelo).save();
             contador++;
 

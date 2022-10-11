@@ -62,7 +62,7 @@ public class ComboBoxItemVendaTest {
     public void testGetObjectList() {
 
         System.out.println("Testando classe ComboBoxProduto metodo: getObjectList");
-        assertEquals(true, comboBoxProduto.getObjectList().isEmpty());
+        assertEquals(true, comboBoxProduto.getObjecHashMap().isEmpty());
 
     }
 

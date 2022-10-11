@@ -6,7 +6,6 @@ import br.com.salomaotech.sistema.jpa.JPQL;
 import br.com.salomaotech.sistema.jpa.Repository;
 import br.com.salomaotech.sistema.patterns.Command;
 import java.awt.event.ActionEvent;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import static java.util.Objects.isNull;
@@ -18,7 +17,7 @@ public class ComboBoxItemVenda {
     private final Command command;
     private long idItemSelecionado = 0;
     private final LinkedHashMap modeloLinkedHashMap = new LinkedHashMap();
-    private final List objectList = new ArrayList();
+    private final LinkedHashMap objecHashMap = new LinkedHashMap();
 
     public ComboBoxItemVenda(JComboBox jComboBox, Command command) {
 
@@ -80,7 +79,7 @@ public class ComboBoxItemVenda {
             ProdutoModelo produtoModelo = (ProdutoModelo) objeto;
             jComboBox.addItem(produtoModelo.getNome());
             modeloLinkedHashMap.put(produtoModelo.getNome(), produtoModelo.getId());
-            objectList.add(objeto);
+            objecHashMap.put(produtoModelo.getId(), produtoModelo);
 
         }
 
@@ -91,7 +90,7 @@ public class ComboBoxItemVenda {
             ServicoModelo servicoModelo = (ServicoModelo) objeto;
             jComboBox.addItem(servicoModelo.getNome());
             modeloLinkedHashMap.put(servicoModelo.getNome(), servicoModelo.getId());
-            objectList.add(objeto);
+            objecHashMap.put(servicoModelo.getId(), servicoModelo);
 
         }
 
@@ -147,8 +146,8 @@ public class ComboBoxItemVenda {
         return idItemSelecionado;
     }
 
-    public List getObjectList() {
-        return objectList;
+    public LinkedHashMap getObjecHashMap() {
+        return objecHashMap;
     }
 
 }

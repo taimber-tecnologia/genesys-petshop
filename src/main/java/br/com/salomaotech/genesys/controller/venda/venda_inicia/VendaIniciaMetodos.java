@@ -1,8 +1,10 @@
 package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
+import br.com.salomaotech.genesys.model.venda.ItemVenda;
 import br.com.salomaotech.genesys.controller.venda.venda_conclui.VendaConcluiController;
 import br.com.salomaotech.genesys.model.produto.ImagemProduto;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
+import br.com.salomaotech.genesys.model.servico.ServicoModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
 import br.com.salomaotech.genesys.model.venda.VendaMovimenta;
@@ -28,13 +30,13 @@ public class VendaIniciaMetodos {
         this.view = view;
     }
 
-    public void exibirProdutoSelecionado(ProdutoModelo produtoModelo) {
+    public void exibirProdutoSelecionado(ItemVenda itemVenda) {
 
-        view.jTprodutoCodigo.setText(String.valueOf(produtoModelo.getId()));
-        view.jTprodutoPreco.setText(ConverteNumeroParaMoedaBr.converter(produtoModelo.getValorVenda().toString()));
-        view.jTprodutoTotal.setText(ConverteNumeroParaMoedaBr.converter(calcularProdutoSelecionado(produtoModelo).toString()));
-        new ImagemProduto().exibir(String.valueOf(produtoModelo.getId()), view.jPdadosPerfilFoto);
-        habilitarCamposDeAdicionarProduto(produtoModelo);
+        view.jTprodutoCodigo.setText(String.valueOf(itemVenda.getId()));
+        view.jTprodutoPreco.setText(ConverteNumeroParaMoedaBr.converter(itemVenda.getValor().toString()));
+        view.jTprodutoTotal.setText(ConverteNumeroParaMoedaBr.converter(calcularProdutoSelecionado(itemVenda).toString()));
+        new ImagemProduto().exibir(String.valueOf(itemVenda.getId()), view.jPdadosPerfilFoto);
+        habilitarCamposDeAdicionarProduto(itemVenda);
 
     }
 
@@ -67,11 +69,12 @@ public class VendaIniciaMetodos {
 
     }
 
-    public void adicionarProdutoNaLista(ProdutoModelo produtoModelo) {
+    public void adicionarProdutoNaLista(ItemVenda itemVenda) {
 
         VendaModeloItem vendaModeloItem = new VendaModeloItem();
-        vendaModeloItem.setIdProduto(produtoModelo.getId());
-        vendaModeloItem.setValor(produtoModelo.getValorVenda());
+        vendaModeloItem.setIdProduto(itemVenda.getProdutoModelo().getId());
+        vendaModeloItem.setIdServico(itemVenda.getServicoModelo().getId());
+        vendaModeloItem.setValor(itemVenda.getValor());
         vendaModeloItem.setQuantidade(BigDecimais.formatarParaBigDecimal(view.jTprodutoQuantidade.getText()));
         vendaModeloItem.setDesconto(BigDecimais.formatarParaBigDecimal(view.jTprodutoDesconto.getText()));
         vendaModeloItemList.add(vendaModeloItem);
@@ -108,12 +111,26 @@ public class VendaIniciaMetodos {
 
         for (VendaModeloItem vendaModeloItem : vendaModeloItemList) {
 
-            ProdutoModelo produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(vendaModeloItem.getIdProduto());
+            ItemVenda itemVenda = new ItemVenda();
             BigDecimal preco = vendaModeloItem.getValor().multiply(vendaModeloItem.getQuantidade()).subtract(vendaModeloItem.getDesconto());
+
+            /* valida se é um produto */
+            if (vendaModeloItem.getIdProduto() != 0) {
+
+                itemVenda = new ItemVenda(vendaModeloItem.getIdProduto(), new ProdutoModelo());
+
+            }
+
+            /* valida se é um serviço */
+            if (vendaModeloItem.getIdServico() != 0) {
+
+                itemVenda = new ItemVenda(vendaModeloItem.getIdServico(), new ServicoModelo());
+
+            }
 
             Object[] linhaDefaultTableModel = new Object[]{
                 vendaModeloItem.getQuantidade(),
-                produtoModelo.getNome(),
+                itemVenda.getNome(),
                 ConverteNumeroParaMoedaBr.converter(vendaModeloItem.getDesconto().toString()),
                 ConverteNumeroParaMoedaBr.converter(preco.toString())
 
@@ -129,19 +146,19 @@ public class VendaIniciaMetodos {
 
     }
 
-    public BigDecimal calcularProdutoSelecionado(ProdutoModelo produtoModelo) {
+    public BigDecimal calcularProdutoSelecionado(ItemVenda itemVenda) {
 
         BigDecimal quantidade = BigDecimais.formatarParaBigDecimal(view.jTprodutoQuantidade.getText());
         BigDecimal desconto = BigDecimais.formatarParaBigDecimal(view.jTprodutoDesconto.getText());
-        return produtoModelo.getValorVenda().multiply(quantidade).subtract(desconto);
+        return itemVenda.getValor().multiply(quantidade).subtract(desconto);
 
     }
 
-    public void habilitarCamposDeAdicionarProduto(ProdutoModelo produtoModelo) {
+    public void habilitarCamposDeAdicionarProduto(ItemVenda itemVenda) {
 
-        view.jBprodutoAdicionaItem.setEnabled(produtoModelo.getId() != 0);
-        view.jBprodutoLimpaItem.setEnabled(produtoModelo.getId() != 0);
-        view.jBcalcularGranel.setEnabled(produtoModelo.getId() != 0);
+        view.jBprodutoAdicionaItem.setEnabled(itemVenda.getId() != 0);
+        view.jBprodutoLimpaItem.setEnabled(itemVenda.getId() != 0);
+        view.jBcalcularGranel.setEnabled(itemVenda.getProdutoModelo().getId() != 0);
 
     }
 
@@ -192,10 +209,10 @@ public class VendaIniciaMetodos {
 
     }
 
-    public void popularGranel(BigDecimal quantidade, ProdutoModelo produtoModelo) {
+    public void popularGranel(BigDecimal quantidade, ItemVenda itemVenda) {
 
         view.jTprodutoQuantidade.setText(quantidade.toString());
-        exibirProdutoSelecionado(produtoModelo);
+        exibirProdutoSelecionado(itemVenda);
 
     }
 

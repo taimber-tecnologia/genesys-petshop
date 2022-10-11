@@ -1,9 +1,9 @@
 package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
+import br.com.salomaotech.genesys.model.venda.ItemVenda;
 import br.com.salomaotech.genesys.controller.venda.venda_calcula.VendaCalculaController;
 import br.com.salomaotech.genesys.model.configuracoes.PastasSistema;
 import br.com.salomaotech.genesys.model.venda.ComboBoxItemVenda;
-import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.venda.VendaComprovantePdf;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
@@ -25,7 +25,7 @@ public class VendaIniciaEventos implements Command {
     private final JFvendaInicia view;
     private VendaIniciaMetodos vendaIniciaMetodos;
     private ComboBoxItemVenda comboBoxItemVenda;
-    private ProdutoModelo produtoModelo = new ProdutoModelo();
+    private ItemVenda itemVenda = new ItemVenda();
 
     public VendaIniciaEventos(JFvendaInicia view) {
         this.view = view;
@@ -43,8 +43,11 @@ public class VendaIniciaEventos implements Command {
 
         if (!isNull(comboBoxItemVenda)) {
 
-            produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(comboBoxItemVenda.getIdSelecionado());
-            vendaIniciaMetodos.exibirProdutoSelecionado(produtoModelo);
+            /* carrega o objeto */
+            Object object = comboBoxItemVenda.getObjecHashMap().get(comboBoxItemVenda.getIdSelecionado());
+
+            itemVenda = new ItemVenda(comboBoxItemVenda.getIdSelecionado(), object);
+            vendaIniciaMetodos.exibirProdutoSelecionado(itemVenda);
             vendaIniciaMetodos.limparCalculosProdutoSelecionado();
 
         }
@@ -69,7 +72,7 @@ public class VendaIniciaEventos implements Command {
             @Override
             public void keyReleased(KeyEvent e) {
 
-                view.jTprodutoTotal.setText(ConverteNumeroParaMoedaBr.converter(vendaIniciaMetodos.calcularProdutoSelecionado(produtoModelo).toString()));
+                view.jTprodutoTotal.setText(ConverteNumeroParaMoedaBr.converter(vendaIniciaMetodos.calcularProdutoSelecionado(itemVenda).toString()));
 
             }
 
@@ -91,7 +94,7 @@ public class VendaIniciaEventos implements Command {
             @Override
             public void keyReleased(KeyEvent e) {
 
-                view.jTprodutoTotal.setText(ConverteNumeroParaMoedaBr.converter(vendaIniciaMetodos.calcularProdutoSelecionado(produtoModelo).toString()));
+                view.jTprodutoTotal.setText(ConverteNumeroParaMoedaBr.converter(vendaIniciaMetodos.calcularProdutoSelecionado(itemVenda).toString()));
 
             }
 
@@ -107,7 +110,7 @@ public class VendaIniciaEventos implements Command {
         /* adiciona um item de produto */
         view.jBprodutoAdicionaItem.addActionListener((ActionEvent e) -> {
 
-            vendaIniciaMetodos.adicionarProdutoNaLista(produtoModelo);
+            vendaIniciaMetodos.adicionarProdutoNaLista(itemVenda);
 
         });
 
@@ -236,7 +239,7 @@ public class VendaIniciaEventos implements Command {
 
             if (!isNull(comboBoxItemVenda)) {
 
-                new VendaCalculaController(produtoModelo, vendaIniciaMetodos).construir();
+                new VendaCalculaController(itemVenda, vendaIniciaMetodos).construir();
 
             }
 
