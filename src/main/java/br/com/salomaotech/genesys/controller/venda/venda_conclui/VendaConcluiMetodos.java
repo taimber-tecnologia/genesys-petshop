@@ -127,7 +127,7 @@ public class VendaConcluiMetodos {
         vendaModelo.setData(view.jDdata.getCalendar());
         vendaModelo.setHora(Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + ":" + Calendar.getInstance().get(Calendar.MINUTE));
         vendaModelo.setFormaPagamento(view.jCforma.getSelectedItem().toString());
-        vendaModelo.setNumeroParcelas(Integer.valueOf(view.jCparcela.getSelectedItem().toString()));
+        vendaModelo.setNumeroParcelas(Integer.parseInt(view.jCparcela.getSelectedItem().toString()));
         vendaModelo.setIsPago(false);
 
         switch (view.jCforma.getSelectedItem().toString()) {

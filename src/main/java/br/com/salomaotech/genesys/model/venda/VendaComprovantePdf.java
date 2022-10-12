@@ -62,13 +62,13 @@ public class VendaComprovantePdf {
         gerarPdf.addConteudo("Hora: " + vendaModelo.getHora());
         gerarPdf.addConteudo("Codigo: " + vendaModelo.getId());
         gerarPdf.addConteudo("==================================================");
-        gerarPdf.addConteudo("=====================PRODUTOS=====================");
+        gerarPdf.addConteudo("================ PRODUTOS/SERVIÇOS ===============");
 
         PdfPTable pdfPTable = new PdfPTable(5);
 
         try {
 
-            /* produtos */
+            /* produtos e serviços */
             pdfPTable.setWidths(new int[]{3, 2, 2, 2, 2});
             pdfPTable.setTotalWidth(250);
             pdfPTable.setLockedWidth(true);
@@ -128,9 +128,9 @@ public class VendaComprovantePdf {
         gerarPdf.addConteudo(pdfPTable);
         gerarPdf.addConteudo("");
         gerarPdf.addConteudo("--------------------------------------------------");
-        gerarPdf.addConteudo("Total dos produtos: " + valorTotalBr);
+        gerarPdf.addConteudo("Total em itens: " + valorTotalBr);
         gerarPdf.addConteudo("==================================================");
-        gerarPdf.addConteudo("=====================PAGAMENTO====================");
+        gerarPdf.addConteudo("==================== PAGAMENTO ===================");
 
         /* forma de pagamento */
         pdfPTable = new PdfPTable(3);

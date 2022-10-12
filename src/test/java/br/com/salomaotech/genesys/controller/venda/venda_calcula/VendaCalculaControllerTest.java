@@ -1,7 +1,7 @@
 package br.com.salomaotech.genesys.controller.venda.venda_calcula;
 
 import br.com.salomaotech.genesys.controller.venda.venda_inicia.VendaIniciaMetodos;
-import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
+import br.com.salomaotech.genesys.model.venda.ItemVenda;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -14,7 +14,7 @@ public class VendaCalculaControllerTest {
 
     public VendaCalculaControllerTest() {
 
-        vendaCalculaController = new VendaCalculaController(new ProdutoModelo(), vendaIniciaMetodos);
+        vendaCalculaController = new VendaCalculaController(new ItemVenda(), vendaIniciaMetodos);
 
     }
 

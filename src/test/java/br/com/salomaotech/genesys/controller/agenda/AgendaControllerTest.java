@@ -36,4 +36,24 @@ public class AgendaControllerTest {
 
     }
 
+    @Test
+    public void testCarregarAgendaVencida() {
+
+        boolean isErro = false;
+
+        try {
+
+            agendaController.carregarAgendaVencida();
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AgendaController metodo: carregarAgendaVencida");
+        assertEquals(false, isErro);
+
+    }
+
 }

@@ -1,6 +1,7 @@
 package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
+import br.com.salomaotech.genesys.model.venda.ItemVenda;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
@@ -21,6 +22,7 @@ public class VendaIniciaMetodosTest {
     private final ProdutoModelo produtoModelo = new ProdutoModelo();
     private final List<VendaModeloItem> vendaModeloItemList = new ArrayList();
     private final VendaModelo vendaModelo = new VendaModelo();
+    private final ItemVenda itemVenda;
 
     public VendaIniciaMetodosTest() {
 
@@ -51,6 +53,9 @@ public class VendaIniciaMetodosTest {
         vendaModelo.setNumeroParcelas(3);
         new Repository(vendaModelo).save();
 
+        /* novo item de venda */
+        itemVenda = new ItemVenda(produtoModelo.getId(), produtoModelo);
+
         /* simula o carregamento de produtos selecionados */
         simularExibirProdutosSelecionados();
 
@@ -78,12 +83,12 @@ public class VendaIniciaMetodosTest {
     @Test
     public void testExibirProdutoSelecionado() {
 
-        vendaIniciaMetodos.exibirProdutoSelecionado(produtoModelo);
+        vendaIniciaMetodos.exibirProdutoSelecionado(itemVenda);
 
         System.out.println("Testando classe VendaIniciaMetodos metodo: exibirProdutoSelecionado");
         assertEquals(true, view.jTprodutoCodigo.getText().equals(String.valueOf(produtoModelo.getId())));
         assertEquals(true, view.jTprodutoPreco.getText().equals(ConverteNumeroParaMoedaBr.converter(produtoModelo.getValorVenda().toString())));
-        assertEquals(true, view.jTprodutoTotal.getText().equals(ConverteNumeroParaMoedaBr.converter(vendaIniciaMetodos.calcularProdutoSelecionado(produtoModelo).toString())));
+        assertEquals(true, view.jTprodutoTotal.getText().equals(ConverteNumeroParaMoedaBr.converter(vendaIniciaMetodos.calcularProdutoSelecionado(itemVenda).toString())));
         assertEquals(true, view.jBprodutoAdicionaItem.isVisible());
         assertEquals(true, view.jBprodutoLimpaItem.isVisible());
 
@@ -123,7 +128,7 @@ public class VendaIniciaMetodosTest {
     @Test
     public void testAdicionarProdutoNaLista() {
 
-        vendaIniciaMetodos.adicionarProdutoNaLista(produtoModelo);
+        vendaIniciaMetodos.adicionarProdutoNaLista(itemVenda);
 
         System.out.println("Testando classe VendaIniciaMetodos metodo: adicionarProdutoNaLista");
         assertEquals(true, view.jTprodutoSelecionado.getRowCount() == 1);
@@ -149,7 +154,7 @@ public class VendaIniciaMetodosTest {
         BigDecimal valorEsperado = produtoModelo.getValorVenda().multiply(new BigDecimal(view.jTprodutoQuantidade.getText())).subtract(new BigDecimal(view.jTprodutoDesconto.getText()));
 
         System.out.println("Testando classe VendaIniciaMetodos metodo: calcularProdutoSelecionado");
-        assertEquals(true, vendaIniciaMetodos.calcularProdutoSelecionado(produtoModelo).equals(valorEsperado));
+        assertEquals(true, vendaIniciaMetodos.calcularProdutoSelecionado(itemVenda).equals(valorEsperado));
 
     }
 
@@ -157,13 +162,13 @@ public class VendaIniciaMetodosTest {
     public void testHabilitarCamposDeAdicionarProduto() {
 
         /* esperado todos os campos visiveis */
-        vendaIniciaMetodos.habilitarCamposDeAdicionarProduto(produtoModelo);
+        vendaIniciaMetodos.habilitarCamposDeAdicionarProduto(itemVenda);
         System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCamposDeAdicionarProduto etapa 01");
         assertEquals(true, view.jBprodutoAdicionaItem.isEnabled());
         assertEquals(true, view.jBprodutoLimpaItem.isEnabled());
 
         /* esperados todos os campos não visiveis */
-        vendaIniciaMetodos.habilitarCamposDeAdicionarProduto(new ProdutoModelo());
+        vendaIniciaMetodos.habilitarCamposDeAdicionarProduto(new ItemVenda());
         System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCamposDeAdicionarProduto etapa 02");
         assertEquals(false, view.jBprodutoAdicionaItem.isEnabled());
         assertEquals(false, view.jBprodutoLimpaItem.isEnabled());

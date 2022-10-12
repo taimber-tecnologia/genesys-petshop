@@ -231,7 +231,7 @@ public class PrincipalEventos {
         /* atalho para agenda */
         view.jMagenda.addActionListener((ActionEvent e) -> {
 
-            new AgendaController().construir();
+            new AgendaController().carregarAgendaVencida();
 
         });
 

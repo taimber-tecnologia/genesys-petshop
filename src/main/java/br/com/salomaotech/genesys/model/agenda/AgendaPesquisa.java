@@ -86,8 +86,8 @@ public class AgendaPesquisa {
 
             /* cria uma data completa com dia, mes, ano, hora, minuto */
             Calendar dataCompleta = (Calendar) agendaModelo.getDataAgenda().clone();
-            dataCompleta.set(Calendar.HOUR_OF_DAY, Integer.valueOf(agendaModelo.getDataHora()));
-            dataCompleta.set(Calendar.MINUTE, Integer.valueOf(agendaModelo.getDataMinuto()));
+            dataCompleta.set(Calendar.HOUR_OF_DAY, Integer.parseInt(agendaModelo.getDataHora()));
+            dataCompleta.set(Calendar.MINUTE, Integer.parseInt(agendaModelo.getDataMinuto()));
             dataCompleta.set(Calendar.SECOND, 0);
             dataCompleta.set(Calendar.MILLISECOND, 0);
 

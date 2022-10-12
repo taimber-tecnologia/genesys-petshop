@@ -3,6 +3,7 @@ package br.com.salomaotech.genesys.controller.agenda;
 import br.com.salomaotech.genesys.model.agenda.AgendaPesquisa;
 import br.com.salomaotech.genesys.view.JFagenda;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
+import java.util.Calendar;
 import javax.swing.JFrame;
 
 public class AgendaController {
@@ -40,6 +41,16 @@ public class AgendaController {
 
     public AgendaMetodos getMetodos() {
         return agendaMetodos;
+    }
+
+    public void carregarAgendaVencida() {
+
+        construir();
+        view.jTabaPrincipal.setSelectedIndex(1);
+        view.jDpesquisaDataInicio.setDate(Calendar.getInstance().getTime());
+        view.jCdataAnterior.setSelected(true);
+        agendaMetodos.pesquisar();
+
     }
 
 }
