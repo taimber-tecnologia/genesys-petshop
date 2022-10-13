@@ -91,7 +91,7 @@ public class FinanceiroPesquisa {
             /* modelos auxiliares */
             CentroCustoModelo centroCustoModelo = (CentroCustoModelo) new Repository(new CentroCustoModelo()).findById(financeiroModelo.getIdCentroCusto());
 
-            BigDecimal valor = new BigDecimal(0);
+            BigDecimal valor;
             String situacao;
             String descricao = financeiroModelo.getDescricao();
 

@@ -47,7 +47,7 @@ public class ClienteValidador {
             jpql.addParametroDiferente("id", id);
             List resultados = repository.getResults(jpql.construirSelect());
 
-            if (resultados.size() > 0) {
+            if (!resultados.isEmpty()) {
 
                 mensagensErro = "CPF já em uso.";
                 view.jFbasicoCpf.requestFocus();

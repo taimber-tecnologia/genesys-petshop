@@ -36,7 +36,7 @@ public class CentroCustoValidador {
             jpql.addParametroDiferente("id", id);
             List resultados = repository.getResults(jpql.construirSelect());
 
-            if (resultados.size() > 0) {
+            if (!resultados.isEmpty()) {
 
                 mensagensErro = "Código já em uso.";
                 view.jTcadastroCodigo.requestFocus();

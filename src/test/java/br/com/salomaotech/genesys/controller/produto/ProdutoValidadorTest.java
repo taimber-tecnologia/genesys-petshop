@@ -50,7 +50,7 @@ public class ProdutoValidadorTest {
         assertEquals(false, produtoValidador.isValido());
 
         /* validando usando filtro: unidade de medida */
-        view.jTnome.setText(produtoModelo.getNome());
+        view.jTnome.setText(null);
         view.jCmedida.setSelectedIndex(0);
         view.jTvalorCusto.setText(null);
         view.jTvalorVenda.setText(null);
@@ -146,7 +146,7 @@ public class ProdutoValidadorTest {
         assertEquals(true, produtoValidador.getMensagensErro().length() > 0);
 
         /* validando usando filtro: unidade de medida */
-        view.jTnome.setText(produtoModelo.getNome());
+        view.jTnome.setText(null);
         view.jCmedida.setSelectedIndex(0);
         view.jTvalorCusto.setText(null);
         view.jTvalorVenda.setText(null);

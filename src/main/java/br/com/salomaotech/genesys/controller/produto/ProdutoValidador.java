@@ -32,7 +32,7 @@ public class ProdutoValidador {
             jpql.addParametroIgual("nome", view.jTnome.getText());
 
             /* valida se o nome já está sendo utilizado */
-            if (new Repository(new ProdutoModelo()).getResults(jpql.construirSelect()).size() > 0) {
+            if (!new Repository(new ProdutoModelo()).getResults(jpql.construirSelect()).isEmpty()) {
 
                 mensagensErro = "O nome já está sendo utilizado.";
                 view.jTnome.requestFocus();

@@ -45,7 +45,7 @@ public class FornecedorValidador {
             jpql.addParametroDiferente("id", id);
             List resultados = repository.getResults(jpql.construirSelect());
 
-            if (resultados.size() > 0) {
+            if (!resultados.isEmpty()) {
 
                 mensagensErro = "CNPJ já em uso.";
                 view.jFbasicoCnpj.requestFocus();

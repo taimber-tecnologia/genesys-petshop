@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import static java.util.Objects.isNull;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -50,7 +51,13 @@ public class VendaModelo implements Modelo, Serializable {
     }
 
     public void setData(Calendar data) {
-        this.data = data;
+
+        if (!isNull(data)) {
+
+            this.data = data;
+
+        }
+
     }
 
     public String getHora() {
