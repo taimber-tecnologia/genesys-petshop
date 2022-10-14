@@ -2,6 +2,7 @@ package br.com.salomaotech.genesys.model.notificacoes;
 
 import br.com.salomaotech.genesys.model.agenda.AgendaModelo;
 import br.com.salomaotech.genesys.model.financeiro.FinanceiroModelo;
+import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.sistema.jpa.JPQL;
 import br.com.salomaotech.sistema.jpa.Repository;
 import java.text.SimpleDateFormat;
@@ -52,12 +53,23 @@ public class Notificacoes {
 
     }
 
+    public long getProdutoEstoqueMinimo() {
+
+        JPQL jpql = new JPQL(new ProdutoModelo());
+        jpql.addParametroCompararDuasChaves("quantidade", "estoqueMinimo", "<=");
+
+        Repository repository = new Repository(new ProdutoModelo());
+        return repository.countTodos(jpql.getCondicaoWhere());
+
+    }
+
     public int total() {
 
         int retorno = 0;
         retorno += getAgenda();
         retorno += getFinanceiroPagar();
         retorno += getFinanceiroReceber();
+        retorno += getProdutoEstoqueMinimo();
         return retorno;
 
     }

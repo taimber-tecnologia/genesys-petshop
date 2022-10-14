@@ -19,6 +19,8 @@ public class ProdutoPesquisaTest {
         produtoModelo.setNome("Teste");
         produtoModelo.setValorCusto(new BigDecimal(100));
         produtoModelo.setCategoria("ABC");
+        produtoModelo.setQuantidade(new BigDecimal(50));
+        produtoModelo.setEstoqueMinimo(new BigDecimal(15));
         new Repository(produtoModelo).save();
 
     }
@@ -64,11 +66,32 @@ public class ProdutoPesquisaTest {
     }
 
     @Test
+    public void testSetEstoqueBaixo() {
+
+        boolean isErro = false;
+
+        try {
+
+            produtoPesquisa.setEstoqueBaixo(true);
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe ProdutoPesquisa metodo: setEstoqueBaixo");
+        assertEquals(false, isErro);
+
+    }
+
+    @Test
     public void testPesquisar() {
 
         /* utilizando filtro: nenhum */
         view.jTpesquisaNome.setText(null);
         view.jCpesquisaCategoria.getEditor().setItem("");
+        view.jCestoqueBaixo.setEnabled(false);
         produtoPesquisa = new ProdutoPesquisa(view.jTresultados);
         produtoPesquisa.pesquisar();
         System.out.println("Testando classe ProdutoPesquisa metodo: pesquisar etapa 01");
@@ -77,6 +100,7 @@ public class ProdutoPesquisaTest {
         /* utilizando filtro: nome */
         view.jTpesquisaNome.setText(produtoModelo.getNome());
         view.jCpesquisaCategoria.getEditor().setItem("");
+        view.jCestoqueBaixo.setEnabled(false);
         produtoPesquisa = new ProdutoPesquisa(view.jTresultados);
         produtoPesquisa.pesquisar();
         System.out.println("Testando classe ProdutoPesquisa metodo: pesquisar etapa 02");
@@ -85,17 +109,28 @@ public class ProdutoPesquisaTest {
         /* utilizando filtro: categoria */
         view.jTpesquisaNome.setText(null);
         view.jCpesquisaCategoria.getEditor().setItem(produtoModelo.getCategoria());
+        view.jCestoqueBaixo.setEnabled(false);
         produtoPesquisa = new ProdutoPesquisa(view.jTresultados);
         produtoPesquisa.pesquisar();
         System.out.println("Testando classe ProdutoPesquisa metodo: pesquisar etapa 03");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* utilizando filtro: todos */
-        view.jTpesquisaNome.setText(produtoModelo.getNome());
-        view.jCpesquisaCategoria.getEditor().setItem(produtoModelo.getCategoria());
+        /* utilizando filtro: estoque baixo */
+        view.jTpesquisaNome.setText(null);
+        view.jCpesquisaCategoria.getEditor().setItem("");
+        view.jCestoqueBaixo.setEnabled(true);
         produtoPesquisa = new ProdutoPesquisa(view.jTresultados);
         produtoPesquisa.pesquisar();
         System.out.println("Testando classe ProdutoPesquisa metodo: pesquisar etapa 04");
+        assertEquals(true, view.jTresultados.getRowCount() > 0);
+
+        /* utilizando filtro: todos */
+        view.jTpesquisaNome.setText(produtoModelo.getNome());
+        view.jCpesquisaCategoria.getEditor().setItem(produtoModelo.getCategoria());
+        view.jCestoqueBaixo.setEnabled(false);
+        produtoPesquisa = new ProdutoPesquisa(view.jTresultados);
+        produtoPesquisa.pesquisar();
+        System.out.println("Testando classe ProdutoPesquisa metodo: pesquisar etapa 05");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
     }

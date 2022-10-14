@@ -13,6 +13,7 @@ public class ProdutoPesquisa {
     private final JTable jTresultados;
     private String nome;
     private String categoria;
+    private boolean estoqueBaixo;
 
     public ProdutoPesquisa(JTable jTresultados) {
         this.jTresultados = jTresultados;
@@ -24,6 +25,10 @@ public class ProdutoPesquisa {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    public void setEstoqueBaixo(boolean estoqueBaixo) {
+        this.estoqueBaixo = estoqueBaixo;
     }
 
     private void popularDados(List<ProdutoModelo> produtoModeloList) {
@@ -62,6 +67,13 @@ public class ProdutoPesquisa {
         if (!ValidaStringIsEmpty.isEmpty(categoria)) {
 
             jpql.addParametroIgual("categoria", categoria);
+
+        }
+
+        /* valida o estoque mínimo */
+        if (estoqueBaixo) {
+
+            jpql.addParametroCompararDuasChaves("quantidade", "estoqueMinimo", "<=");
 
         }
 

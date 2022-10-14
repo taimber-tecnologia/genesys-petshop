@@ -46,7 +46,6 @@ public class AgendaController {
     public void carregarAgendaVencida() {
 
         construir();
-        view.jTabaPrincipal.setSelectedIndex(1);
         view.jDpesquisaDataInicio.setDate(Calendar.getInstance().getTime());
         view.jCdataAnterior.setSelected(true);
         agendaMetodos.pesquisar();

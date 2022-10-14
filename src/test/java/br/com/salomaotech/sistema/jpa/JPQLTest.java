@@ -204,6 +204,75 @@ public class JPQLTest {
     }
 
     @Test
+    public void testAddParametroMenor() {
+
+        jpql = new JPQL(new ModeloDeTeste());
+        jpql.addParametroMenor(chaveNome, "Teste");
+        System.out.println("Testando classe JPQL metodo: addParametroMenor etapa 01");
+        assertEquals(true, jpql.construirSelect().equals("SELECT objeto FROM ModeloDeTeste objeto WHERE objeto.nome<'Teste'"));
+
+        jpql = new JPQL(new ModeloDeTeste());
+        jpql.addParametroMenor(chaveIdade, "18");
+        System.out.println("Testando classe JPQL metodo: addParametroMenor etapa 02");
+        assertEquals(true, jpql.construirSelect().equals("SELECT objeto FROM ModeloDeTeste objeto WHERE objeto.idade<'18'"));
+
+        jpql = new JPQL(new ModeloDeTeste());
+        jpql.addParametroMenor(chaveIdade, 18);
+        System.out.println("Testando classe JPQL metodo: addParametroMenor etapa 03");
+        assertEquals(true, jpql.construirSelect().equals("SELECT objeto FROM ModeloDeTeste objeto WHERE objeto.idade<18"));
+
+        jpql = new JPQL(new ModeloDeTeste());
+        jpql.addParametroMenor(chaveNascimento, calendar);
+        System.out.println("Testando classe JPQL metodo: addParametroMenor etapa 04");
+        assertEquals(true, jpql.construirSelect().equals("SELECT objeto FROM ModeloDeTeste objeto WHERE objeto.nascimento<'" + calendar + "'"));
+
+        jpql = new JPQL(new ModeloDeTeste());
+        jpql.addParametroMenor(chaveSegundosDeVida, 9223372036854775807L);
+        System.out.println("Testando classe JPQL metodo: addParametroMenor etapa 05");
+        assertEquals(true, jpql.construirSelect().equals("SELECT objeto FROM ModeloDeTeste objeto WHERE objeto.segundosDeVida<9223372036854775807"));
+
+    }
+
+    @Test
+    public void testAddParametroCompararDuasChaves() {
+
+        jpql = new JPQL(new ModeloDeTeste());
+        System.out.println("Testando classe JPQL metodo: addParametroCompararDuasChaves etapa 01");
+        assertEquals(true, jpql.getCondicaoWhere().equals(""));
+
+        jpql = new JPQL(new ModeloDeTeste());
+        jpql.addParametroCompararDuasChaves("chaveA", "chaveB", "<");
+        System.out.println("Testando classe JPQL metodo: addParametroCompararDuasChaves etapa 02");
+        assertEquals(true, jpql.getCondicaoWhere().equals(" WHERE objeto.chaveA < objeto.chaveB"));
+
+        jpql = new JPQL(new ModeloDeTeste());
+        jpql.addParametroCompararDuasChaves("chaveA", "chaveB", ">");
+        System.out.println("Testando classe JPQL metodo: addParametroCompararDuasChaves etapa 03");
+        assertEquals(true, jpql.getCondicaoWhere().equals(" WHERE objeto.chaveA > objeto.chaveB"));
+
+        jpql = new JPQL(new ModeloDeTeste());
+        jpql.addParametroCompararDuasChaves("chaveA", "chaveB", "<=");
+        System.out.println("Testando classe JPQL metodo: addParametroCompararDuasChaves etapa 04");
+        assertEquals(true, jpql.getCondicaoWhere().equals(" WHERE objeto.chaveA <= objeto.chaveB"));
+
+        jpql = new JPQL(new ModeloDeTeste());
+        jpql.addParametroCompararDuasChaves("chaveA", "chaveB", ">=");
+        System.out.println("Testando classe JPQL metodo: addParametroCompararDuasChaves etapa 05");
+        assertEquals(true, jpql.getCondicaoWhere().equals(" WHERE objeto.chaveA >= objeto.chaveB"));
+
+        jpql = new JPQL(new ModeloDeTeste());
+        jpql.addParametroCompararDuasChaves("chaveA", "chaveB", "!=");
+        System.out.println("Testando classe JPQL metodo: addParametroCompararDuasChaves etapa 06");
+        assertEquals(true, jpql.getCondicaoWhere().equals(" WHERE objeto.chaveA != objeto.chaveB"));
+
+        jpql = new JPQL(new ModeloDeTeste());
+        jpql.addParametroCompararDuasChaves("chaveA", "chaveB", "=");
+        System.out.println("Testando classe JPQL metodo: addParametroCompararDuasChaves etapa 07");
+        assertEquals(true, jpql.getCondicaoWhere().equals(" WHERE objeto.chaveA = objeto.chaveB"));
+
+    }
+
+    @Test
     public void testAddOrderBy() {
 
         jpql = new JPQL(new ModeloDeTeste());
@@ -217,11 +286,6 @@ public class JPQLTest {
         System.out.println(jpql.construirSelect());
         System.out.println("Testando classe JPQL metodo: addOrderBy etapa 02");
         assertEquals(true, jpql.construirSelect().equals("SELECT objeto FROM ModeloDeTeste objeto ORDER BY objeto.nome DESC"));
-
-    }
-
-    @Test
-    public void testAddParametroMenor() {
 
     }
 

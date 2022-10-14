@@ -123,6 +123,7 @@ public class ProdutoMetodos {
         ProdutoPesquisa produtoPesquisa = new ProdutoPesquisa(view.jTresultados);
         produtoPesquisa.setNome(view.jTpesquisaNome.getText());
         produtoPesquisa.setCategoria(view.jCpesquisaCategoria.getEditor().getItem().toString());
+        produtoPesquisa.setEstoqueBaixo(view.jCestoqueBaixo.isSelected());
         produtoPesquisa.pesquisar();
 
     }

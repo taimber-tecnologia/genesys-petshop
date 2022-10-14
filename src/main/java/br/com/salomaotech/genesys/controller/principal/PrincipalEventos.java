@@ -256,6 +256,20 @@ public class PrincipalEventos {
 
         });
 
+        /* atalho para estoque baixo */
+        view.jMestoque.addActionListener((ActionEvent e) -> {
+
+            new ProdutoController().construirEstoqueBaixo();
+
+        });
+
+        /* atualiza as notificações */
+        view.jMatualizar.addActionListener((ActionEvent e) -> {
+
+            principalMetodos.carregaNotificacoes();
+
+        });
+
     }
 
 }

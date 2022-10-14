@@ -52,7 +52,6 @@ public class FinanceiroController {
     public void construirContasPagar() {
 
         construir();
-        view.jTabaPrincipal.setSelectedIndex(1);
         view.jDpesquisaDataInicio.setDate(Calendar.getInstance().getTime());
         view.jCpesquisaPago.setSelectedItem("Nao");
         view.jCdataAnterior.setSelected(true);
@@ -64,7 +63,6 @@ public class FinanceiroController {
     public void construirContasReceber() {
 
         construir();
-        view.jTabaPrincipal.setSelectedIndex(1);
         view.jDpesquisaDataInicio.setDate(Calendar.getInstance().getTime());
         view.jCpesquisaPago.setSelectedItem("Nao");
         view.jCdataAnterior.setSelected(true);

@@ -16,7 +16,7 @@ public class ProdutoMetodosTest {
     private final ComboBoxFornecedores comboBoxFornecedores = new ComboBoxFornecedores(view.jCfornecedor);
     private final FornecedorModelo fornecedorModelo = new FornecedorModelo();
     private ProdutoModelo produtoModelo = new ProdutoModelo();
-    private final ProdutoMetodos produtoMetodos = new ProdutoMetodos(view);
+    private ProdutoMetodos produtoMetodos = new ProdutoMetodos(view);
 
     public ProdutoMetodosTest() {
 
@@ -218,23 +218,50 @@ public class ProdutoMetodosTest {
     @Test
     public void testPesquisar() {
 
-        /* pesquisa usando filtro: nenhum */
+        /* utilizando filtro: nenhum */
         view.jTpesquisaNome.setText(null);
+        view.jCpesquisaCategoria.getEditor().setItem("");
+        view.jCestoqueBaixo.setEnabled(false);
+        produtoMetodos = new ProdutoMetodos(view);
         produtoMetodos.pesquisar();
         System.out.println("Testando classe ProdutoMetodos metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* pesquisa usando filtro: descrição */
+        /* utilizando filtro: nome */
         view.jTpesquisaNome.setText(produtoModelo.getNome());
+        view.jCpesquisaCategoria.getEditor().setItem("");
+        view.jCestoqueBaixo.setEnabled(false);
+        produtoMetodos = new ProdutoMetodos(view);
         produtoMetodos.pesquisar();
         System.out.println("Testando classe ProdutoMetodos metodo: pesquisar etapa 02");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* pesquisa usando filtro: descrição que não existe */
-        view.jTpesquisaNome.setText("NaoExiste");
+        /* utilizando filtro: categoria */
+        view.jTpesquisaNome.setText(null);
+        view.jCpesquisaCategoria.getEditor().setItem(produtoModelo.getCategoria());
+        view.jCestoqueBaixo.setEnabled(false);
+        produtoMetodos = new ProdutoMetodos(view);
         produtoMetodos.pesquisar();
         System.out.println("Testando classe ProdutoMetodos metodo: pesquisar etapa 03");
-        assertEquals(true, view.jTresultados.getRowCount() == 0);
+        assertEquals(true, view.jTresultados.getRowCount() > 0);
+
+        /* utilizando filtro: estoque baixo */
+        view.jTpesquisaNome.setText(null);
+        view.jCpesquisaCategoria.getEditor().setItem("");
+        view.jCestoqueBaixo.setEnabled(true);
+        produtoMetodos = new ProdutoMetodos(view);
+        produtoMetodos.pesquisar();
+        System.out.println("Testando classe ProdutoMetodos metodo: pesquisar etapa 04");
+        assertEquals(true, view.jTresultados.getRowCount() > 0);
+
+        /* utilizando filtro: todos */
+        view.jTpesquisaNome.setText(produtoModelo.getNome());
+        view.jCpesquisaCategoria.getEditor().setItem(produtoModelo.getCategoria());
+        view.jCestoqueBaixo.setEnabled(false);
+        produtoMetodos = new ProdutoMetodos(view);
+        produtoMetodos.pesquisar();
+        System.out.println("Testando classe ProdutoMetodos metodo: pesquisar etapa 05");
+        assertEquals(true, view.jTresultados.getRowCount() > 0);
 
     }
 

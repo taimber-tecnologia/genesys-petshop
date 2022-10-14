@@ -54,9 +54,11 @@ public class JFprincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMnotificacoes = new javax.swing.JMenu();
         jMagenda = new javax.swing.JMenuItem();
+        jMestoque = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMfinanceiroPagar = new javax.swing.JMenuItem();
         jMfinanceiroReceber = new javax.swing.JMenuItem();
+        jMatualizar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Genesys PetShop - Taimber Software");
@@ -241,6 +243,9 @@ public class JFprincipal extends javax.swing.JFrame {
         jMagenda.setText("Agenda");
         jMnotificacoes.add(jMagenda);
 
+        jMestoque.setText("Estoque");
+        jMnotificacoes.add(jMestoque);
+
         jMenu1.setText("Financeiro");
 
         jMfinanceiroPagar.setText("Pagar");
@@ -250,6 +255,9 @@ public class JFprincipal extends javax.swing.JFrame {
         jMenu1.add(jMfinanceiroReceber);
 
         jMnotificacoes.add(jMenu1);
+
+        jMatualizar.setText("Sincronizar");
+        jMnotificacoes.add(jMatualizar);
 
         jMenuBar1.add(jMnotificacoes);
 
@@ -341,8 +349,10 @@ public class JFprincipal extends javax.swing.JFrame {
     public javax.swing.JLabel jLabrirAjuda;
     public javax.swing.JLabel jLabrirSuporte;
     public javax.swing.JMenuItem jMagenda;
+    public javax.swing.JMenuItem jMatualizar;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    public javax.swing.JMenuItem jMestoque;
     public javax.swing.JMenuItem jMfinanceiroPagar;
     public javax.swing.JMenuItem jMfinanceiroReceber;
     public javax.swing.JMenu jMnotificacoes;

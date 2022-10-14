@@ -55,4 +55,12 @@ public class ProdutoController {
 
     }
 
+    public void construirEstoqueBaixo() {
+
+        construir();
+        view.jCestoqueBaixo.setSelected(true);
+        produtoMetodos.pesquisar();
+
+    }
+
 }

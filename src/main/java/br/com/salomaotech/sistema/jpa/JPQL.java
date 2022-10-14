@@ -49,6 +49,38 @@ public class JPQL {
 
     }
 
+    private String constroiParametro(List tipoParametros, int tipoAcao) {
+
+        String retorno = "";
+        int contador = 0;
+
+        for (Object parametro : tipoParametros) {
+
+            if (contador > 0) {
+
+                switch (tipoAcao) {
+
+                    case 0:
+                        parametro = " AND " + parametro;
+                        break;
+
+                    case 1:
+                        parametro = ", " + parametro;
+                        break;
+
+                }
+
+            }
+
+            retorno += parametro;
+            contador++;
+
+        }
+
+        return retorno;
+
+    }
+
     public void addParametroIgual(String chave, Object valor) {
 
         if (!ValidaStringIsEmpty.isEmpty(chave) & !isNull(valor)) {
@@ -129,6 +161,16 @@ public class JPQL {
 
     }
 
+    public void addParametroCompararDuasChaves(String chaveA, String chaveB, String clausula) {
+
+        if (!ValidaStringIsEmpty.isEmpty(chaveA) & !ValidaStringIsEmpty.isEmpty(chaveB) & !ValidaStringIsEmpty.isEmpty(clausula)) {
+
+            colunasPesquisar.add(objetoDadosDoSelect + "." + chaveA + " " + clausula + " " + objetoDadosDoSelect + "." + chaveB);
+
+        }
+
+    }
+
     public void addOrderBy(String chave, Object valor) {
 
         if (!ValidaStringIsEmpty.isEmpty(chave) & !isNull(valor)) {
@@ -139,43 +181,11 @@ public class JPQL {
 
     }
 
-    private String constroiParametro(List tipoParametros, int tipoAcao) {
-
-        String retorno = "";
-        int contador = 0;
-
-        for (Object parametro : tipoParametros) {
-
-            if (contador > 0) {
-
-                switch (tipoAcao) {
-
-                    case 0:
-                        parametro = " AND " + parametro;
-                        break;
-
-                    case 1:
-                        parametro = ", " + parametro;
-                        break;
-
-                }
-
-            }
-
-            retorno += parametro;
-            contador++;
-
-        }
-
-        return retorno;
-
-    }
-
     public String getCondicaoWhere() {
 
         String condicaoWhere = "";
 
-        if (colunasPesquisar.size() > 0) {
+        if (!colunasPesquisar.isEmpty()) {
 
             condicaoWhere += " WHERE " + constroiParametro(colunasPesquisar, 0);
 
@@ -189,7 +199,7 @@ public class JPQL {
 
         String sqlParametros = "SELECT " + objetoDadosDoSelect + " FROM " + nomeTabela + " " + objetoDadosDoSelect + getCondicaoWhere();
 
-        if (colunasOrdenar.size() > 0) {
+        if (!colunasOrdenar.isEmpty()) {
 
             sqlParametros += " ORDER BY " + constroiParametro(colunasOrdenar, 1);
 
