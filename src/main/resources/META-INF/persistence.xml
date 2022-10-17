@@ -5,7 +5,6 @@
         <!-- Entidades mapeadas -->
         <class>br.com.salomaotech.sistema.jpa.ModeloTeste</class>
         <class>br.com.salomaotech.sistema.jpa.ModeloDeTeste</class>
-        <class>br.com.salomaotech.doutorpetshopdesktop.model.financeiro.generico.FinanceiroGenericoModelo</class>
         <class>br.com.salomaotech.genesys.model.centro_custo.CentroCustoModelo</class>
         <class>br.com.salomaotech.genesys.model.animal.AnimalModelo</class>
         <class>br.com.salomaotech.genesys.model.fornecedor.FornecedorModelo</class>
