@@ -57,7 +57,7 @@ public class BigDecimais {
 
         try {
 
-            return valor.divide(divisor, 2, RoundingMode.FLOOR);
+            return valor.divide(divisor, 2, RoundingMode.HALF_UP);
 
         } catch (Exception ex) {
 

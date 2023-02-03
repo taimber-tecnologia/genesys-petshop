@@ -14,7 +14,7 @@ public class ImagemRedimensionaTest {
         CriaPastaLocal.criar(pastaDeTeste);
 
         System.out.println("Testando classe ImagemRedimensiona metodo: redimensionar");
-        assertEquals(true, new ImagemRedimensiona("src/main/resources/icones/avatar-padrao.png", pastaDeTeste, 50).redimensionar());
+        assertEquals(true, new ImagemRedimensiona("src/main/resources/icones/adicionar32x.png", pastaDeTeste, 50).redimensionar());
 
     }
 

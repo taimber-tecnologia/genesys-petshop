@@ -62,7 +62,7 @@ public class BuscaCep {
 
             return true;
 
-        } catch (IOException e) {
+        } catch (IOException | ArrayIndexOutOfBoundsException e) {
 
             return false;
 

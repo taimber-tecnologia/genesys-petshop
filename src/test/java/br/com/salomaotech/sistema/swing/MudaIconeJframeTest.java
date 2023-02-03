@@ -22,7 +22,7 @@ public class MudaIconeJframeTest {
         /* testa um icone que existe */
         view = new JFrame();
         System.out.println("Testando classe MudaIconeJframe metodo: alterar etapa 03");
-        assertEquals(true, new MudaIconeJframe().alterar("avatar-padrao", view));
+        assertEquals(true, new MudaIconeJframe().alterar("adicionar32x", view));
 
     }
 

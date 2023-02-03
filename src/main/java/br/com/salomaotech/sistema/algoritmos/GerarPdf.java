@@ -17,9 +17,9 @@ public class GerarPdf {
 
     private final String pathDeSaidaDoArquivo;
     private final List conteudoDoCorpoDoDocumento = new ArrayList();
-    private final Document document;
-    private final int largura = 257;
-    private final int altura = 400;
+    private Document document;
+    private int largura = 257;
+    private int altura = 400;
     private final int margemEsquerda = 8;
     private final int margemDireita = 0;
     private final int margemTopo = 5;
@@ -29,9 +29,14 @@ public class GerarPdf {
 
         this.pathDeSaidaDoArquivo = pathDeSaidaDoArquivo + ".pdf";
 
-        /* novo documento */
-        document = new Document(new Rectangle(largura, altura), margemEsquerda, margemDireita, margemTopo, margemRodape);
+    }
 
+    public void setLargura(int largura) {
+        this.largura = largura;
+    }
+
+    public void setAltura(int altura) {
+        this.altura = altura;
     }
 
     public String getPathDeSaidaDoArquivo() {
@@ -55,6 +60,9 @@ public class GerarPdf {
     public boolean gerar() {
 
         try {
+
+            /* novo documento */
+            document = new Document(new Rectangle(largura, altura), margemEsquerda, margemDireita, margemTopo, margemRodape);
 
             /* cria a pasta do arquivo caso não exista */
             CriaPastaLocal.criar(new File(this.pathDeSaidaDoArquivo).getParent());

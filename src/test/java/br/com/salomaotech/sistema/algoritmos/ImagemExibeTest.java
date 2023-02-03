@@ -16,7 +16,7 @@ public class ImagemExibeTest {
         assertEquals(false, new ImagemExibe(new JPanel(), 125, 125).exibir(null));
 
         System.out.println("Testando classe ImagemExibe metodo: exibir etapa 03 tudo certo");
-        assertEquals(true, new ImagemExibe(new JPanel(), 125, 125).exibir("src/main/resources/icones/animal128x.png"));
+        assertEquals(true, new ImagemExibe(new JPanel(), 125, 125).exibir("src/main/resources/icones/adicionar32x.png"));
 
     }
 

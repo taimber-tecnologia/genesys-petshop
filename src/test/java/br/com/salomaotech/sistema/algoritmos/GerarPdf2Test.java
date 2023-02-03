@@ -1,9 +1,11 @@
 package br.com.salomaotech.sistema.algoritmos;
 
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class GerarPdfTest {
+public class GerarPdf2Test {
 
     private final String pathLocal = System.getProperty("user.dir") + "/target/arquivos/testes_remover/";
 
@@ -11,13 +13,11 @@ public class GerarPdfTest {
     public void testGerarPdf() {
 
         String pastaDeTeste = pathLocal + "gera_pdf/";
-        GerarPdf pdf = new GerarPdf(pastaDeTeste + "teste0001");
-        pdf.setAltura(800);
-        pdf.setLargura(500);
+        GerarPdf2 pdf = new GerarPdf2(pastaDeTeste + "teste0001");
 
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i <= 30; i++) {
 
-            pdf.addConteudo("Linha número: " + i);
+            pdf.addConteudo(new Paragraph("Linha número " + i, new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD)));
 
         }
 
