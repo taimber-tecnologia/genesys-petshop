@@ -2,6 +2,7 @@ package br.com.salomaotech.genesys;
 
 import br.com.salomaotech.genesys.controller.ativador.AtivadorController;
 import br.com.salomaotech.genesys.controller.principal.PrincipalController;
+import br.com.salomaotech.genesys.model.ativador.Ativador;
 import br.com.salomaotech.genesys.model.centro_custo.CentroCustoInicializa;
 import br.com.salomaotech.genesys.view.JFinicializar;
 import br.com.salomaotech.sistema.jpa.ConexaoSingleton;
@@ -20,6 +21,8 @@ public class App {
         /* abre o JFrame do ativador */
         new AtivadorController().construir();
 
+        System.out.println(new Ativador().getChaves());
+        
     }
 
     public static void main(String[] args) throws ClassNotFoundException {
@@ -30,7 +33,7 @@ public class App {
         view.setVisible(true);
 
         /* abre a conexão com o banco de dados */
-        new ConexaoSingleton("Conexao").abrir();
+        new ConexaoSingleton().abrirConexao("Conexao");
 
         /* carrega as configurações padrão */
         carregarConfiguracoesPadrao();

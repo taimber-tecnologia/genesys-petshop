@@ -51,7 +51,7 @@ public class ItemVendaTest {
 
         itemVenda = new ItemVenda(produtoModelo.getId(), produtoModelo);
         System.out.println("Testando classe ItemVenda metodo: getProdutoModelo");
-        assertEquals(true, itemVenda.getProdutoModelo() == produtoModelo);
+        assertEquals(true, itemVenda.getProdutoModelo().getId() == produtoModelo.getId());
 
     }
 
@@ -60,7 +60,7 @@ public class ItemVendaTest {
 
         itemVenda = new ItemVenda(servicoModelo.getId(), servicoModelo);
         System.out.println("Testando classe ItemVenda metodo: getServicoModelo");
-        assertEquals(true, itemVenda.getServicoModelo() == servicoModelo);
+        assertEquals(true, itemVenda.getServicoModelo().getId() == servicoModelo.getId());
 
     }
 

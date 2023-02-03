@@ -1,65 +1,47 @@
 package br.com.salomaotech.sistema.jpa;
 
 import static java.util.Objects.isNull;
+import java.util.Properties;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class ConexaoSingleton {
 
-    private static EntityManagerFactory factory;
-    private static EntityManager manager;
-    private final String nomeDaConexao;
+    private static EntityManagerFactory entityManagerFactory;
 
-    /**
-     * Construtor
-     *
-     * @param nomeDaConexao Nome da conexão no arquivo persistence.xml
-     */
-    public ConexaoSingleton(String nomeDaConexao) {
+    public void abrirConexao(String nomeConexao) {
 
-        this.nomeDaConexao = nomeDaConexao;
+        if (!isConexaoAberta()) {
+
+            try {
+
+                Properties propriedades = new ConfiguracoesConexao().getPropriedades();
+
+                if (isNull(propriedades)) {
+
+                    entityManagerFactory = Persistence.createEntityManagerFactory(nomeConexao);
+
+                } else {
+
+                    entityManagerFactory = Persistence.createEntityManagerFactory(nomeConexao, propriedades);
+
+                }
+
+            } catch (Exception ex) {
+
+            }
+
+        }
 
     }
 
-    /**
-     * Abre conexão
-     */
-    public void abrir() {
+    public void fecharConexao() {
 
         try {
 
-            /* valida se já existe uma instância da factory */
-            if (isNull(factory)) {
-
-                factory = Persistence.createEntityManagerFactory(nomeDaConexao);
-
-            } else {
-
-                /* valida se a factory está aberta */
-                if (!factory.isOpen()) {
-
-                    factory = Persistence.createEntityManagerFactory(nomeDaConexao);
-
-                }
-
-            }
-
-            /* valida se já existe uma instância da manager */
-            if (isNull(manager)) {
-
-                manager = factory.createEntityManager();
-
-            } else {
-
-                /* valida se o manager está aberto */
-                if (!manager.isOpen()) {
-
-                    manager = factory.createEntityManager();
-
-                }
-
-            }
+            entityManagerFactory.close();
+            entityManagerFactory = null;
 
         } catch (Exception ex) {
 
@@ -67,30 +49,31 @@ public class ConexaoSingleton {
 
     }
 
-    /**
-     * Fecha a conexão
-     */
-    public void fechar() {
+    public boolean isConexaoAberta() {
 
         try {
 
-            manager.close();
-            factory.close();
+            return entityManagerFactory.isOpen();
 
         } catch (Exception ex) {
+
+            return false;
 
         }
 
     }
 
-    /**
-     * Retorna o EntityManager
-     *
-     * @return EntityManager
-     */
-    public EntityManager getManager() {
+    public EntityManager getEntityManager() {
 
-        return manager;
+        try {
+
+            return entityManagerFactory.createEntityManager();
+
+        } catch (Exception ex) {
+
+            return null;
+
+        }
 
     }
 

@@ -35,6 +35,9 @@ public class Ativador {
     private String ativadoTrue = HashMd5.cifrar("KEY_PROP_ATIVADO_TRUE");
     private String ativadoFalse = HashMd5.cifrar("KEY_PROP_ATIVADO_FALSE");
 
+    /* relacionado ao nome do sistema e a versão */
+    private String nomeVersaoSistema = HashMd5.cifrar("GENESYS_PETSHOP_1.0");
+
     public Ativador() {
 
         /* cria a pasta do arquivo se ela não existir */
@@ -210,7 +213,7 @@ public class Ativador {
         /* gera as chaves */
         for (int i = 0; i <= numeroMaximoDeChaves; i++) {
 
-            retorno.add(HashMd5.cifrar(preFixoDaChaveDeAtivacao + i + posFixoDaChaveDeAtivacao));
+            retorno.add(HashMd5.cifrar(preFixoDaChaveDeAtivacao + i + nomeVersaoSistema + posFixoDaChaveDeAtivacao));
 
         }
 

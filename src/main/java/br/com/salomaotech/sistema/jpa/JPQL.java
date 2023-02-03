@@ -34,6 +34,10 @@ public class JPQL {
                 apostofro = "";
                 break;
 
+            case "java.lang.Boolean":
+                apostofro = "";
+                break;
+
             case "java.lang.Long":
                 apostofro = "";
                 break;

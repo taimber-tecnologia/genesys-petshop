@@ -37,7 +37,7 @@ public class JFativador extends javax.swing.JFrame {
         jLabrirSuporte = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Ativador - Doutor PetShop");
+        setTitle("Ativador");
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
@@ -45,13 +45,13 @@ public class JFativador extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/key64x.png"))); // NOI18N
         jLabel1.setText("     Ativação");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Seu sistema ainda não está ativado.");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dias restantes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dias restantes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
 
-        jLdiasRestantes.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLdiasRestantes.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLdiasRestantes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLdiasRestantes.setText("0");
 
@@ -72,8 +72,11 @@ public class JFativador extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Inserir chave de ativação", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dias restantes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
 
+        jTchave.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jBativar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBativar.setText("Ativar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -83,7 +86,7 @@ public class JFativador extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTchave)
+                    .addComponent(jTchave, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jBativar)))
@@ -99,9 +102,9 @@ public class JFativador extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Comprar uma chave", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dias restantes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
 
-        jLabrirSuporte.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabrirSuporte.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabrirSuporte.setForeground(new java.awt.Color(0, 153, 204));
         jLabrirSuporte.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabrirSuporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/tap16x.png"))); // NOI18N

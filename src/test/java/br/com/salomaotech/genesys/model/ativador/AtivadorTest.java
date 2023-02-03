@@ -62,10 +62,10 @@ public class AtivadorTest {
         ArrayList chaves = ativador.getChaves();
 
         System.out.println("Testando classe ativador metodo: getChaves etapa 01 primeira chave");
-        assertEquals(true, chaves.contains("18db80fa878fdee68641bb5317712b3d"));
+        assertEquals(true, chaves.contains("d1518f9270f31b3ac9542d0188e5f9fe"));
 
         System.out.println("Testando classe ativador metodo: getChaves etapa 02 ultima chave");
-        assertEquals(true, chaves.contains("ef7aca675c9ac5f23d01826f9e78d926"));
+        assertEquals(true, chaves.contains("435b8d28f90b5b7d3140da41b1829ffe"));
 
         System.out.println("Testando classe ativador metodo: getChaves etapa 03 chave inválida");
         assertEquals(false, chaves.contains("123456"));
@@ -82,7 +82,7 @@ public class AtivadorTest {
     public void testAtivar() {
 
         System.out.println("Testando classe ativador metodo: ativar etapa 01 chave valida");
-        assertEquals(true, ativador.ativar("ef7aca675c9ac5f23d01826f9e78d926"));
+        assertEquals(true, ativador.ativar("435b8d28f90b5b7d3140da41b1829ffe"));
 
         System.out.println("Testando classe ativador metodo: ativar etapa 01 chave valida");
         assertEquals(false, ativador.ativar("123456"));

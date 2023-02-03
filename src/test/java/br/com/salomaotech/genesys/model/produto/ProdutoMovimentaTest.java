@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class ProdutoMovimentaTest {
 
     private final ProdutoMovimenta produtoMovimenta = new ProdutoMovimenta();
-    private final ProdutoModelo produtoModelo = new ProdutoModelo();
+    private ProdutoModelo produtoModelo = new ProdutoModelo();
 
     public ProdutoMovimentaTest() {
 
@@ -31,6 +31,9 @@ public class ProdutoMovimentaTest {
         produtoMovimenta.adicionarItemLista(produtoModelo.getId(), quantidadeAdicionar);
         produtoMovimenta.movimentar();
 
+        /* recarrega o modelo para puxar as alterações */
+        produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(produtoModelo.getId());
+
         /* testa se o produto foram atualizados para mais */
         System.out.println("Testando classe ProdutoMovimenta metodo: adicionarItemLista");
         assertEquals(true, produtoModelo.getQuantidade().equals(quantidadeEsperada));
@@ -47,6 +50,9 @@ public class ProdutoMovimentaTest {
         /* remove movimentação de produto */
         produtoMovimenta.removerItemLista(produtoModelo.getId(), quantidadeRemover);
         produtoMovimenta.movimentar();
+
+        /* recarrega o modelo para puxar as alterações */
+        produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(produtoModelo.getId());
 
         /* testa se o produto foram atualizados para menos */
         System.out.println("Testando classe ProdutoMovimenta metodo: removerItemLista");
@@ -66,6 +72,9 @@ public class ProdutoMovimentaTest {
         produtoMovimenta.adicionarItemLista(produtoModelo.getId(), quantidadeAdicionar);
         produtoMovimenta.removerItemLista(produtoModelo.getId(), quantidadeRemover);
         produtoMovimenta.movimentar();
+
+        /* recarrega o modelo para puxar as alterações */
+        produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(produtoModelo.getId());
 
         /* testa se a quantidade de produto é igual a quantidade esperada */
         System.out.println("Testando classe ProdutoMovimenta metodo: movimentar etapa 01");

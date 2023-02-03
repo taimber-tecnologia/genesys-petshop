@@ -94,7 +94,7 @@ public class PrincipalEventos {
             @Override
             public void windowClosing(WindowEvent e) {
 
-                new ConexaoSingleton("Conexao").fechar();
+                new ConexaoSingleton().fecharConexao();
 
             }
 

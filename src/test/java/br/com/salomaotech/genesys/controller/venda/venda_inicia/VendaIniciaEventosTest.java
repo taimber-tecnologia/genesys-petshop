@@ -66,7 +66,6 @@ public class VendaIniciaEventosTest {
         assertEquals(true, view.jTprodutoSelecionado.getMouseListeners().length == 3);
         assertEquals(true, view.jTprodutoSelecionado.getKeyListeners().length == 2);
         assertEquals(true, view.jBprodutoSelecionadoRemoverItem.getActionListeners().length == 1);
-        assertEquals(true, view.getWindowListeners().length == 1);
         assertEquals(true, view.jBimprimir.getActionListeners().length == 1);
         assertEquals(true, view.jBcalcularGranel.getActionListeners().length == 1);
 

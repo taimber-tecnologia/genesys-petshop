@@ -5,18 +5,14 @@ import br.com.salomaotech.genesys.controller.venda.venda_calcula.VendaCalculaCon
 import br.com.salomaotech.genesys.model.configuracoes.PastasSistema;
 import br.com.salomaotech.genesys.model.venda.ComboBoxItemVenda;
 import br.com.salomaotech.genesys.model.venda.VendaComprovantePdf;
-import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
-import br.com.salomaotech.sistema.jpa.Repository;
 import br.com.salomaotech.sistema.patterns.Command;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import static java.util.Objects.isNull;
 import javax.swing.JOptionPane;
 
@@ -181,49 +177,6 @@ public class VendaIniciaEventos implements Command {
         view.jBprodutoSelecionadoRemoverItem.addActionListener((ActionEvent e) -> {
 
             vendaIniciaMetodos.removerProdutoNaLista();
-
-        });
-
-        /* evento da view */
-        view.addWindowListener(new WindowListener() {
-
-            @Override
-            public void windowOpened(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowClosing(WindowEvent e) {
-
-                /* limpa o cache em memória */
-                new Repository(new VendaModelo()).limparCache();
-
-            }
-
-            @Override
-            public void windowClosed(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowIconified(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowDeiconified(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowActivated(WindowEvent e) {
-
-            }
-
-            @Override
-            public void windowDeactivated(WindowEvent e) {
-
-            }
 
         });
 

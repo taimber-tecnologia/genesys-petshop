@@ -174,7 +174,7 @@ public class VendaConcluiMetodosTest {
 
         /* testa a baixa no estoque */
         System.out.println("Testando classe VendaConcluiMetodos metodo: finalizarVenda checa baixa em estoque");
-        assertEquals(true, produtoModelo.getQuantidade().equals(new BigDecimal(49)));
+        assertEquals(true, produtoModelo.getQuantidade().equals(new BigDecimal("49.00")));
 
         /* testa lançamentos financeiros */
         System.out.println("Testando classe VendaConcluiMetodos metodo: finalizarVenda checa lançamentos em financeiro");

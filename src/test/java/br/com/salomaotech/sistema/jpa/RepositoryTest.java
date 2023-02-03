@@ -72,7 +72,7 @@ public class RepositoryTest {
         new Repository(new ModeloDeTeste()).deleteTodos();
 
         /* simula cadastro */
-        int i = 0;
+        int i;
         for (i = 0; i <= 10; i++) {
 
             modeloDeTeste = new ModeloDeTeste();
@@ -112,17 +112,6 @@ public class RepositoryTest {
         repository = new Repository(new ModeloDeTeste());
         System.out.println("Testando classe Repository metodo: countTodos etapa 05");
         assertEquals(true, repository.countTodos(jpql.getCondicaoWhere()) == i);
-
-    }
-
-    @Test
-    public void testLimparCache() {
-
-        /* cria o registro */
-        repository.save();
-
-        System.out.println("Testando classe Repository metodo: limparCache");
-        assertEquals(true, repository.limparCache());
 
     }
 

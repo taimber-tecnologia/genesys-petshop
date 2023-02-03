@@ -9,7 +9,6 @@ public class ProdutoMovimenta {
 
     private List<ProdutoModelo> produtoModeloListAdiciona = new ArrayList();
     private List<BigDecimal> quantidadeListAdiciona = new ArrayList();
-
     private List<ProdutoModelo> produtoModeloListRemove = new ArrayList();
     private List<BigDecimal> quantidadeListRemove = new ArrayList();
 
@@ -38,18 +37,18 @@ public class ProdutoMovimenta {
     private void processarAdicionar() {
 
         int contador = 0;
+        for (ProdutoModelo produtoModelo : produtoModeloListAdiciona) {
 
-        for (ProdutoModelo produtosModelo : produtoModeloListAdiciona) {
+            /* 1 - puxa os dados novos do banco de dados, caso os da memória já tenham sido atualizados */
+            produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(produtoModelo.getId());
+            produtoModelo.setQuantidade(produtoModelo.getQuantidade().add(quantidadeListAdiciona.get(contador)));
 
-            /* atualiza a quantidade para mais */
-            produtosModelo.setQuantidade(produtosModelo.getQuantidade().add(quantidadeListAdiciona.get(contador)));
-
-            new Repository(produtosModelo).save();
+            /* 2 - atualiza o banco de dados */
+            new Repository(produtoModelo).save();
             contador++;
 
         }
 
-        /* limpa lista */
         produtoModeloListAdiciona = new ArrayList();
         quantidadeListAdiciona = new ArrayList();
 
@@ -58,18 +57,18 @@ public class ProdutoMovimenta {
     private void processarRemover() {
 
         int contador = 0;
+        for (ProdutoModelo produtoModelo : produtoModeloListRemove) {
 
-        for (ProdutoModelo produtosModelo : produtoModeloListRemove) {
+            /* 1 - puxa os dados novos do banco de dados, caso os da memória já tenham sido atualizados */
+            produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(produtoModelo.getId());
+            produtoModelo.setQuantidade(produtoModelo.getQuantidade().subtract(quantidadeListRemove.get(contador)));
 
-            /* atualiza a quantidade para menos */
-            produtosModelo.setQuantidade(produtosModelo.getQuantidade().subtract(quantidadeListRemove.get(contador)));
-
-            new Repository(produtosModelo).save();
+            /* 2 - atualiza o banco de dados */
+            new Repository(produtoModelo).save();
             contador++;
 
         }
 
-        /* limpa lista */
         produtoModeloListRemove = new ArrayList();
         quantidadeListRemove = new ArrayList();
 

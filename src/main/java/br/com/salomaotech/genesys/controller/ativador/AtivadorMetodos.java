@@ -9,7 +9,7 @@ import java.util.TimerTask;
 public class AtivadorMetodos {
 
     private final JFativador view;
-    private final int segundosExibirJanela = 60;
+    private final int segundosExibirJanela = 30;
 
     public AtivadorMetodos(JFativador view) {
         this.view = view;

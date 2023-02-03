@@ -3,32 +3,19 @@ package br.com.salomaotech.sistema.jpa;
 import java.util.ArrayList;
 import java.util.List;
 import static java.util.Objects.isNull;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 public class Dao<E> {
 
-    private final ConexaoSingleton conexao;
     private final Class nomeTabela;
-    private final String objetoDados;
+    private final ConexaoSingleton conexaoSingleton;
+    private final String objetoDados = "objeto";
 
-    /**
-     * Construtor
-     *
-     * @param classeEntity Nome da classe @Entity
-     * @param nomeDaConexao Nome da conexão no arquivo persistence.xml
-     */
-    public Dao(Class classeEntity, String nomeDaConexao) {
-
-        /* nome da tabela */
-        this.nomeTabela = classeEntity;
-
-        /* objeto que irá representar os dados */
-        objetoDados = "objeto";
-
-        /* abre uma conexão */
-        this.conexao = new ConexaoSingleton(nomeDaConexao);
-        this.conexao.abrir();
-
+    public Dao(Class nomeTabela, ConexaoSingleton conexaoSingleton) {
+        this.nomeTabela = nomeTabela;
+        this.conexaoSingleton = conexaoSingleton;
     }
 
     /**
@@ -40,9 +27,13 @@ public class Dao<E> {
 
         try {
 
-            conexao.getManager().getTransaction().begin();
-            conexao.getManager().persist(entidade);
-            conexao.getManager().getTransaction().commit();
+            EntityManager entityManager = conexaoSingleton.getEntityManager();
+            EntityTransaction entityTransaction = entityManager.getTransaction();
+            entityTransaction.begin();
+            entityManager.persist(entidade);
+            entityTransaction.commit();
+            entityManager.refresh(entidade);
+            entityManager.close();
 
         } catch (Exception ex) {
 
@@ -59,9 +50,13 @@ public class Dao<E> {
 
         try {
 
-            conexao.getManager().getTransaction().begin();
-            conexao.getManager().merge(entidade);
-            conexao.getManager().getTransaction().commit();
+            EntityManager entityManager = conexaoSingleton.getEntityManager();
+            EntityTransaction entityTransaction = entityManager.getTransaction();
+            entityTransaction.begin();
+            entityManager.merge(entidade);
+            entityTransaction.commit();
+            entityManager.refresh(entidade);
+            entityManager.close();
 
         } catch (Exception ex) {
 
@@ -78,9 +73,12 @@ public class Dao<E> {
 
         try {
 
-            conexao.getManager().getTransaction().begin();
-            conexao.getManager().remove(conexao.getManager().find(nomeTabela, id));
-            conexao.getManager().getTransaction().commit();
+            EntityManager entityManager = conexaoSingleton.getEntityManager();
+            EntityTransaction entityTransaction = entityManager.getTransaction();
+            entityTransaction.begin();
+            entityManager.remove(entityManager.find(nomeTabela, id));
+            entityTransaction.commit();
+            entityManager.close();
 
         } catch (Exception ex) {
 
@@ -100,7 +98,9 @@ public class Dao<E> {
 
         try {
 
-            entidadeRetorno = (E) conexao.getManager().find(nomeTabela, id);
+            EntityManager entityManager = conexaoSingleton.getEntityManager();
+            entidadeRetorno = (E) entityManager.find(nomeTabela, id);
+            entityManager.close();
 
         } catch (Exception ex) {
 
@@ -125,7 +125,8 @@ public class Dao<E> {
 
         try {
 
-            TypedQuery query = conexao.getManager().createQuery(sqlParametros, nomeTabela);
+            EntityManager entityManager = conexaoSingleton.getEntityManager();
+            TypedQuery query = entityManager.createQuery(sqlParametros, nomeTabela);
 
             /* avança no contador dos registros */
             if (pageNumber > 0) {
@@ -142,6 +143,7 @@ public class Dao<E> {
             }
 
             EntidadesRetorno = query.getResultList();
+            entityManager.close();
 
         } catch (Exception ex) {
 
@@ -163,41 +165,14 @@ public class Dao<E> {
     }
 
     /**
-     * Deleta todos os registros da tabela
-     */
-    public void deleteTodos() {
-
-        /* 
-        OBS: Com este algoritmo é garantido que relacionamentos do tipo @OneToMany, @ManyToMany, @ManyToOne, @OneToOne serão excluídos
-        Poderia ser utilizado DELETE FROM, más isto deixaria (cascade = CascadeType.ALL, orphanRemoval = true) inútil causando bug
-         */
-        List registrosList = findTodos();
-
-        try {
-
-            conexao.getManager().getTransaction().begin();
-
-            registrosList.forEach(objeto -> {
-
-                conexao.getManager().remove(objeto);
-
-            });
-
-            conexao.getManager().getTransaction().commit();
-
-        } catch (Exception ex) {
-
-        }
-
-    }
-
-    /**
      * Retorna o número de registros
      *
      * @param condicaoSql Condição WHERE se houver
      * @return Número de registros com base na pesquisa
      */
     public long countTodos(String condicaoSql) {
+
+        long resultados = 0;
 
         try {
 
@@ -209,34 +184,15 @@ public class Dao<E> {
 
             }
 
-            return (long) conexao.getManager().createQuery(sqlParametros, Long.class).getSingleResult();
+            EntityManager entityManager = conexaoSingleton.getEntityManager();
+            resultados = (long) entityManager.createQuery(sqlParametros, Long.class).getSingleResult();
+            entityManager.close();
 
         } catch (Exception ex) {
 
-            return 0;
-
         }
 
-    }
-
-    /**
-     * Limpa o cache em memória
-     *
-     * @return
-     */
-    public boolean limparCache() {
-
-        try {
-
-            conexao.getManager().clear();
-
-            return true;
-
-        } catch (Exception ex) {
-
-            return false;
-
-        }
+        return resultados;
 
     }
 

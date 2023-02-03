@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 
 public class VendaMovimentaTest {
 
-    private final ProdutoModelo produtoModelo = new ProdutoModelo();
+    private ProdutoModelo produtoModelo = new ProdutoModelo();
     private final List<VendaModeloItem> vendaModeloItemList = new ArrayList();
     private final List<VendaModeloItem> vendaModeloItemBaixaList = new ArrayList();
     private final List<VendaModeloItem> vendaModeloItemDevolveList = new ArrayList();
@@ -60,6 +60,7 @@ public class VendaMovimentaTest {
     public void testFinalizar() {
 
         vendaMovimenta.finalizar();
+        produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(produtoModelo.getId());
 
         /* testa o número de revisões */
         System.out.println("Testando classe VendaMovimenta metodo: finalizar checa número de revisões");
@@ -67,7 +68,7 @@ public class VendaMovimentaTest {
 
         /* testa a baixa no estoque */
         System.out.println("Testando classe VendaMovimenta metodo: finalizar checa baixa em estoque");
-        assertEquals(true, produtoModelo.getQuantidade().equals(new BigDecimal(49)));
+        assertEquals(true, produtoModelo.getQuantidade().equals(new BigDecimal("49.00")));
 
         /* testa lançamentos financeiros */
         System.out.println("Testando classe VendaMovimenta metodo: finalizar checa lançamentos em financeiro");
@@ -82,10 +83,11 @@ public class VendaMovimentaTest {
 
         vendaMovimenta.finalizar();
         vendaMovimenta.reabrir();
+        produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(produtoModelo.getId());
 
         /* testa a volta ao estoque */
         System.out.println("Testando classe VendaMovimenta metodo: reabrir checa entrada em estoque");
-        assertEquals(true, produtoModelo.getQuantidade().equals(new BigDecimal(50)));
+        assertEquals(true, produtoModelo.getQuantidade().equals(new BigDecimal("50.00")));
 
         /* testa se excluiu lançamentos financeiros */
         System.out.println("Testando classe VendaMovimenta metodo: reabrir checa lançamentos em financeiro");
@@ -100,10 +102,11 @@ public class VendaMovimentaTest {
 
         vendaMovimenta.finalizar();
         vendaMovimenta.excluir();
+        produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(produtoModelo.getId());
 
         /* testa a volta ao estoque */
         System.out.println("Testando classe VendaMovimenta metodo: excluir checa entrada em estoque");
-        assertEquals(true, produtoModelo.getQuantidade().equals(new BigDecimal(50)));
+        assertEquals(true, produtoModelo.getQuantidade().equals(new BigDecimal("50.00")));
 
         /* testa se excluiu lançamentos financeiros */
         System.out.println("Testando classe VendaMovimenta metodo: excluir checa lançamentos em financeiro");

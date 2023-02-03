@@ -28,7 +28,7 @@ public class AtivadorMetodosTest {
     public void testIsAtivar() {
 
         System.out.println("Testando classe AtivadorMetodos metodo: isAtivar etapa 01 chave valida");
-        assertEquals(true, metodos.isAtivar("ef7aca675c9ac5f23d01826f9e78d926"));
+        assertEquals(true, metodos.isAtivar("435b8d28f90b5b7d3140da41b1829ffe"));
 
         System.out.println("Testando classe AtivadorMetodos metodo: isAtivar etapa 02 chave invalida");
         assertEquals(false, metodos.isAtivar("123456"));

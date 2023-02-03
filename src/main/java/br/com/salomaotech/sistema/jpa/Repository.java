@@ -11,8 +11,12 @@ public class Repository {
 
     public Repository(Modelo modelo) {
 
+        ConexaoSingleton conexaoSingleton = new ConexaoSingleton();
+        conexaoSingleton.abrirConexao("Conexao");
+
+        /* propriedades */
         this.modelo = modelo;
-        this.dao = new Dao(modelo.getClass(), "Conexao");
+        this.dao = new Dao(modelo.getClass(), conexaoSingleton);
 
     }
 
@@ -115,7 +119,17 @@ public class Repository {
      */
     public void deleteTodos() {
 
-        dao.deleteTodos();
+        /* 
+        OBS: Com este algoritmo é garantido que relacionamentos do tipo @OneToMany, @ManyToMany, @ManyToOne, @OneToOne serão excluídos
+        Poderia ser utilizado DELETE FROM, más isto deixaria (cascade = CascadeType.ALL, orphanRemoval = true) inútil causando bug
+         */
+        List<Modelo> modeloList = dao.findTodos();
+
+        modeloList.forEach(objeto -> {
+
+            dao.delete(objeto.getId());
+
+        });
 
     }
 
@@ -128,17 +142,6 @@ public class Repository {
     public long countTodos(String condicaoSql) {
 
         return dao.countTodos(condicaoSql);
-
-    }
-
-    /**
-     * Limpa o cache em memória
-     *
-     * @return
-     */
-    public boolean limparCache() {
-
-        return dao.limparCache();
 
     }
 

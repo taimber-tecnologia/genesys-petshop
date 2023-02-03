@@ -9,6 +9,7 @@ import java.util.List;
 import static java.util.Objects.isNull;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class VendaModelo implements Modelo, Serializable {
 
     private String hora;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<VendaModeloItem> vendaModeloItemList = new ArrayList();
 
     private String formaPagamento;

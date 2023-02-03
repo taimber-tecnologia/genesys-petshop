@@ -7,7 +7,15 @@ import static org.junit.Assert.*;
 public class DaoTest {
 
     private ModeloDeTeste modeloDeTeste = new ModeloDeTeste();
-    private final Dao dao = new Dao(ModeloDeTeste.class, "Conexao");
+    private final ConexaoSingleton conexaoSingleton = new ConexaoSingleton();
+    private final Dao dao;
+
+    public DaoTest() {
+
+        conexaoSingleton.abrirConexao("Conexao");
+        dao = new Dao(ModeloDeTeste.class, conexaoSingleton);
+
+    }
 
     @Test
     public void testCreate() {
@@ -63,10 +71,10 @@ public class DaoTest {
     public void testFindBySqlQuery() {
 
         /* deleta todos os registros */
-        dao.deleteTodos();
+        new Repository(new ModeloDeTeste()).deleteTodos();
 
         /* simula o cadastro de registros */
-        int i = 0;
+        int i;
         for (i = 0; i <= 10; i++) {
 
             modeloDeTeste = new ModeloDeTeste();
@@ -122,25 +130,13 @@ public class DaoTest {
     }
 
     @Test
-    public void testDeleteTodos() {
-
-        /* cria pelo menos um registro e deleta todos */
-        dao.create(modeloDeTeste);
-        dao.deleteTodos();
-
-        System.out.println("Testando classe Dao metodo: deleteTodos");
-        assertEquals(true, dao.findTodos().isEmpty());
-
-    }
-
-    @Test
     public void testCountTodos() {
 
         /* deleta todos os registros */
-        dao.deleteTodos();
+        new Repository(new ModeloDeTeste()).deleteTodos();
 
         /* simula o cadastro de registros */
-        int i = 0;
+        int i;
         for (i = 0; i <= 10; i++) {
 
             modeloDeTeste = new ModeloDeTeste();
@@ -157,17 +153,6 @@ public class DaoTest {
 
         System.out.println("Testando classe dao metodo: countTodos etapa 03");
         assertEquals(true, dao.countTodos("WHERE objeto.nome LIKE '%Teste%'") == i);
-
-    }
-
-    @Test
-    public void testLimparCache() {
-
-        /* cria o registro */
-        dao.create(modeloDeTeste);
-
-        System.out.println("Testando classe dao metodo: limparCache");
-        assertEquals(true, dao.limparCache());
 
     }
 
