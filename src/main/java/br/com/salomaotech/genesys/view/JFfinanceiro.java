@@ -102,6 +102,7 @@ public class JFfinanceiro extends javax.swing.JFrame {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
+        jBatalhoCadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/adicionar32x.png"))); // NOI18N
         jBatalhoCadastro.setText("Novo título");
         jBatalhoCadastro.setFocusable(false);
@@ -109,6 +110,7 @@ public class JFfinanceiro extends javax.swing.JFrame {
         jBatalhoCadastro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jBatalhoCadastro);
 
+        jBcadastroSalvar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBcadastroSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/salvar32x.png"))); // NOI18N
         jBcadastroSalvar.setText("Salvar");
         jBcadastroSalvar.setFocusable(false);
@@ -116,6 +118,7 @@ public class JFfinanceiro extends javax.swing.JFrame {
         jBcadastroSalvar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jBcadastroSalvar);
 
+        jBcadastroExcluir.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBcadastroExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/remove-item32x.png"))); // NOI18N
         jBcadastroExcluir.setText("Excluir");
         jBcadastroExcluir.setEnabled(false);
@@ -124,6 +127,7 @@ public class JFfinanceiro extends javax.swing.JFrame {
         jBcadastroExcluir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jBcadastroExcluir);
 
+        jBatalhoPesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pesquisa32x.png"))); // NOI18N
         jBatalhoPesquisa.setText("Pesquisar");
         jBatalhoPesquisa.setFocusable(false);
@@ -131,6 +135,7 @@ public class JFfinanceiro extends javax.swing.JFrame {
         jBatalhoPesquisa.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jBatalhoPesquisa);
 
+        jBatalhoCentroCusto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoCentroCusto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/centro-custo32x.png"))); // NOI18N
         jBatalhoCentroCusto.setText("Centro de custos");
         jBatalhoCentroCusto.setFocusable(false);
@@ -139,30 +144,48 @@ public class JFfinanceiro extends javax.swing.JFrame {
         jToolBar1.add(jBatalhoCentroCusto);
 
         jTabaPrincipal.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        jTabaPrincipal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 0, 0));
         jLabel3.setText("Data:");
 
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 0, 0));
         jLabel4.setText("Valor R$:");
 
         jTcadastroDescricao.setColumns(20);
+        jTcadastroDescricao.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTcadastroDescricao.setRows(5);
         jScrollPane1.setViewportView(jTcadastroDescricao);
 
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel6.setText("Descrição:");
 
+        jCcadastroCentroCusto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 0, 0));
         jLabel5.setText("Centro de custo:");
 
+        jBrefreshCadastroCentroCusto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBrefreshCadastroCentroCusto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/atualizar16x.png"))); // NOI18N
 
+        jDcadastroData.setDateFormatString("dd/MM/yyyy");
+        jDcadastroData.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jTcadastroValor.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jCcadastroPago.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCcadastroPago.setText("Pago");
 
+        jCcadastroIsDespesa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCcadastroIsDespesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pagar", "Receber" }));
 
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setText("Contas:");
 
+        jBpesquisaCentroCusto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpesquisaCentroCusto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/buscar16x.png"))); // NOI18N
         jBpesquisaCentroCusto.setText("Novo");
 
@@ -180,21 +203,21 @@ public class JFfinanceiro extends javax.swing.JFrame {
                     .addComponent(jLabel9))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCcadastroIsDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jCcadastroIsDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTcadastroValor, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jDcadastroData, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jCcadastroPago))
+                            .addComponent(jScrollPane1)
+                            .addComponent(jCcadastroCentroCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jBrefreshCadastroCentroCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jBpesquisaCentroCusto))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTcadastroValor, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jDcadastroData, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jCcadastroPago))
-                        .addComponent(jScrollPane1)
-                        .addComponent(jCcadastroCentroCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(444, Short.MAX_VALUE))
+                        .addComponent(jBpesquisaCentroCusto)))
+                .addContainerGap(300, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,43 +232,56 @@ public class JFfinanceiro extends javax.swing.JFrame {
                     .addComponent(jTcadastroValor, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCcadastroCentroCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jCcadastroIsDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel9))
-                            .addComponent(jBpesquisaCentroCusto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jCcadastroCentroCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5))
+                    .addComponent(jBpesquisaCentroCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBrefreshCadastroCentroCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(279, 279, 279))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCcadastroIsDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(280, 280, 280))
         );
 
         jTabaPrincipal.addTab("Formulário", jPanel1);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtrar pesquisa"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filtrar pesquisa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
+        jPanel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("Data inicial:");
 
+        jDpesquisaDataInicio.setDateFormatString("dd/MM/yyyy");
+        jDpesquisaDataInicio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText("Data final:");
 
+        jDPesquisaDataFim.setDateFormatString("dd/MM/yyyy");
+        jDPesquisaDataFim.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpesquisa.setText("Pesquisar");
 
+        jCpesquisaPago.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCpesquisaPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Sim", "Nao" }));
 
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel7.setText("Pago:");
 
+        jCpesquisaIsDespesa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCpesquisaIsDespesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Pagar", "Receber" }));
 
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel10.setText("Contas:");
 
+        jCdataAnterior.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCdataAnterior.setText("Igual anterior");
         jCdataAnterior.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
@@ -276,7 +312,7 @@ public class JFfinanceiro extends javax.swing.JFrame {
                         .addComponent(jDpesquisaDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jCdataAnterior)))
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,10 +339,15 @@ public class JFfinanceiro extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel8.setText("Página:");
 
+        jCpaginador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jBpaginador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpaginador.setText("Abrir");
 
+        jTresultados.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTresultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -342,7 +383,7 @@ public class JFfinanceiro extends javax.swing.JFrame {
             jTresultados.getColumnModel().getColumn(5).setMaxWidth(125);
         }
 
-        jLsaldo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLsaldo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLsaldo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLsaldo.setText("R$ 0,00");
         jLsaldo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Saldo", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
@@ -372,7 +413,7 @@ public class JFfinanceiro extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -400,7 +441,7 @@ public class JFfinanceiro extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTabaPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+                .addComponent(jTabaPrincipal)
                 .addContainerGap())
         );
 

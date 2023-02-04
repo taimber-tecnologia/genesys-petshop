@@ -40,7 +40,7 @@ public class JFativador extends javax.swing.JFrame {
         setTitle("Ativador");
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/key64x.png"))); // NOI18N
         jLabel1.setText("     Ativação");
@@ -50,6 +50,7 @@ public class JFativador extends javax.swing.JFrame {
         jLabel2.setText("Seu sistema ainda não está ativado.");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dias restantes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
+        jPanel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLdiasRestantes.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLdiasRestantes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -73,6 +74,7 @@ public class JFativador extends javax.swing.JFrame {
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dias restantes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
+        jPanel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jTchave.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
@@ -103,6 +105,7 @@ public class JFativador extends javax.swing.JFrame {
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dias restantes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
+        jPanel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabrirSuporte.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabrirSuporte.setForeground(new java.awt.Color(0, 153, 204));

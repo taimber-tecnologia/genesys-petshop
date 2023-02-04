@@ -129,4 +129,21 @@ public class AgendaModeloTest {
 
     }
 
+    @Test
+    public void testGetTelefone() {
+
+        System.out.println("Testando classe AgendaModelo método getTelefone");
+        assertEquals(true, isNull(agendaModelo.getTelefone()));
+
+    }
+
+    @Test
+    public void testSetTelefone() {
+
+        agendaModelo.setTelefone("Concluido");
+        System.out.println("Testando classe AgendaModelo método setTelefone");
+        assertEquals(true, agendaModelo.getTelefone().equals("Concluido"));
+
+    }
+
 }

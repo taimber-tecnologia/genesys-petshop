@@ -73,6 +73,7 @@ public class JFanimal extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jBpesquisaNomeClienteRefresh = new javax.swing.JButton();
         jBpesquisa = new javax.swing.JButton();
+        jBpesquisaClientePesquisa = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTresultados = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
@@ -86,6 +87,7 @@ public class JFanimal extends javax.swing.JFrame {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
+        jBatalhoCadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/adicionar32x.png"))); // NOI18N
         jBatalhoCadastro.setText("Novo animal");
         jBatalhoCadastro.setFocusable(false);
@@ -93,6 +95,7 @@ public class JFanimal extends javax.swing.JFrame {
         jBatalhoCadastro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jBatalhoCadastro);
 
+        jBcadastroSalvar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBcadastroSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/salvar32x.png"))); // NOI18N
         jBcadastroSalvar.setText("Salvar");
         jBcadastroSalvar.setFocusable(false);
@@ -100,6 +103,7 @@ public class JFanimal extends javax.swing.JFrame {
         jBcadastroSalvar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jBcadastroSalvar);
 
+        jBcadastroExcluir.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBcadastroExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/remove-item32x.png"))); // NOI18N
         jBcadastroExcluir.setText("Excluir");
         jBcadastroExcluir.setEnabled(false);
@@ -108,6 +112,7 @@ public class JFanimal extends javax.swing.JFrame {
         jBcadastroExcluir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jBcadastroExcluir);
 
+        jBatalhoPesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pesquisa32x.png"))); // NOI18N
         jBatalhoPesquisa.setText("Pesquisar");
         jBatalhoPesquisa.setFocusable(false);
@@ -115,6 +120,7 @@ public class JFanimal extends javax.swing.JFrame {
         jBatalhoPesquisa.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jBatalhoPesquisa);
 
+        jBatalhoVacinas.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoVacinas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/vacina32x.png"))); // NOI18N
         jBatalhoVacinas.setText("Vacinas");
         jBatalhoVacinas.setEnabled(false);
@@ -124,43 +130,65 @@ public class JFanimal extends javax.swing.JFrame {
         jToolBar1.add(jBatalhoVacinas);
 
         jTabaPrincipal.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        jTabaPrincipal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 0, 0));
         jLabel7.setText("Cliente/Dono:");
 
+        jCnomeClienteCadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
         jBrefreshClienteCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/atualizar16x.png"))); // NOI18N
 
+        jBpesquisaClienteCadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpesquisaClienteCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/buscar16x.png"))); // NOI18N
         jBpesquisaClienteCadastro.setText("Novo");
 
+        jTnomeCadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 0, 0));
         jLabel1.setText("Nome:");
 
+        jCsexoCadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCsexoCadastro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Macho", "Fêmea" }));
 
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText("Sexo:");
 
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Nascimento:");
 
+        jDnascimentoCadastro.setDateFormatString("dd/MM/yyyy");
+        jDnascimentoCadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jTpesoCadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTpesoCadastro.setText("0");
 
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setText("Peso KG:");
 
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 0, 0));
         jLabel5.setText("Espécie:");
 
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 0, 0));
         jLabel6.setText("Raça:");
 
         jTcaracteristicasCadastro.setColumns(20);
+        jTcaracteristicasCadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTcaracteristicasCadastro.setRows(5);
         jScrollPane2.setViewportView(jTcaracteristicasCadastro);
 
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel8.setText("Características:");
 
         jCespecieCadastro.setEditable(true);
+        jCespecieCadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jCracaCadastro.setEditable(true);
+        jCracaCadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jBrefreshRacaCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/atualizar16x.png"))); // NOI18N
 
@@ -211,7 +239,7 @@ public class JFanimal extends javax.swing.JFrame {
                         .addComponent(jBrefreshClienteCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jBpesquisaClienteCadastro)))
-                .addContainerGap(298, Short.MAX_VALUE))
+                .addContainerGap(304, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,15 +290,26 @@ public class JFanimal extends javax.swing.JFrame {
 
         jTabaPrincipal.addTab("Formulário", jPanel1);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtrar pesquisa"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filtrar pesquisa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
 
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setText("Nome:");
 
+        jTpesquisaNome.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jCpesquisaNomeCliente.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel10.setText("Cliente/Dono:");
 
         jBpesquisaNomeClienteRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/atualizar16x.png"))); // NOI18N
 
+        jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpesquisa.setText("Pesquisar");
+
+        jBpesquisaClientePesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBpesquisaClientePesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/buscar16x.png"))); // NOI18N
+        jBpesquisaClientePesquisa.setText("Novo");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -283,14 +322,16 @@ public class JFanimal extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBpesquisa)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCpesquisaNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jBpesquisaNomeClienteRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jBpesquisaNomeClienteRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBpesquisaClientePesquisa)))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,12 +343,14 @@ public class JFanimal extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel10)
-                        .addComponent(jCpesquisaNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jCpesquisaNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBpesquisaClientePesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jBpesquisa)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jTresultados.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTresultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -340,8 +383,12 @@ public class JFanimal extends javax.swing.JFrame {
             jTresultados.getColumnModel().getColumn(7).setMaxWidth(120);
         }
 
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel11.setText("Página:");
 
+        jCpaginador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jBpaginador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpaginador.setText("Abrir");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -368,7 +415,7 @@ public class JFanimal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBpaginador)
@@ -445,6 +492,7 @@ public class JFanimal extends javax.swing.JFrame {
     public javax.swing.JButton jBpaginador;
     public javax.swing.JButton jBpesquisa;
     public javax.swing.JButton jBpesquisaClienteCadastro;
+    public javax.swing.JButton jBpesquisaClientePesquisa;
     public javax.swing.JButton jBpesquisaNomeClienteRefresh;
     public javax.swing.JButton jBrefreshClienteCadastro;
     public javax.swing.JButton jBrefreshEspecieCadastro;

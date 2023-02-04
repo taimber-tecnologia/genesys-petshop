@@ -26,6 +26,7 @@ public class AgendaMetodosTest {
         agendaModelo.setObservacoes("Banho");
         agendaModelo.setNomeCliente("Teste");
         agendaModelo.setStatus("1 - Agendado");
+        agendaModelo.setTelefone("0000-0000");
         new Repository(agendaModelo).save();
 
     }
@@ -45,6 +46,7 @@ public class AgendaMetodosTest {
         assertEquals(true, view.jTcadastroNomeCliente.getText().equals(agendaModelo.getNomeCliente()));
         assertEquals(true, view.jTcadastroHistorico.getText().equals(agendaModelo.getObservacoes()));
         assertEquals(true, view.jCstatus.getSelectedItem().toString().equals(agendaModelo.getStatus()));
+        assertEquals(true, view.jTcontatoTelefone.getText().equals(agendaModelo.getTelefone()));
 
     }
 
@@ -63,6 +65,7 @@ public class AgendaMetodosTest {
         assertEquals(true, view.jTcadastroNomeCliente.getText().equals(""));
         assertEquals(true, view.jTcadastroHistorico.getText().equals(""));
         assertEquals(true, view.jCstatus.getSelectedIndex() == 0);
+        assertEquals(true, view.jTcontatoTelefone.getText().equals(""));
 
     }
 
@@ -94,6 +97,7 @@ public class AgendaMetodosTest {
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTcadastroNomeCliente));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTcadastroHistorico));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTpesquisaNomeCliente));
+        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTcontatoTelefone));
 
     }
 
@@ -112,6 +116,7 @@ public class AgendaMetodosTest {
         assertEquals(true, view.jTcadastroNomeCliente.getText().equals(agendaModelo.getNomeCliente()));
         assertEquals(true, view.jTcadastroHistorico.getText().equals(agendaModelo.getObservacoes()));
         assertEquals(true, view.jCstatus.getSelectedItem().toString().equals(agendaModelo.getStatus()));
+        assertEquals(true, view.jTcontatoTelefone.getText().equals(agendaModelo.getTelefone()));
 
     }
 
@@ -209,6 +214,7 @@ public class AgendaMetodosTest {
         assertEquals(true, view.jTcadastroNomeCliente.getText().equals(agendaModelo.getNomeCliente()));
         assertEquals(true, view.jTcadastroHistorico.getText().equals(agendaModelo.getObservacoes()));
         assertEquals(true, view.jCstatus.getSelectedItem().toString().equals(agendaModelo.getStatus()));
+        assertEquals(true, view.jTcontatoTelefone.getText().equals(agendaModelo.getTelefone()));
 
     }
 

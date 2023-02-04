@@ -234,6 +234,13 @@ public class AnimalEventos {
 
         });
 
+        /* atalho para novo cliente */
+        view.jBpesquisaClientePesquisa.addActionListener((ActionEvent e) -> {
+
+            new ClienteController().construir();
+
+        });
+
     }
 
 }

@@ -59,6 +59,7 @@ public class JFcentroCusto extends javax.swing.JFrame {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
+        jBatalhoCadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/adicionar32x.png"))); // NOI18N
         jBatalhoCadastro.setText("Novo centro de custo");
         jBatalhoCadastro.setFocusable(false);
@@ -66,6 +67,7 @@ public class JFcentroCusto extends javax.swing.JFrame {
         jBatalhoCadastro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jBatalhoCadastro);
 
+        jBcadastroSalvar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBcadastroSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/salvar32x.png"))); // NOI18N
         jBcadastroSalvar.setText("Salvar");
         jBcadastroSalvar.setFocusable(false);
@@ -73,6 +75,7 @@ public class JFcentroCusto extends javax.swing.JFrame {
         jBcadastroSalvar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jBcadastroSalvar);
 
+        jBcadastroExcluir.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBcadastroExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/remove-item32x.png"))); // NOI18N
         jBcadastroExcluir.setText("Excluir");
         jBcadastroExcluir.setEnabled(false);
@@ -81,6 +84,7 @@ public class JFcentroCusto extends javax.swing.JFrame {
         jBcadastroExcluir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jBcadastroExcluir);
 
+        jBatalhoPesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pesquisa32x.png"))); // NOI18N
         jBatalhoPesquisa.setText("Pesquisar");
         jBatalhoPesquisa.setFocusable(false);
@@ -89,9 +93,16 @@ public class JFcentroCusto extends javax.swing.JFrame {
         jToolBar1.add(jBatalhoPesquisa);
 
         jTabaPrincipal.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        jTabaPrincipal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText("Código:");
 
+        jTcadastroCodigo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jTcadastroNome.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Nome:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -120,15 +131,20 @@ public class JFcentroCusto extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTcadastroNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addContainerGap(511, Short.MAX_VALUE))
+                .addContainerGap(513, Short.MAX_VALUE))
         );
 
         jTabaPrincipal.addTab("Formulário", jPanel1);
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtrar pesquisa"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filtrar pesquisa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
+        jPanel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("Nome:");
 
+        jTpesquisaNome.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpesquisa.setText("Pesquisar");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -142,7 +158,7 @@ public class JFcentroCusto extends javax.swing.JFrame {
                 .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBpesquisa)
-                .addContainerGap(420, Short.MAX_VALUE))
+                .addContainerGap(421, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,6 +171,7 @@ public class JFcentroCusto extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jTresultados.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTresultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -201,7 +218,7 @@ public class JFcentroCusto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -222,7 +239,7 @@ public class JFcentroCusto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTabaPrincipal)
+                .addComponent(jTabaPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

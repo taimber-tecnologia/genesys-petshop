@@ -101,6 +101,7 @@ public class AgendaEventos {
             agendaMetodos.resetarView();
             agendaMetodos.habilitarCampos();
             view.jTabaPrincipal.setSelectedIndex(0);
+            view.jTcadastroNomeCliente.requestFocus();
 
         });
 

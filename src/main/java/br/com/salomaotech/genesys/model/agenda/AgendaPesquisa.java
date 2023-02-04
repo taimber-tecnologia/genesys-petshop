@@ -79,6 +79,7 @@ public class AgendaPesquisa {
                 Datas.calendarParaStringBr(agendaModelo.getDataAgenda()),
                 agendaModelo.getDataHora() + ":" + agendaModelo.getDataMinuto(),
                 agendaModelo.getNomeCliente(),
+                agendaModelo.getTelefone(),
                 agendaModelo.getObservacoes(),
                 agendaModelo.getStatus()
 

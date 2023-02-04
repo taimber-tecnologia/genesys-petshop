@@ -38,38 +38,38 @@ public class JFvendaCalcula extends javax.swing.JFrame {
         setTitle("Calcular granel - Genesys PetShop");
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("VALOR R$");
 
         jTvalorDesejado.setBackground(new java.awt.Color(0, 51, 102));
-        jTvalorDesejado.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jTvalorDesejado.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jTvalorDesejado.setForeground(new java.awt.Color(255, 255, 255));
         jTvalorDesejado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTvalorDesejado.setBorder(null);
         jTvalorDesejado.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("PESO KG");
 
         jTpesoKg.setBackground(new java.awt.Color(0, 51, 102));
-        jTpesoKg.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jTpesoKg.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jTpesoKg.setForeground(new java.awt.Color(255, 255, 255));
         jTpesoKg.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTpesoKg.setBorder(null);
         jTpesoKg.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        jBfechar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBfechar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jBfechar.setText("FECHAR");
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("QUANTIDADE CALCULADA");
 
         jTresultado.setEditable(false);
         jTresultado.setBackground(new java.awt.Color(153, 0, 0));
-        jTresultado.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jTresultado.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jTresultado.setForeground(new java.awt.Color(255, 255, 255));
         jTresultado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTresultado.setBorder(null);

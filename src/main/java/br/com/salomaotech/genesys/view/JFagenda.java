@@ -56,6 +56,8 @@ public class JFagenda extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jTcadastroNomeCliente = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jTcontatoTelefone = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -81,6 +83,7 @@ public class JFagenda extends javax.swing.JFrame {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
+        jBatalhoCadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/adicionar32x.png"))); // NOI18N
         jBatalhoCadastro.setText("Nova agenda");
         jBatalhoCadastro.setFocusable(false);
@@ -88,6 +91,7 @@ public class JFagenda extends javax.swing.JFrame {
         jBatalhoCadastro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jBatalhoCadastro);
 
+        jBcadastroSalvar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBcadastroSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/salvar32x.png"))); // NOI18N
         jBcadastroSalvar.setText("Salvar");
         jBcadastroSalvar.setFocusable(false);
@@ -95,6 +99,7 @@ public class JFagenda extends javax.swing.JFrame {
         jBcadastroSalvar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jBcadastroSalvar);
 
+        jBcadastroExcluir.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBcadastroExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/remove-item32x.png"))); // NOI18N
         jBcadastroExcluir.setText("Excluir");
         jBcadastroExcluir.setEnabled(false);
@@ -103,6 +108,7 @@ public class JFagenda extends javax.swing.JFrame {
         jBcadastroExcluir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jBcadastroExcluir);
 
+        jBatalhoPesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pesquisa32x.png"))); // NOI18N
         jBatalhoPesquisa.setText("Pesquisar");
         jBatalhoPesquisa.setFocusable(false);
@@ -111,29 +117,50 @@ public class JFagenda extends javax.swing.JFrame {
         jToolBar1.add(jBatalhoPesquisa);
 
         jTabaPrincipal.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        jTabaPrincipal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setText("Observações:");
 
         jTcadastroHistorico.setColumns(20);
+        jTcadastroHistorico.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTcadastroHistorico.setRows(5);
         jScrollPane1.setViewportView(jTcadastroHistorico);
 
+        jCcadastroHora.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCcadastroHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
 
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel6.setText("Hora:");
 
+        jCcadastroMinuto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCcadastroMinuto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
 
+        jCstatus.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 - Agendado", "2 - Atendido", "3 - Cancelado", "4 - Remarcado" }));
 
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setText("Status:");
 
+        jDcadastroData.setDateFormatString("dd/MM/yyyy");
+        jDcadastroData.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(153, 0, 0));
         jLabel8.setText("Data:");
 
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel7.setText("Cliente:");
 
+        jLabel13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel13.setText(":");
+
+        jTcadastroNomeCliente.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel19.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel19.setText("Telefone:");
+
+        jTcontatoTelefone.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -145,7 +172,8 @@ public class JFagenda extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(jLabel7)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel19))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -161,8 +189,9 @@ public class JFagenda extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jCcadastroMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(458, Short.MAX_VALUE))
+                            .addComponent(jCcadastroMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jTcontatoTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(462, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,6 +212,10 @@ public class JFagenda extends javax.swing.JFrame {
                     .addComponent(jTcadastroNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTcontatoTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
@@ -190,26 +223,41 @@ public class JFagenda extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addGap(335, 335, 335))
+                .addContainerGap())
         );
 
         jTabaPrincipal.addTab("Formulário", jPanel1);
 
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtrar pesquisa"));
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filtrar pesquisa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
 
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel10.setText("Data inicial:");
 
+        jDpesquisaDataInicio.setDateFormatString("dd/MM/yyyy");
+        jDpesquisaDataInicio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel12.setText("Status:");
 
+        jCpesquisaStatus.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCpesquisaStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "1 - Agendado", "2 - Atendido", "3 - Cancelado", "4 - Remarcado" }));
 
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText("Data final:");
 
+        jDPesquisaDataFim.setDateFormatString("dd/MM/yyyy");
+        jDPesquisaDataFim.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jCdataAnterior.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCdataAnterior.setText("Igual anterior");
         jCdataAnterior.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setText("Cliente:");
 
+        jTpesquisaNomeCliente.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpesquisa.setText("Pesquisar");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -240,7 +288,7 @@ public class JFagenda extends javax.swing.JFrame {
                         .addComponent(jTpesquisaNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jBpesquisa)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,16 +313,17 @@ public class JFagenda extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jTresultados.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTresultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Data", "Hora", "Cliente", "Observações", "Status"
+                "Código", "Data", "Hora", "Cliente", "Telefone", "Observações", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -289,16 +338,23 @@ public class JFagenda extends javax.swing.JFrame {
             jTresultados.getColumnModel().getColumn(1).setMinWidth(85);
             jTresultados.getColumnModel().getColumn(1).setPreferredWidth(85);
             jTresultados.getColumnModel().getColumn(1).setMaxWidth(85);
-            jTresultados.getColumnModel().getColumn(2).setMinWidth(85);
-            jTresultados.getColumnModel().getColumn(2).setPreferredWidth(85);
-            jTresultados.getColumnModel().getColumn(2).setMaxWidth(85);
-            jTresultados.getColumnModel().getColumn(5).setMinWidth(125);
-            jTresultados.getColumnModel().getColumn(5).setPreferredWidth(125);
-            jTresultados.getColumnModel().getColumn(5).setMaxWidth(125);
+            jTresultados.getColumnModel().getColumn(2).setMinWidth(60);
+            jTresultados.getColumnModel().getColumn(2).setPreferredWidth(60);
+            jTresultados.getColumnModel().getColumn(2).setMaxWidth(60);
+            jTresultados.getColumnModel().getColumn(4).setMinWidth(125);
+            jTresultados.getColumnModel().getColumn(4).setPreferredWidth(125);
+            jTresultados.getColumnModel().getColumn(4).setMaxWidth(125);
+            jTresultados.getColumnModel().getColumn(6).setMinWidth(125);
+            jTresultados.getColumnModel().getColumn(6).setPreferredWidth(125);
+            jTresultados.getColumnModel().getColumn(6).setMaxWidth(125);
         }
 
+        jBpaginador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpaginador.setText("Abrir");
 
+        jCpaginador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("Página:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -325,7 +381,7 @@ public class JFagenda extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBpaginador)
@@ -351,7 +407,7 @@ public class JFagenda extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTabaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 596, Short.MAX_VALUE)
+                .addComponent(jTabaPrincipal)
                 .addContainerGap())
         );
 
@@ -413,6 +469,7 @@ public class JFagenda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -428,6 +485,7 @@ public class JFagenda extends javax.swing.JFrame {
     public javax.swing.JTabbedPane jTabaPrincipal;
     public javax.swing.JTextArea jTcadastroHistorico;
     public javax.swing.JTextField jTcadastroNomeCliente;
+    public javax.swing.JTextField jTcontatoTelefone;
     private javax.swing.JToolBar jToolBar1;
     public javax.swing.JTextField jTpesquisaNomeCliente;
     public javax.swing.JTable jTresultados;

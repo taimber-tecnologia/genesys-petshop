@@ -50,23 +50,24 @@ public class JFvendaConclui extends javax.swing.JFrame {
         setMinimumSize(null);
         setResizable(false);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PAGAMENTO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PAGAMENTO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18))); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setText("FORMA:");
 
-        jCforma.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jCforma.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jCforma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Debito", "Credito", "Dinheiro", "Pix" }));
 
-        jLparcela.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLparcela.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLparcela.setText("PARCELAS:");
 
-        jCparcela.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jCparcela.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jCparcela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setText("DATA:");
 
+        jDdata.setDateFormatString("dd/MM/yyyy");
         jDdata.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -80,58 +81,56 @@ public class JFvendaConclui extends javax.swing.JFrame {
                 .addComponent(jCforma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDdata, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLparcela)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jCparcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLparcela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jDdata, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
                         .addComponent(jCforma)
                         .addComponent(jCparcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3)))
+                        .addComponent(jLparcela)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("VALOR DA VENDA");
 
         jTvalorTotal.setEditable(false);
-        jTvalorTotal.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jTvalorTotal.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jTvalorTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("VALOR RECEBIDO");
 
         jTvalorRecebido.setEditable(false);
         jTvalorRecebido.setBackground(new java.awt.Color(0, 51, 102));
-        jTvalorRecebido.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jTvalorRecebido.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jTvalorRecebido.setForeground(new java.awt.Color(255, 255, 255));
         jTvalorRecebido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTvalorRecebido.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("TROCO");
 
         jTvalorTroco.setEditable(false);
-        jTvalorTroco.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jTvalorTroco.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jTvalorTroco.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -164,21 +163,21 @@ public class JFvendaConclui extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTvalorTroco, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jBimprimir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBimprimir.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jBimprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/impressora64x.png"))); // NOI18N
         jBimprimir.setText("IMPRIMIR");
         jBimprimir.setEnabled(false);
 
-        jBconcluir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBconcluir.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jBconcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/concluir64x.png"))); // NOI18N
         jBconcluir.setText("CONCLUIR");
 
-        jBcancelar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBcancelar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jBcancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/excluir64x.png"))); // NOI18N
         jBcancelar.setText("CANCELAR");
 
@@ -201,7 +200,7 @@ public class JFvendaConclui extends javax.swing.JFrame {
                 .addComponent(jBconcluir)
                 .addGap(18, 18, 18)
                 .addComponent(jBcancelar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addComponent(jBimprimir)
                 .addContainerGap())
         );

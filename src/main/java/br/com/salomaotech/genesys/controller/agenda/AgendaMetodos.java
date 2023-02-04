@@ -23,6 +23,7 @@ public class AgendaMetodos {
         view.jTcadastroNomeCliente.setText(agendaModelo.getNomeCliente());
         view.jTcadastroHistorico.setText(agendaModelo.getObservacoes());
         view.jCstatus.setSelectedItem(agendaModelo.getStatus());
+        view.jTcontatoTelefone.setText(agendaModelo.getTelefone());
 
     }
 
@@ -48,6 +49,7 @@ public class AgendaMetodos {
         popUp.adicionarMenu(view.jTcadastroNomeCliente);
         popUp.adicionarMenu(view.jTcadastroHistorico);
         popUp.adicionarMenu(view.jTpesquisaNomeCliente);
+        popUp.adicionarMenu(view.jTcontatoTelefone);
 
     }
 
@@ -83,6 +85,7 @@ public class AgendaMetodos {
         agendaModelo.setDataMinuto(view.jCcadastroMinuto.getSelectedItem().toString());
         agendaModelo.setObservacoes(view.jTcadastroHistorico.getText());
         agendaModelo.setStatus(view.jCstatus.getSelectedItem().toString());
+        agendaModelo.setTelefone(view.jTcontatoTelefone.getText());
         new Repository(agendaModelo).save();
         return agendaModelo;
 

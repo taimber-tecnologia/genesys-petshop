@@ -64,16 +64,17 @@ public class JFprincipal extends javax.swing.JFrame {
         setTitle("Genesys PetShop - Taimber Software");
         setMinimumSize(new java.awt.Dimension(1024, 694));
 
+        jTagendaResultados.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jTagendaResultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Data", "Hora", "Cliente", "Observações", "Status"
+                "Código", "Data", "Hora", "Cliente", "Telefone", "Observações", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -88,22 +89,33 @@ public class JFprincipal extends javax.swing.JFrame {
             jTagendaResultados.getColumnModel().getColumn(1).setMinWidth(85);
             jTagendaResultados.getColumnModel().getColumn(1).setPreferredWidth(85);
             jTagendaResultados.getColumnModel().getColumn(1).setMaxWidth(85);
-            jTagendaResultados.getColumnModel().getColumn(2).setMinWidth(85);
-            jTagendaResultados.getColumnModel().getColumn(2).setPreferredWidth(85);
-            jTagendaResultados.getColumnModel().getColumn(2).setMaxWidth(85);
-            jTagendaResultados.getColumnModel().getColumn(5).setMinWidth(125);
-            jTagendaResultados.getColumnModel().getColumn(5).setPreferredWidth(125);
-            jTagendaResultados.getColumnModel().getColumn(5).setMaxWidth(125);
+            jTagendaResultados.getColumnModel().getColumn(2).setMinWidth(60);
+            jTagendaResultados.getColumnModel().getColumn(2).setPreferredWidth(60);
+            jTagendaResultados.getColumnModel().getColumn(2).setMaxWidth(60);
+            jTagendaResultados.getColumnModel().getColumn(4).setMinWidth(125);
+            jTagendaResultados.getColumnModel().getColumn(4).setPreferredWidth(125);
+            jTagendaResultados.getColumnModel().getColumn(4).setMaxWidth(125);
+            jTagendaResultados.getColumnModel().getColumn(6).setMinWidth(125);
+            jTagendaResultados.getColumnModel().getColumn(6).setPreferredWidth(125);
+            jTagendaResultados.getColumnModel().getColumn(6).setMaxWidth(125);
         }
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Agenda de hoje", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Agenda de hoje", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
 
+        jDagendaDataSemana.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("Status:");
 
+        jCpesquisaStatus.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCpesquisaStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "1 - Agendado", "2 - Atendido", "3 - Cancelado" }));
 
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText("Página:");
 
+        jCpaginador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jBpaginador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpaginador.setText("Abrir");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -121,8 +133,8 @@ public class JFprincipal extends javax.swing.JFrame {
                     .addComponent(jDagendaDataSemana, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCpaginador, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCpaginador, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jBpaginador)))
                 .addContainerGap())
@@ -149,6 +161,7 @@ public class JFprincipal extends javax.swing.JFrame {
         jToolBarTopo.setFloatable(false);
         jToolBarTopo.setRollover(true);
 
+        jBatalhoConfiguracoesEmpresa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoConfiguracoesEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/empresa64x.png"))); // NOI18N
         jBatalhoConfiguracoesEmpresa.setText("Empresa");
         jBatalhoConfiguracoesEmpresa.setFocusable(false);
@@ -156,6 +169,7 @@ public class JFprincipal extends javax.swing.JFrame {
         jBatalhoConfiguracoesEmpresa.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBarTopo.add(jBatalhoConfiguracoesEmpresa);
 
+        jBatalhoClientes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/add-cliente64x.png"))); // NOI18N
         jBatalhoClientes.setText("Clientes");
         jBatalhoClientes.setFocusable(false);
@@ -163,6 +177,7 @@ public class JFprincipal extends javax.swing.JFrame {
         jBatalhoClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBarTopo.add(jBatalhoClientes);
 
+        jBatalhoAnimais.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoAnimais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/animal64x.png"))); // NOI18N
         jBatalhoAnimais.setText("Animais");
         jBatalhoAnimais.setFocusable(false);
@@ -170,6 +185,7 @@ public class JFprincipal extends javax.swing.JFrame {
         jBatalhoAnimais.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBarTopo.add(jBatalhoAnimais);
 
+        jBatalhoAgenda.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/agenda64x.png"))); // NOI18N
         jBatalhoAgenda.setText("Agenda");
         jBatalhoAgenda.setFocusable(false);
@@ -177,6 +193,7 @@ public class JFprincipal extends javax.swing.JFrame {
         jBatalhoAgenda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBarTopo.add(jBatalhoAgenda);
 
+        jBatalhoFornecedores.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoFornecedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/add-fornecedor64x.png"))); // NOI18N
         jBatalhoFornecedores.setText("Fornecedores");
         jBatalhoFornecedores.setFocusable(false);
@@ -184,6 +201,7 @@ public class JFprincipal extends javax.swing.JFrame {
         jBatalhoFornecedores.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBarTopo.add(jBatalhoFornecedores);
 
+        jBatalhoProdutos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/produto64x.png"))); // NOI18N
         jBatalhoProdutos.setText("Produtos");
         jBatalhoProdutos.setFocusable(false);
@@ -191,6 +209,7 @@ public class JFprincipal extends javax.swing.JFrame {
         jBatalhoProdutos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBarTopo.add(jBatalhoProdutos);
 
+        jBatalhoServicos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoServicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/servico64x.png"))); // NOI18N
         jBatalhoServicos.setText("Serviços");
         jBatalhoServicos.setFocusable(false);
@@ -198,6 +217,7 @@ public class JFprincipal extends javax.swing.JFrame {
         jBatalhoServicos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBarTopo.add(jBatalhoServicos);
 
+        jBatalhoVenda.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/venda64x.png"))); // NOI18N
         jBatalhoVenda.setText("Vendas");
         jBatalhoVenda.setFocusable(false);
@@ -205,6 +225,7 @@ public class JFprincipal extends javax.swing.JFrame {
         jBatalhoVenda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBarTopo.add(jBatalhoVenda);
 
+        jBatalhoFinanceiro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBatalhoFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/financeiro64x.png"))); // NOI18N
         jBatalhoFinanceiro.setText("Financeiro");
         jBatalhoFinanceiro.setFocusable(false);
@@ -215,11 +236,11 @@ public class JFprincipal extends javax.swing.JFrame {
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("V 1.0        ");
         jToolBar2.add(jLabel3);
 
-        jLabrirAjuda.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabrirAjuda.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabrirAjuda.setForeground(new java.awt.Color(0, 153, 204));
         jLabrirAjuda.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabrirAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/ajuda16x.png"))); // NOI18N
@@ -230,7 +251,7 @@ public class JFprincipal extends javax.swing.JFrame {
         jLabel5.setText("         ");
         jToolBar2.add(jLabel5);
 
-        jLabrirSuporte.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabrirSuporte.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabrirSuporte.setForeground(new java.awt.Color(0, 153, 204));
         jLabrirSuporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/clique16.png"))); // NOI18N
         jLabrirSuporte.setText("Suporte: www.taimber.com");
@@ -239,23 +260,30 @@ public class JFprincipal extends javax.swing.JFrame {
 
         jMnotificacoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/notificar24x.png"))); // NOI18N
         jMnotificacoes.setText("Notificações");
+        jMnotificacoes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
+        jMagenda.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jMagenda.setText("Agenda");
         jMnotificacoes.add(jMagenda);
 
+        jMestoque.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jMestoque.setText("Estoque");
         jMnotificacoes.add(jMestoque);
 
         jMenu1.setText("Financeiro");
+        jMenu1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
+        jMfinanceiroPagar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jMfinanceiroPagar.setText("Pagar");
         jMenu1.add(jMfinanceiroPagar);
 
+        jMfinanceiroReceber.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jMfinanceiroReceber.setText("Receber");
         jMenu1.add(jMfinanceiroReceber);
 
         jMnotificacoes.add(jMenu1);
 
+        jMatualizar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jMatualizar.setText("Sincronizar");
         jMnotificacoes.add(jMatualizar);
 
@@ -285,7 +313,7 @@ public class JFprincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );

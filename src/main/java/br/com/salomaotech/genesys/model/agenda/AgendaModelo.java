@@ -26,6 +26,7 @@ public class AgendaModelo implements Modelo, Serializable {
     private String nomeCliente;
     private String observacoes;
     private String status;
+    private String telefone;
 
     @Override
     public long getId() {
@@ -109,6 +110,14 @@ public class AgendaModelo implements Modelo, Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
 }
