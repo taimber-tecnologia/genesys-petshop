@@ -52,7 +52,7 @@ public class FornecedorEventos {
                     view.jTabaCadastro.setSelectedIndex(0);
                     fornecedorMetodos.popularFormulario(fornecedorModelo);
                     fornecedorMetodos.habilitarCampos();
-                    new FornecedorPesquisa(view.jTresultados).pesquisar();
+                    new FornecedorPesquisa(view.jTresultados, view.jCpaginador).pesquisar();
                     JOptionPane.showMessageDialog(null, "Registro salvo com sucesso!");
                     view.jTbasicoNome.requestFocus();
 
@@ -80,7 +80,7 @@ public class FornecedorEventos {
 
                     fornecedorMetodos.resetarView();
                     fornecedorMetodos.habilitarCampos();
-                    new FornecedorPesquisa(view.jTresultados).pesquisar();
+                    new FornecedorPesquisa(view.jTresultados, view.jCpaginador).pesquisar();
                     JOptionPane.showMessageDialog(null, "Registro excluido!");
                     view.jTbasicoNome.requestFocus();
 
@@ -215,6 +215,13 @@ public class FornecedorEventos {
 
             view.jTabaPrincipal.setSelectedIndex(1);
             view.jTpesquisaNome.requestFocus();
+
+        });
+
+        /* pesquisa */
+        view.jBpaginador.addActionListener((ActionEvent e) -> {
+
+            fornecedorMetodos.pesquisar();
 
         });
 

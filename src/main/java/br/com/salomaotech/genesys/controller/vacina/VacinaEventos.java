@@ -49,7 +49,7 @@ public class VacinaEventos {
 
                     vacinaMetodos.popularFormulario(vacinaModelo);
                     vacinaMetodos.habilitarCampos();
-                    new VacinaPesquisa(view.jTresultados, animalModelo).pesquisar();
+                    new VacinaPesquisa(view.jTresultados, animalModelo, view.jCpaginador).pesquisar();
                     JOptionPane.showMessageDialog(null, "Registro salvo com sucesso!");
                     view.jCcadastroNome.requestFocus();
 
@@ -77,7 +77,7 @@ public class VacinaEventos {
 
                     vacinaMetodos.resetarView();
                     vacinaMetodos.habilitarCampos();
-                    new VacinaPesquisa(view.jTresultados, animalModelo).pesquisar();
+                    new VacinaPesquisa(view.jTresultados, animalModelo, view.jCpaginador).pesquisar();
                     JOptionPane.showMessageDialog(null, "Registro excluido!");
 
                 } else {
@@ -127,6 +127,13 @@ public class VacinaEventos {
         view.jBatualizarNomesVacinas.addActionListener((ActionEvent e) -> {
 
             comboBoxVacinas.preencher();
+
+        });
+
+        /* pesquisa */
+        view.jBpaginador.addActionListener((ActionEvent e) -> {
+
+            vacinaMetodos.pesquisar();
 
         });
 

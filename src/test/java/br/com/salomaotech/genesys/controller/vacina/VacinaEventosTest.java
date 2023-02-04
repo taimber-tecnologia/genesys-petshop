@@ -86,6 +86,7 @@ public class VacinaEventosTest {
         assertEquals(true, view.jBatalhoCadastro.getActionListeners().length == 1);
         assertEquals(true, view.jBatalhoPesquisa.getActionListeners().length == 1);
         assertEquals(true, view.jBatualizarNomesVacinas.getActionListeners().length == 1);
+        assertEquals(true, view.jBpaginador.getActionListeners().length == 1);
 
     }
 

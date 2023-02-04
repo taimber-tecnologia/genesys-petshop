@@ -75,7 +75,7 @@ public class VacinaMetodos {
 
     public void pesquisar() {
 
-        new VacinaPesquisa(view.jTresultados, animalModelo).pesquisar();
+        new VacinaPesquisa(view.jTresultados, animalModelo, view.jCpaginador).pesquisar();
 
     }
 

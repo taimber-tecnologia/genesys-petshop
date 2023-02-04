@@ -110,7 +110,7 @@ public class FornecedorMetodos {
 
     public void pesquisar() {
 
-        FornecedorPesquisa fornecedorPesquisa = new FornecedorPesquisa(view.jTresultados);
+        FornecedorPesquisa fornecedorPesquisa = new FornecedorPesquisa(view.jTresultados, view.jCpaginador);
         fornecedorPesquisa.setNome(view.jTpesquisaNome.getText());
         fornecedorPesquisa.setCnpj(view.jTpesquisaCnpj.getText());
         fornecedorPesquisa.pesquisar();

@@ -83,6 +83,7 @@ public class ServicoMetodosTest {
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTnome));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTdescricao));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTvalor));
+        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTpesquisaNome));
 
     }
 

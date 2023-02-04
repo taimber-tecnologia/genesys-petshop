@@ -10,7 +10,7 @@ public class ServicoPesquisaTest {
 
     private final JFservico view = new JFservico();
     private final ServicoModelo servicoModelo = new ServicoModelo();
-    private final ServicoPesquisa servicoPesquisa = new ServicoPesquisa(view.jTresultados);
+    private final ServicoPesquisa servicoPesquisa = new ServicoPesquisa(view.jTresultados, view.jCpaginador);
 
     public ServicoPesquisaTest() {
 

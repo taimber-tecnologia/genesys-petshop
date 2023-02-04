@@ -10,7 +10,7 @@ public class ProdutoPesquisaTest {
 
     private final JFproduto view = new JFproduto();
     private final ProdutoModelo produtoModelo = new ProdutoModelo();
-    private ProdutoPesquisa produtoPesquisa = new ProdutoPesquisa(view.jTresultados);
+    private ProdutoPesquisa produtoPesquisa = new ProdutoPesquisa(view.jTresultados, view.jCpaginador);
 
     public ProdutoPesquisaTest() {
 
@@ -92,7 +92,7 @@ public class ProdutoPesquisaTest {
         view.jTpesquisaNome.setText(null);
         view.jCpesquisaCategoria.getEditor().setItem("");
         view.jCestoqueBaixo.setEnabled(false);
-        produtoPesquisa = new ProdutoPesquisa(view.jTresultados);
+        produtoPesquisa = new ProdutoPesquisa(view.jTresultados, view.jCpaginador);
         produtoPesquisa.pesquisar();
         System.out.println("Testando classe ProdutoPesquisa metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -101,7 +101,7 @@ public class ProdutoPesquisaTest {
         view.jTpesquisaNome.setText(produtoModelo.getNome());
         view.jCpesquisaCategoria.getEditor().setItem("");
         view.jCestoqueBaixo.setEnabled(false);
-        produtoPesquisa = new ProdutoPesquisa(view.jTresultados);
+        produtoPesquisa = new ProdutoPesquisa(view.jTresultados, view.jCpaginador);
         produtoPesquisa.pesquisar();
         System.out.println("Testando classe ProdutoPesquisa metodo: pesquisar etapa 02");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -110,7 +110,7 @@ public class ProdutoPesquisaTest {
         view.jTpesquisaNome.setText(null);
         view.jCpesquisaCategoria.getEditor().setItem(produtoModelo.getCategoria());
         view.jCestoqueBaixo.setEnabled(false);
-        produtoPesquisa = new ProdutoPesquisa(view.jTresultados);
+        produtoPesquisa = new ProdutoPesquisa(view.jTresultados, view.jCpaginador);
         produtoPesquisa.pesquisar();
         System.out.println("Testando classe ProdutoPesquisa metodo: pesquisar etapa 03");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -119,7 +119,7 @@ public class ProdutoPesquisaTest {
         view.jTpesquisaNome.setText(null);
         view.jCpesquisaCategoria.getEditor().setItem("");
         view.jCestoqueBaixo.setEnabled(true);
-        produtoPesquisa = new ProdutoPesquisa(view.jTresultados);
+        produtoPesquisa = new ProdutoPesquisa(view.jTresultados, view.jCpaginador);
         produtoPesquisa.pesquisar();
         System.out.println("Testando classe ProdutoPesquisa metodo: pesquisar etapa 04");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -128,7 +128,7 @@ public class ProdutoPesquisaTest {
         view.jTpesquisaNome.setText(produtoModelo.getNome());
         view.jCpesquisaCategoria.getEditor().setItem(produtoModelo.getCategoria());
         view.jCestoqueBaixo.setEnabled(false);
-        produtoPesquisa = new ProdutoPesquisa(view.jTresultados);
+        produtoPesquisa = new ProdutoPesquisa(view.jTresultados, view.jCpaginador);
         produtoPesquisa.pesquisar();
         System.out.println("Testando classe ProdutoPesquisa metodo: pesquisar etapa 05");
         assertEquals(true, view.jTresultados.getRowCount() > 0);

@@ -42,6 +42,7 @@ public class ServicoMetodos {
         popUp.adicionarMenu(view.jTnome);
         popUp.adicionarMenu(view.jTdescricao);
         popUp.adicionarMenu(view.jTvalor);
+        popUp.adicionarMenu(view.jTpesquisaNome);
 
     }
 
@@ -75,7 +76,7 @@ public class ServicoMetodos {
 
     public void pesquisar() {
 
-        ServicoPesquisa servicoPesquisa = new ServicoPesquisa(view.jTresultados);
+        ServicoPesquisa servicoPesquisa = new ServicoPesquisa(view.jTresultados, view.jCpaginador);
         servicoPesquisa.setNome(view.jTpesquisaNome.getText());
         servicoPesquisa.pesquisar();
 

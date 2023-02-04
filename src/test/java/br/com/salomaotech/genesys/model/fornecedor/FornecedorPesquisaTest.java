@@ -9,7 +9,7 @@ public class FornecedorPesquisaTest {
 
     private final JFfornecedor view = new JFfornecedor();
     private final FornecedorModelo fornecedorModelo = new FornecedorModelo();
-    private FornecedorPesquisa fornecedorPesquisa = new FornecedorPesquisa(view.jTresultados);
+    private FornecedorPesquisa fornecedorPesquisa = new FornecedorPesquisa(view.jTresultados, view.jCpaginador);
 
     public FornecedorPesquisaTest() {
 
@@ -65,7 +65,7 @@ public class FornecedorPesquisaTest {
     public void testPesquisar() {
 
         /* utilizando filtro: nenhum */
-        fornecedorPesquisa = new FornecedorPesquisa(view.jTresultados);
+        fornecedorPesquisa = new FornecedorPesquisa(view.jTresultados, view.jCpaginador);
         fornecedorPesquisa.setNome(null);
         fornecedorPesquisa.setCnpj(null);
         fornecedorPesquisa.pesquisar();
@@ -73,7 +73,7 @@ public class FornecedorPesquisaTest {
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* utilizando filtro: nome */
-        fornecedorPesquisa = new FornecedorPesquisa(view.jTresultados);
+        fornecedorPesquisa = new FornecedorPesquisa(view.jTresultados, view.jCpaginador);
         fornecedorPesquisa.setNome(fornecedorModelo.getNome());
         fornecedorPesquisa.setCnpj(null);
         fornecedorPesquisa.pesquisar();
@@ -81,7 +81,7 @@ public class FornecedorPesquisaTest {
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* utilizando filtro: CNPJ */
-        fornecedorPesquisa = new FornecedorPesquisa(view.jTresultados);
+        fornecedorPesquisa = new FornecedorPesquisa(view.jTresultados, view.jCpaginador);
         fornecedorPesquisa.setNome(null);
         fornecedorPesquisa.setCnpj(fornecedorModelo.getCnpj());
         fornecedorPesquisa.pesquisar();
@@ -89,7 +89,7 @@ public class FornecedorPesquisaTest {
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* utilizando filtro: todos */
-        fornecedorPesquisa = new FornecedorPesquisa(view.jTresultados);
+        fornecedorPesquisa = new FornecedorPesquisa(view.jTresultados, view.jCpaginador);
         fornecedorPesquisa.setNome(fornecedorModelo.getNome());
         fornecedorPesquisa.setCnpj(fornecedorModelo.getCnpj());
         fornecedorPesquisa.pesquisar();

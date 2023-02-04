@@ -127,7 +127,7 @@ public class ClienteMetodos {
 
     public void pesquisar() {
 
-        ClientePesquisa clientePesquisa = new ClientePesquisa(view.jTresultados);
+        ClientePesquisa clientePesquisa = new ClientePesquisa(view.jTresultados, view.jCpaginador);
         clientePesquisa.setNome(view.jTpesquisaNome.getText());
         clientePesquisa.setCpf(view.jTpesquisaCpf.getText());
         clientePesquisa.pesquisar();

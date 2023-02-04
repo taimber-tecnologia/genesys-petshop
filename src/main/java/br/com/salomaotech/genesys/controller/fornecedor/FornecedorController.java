@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.fornecedor;
 
-import br.com.salomaotech.genesys.model.fornecedor.FornecedorPesquisa;
 import br.com.salomaotech.genesys.view.JFfornecedor;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
 import javax.swing.JFrame;
@@ -29,7 +28,7 @@ public class FornecedorController {
         fornecedorEventos.addEventos();
 
         /* exibe os dados */
-        new FornecedorPesquisa(view.jTresultados).pesquisar();
+        fornecedorMetodos.pesquisar();
 
     }
 

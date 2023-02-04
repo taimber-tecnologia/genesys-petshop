@@ -48,13 +48,13 @@ public class VacinaPesquisaTest {
     public void testPesquisar() {
 
         /* usando filtro: nenhum */
-        vacinaPesquisa = new VacinaPesquisa(view.jTresultados, new AnimalModelo());
+        vacinaPesquisa = new VacinaPesquisa(view.jTresultados, new AnimalModelo(), view.jCpaginador);
         vacinaPesquisa.pesquisar();
         System.out.println("Testando classe VacinaPesquisa metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() == 0);
 
         /* usando filtro: animal cadastrado no construtor */
-        vacinaPesquisa = new VacinaPesquisa(view.jTresultados, animalModelo);
+        vacinaPesquisa = new VacinaPesquisa(view.jTresultados, animalModelo, view.jCpaginador);
         vacinaPesquisa.pesquisar();
         System.out.println("Testando classe VacinaPesquisa metodo: pesquisar etapa 02");
         assertEquals(true, view.jTresultados.getRowCount() > 0);

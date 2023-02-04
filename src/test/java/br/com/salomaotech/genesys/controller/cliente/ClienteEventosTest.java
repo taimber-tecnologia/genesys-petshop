@@ -49,6 +49,7 @@ public class ClienteEventosTest {
         assertEquals(true, view.jTpesquisaCpf.getKeyListeners().length == 1);
         assertEquals(true, view.jBenderecoBuscarCep.getActionListeners().length == 1);
         assertEquals(true, view.jBatalhoPesquisa.getActionListeners().length == 1);
+        assertEquals(true, view.jBpaginador.getActionListeners().length == 1);
 
     }
 

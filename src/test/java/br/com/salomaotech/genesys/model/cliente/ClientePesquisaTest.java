@@ -9,7 +9,7 @@ public class ClientePesquisaTest {
 
     private final JFcliente view = new JFcliente();
     private final ClienteModelo clienteModelo = new ClienteModelo();
-    private ClientePesquisa clientePesquisa = new ClientePesquisa(view.jTresultados);
+    private ClientePesquisa clientePesquisa = new ClientePesquisa(view.jTresultados, view.jCpaginador);
 
     public ClientePesquisaTest() {
 
@@ -65,7 +65,7 @@ public class ClientePesquisaTest {
     public void testPesquisar() {
 
         /* utilizando filtro: nenhum */
-        clientePesquisa = new ClientePesquisa(view.jTresultados);
+        clientePesquisa = new ClientePesquisa(view.jTresultados, view.jCpaginador);
         clientePesquisa.setNome(null);
         clientePesquisa.setCpf(null);
         clientePesquisa.pesquisar();
@@ -73,7 +73,7 @@ public class ClientePesquisaTest {
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* utilizando filtro: nome */
-        clientePesquisa = new ClientePesquisa(view.jTresultados);
+        clientePesquisa = new ClientePesquisa(view.jTresultados, view.jCpaginador);
         clientePesquisa.setNome(clienteModelo.getNome());
         clientePesquisa.setCpf(null);
         clientePesquisa.pesquisar();
@@ -81,7 +81,7 @@ public class ClientePesquisaTest {
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* utilizando filtro: CPF */
-        clientePesquisa = new ClientePesquisa(view.jTresultados);
+        clientePesquisa = new ClientePesquisa(view.jTresultados, view.jCpaginador);
         clientePesquisa.setNome(null);
         clientePesquisa.setCpf(clienteModelo.getCpf());
         clientePesquisa.pesquisar();
@@ -89,7 +89,7 @@ public class ClientePesquisaTest {
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* utilizando filtro: todos */
-        clientePesquisa = new ClientePesquisa(view.jTresultados);
+        clientePesquisa = new ClientePesquisa(view.jTresultados, view.jCpaginador);
         clientePesquisa.setNome(clienteModelo.getNome());
         clientePesquisa.setCpf(clienteModelo.getCpf());
         clientePesquisa.pesquisar();

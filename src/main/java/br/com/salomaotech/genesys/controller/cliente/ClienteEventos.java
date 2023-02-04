@@ -53,7 +53,7 @@ public class ClienteEventos {
                     view.jTabaCadastro.setSelectedIndex(0);
                     clienteMetodos.popularFormulario(clienteModelo);
                     clienteMetodos.habilitarCampos();
-                    new ClientePesquisa(view.jTresultados).pesquisar();
+                    new ClientePesquisa(view.jTresultados, view.jCpaginador).pesquisar();
                     JOptionPane.showMessageDialog(null, "Registro salvo com sucesso!");
                     view.jTbasicoNome.requestFocus();
 
@@ -81,7 +81,7 @@ public class ClienteEventos {
 
                     clienteMetodos.resetarView();
                     clienteMetodos.habilitarCampos();
-                    new ClientePesquisa(view.jTresultados).pesquisar();
+                    new ClientePesquisa(view.jTresultados, view.jCpaginador).pesquisar();
                     JOptionPane.showMessageDialog(null, "Registro excluido!");
                     view.jTbasicoNome.requestFocus();
 
@@ -238,6 +238,13 @@ public class ClienteEventos {
 
             view.jTabaPrincipal.setSelectedIndex(1);
             view.jTpesquisaNome.requestFocus();
+
+        });
+
+        /* pesquisa */
+        view.jBpaginador.addActionListener((ActionEvent e) -> {
+
+            clienteMetodos.pesquisar();
 
         });
 

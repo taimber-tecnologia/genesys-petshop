@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.servico;
 
-import br.com.salomaotech.genesys.model.servico.ServicoPesquisa;
 import br.com.salomaotech.genesys.view.JFservico;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
 import javax.swing.JFrame;
@@ -29,7 +28,7 @@ public class ServicoController {
         servicoEventos.addEventos();
 
         /* exibe os dados */
-        new ServicoPesquisa(view.jTresultados).pesquisar();
+        servicoMetodos.pesquisar();
 
     }
 

@@ -39,7 +39,7 @@ public class ServicoEventos {
 
                     servicoMetodos.popularFormulario(servicoModelo);
                     servicoMetodos.habilitarCampos();
-                    new ServicoPesquisa(view.jTresultados).pesquisar();
+                    new ServicoPesquisa(view.jTresultados, view.jCpaginador).pesquisar();
                     JOptionPane.showMessageDialog(null, "Registro salvo com sucesso!");
                     view.jTnome.requestFocus();
 
@@ -67,7 +67,7 @@ public class ServicoEventos {
 
                     servicoMetodos.resetarView();
                     servicoMetodos.habilitarCampos();
-                    new ServicoPesquisa(view.jTresultados).pesquisar();
+                    new ServicoPesquisa(view.jTresultados, view.jCpaginador).pesquisar();
                     view.jTnome.requestFocus();
                     JOptionPane.showMessageDialog(null, "Registro excluido!");
 
@@ -145,6 +145,13 @@ public class ServicoEventos {
             public void keyReleased(KeyEvent e) {
 
             }
+
+        });
+
+        /* pesquisa */
+        view.jBpaginador.addActionListener((ActionEvent e) -> {
+
+            servicoMetodos.pesquisar();
 
         });
 

@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.cliente;
 
-import br.com.salomaotech.genesys.model.cliente.ClientePesquisa;
 import br.com.salomaotech.genesys.view.JFcliente;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
 import javax.swing.JFrame;
@@ -29,7 +28,7 @@ public class ClienteController {
         clienteEventos.addEventos();
 
         /* exibe os dados */
-        new ClientePesquisa(view.jTresultados).pesquisar();
+        clienteMetodos.pesquisar();
 
     }
 

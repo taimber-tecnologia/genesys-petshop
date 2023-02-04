@@ -58,7 +58,7 @@ public class ProdutoEventos {
 
                     produtoMetodos.popularFormulario(produtoModelo);
                     produtoMetodos.habilitarCampos();
-                    new ProdutoPesquisa(view.jTresultados).pesquisar();
+                    new ProdutoPesquisa(view.jTresultados, view.jCpaginador).pesquisar();
                     JOptionPane.showMessageDialog(null, "Registro salvo com sucesso!");
                     view.jTnome.requestFocus();
 
@@ -86,7 +86,7 @@ public class ProdutoEventos {
 
                     produtoMetodos.resetarView();
                     produtoMetodos.habilitarCampos();
-                    new ProdutoPesquisa(view.jTresultados).pesquisar();
+                    new ProdutoPesquisa(view.jTresultados, view.jCpaginador).pesquisar();
                     view.jTnome.requestFocus();
                     JOptionPane.showMessageDialog(null, "Registro excluido!");
 
@@ -216,6 +216,13 @@ public class ProdutoEventos {
                 ImagemProduto.remover(String.valueOf(view.getId()), view.jPdadosPerfilFoto);
 
             }
+
+        });
+
+        /* pesquisa */
+        view.jBpaginador.addActionListener((ActionEvent e) -> {
+
+            produtoMetodos.pesquisar();
 
         });
 

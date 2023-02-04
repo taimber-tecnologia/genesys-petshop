@@ -2,7 +2,6 @@ package br.com.salomaotech.genesys.controller.produto;
 
 import br.com.salomaotech.genesys.model.fornecedor.ComboBoxFornecedores;
 import br.com.salomaotech.genesys.model.produto.ComboBoxProdutoCategoria;
-import br.com.salomaotech.genesys.model.produto.ProdutoPesquisa;
 import br.com.salomaotech.genesys.view.JFproduto;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
 import javax.swing.JFrame;
@@ -51,7 +50,7 @@ public class ProdutoController {
         produtoEventos.addEventos();
 
         /* exibe os dados */
-        new ProdutoPesquisa(view.jTresultados).pesquisar();
+        produtoMetodos.pesquisar();
 
     }
 
