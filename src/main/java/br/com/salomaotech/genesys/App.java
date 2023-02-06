@@ -21,7 +21,7 @@ public class App {
 
     }
 
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) {
 
         /* tela de inicialização */
         JFinicializar view = new JFinicializar();
