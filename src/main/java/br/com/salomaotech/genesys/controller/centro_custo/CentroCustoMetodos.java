@@ -76,7 +76,7 @@ public class CentroCustoMetodos {
 
     public void pesquisar() {
 
-        CentroCustoPesquisa centroCustoPesquisa = new CentroCustoPesquisa(view.jTresultados);
+        CentroCustoPesquisa centroCustoPesquisa = new CentroCustoPesquisa(view.jTresultados, view.jCpaginador);
         centroCustoPesquisa.setNome(view.jTpesquisaNome.getText());
         centroCustoPesquisa.pesquisar();
 

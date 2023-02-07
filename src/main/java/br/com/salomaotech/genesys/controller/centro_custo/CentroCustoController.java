@@ -29,7 +29,7 @@ public class CentroCustoController {
         centroCustoEventos.addEventos();
 
         /* exibe os dados */
-        new CentroCustoPesquisa(view.jTresultados).pesquisar();
+        new CentroCustoPesquisa(view.jTresultados, view.jCpaginador).pesquisar();
 
     }
 

@@ -1,18 +1,22 @@
 package br.com.salomaotech.genesys.model.centro_custo;
 
 import br.com.salomaotech.sistema.jpa.JPQL;
+import br.com.salomaotech.sistema.jpa.Paginador;
 import br.com.salomaotech.sistema.jpa.Repository;
 import java.util.List;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class CentroCustoPesquisa {
 
     private final JTable jTresultados;
+    private final JComboBox jCpaginador;
     private String nome;
 
-    public CentroCustoPesquisa(JTable jTresultados) {
+    public CentroCustoPesquisa(JTable jTresultados, JComboBox jCpaginador) {
         this.jTresultados = jTresultados;
+        this.jCpaginador = jCpaginador;
     }
 
     public void setNome(String nome) {
@@ -62,8 +66,9 @@ public class CentroCustoPesquisa {
         jpql.addOrderBy("nome", "ASC");
 
         /* pesquisa os dados */
+        Paginador paginador = new Paginador(jpql, jCpaginador, new CentroCustoModelo());
         Repository repository = new Repository(new CentroCustoModelo());
-        List<CentroCustoModelo> centroCustoModeloList = repository.getResults(jpql.construirSelect());
+        List<CentroCustoModelo> centroCustoModeloList = repository.getResultsComPaginador(jpql.construirSelect(), paginador.getPageNumber(), paginador.getPageSize());
         popularDados(centroCustoModeloList);
 
     }

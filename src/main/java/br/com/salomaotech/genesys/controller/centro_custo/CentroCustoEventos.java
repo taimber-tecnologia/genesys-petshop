@@ -39,7 +39,7 @@ public class CentroCustoEventos {
 
                     centroCustoMetodos.popularFormulario(centroCustoModelo);
                     centroCustoMetodos.habilitarCampos();
-                    new CentroCustoPesquisa(view.jTresultados).pesquisar();
+                    new CentroCustoPesquisa(view.jTresultados, view.jCpaginador).pesquisar();
                     JOptionPane.showMessageDialog(null, "Registro salvo com sucesso!");
                     view.jTcadastroCodigo.requestFocus();
 
@@ -67,7 +67,7 @@ public class CentroCustoEventos {
 
                     centroCustoMetodos.resetarView();
                     centroCustoMetodos.habilitarCampos();
-                    new CentroCustoPesquisa(view.jTresultados).pesquisar();
+                    new CentroCustoPesquisa(view.jTresultados, view.jCpaginador).pesquisar();
                     JOptionPane.showMessageDialog(null, "Registro excluido!");
                     view.jTcadastroCodigo.requestFocus();
 
@@ -144,6 +144,13 @@ public class CentroCustoEventos {
             public void keyReleased(KeyEvent e) {
 
             }
+
+        });
+
+        /* paginador e pesquisa */
+        view.jBpaginador.addActionListener((ActionEvent e) -> {
+
+            centroCustoMetodos.pesquisar();
 
         });
 

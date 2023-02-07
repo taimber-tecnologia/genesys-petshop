@@ -9,7 +9,7 @@ public class CentroCustoPesquisaTest {
 
     private final JFcentroCusto view = new JFcentroCusto();
     private final CentroCustoModelo centroCustoModelo = new CentroCustoModelo();
-    private CentroCustoPesquisa centroCustoPesquisa = new CentroCustoPesquisa(view.jTresultados);
+    private CentroCustoPesquisa centroCustoPesquisa = new CentroCustoPesquisa(view.jTresultados, view.jCpaginador);
 
     public CentroCustoPesquisaTest() {
 
@@ -45,14 +45,14 @@ public class CentroCustoPesquisaTest {
     public void testPesquisar() {
 
         /* utilizando filtro: nenhum */
-        centroCustoPesquisa = new CentroCustoPesquisa(view.jTresultados);
+        centroCustoPesquisa = new CentroCustoPesquisa(view.jTresultados, view.jCpaginador);
         view.jTpesquisaNome.setText(null);
         centroCustoPesquisa.pesquisar();
         System.out.println("Testando classe CentroCustoPesquisa metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* utilizando filtro: nome */
-        centroCustoPesquisa = new CentroCustoPesquisa(view.jTresultados);
+        centroCustoPesquisa = new CentroCustoPesquisa(view.jTresultados, view.jCpaginador);
         view.jTpesquisaNome.setText(centroCustoModelo.getNome());
         centroCustoPesquisa.pesquisar();
         System.out.println("Testando classe CentroCustoPesquisa metodo: pesquisar etapa 02");
