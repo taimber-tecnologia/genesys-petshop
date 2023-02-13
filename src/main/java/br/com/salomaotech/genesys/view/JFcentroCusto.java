@@ -99,6 +99,7 @@ public class JFcentroCusto extends javax.swing.JFrame {
         jTabaPrincipal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 0, 0));
         jLabel2.setText("Código:");
 
         jTcadastroCodigo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -106,6 +107,7 @@ public class JFcentroCusto extends javax.swing.JFrame {
         jTcadastroNome.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 0, 0));
         jLabel3.setText("Nome:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

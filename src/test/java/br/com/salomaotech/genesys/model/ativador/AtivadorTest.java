@@ -36,7 +36,7 @@ public class AtivadorTest {
     public void testGetDiasRestantes() {
 
         System.out.println("Testando classe ativador metodo: getDiasRestantes");
-        assertEquals(true, ativador.getDiasRestantes() == 7);
+        assertEquals(true, ativador.getDiasRestantes() == 8);
 
     }
 

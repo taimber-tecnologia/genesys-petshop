@@ -29,7 +29,7 @@ public class Ativador {
     /* relacionado a ativação */
     private int numeroMaximoDeChaves = 10000;
     private String dataHoje;
-    private int diasMaximoVersaoDemo = 8;
+    private int diasMaximoVersaoDemo = 9;
     private String preFixoDaChaveDeAtivacao = HashMd5.cifrar("+_PREFIX_CHAVE_ATIVACAO_+");
     private String posFixoDaChaveDeAtivacao = HashMd5.cifrar("*_POSFIX_CHAVE_ATIVACAO_*");
     private String ativadoTrue = HashMd5.cifrar("KEY_PROP_ATIVADO_TRUE");
