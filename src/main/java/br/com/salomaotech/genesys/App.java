@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys;
 
-import br.com.salomaotech.genesys.controller.ativador.AtivadorController;
 import br.com.salomaotech.genesys.controller.principal.PrincipalController;
 import br.com.salomaotech.genesys.model.centro_custo.CentroCustoInicializa;
 import br.com.salomaotech.genesys.view.JFinicializar;
@@ -12,12 +11,6 @@ public class App {
     private static void carregarConfiguracoesPadrao() {
 
         new CentroCustoInicializa().cadastrar();
-
-    }
-
-    private static void carregarAtivador() {
-
-        new AtivadorController().construir();
 
     }
 
@@ -33,9 +26,6 @@ public class App {
 
         /* carrega as configurações padrão */
         carregarConfiguracoesPadrao();
-
-        /* carrega o ativador */
-        carregarAtivador();
 
         /* abre o JFrame principal */
         new PrincipalController().construir();
