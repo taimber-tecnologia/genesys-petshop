@@ -42,7 +42,6 @@ public class PrincipalEventosTest {
         assertEquals(true, view.jTagendaResultados.getMouseListeners().length == 3);
         assertEquals(true, view.jBatalhoProdutos.getActionListeners().length == 1);
         assertEquals(true, view.jBatalhoConfiguracoesEmpresa.getActionListeners().length == 1);
-        assertEquals(true, view.jLabrirAjuda.getMouseListeners().length == 1);
         assertEquals(true, view.getWindowListeners().length == 1);
         assertEquals(true, view.jBpaginador.getActionListeners().length == 1);
         assertEquals(true, view.jLabrirSuporte.getMouseListeners().length == 1);

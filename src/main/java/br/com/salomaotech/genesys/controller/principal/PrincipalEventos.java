@@ -9,7 +9,6 @@ import br.com.salomaotech.genesys.controller.fornecedor.FornecedorController;
 import br.com.salomaotech.genesys.controller.produto.ProdutoController;
 import br.com.salomaotech.genesys.controller.servico.ServicoController;
 import br.com.salomaotech.genesys.controller.venda.venda_pesquisa.VendaPesquisaController;
-import br.com.salomaotech.genesys.model.configuracoes.PastasSistema;
 import br.com.salomaotech.genesys.view.JFprincipal;
 import br.com.salomaotech.sistema.algoritmos.ExecutaProgramaExterno;
 import br.com.salomaotech.sistema.jpa.ConexaoSingleton;
@@ -19,7 +18,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import javax.swing.JOptionPane;
 
 public class PrincipalEventos {
 
@@ -120,42 +118,6 @@ public class PrincipalEventos {
 
             @Override
             public void windowDeactivated(WindowEvent e) {
-
-            }
-
-        });
-
-        /* atalho para ajuda */
-        view.jLabrirAjuda.addMouseListener(new MouseListener() {
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-                if (!ExecutaProgramaExterno.executarModoDesktop(new PastasSistema().getSubPastaEnderecoArquivoDeDocumentacao())) {
-
-                    JOptionPane.showMessageDialog(null, "Documentação de ajuda não localizada.");
-
-                }
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
 
             }
 

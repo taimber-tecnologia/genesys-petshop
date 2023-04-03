@@ -47,10 +47,8 @@ public class JFprincipal extends javax.swing.JFrame {
         jBatalhoVenda = new javax.swing.JButton();
         jBatalhoFinanceiro = new javax.swing.JButton();
         jToolBar2 = new javax.swing.JToolBar();
-        jLabel3 = new javax.swing.JLabel();
-        jLabrirAjuda = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabrirSuporte = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMnotificacoes = new javax.swing.JMenu();
         jMagenda = new javax.swing.JMenuItem();
@@ -236,27 +234,14 @@ public class JFprincipal extends javax.swing.JFrame {
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel3.setText("V 1.0        ");
-        jToolBar2.add(jLabel3);
-
-        jLabrirAjuda.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabrirAjuda.setForeground(new java.awt.Color(0, 153, 204));
-        jLabrirAjuda.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabrirAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/ajuda16x.png"))); // NOI18N
-        jLabrirAjuda.setText("Documentação");
-        jLabrirAjuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jToolBar2.add(jLabrirAjuda);
+        jLabrirSuporte.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabrirSuporte.setForeground(new java.awt.Color(255, 0, 51));
+        jLabrirSuporte.setText("Versão 1.1     |     www.taimber.com       |       Suporte");
+        jLabrirSuporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jToolBar2.add(jLabrirSuporte);
 
         jLabel5.setText("         ");
         jToolBar2.add(jLabel5);
-
-        jLabrirSuporte.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabrirSuporte.setForeground(new java.awt.Color(0, 153, 204));
-        jLabrirSuporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/clique16.png"))); // NOI18N
-        jLabrirSuporte.setText("Suporte: www.taimber.com");
-        jLabrirSuporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jToolBar2.add(jLabrirSuporte);
 
         jMnotificacoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/notificar24x.png"))); // NOI18N
         jMnotificacoes.setText("Notificações");
@@ -313,9 +298,9 @@ public class JFprincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -372,9 +357,7 @@ public class JFprincipal extends javax.swing.JFrame {
     public com.toedter.calendar.JCalendar jDagendaDataSemana;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    public javax.swing.JLabel jLabrirAjuda;
     public javax.swing.JLabel jLabrirSuporte;
     public javax.swing.JMenuItem jMagenda;
     public javax.swing.JMenuItem jMatualizar;
