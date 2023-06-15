@@ -92,6 +92,7 @@ public class VendaIniciaMetodos {
 
             vendaModeloItemDevolveList.add(vendaModeloItemList.get(view.jTprodutoSelecionado.getSelectedRow()));
             vendaModeloItemList.remove(view.jTprodutoSelecionado.getSelectedRow());
+            vendaModeloItemBaixaList.remove(view.jTprodutoSelecionado.getSelectedRow());
 
         } catch (Exception ex) {
 
