@@ -21,7 +21,7 @@ public class ProdutoModelo implements Modelo, Serializable {
     private BigDecimal valorCusto = new BigDecimal(0);
     private BigDecimal valorVenda = new BigDecimal(0);
 
-    @Column(columnDefinition = "clob")
+    @Column(columnDefinition = "CLOB")
     @Lob
     private String descricao;
 

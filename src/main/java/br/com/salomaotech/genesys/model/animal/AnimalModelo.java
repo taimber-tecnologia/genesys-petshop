@@ -5,10 +5,12 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import static java.util.Objects.isNull;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -29,6 +31,9 @@ public class AnimalModelo implements Modelo, Serializable {
     private BigDecimal peso = new BigDecimal("0");
     private String especie;
     private String raca;
+
+    @Column(columnDefinition = "CLOB")
+    @Lob
     private String caracteristica;
 
     @Override
