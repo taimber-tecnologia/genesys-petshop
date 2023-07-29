@@ -4,7 +4,6 @@ import br.com.salomaotech.sistema.patterns.Modelo;
 import java.io.Serializable;
 import java.util.Calendar;
 import static java.util.Objects.isNull;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,7 +38,6 @@ public class ClienteModelo implements Modelo, Serializable {
     private String cidade;
     private String uf;
 
-    @Column(columnDefinition = "CLOB")
     @Lob
     private String complemento;
 

@@ -3,7 +3,6 @@ package br.com.salomaotech.genesys.model.produto;
 import br.com.salomaotech.sistema.patterns.Modelo;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +20,6 @@ public class ProdutoModelo implements Modelo, Serializable {
     private BigDecimal valorCusto = new BigDecimal(0);
     private BigDecimal valorVenda = new BigDecimal(0);
 
-    @Column(columnDefinition = "CLOB")
     @Lob
     private String descricao;
 

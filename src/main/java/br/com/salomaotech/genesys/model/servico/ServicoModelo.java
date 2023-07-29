@@ -3,7 +3,6 @@ package br.com.salomaotech.genesys.model.servico;
 import br.com.salomaotech.sistema.patterns.Modelo;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +18,6 @@ public class ServicoModelo implements Modelo, Serializable {
 
     private String nome;
 
-    @Column(columnDefinition = "CLOB")
     @Lob
     private String descricao;
 
