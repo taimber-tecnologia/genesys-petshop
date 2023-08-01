@@ -17,7 +17,7 @@ public class App {
 
     private static void carregarAtivador() {
 
-        new AtivadorController().construir();
+        new AtivadorController().construir("genesys-petshop-2.0");
 
     }
 
