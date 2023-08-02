@@ -150,7 +150,7 @@ public class JFagenda extends javax.swing.JFrame {
         jLabel8.setText("Data:");
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel7.setText("Paciente:");
+        jLabel7.setText("Cliente:");
 
         jLabel13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel13.setText(":");
@@ -325,7 +325,7 @@ public class JFagenda extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Data", "Hora", "Paciente", "Telefone", "Status"
+                "Código", "Data", "Hora", "Cliente", "Telefone", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
