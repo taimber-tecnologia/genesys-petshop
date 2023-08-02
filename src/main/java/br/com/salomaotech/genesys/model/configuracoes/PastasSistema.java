@@ -1,20 +1,36 @@
 package br.com.salomaotech.genesys.model.configuracoes;
 
+import br.com.salomaotech.sistema.algoritmos.ArquivoPropriedade;
+import br.com.salomaotech.sistema.algoritmos.CaminhoArquivoNormalizado;
+import br.com.salomaotech.sistema.jpa.ConfiguracoesConexao;
+import static java.util.Objects.isNull;
+import java.util.Properties;
+
 public class PastasSistema {
 
-    private final String pastaRaiz;
+    private String pastaRaiz = "";
     private final String subPastaImpressao;
-    private final String subPastaImagemLogotipoEmpresa;
-    private final String subPastaImagemLogotipoEmpresaTemporaria;
-    private final String subPastaEnderecoArquivoDeDocumentacao;
 
     public PastasSistema() {
 
-        pastaRaiz = System.getProperty("user.dir") + "/target/arquivos/";
-        subPastaImpressao = pastaRaiz + "impressao_temp/";
-        subPastaImagemLogotipoEmpresa = pastaRaiz + "logotipo_empresa/";
-        subPastaImagemLogotipoEmpresaTemporaria = pastaRaiz + "logotipo_empresa_temp/";
-        subPastaEnderecoArquivoDeDocumentacao = pastaRaiz + "documentacao/ajuda.pdf";
+        ConfiguracoesConexao configuracoesConexao = new ConfiguracoesConexao();
+
+        if (!isNull(configuracoesConexao.getPropriedades())) {
+
+            Properties propriedades = new ArquivoPropriedade(configuracoesConexao.getPathArquivo()).getProperties();
+            pastaRaiz = propriedades.getProperty("pasta_raiz");
+
+        } else {
+
+            pastaRaiz = System.getProperty("user.dir");
+
+        }
+
+        /* pasta raiz */
+        pastaRaiz = CaminhoArquivoNormalizado.obterCaminhoArquivoNormalizado(pastaRaiz + "/target/arquivos");
+
+        /* subpastas */
+        subPastaImpressao = CaminhoArquivoNormalizado.obterCaminhoArquivoNormalizado(pastaRaiz + "/impressao_temp/");
 
     }
 
@@ -24,18 +40,6 @@ public class PastasSistema {
 
     public String getSubPastaImpressao() {
         return subPastaImpressao;
-    }
-
-    public String getSubPastaImagemLogotipoEmpresa() {
-        return subPastaImagemLogotipoEmpresa;
-    }
-
-    public String getSubPastaImagemLogotipoEmpresaTemporaria() {
-        return subPastaImagemLogotipoEmpresaTemporaria;
-    }
-
-    public String getSubPastaEnderecoArquivoDeDocumentacao() {
-        return subPastaEnderecoArquivoDeDocumentacao;
     }
 
 }

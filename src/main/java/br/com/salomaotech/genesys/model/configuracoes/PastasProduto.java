@@ -1,24 +1,18 @@
 package br.com.salomaotech.genesys.model.configuracoes;
 
+import br.com.salomaotech.sistema.algoritmos.CaminhoArquivoNormalizado;
+
 public class PastasProduto {
 
     private final String pastaRaiz;
     private final String subPastaDeFotosDoPerfil;
     private final String subPastaDeTemporarios;
 
-    /**
-     * Construtor
-     *
-     * @param idProduto ID do produto
-     */
     public PastasProduto(String idProduto) {
 
-        /* pasta raiz */
-        pastaRaiz = new PastasSistema().getPastaRaiz() + "produto/" + idProduto + "/";
-
-        /* subpastas */
-        subPastaDeFotosDoPerfil = pastaRaiz + "foto_produto/";
-        subPastaDeTemporarios = pastaRaiz + "temporario/";
+        pastaRaiz = CaminhoArquivoNormalizado.obterCaminhoArquivoNormalizado(new PastasSistema().getPastaRaiz() + "/produto/" + idProduto);
+        subPastaDeFotosDoPerfil = CaminhoArquivoNormalizado.obterCaminhoArquivoNormalizado(pastaRaiz + "/foto_produto");
+        subPastaDeTemporarios = CaminhoArquivoNormalizado.obterCaminhoArquivoNormalizado(pastaRaiz + "/temporario");
 
     }
 

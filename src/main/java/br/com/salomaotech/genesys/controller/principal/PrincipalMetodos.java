@@ -16,7 +16,7 @@ public class PrincipalMetodos {
 
     public void carregaAgendaDia() {
 
-        agendaPesquisa.setDataInicialDate(view.jDagendaDataSemana.getCalendar());
+        agendaPesquisa.setDataInicialDate(view.jDagendaDataSemana.getDate());
         agendaPesquisa.setStatus(view.jCpesquisaStatus.getSelectedItem().toString());
         agendaPesquisa.pesquisar();
 

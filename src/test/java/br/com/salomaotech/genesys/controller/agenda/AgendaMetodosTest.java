@@ -25,8 +25,8 @@ public class AgendaMetodosTest {
         agendaModelo.setDataMinuto("30");
         agendaModelo.setObservacoes("Banho");
         agendaModelo.setNomeCliente("Teste");
+        agendaModelo.setTelefone("62 0000-0000");
         agendaModelo.setStatus("1 - Agendado");
-        agendaModelo.setTelefone("0000-0000");
         new Repository(agendaModelo).save();
 
     }
@@ -43,10 +43,10 @@ public class AgendaMetodosTest {
         assertEquals(true, view.jDcadastroData.getCalendar().equals(agendaModelo.getDataAgenda()));
         assertEquals(true, view.jCcadastroHora.getSelectedItem().toString().equals(agendaModelo.getDataHora()));
         assertEquals(true, view.jCcadastroMinuto.getSelectedItem().toString().equals(agendaModelo.getDataMinuto()));
-        assertEquals(true, view.jTcadastroNomeCliente.getText().equals(agendaModelo.getNomeCliente()));
+        assertEquals(true, view.jCcadastroNomeCliente.getEditor().getItem().equals(agendaModelo.getNomeCliente()));
+        assertEquals(true, view.jTcadastroTelefone.getText().equals(agendaModelo.getTelefone()));
         assertEquals(true, view.jTcadastroHistorico.getText().equals(agendaModelo.getObservacoes()));
         assertEquals(true, view.jCstatus.getSelectedItem().toString().equals(agendaModelo.getStatus()));
-        assertEquals(true, view.jTcontatoTelefone.getText().equals(agendaModelo.getTelefone()));
 
     }
 
@@ -62,10 +62,10 @@ public class AgendaMetodosTest {
         assertEquals(true, isNull(view.jDcadastroData.getDate()));
         assertEquals(true, view.jCcadastroHora.getSelectedItem().toString().equals("00"));
         assertEquals(true, view.jCcadastroMinuto.getSelectedItem().toString().equals("00"));
-        assertEquals(true, view.jTcadastroNomeCliente.getText().equals(""));
+        assertEquals(true, view.jCcadastroNomeCliente.getEditor().getItem().equals(""));
+        assertEquals(true, view.jTcadastroTelefone.getText().equals(""));
         assertEquals(true, view.jTcadastroHistorico.getText().equals(""));
         assertEquals(true, view.jCstatus.getSelectedIndex() == 0);
-        assertEquals(true, view.jTcontatoTelefone.getText().equals(""));
 
     }
 
@@ -94,10 +94,10 @@ public class AgendaMetodosTest {
         /* testa se o menu de popup foi adicionado */
         PopUp popUp = new PopUp();
         System.out.println("Testando classe AgendaMetodos metodo: addPopUpMenu");
-        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTcadastroNomeCliente));
+        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jCcadastroNomeCliente));
+        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTcadastroTelefone));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTcadastroHistorico));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTpesquisaNomeCliente));
-        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTcontatoTelefone));
 
     }
 
@@ -113,10 +113,10 @@ public class AgendaMetodosTest {
         assertEquals(true, view.jDcadastroData.getCalendar().equals(agendaModelo.getDataAgenda()));
         assertEquals(true, view.jCcadastroHora.getSelectedItem().toString().equals(agendaModelo.getDataHora()));
         assertEquals(true, view.jCcadastroMinuto.getSelectedItem().toString().equals(agendaModelo.getDataMinuto()));
-        assertEquals(true, view.jTcadastroNomeCliente.getText().equals(agendaModelo.getNomeCliente()));
+        assertEquals(true, view.jCcadastroNomeCliente.getEditor().getItem().equals(agendaModelo.getNomeCliente()));
+        assertEquals(true, view.jTcadastroTelefone.getText().equals(agendaModelo.getTelefone()));
         assertEquals(true, view.jTcadastroHistorico.getText().equals(agendaModelo.getObservacoes()));
         assertEquals(true, view.jCstatus.getSelectedItem().toString().equals(agendaModelo.getStatus()));
-        assertEquals(true, view.jTcontatoTelefone.getText().equals(agendaModelo.getTelefone()));
 
     }
 
@@ -126,7 +126,7 @@ public class AgendaMetodosTest {
         /* usando filtro: nenhum */
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(null);
-        view.jTcadastroNomeCliente.setText(null);
+        view.jCcadastroNomeCliente.getEditor().setItem(null);
         view.jCpesquisaStatus.setSelectedItem("");
         view.jCdataAnterior.setSelected(false);
         agendaMetodos.pesquisar();
@@ -136,7 +136,7 @@ public class AgendaMetodosTest {
         /* usando filtro: data de inicio */
         view.jDpesquisaDataInicio.setDate(calendar.getTime());
         view.jDPesquisaDataFim.setDate(null);
-        view.jTcadastroNomeCliente.setText(null);
+        view.jCcadastroNomeCliente.getEditor().setItem(null);
         view.jCpesquisaStatus.setSelectedItem("");
         view.jCdataAnterior.setSelected(false);
         agendaMetodos.pesquisar();
@@ -146,7 +146,7 @@ public class AgendaMetodosTest {
         /* usando filtro: data de fim */
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(calendar.getTime());
-        view.jTcadastroNomeCliente.setText(null);
+        view.jCcadastroNomeCliente.getEditor().setItem(null);
         view.jCpesquisaStatus.setSelectedItem("");
         view.jCdataAnterior.setSelected(false);
         agendaMetodos.pesquisar();
@@ -156,7 +156,7 @@ public class AgendaMetodosTest {
         /* usando filtro: ID do cliente */
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(null);
-        view.jTcadastroNomeCliente.setText(agendaModelo.getNomeCliente());
+        view.jCcadastroNomeCliente.getEditor().getItem().equals(agendaModelo.getNomeCliente());
         view.jCpesquisaStatus.setSelectedItem("");
         view.jCdataAnterior.setSelected(false);
         agendaMetodos.pesquisar();
@@ -166,7 +166,7 @@ public class AgendaMetodosTest {
         /* usando filtro: data anterior */
         view.jDpesquisaDataInicio.setDate(calendar.getTime());
         view.jDPesquisaDataFim.setDate(null);
-        view.jTcadastroNomeCliente.setText(null);
+        view.jCcadastroNomeCliente.getEditor().setItem(null);
         view.jCpesquisaStatus.setSelectedItem("");
         view.jCdataAnterior.setSelected(true);
         agendaMetodos.pesquisar();
@@ -176,7 +176,7 @@ public class AgendaMetodosTest {
         /* usando filtro: status */
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(null);
-        view.jTcadastroNomeCliente.setText(null);
+        view.jCcadastroNomeCliente.getEditor().setItem(null);
         view.jCpesquisaStatus.setSelectedItem(agendaModelo.getStatus());
         view.jCdataAnterior.setSelected(false);
         agendaMetodos.pesquisar();
@@ -186,7 +186,7 @@ public class AgendaMetodosTest {
         /* usando filtro: todos */
         view.jDpesquisaDataInicio.setDate(calendar.getTime());
         view.jDPesquisaDataFim.setDate(null);
-        view.jTcadastroNomeCliente.setText(agendaModelo.getNomeCliente());
+        view.jCcadastroNomeCliente.getEditor().getItem().equals(agendaModelo.getNomeCliente());
         view.jCpesquisaStatus.setSelectedItem(agendaModelo.getStatus());
         view.jCdataAnterior.setSelected(true);
         agendaMetodos.pesquisar();
@@ -211,10 +211,10 @@ public class AgendaMetodosTest {
         assertEquals(true, view.jDcadastroData.getCalendar().equals(agendaModelo.getDataAgenda()));
         assertEquals(true, view.jCcadastroHora.getSelectedItem().toString().equals(agendaModelo.getDataHora()));
         assertEquals(true, view.jCcadastroMinuto.getSelectedItem().toString().equals(agendaModelo.getDataMinuto()));
-        assertEquals(true, view.jTcadastroNomeCliente.getText().equals(agendaModelo.getNomeCliente()));
+        assertEquals(true, view.jCcadastroNomeCliente.getEditor().getItem().equals(agendaModelo.getNomeCliente()));
+        assertEquals(true, view.jTcadastroTelefone.getText().equals(agendaModelo.getTelefone()));
         assertEquals(true, view.jTcadastroHistorico.getText().equals(agendaModelo.getObservacoes()));
         assertEquals(true, view.jCstatus.getSelectedItem().toString().equals(agendaModelo.getStatus()));
-        assertEquals(true, view.jTcontatoTelefone.getText().equals(agendaModelo.getTelefone()));
 
     }
 

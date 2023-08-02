@@ -1,6 +1,6 @@
 package br.com.salomaotech.genesys.controller.agenda;
 
-import br.com.salomaotech.genesys.model.agenda.AgendaPesquisa;
+import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.view.JFagenda;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
 import java.util.Calendar;
@@ -9,13 +9,15 @@ import javax.swing.JFrame;
 public class AgendaController {
 
     private final JFagenda view = new JFagenda();
+    private final ComboBoxClientes comboBoxClientes;
     private final AgendaMetodos agendaMetodos = new AgendaMetodos(view);
     private final AgendaEventos agendaEventos = new AgendaEventos(view);
 
     public AgendaController() {
 
-        /* eventos */
-        agendaEventos.setAgendaMetodos(agendaMetodos);
+        /* preenche comboboxes */
+        comboBoxClientes = new ComboBoxClientes(view.jCcadastroNomeCliente, new AgendaClienteCommand(view));
+        comboBoxClientes.preencher();
 
     }
 
@@ -30,12 +32,12 @@ public class AgendaController {
         /* metodos */
         agendaMetodos.addPopUpMenu();
         agendaMetodos.habilitarCampos();
+        agendaMetodos.pesquisar();
 
         /* eventos */
+        agendaEventos.setComboBoxClientes(comboBoxClientes);
+        agendaEventos.setAgendaMetodos(agendaMetodos);
         agendaEventos.addEventos();
-
-        /* exibe os dados */
-        new AgendaPesquisa(view.jTresultados, view.jCpaginador).pesquisar();
 
     }
 

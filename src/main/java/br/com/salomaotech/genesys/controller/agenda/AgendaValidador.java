@@ -18,6 +18,7 @@ public class AgendaValidador {
         if (!Datas.isCalendarioValido(view.jDcadastroData.getCalendar())) {
 
             mensagensErro = "Data de agendamento inválida.";
+            view.jTabaPrincipal.setSelectedIndex(0);
             return false;
 
         }

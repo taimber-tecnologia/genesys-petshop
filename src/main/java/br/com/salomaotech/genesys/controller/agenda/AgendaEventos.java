@@ -1,7 +1,7 @@
 package br.com.salomaotech.genesys.controller.agenda;
 
 import br.com.salomaotech.genesys.model.agenda.AgendaModelo;
-import br.com.salomaotech.genesys.model.agenda.AgendaPesquisa;
+import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.view.JFagenda;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -14,6 +14,7 @@ public class AgendaEventos {
 
     private final JFagenda view;
     private AgendaMetodos agendaMetodos;
+    private ComboBoxClientes comboBoxClientes;
 
     public AgendaEventos(JFagenda view) {
         this.view = view;
@@ -21,6 +22,10 @@ public class AgendaEventos {
 
     public void setAgendaMetodos(AgendaMetodos agendaMetodos) {
         this.agendaMetodos = agendaMetodos;
+    }
+
+    public void setComboBoxClientes(ComboBoxClientes comboBoxClientes) {
+        this.comboBoxClientes = comboBoxClientes;
     }
 
     public void addEventos() {
@@ -39,7 +44,7 @@ public class AgendaEventos {
 
                     agendaMetodos.popularFormulario(agendaModelo);
                     agendaMetodos.habilitarCampos();
-                    new AgendaPesquisa(view.jTresultados, view.jCpaginador).pesquisar();
+                    agendaMetodos.pesquisar();
                     JOptionPane.showMessageDialog(null, "Registro salvo com sucesso!");
 
                 } else {
@@ -66,7 +71,7 @@ public class AgendaEventos {
 
                     agendaMetodos.resetarView();
                     agendaMetodos.habilitarCampos();
-                    new AgendaPesquisa(view.jTresultados, view.jCpaginador).pesquisar();
+                    agendaMetodos.pesquisar();
                     JOptionPane.showMessageDialog(null, "Registro excluido!");
 
                 } else {
@@ -100,8 +105,6 @@ public class AgendaEventos {
 
             agendaMetodos.resetarView();
             agendaMetodos.habilitarCampos();
-            view.jTabaPrincipal.setSelectedIndex(0);
-            view.jTcadastroNomeCliente.requestFocus();
 
         });
 
@@ -149,6 +152,13 @@ public class AgendaEventos {
             public void keyReleased(KeyEvent e) {
 
             }
+
+        });
+
+        /* refresh de cliente */
+        view.jBrefreshCliente.addActionListener((ActionEvent e) -> {
+
+            comboBoxClientes.preencher();
 
         });
 

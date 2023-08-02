@@ -20,10 +20,10 @@ public class AgendaMetodos {
         view.jDcadastroData.setCalendar(agendaModelo.getDataAgenda());
         view.jCcadastroHora.setSelectedItem(agendaModelo.getDataHora());
         view.jCcadastroMinuto.setSelectedItem(agendaModelo.getDataMinuto());
-        view.jTcadastroNomeCliente.setText(agendaModelo.getNomeCliente());
+        view.jCcadastroNomeCliente.getEditor().setItem(agendaModelo.getNomeCliente());
+        view.jTcadastroTelefone.setText(agendaModelo.getTelefone());
         view.jTcadastroHistorico.setText(agendaModelo.getObservacoes());
         view.jCstatus.setSelectedItem(agendaModelo.getStatus());
-        view.jTcontatoTelefone.setText(agendaModelo.getTelefone());
 
     }
 
@@ -31,9 +31,11 @@ public class AgendaMetodos {
 
         AgendaModelo agendaModelo = new AgendaModelo();
         popularFormulario(agendaModelo);
+        view.jTabaPrincipal.setSelectedIndex(0);
         view.jCcadastroHora.setSelectedIndex(0);
         view.jCcadastroMinuto.setSelectedIndex(0);
         view.jCstatus.setSelectedIndex(0);
+        view.jCcadastroNomeCliente.requestFocus();
 
     }
 
@@ -46,10 +48,10 @@ public class AgendaMetodos {
     public void addPopUpMenu() {
 
         PopUp popUp = new PopUp();
-        popUp.adicionarMenu(view.jTcadastroNomeCliente);
+        popUp.adicionarMenu(view.jCcadastroNomeCliente);
+        popUp.adicionarMenu(view.jTcadastroTelefone);
         popUp.adicionarMenu(view.jTcadastroHistorico);
         popUp.adicionarMenu(view.jTpesquisaNomeCliente);
-        popUp.adicionarMenu(view.jTcontatoTelefone);
 
     }
 
@@ -66,8 +68,8 @@ public class AgendaMetodos {
     public void pesquisar() {
 
         AgendaPesquisa agendaPesquisa = new AgendaPesquisa(view.jTresultados, view.jCpaginador);
-        agendaPesquisa.setDataInicialDate(view.jDpesquisaDataInicio.getCalendar());
-        agendaPesquisa.setDataFinalDate(view.jDPesquisaDataFim.getCalendar());
+        agendaPesquisa.setDataInicialDate(view.jDpesquisaDataInicio.getDate());
+        agendaPesquisa.setDataFinalDate(view.jDPesquisaDataFim.getDate());
         agendaPesquisa.setNomeCliente(view.jTpesquisaNomeCliente.getText());
         agendaPesquisa.setStatus(view.jCpesquisaStatus.getSelectedItem().toString());
         agendaPesquisa.setIsDataAnterior(view.jCdataAnterior.isSelected());
@@ -79,13 +81,13 @@ public class AgendaMetodos {
 
         AgendaModelo agendaModelo = new AgendaModelo();
         agendaModelo.setId(view.getId());
-        agendaModelo.setNomeCliente(view.jTcadastroNomeCliente.getText());
+        agendaModelo.setNomeCliente(view.jCcadastroNomeCliente.getEditor().getItem().toString());
+        agendaModelo.setTelefone(view.jTcadastroTelefone.getText());
         agendaModelo.setDataAgenda(view.jDcadastroData.getCalendar());
         agendaModelo.setDataHora(view.jCcadastroHora.getSelectedItem().toString());
         agendaModelo.setDataMinuto(view.jCcadastroMinuto.getSelectedItem().toString());
         agendaModelo.setObservacoes(view.jTcadastroHistorico.getText());
         agendaModelo.setStatus(view.jCstatus.getSelectedItem().toString());
-        agendaModelo.setTelefone(view.jTcontatoTelefone.getText());
         new Repository(agendaModelo).save();
         return agendaModelo;
 

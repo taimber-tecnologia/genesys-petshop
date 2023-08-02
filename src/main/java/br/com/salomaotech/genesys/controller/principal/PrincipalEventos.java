@@ -4,6 +4,7 @@ import br.com.salomaotech.genesys.controller.agenda.AgendaController;
 import br.com.salomaotech.genesys.controller.animal.AnimalController;
 import br.com.salomaotech.genesys.controller.empresa.EmpresaController;
 import br.com.salomaotech.genesys.controller.cliente.ClienteController;
+import br.com.salomaotech.genesys.controller.configuracoes.ConfiguracoesController;
 import br.com.salomaotech.genesys.controller.financeiro.FinanceiroController;
 import br.com.salomaotech.genesys.controller.fornecedor.FornecedorController;
 import br.com.salomaotech.genesys.controller.produto.ProdutoController;
@@ -229,6 +230,13 @@ public class PrincipalEventos {
         view.jMatualizar.addActionListener((ActionEvent e) -> {
 
             principalMetodos.carregaNotificacoes();
+
+        });
+
+        /* atalho para configurações */
+        view.jBatalhoConfiguracoes.addActionListener((ActionEvent e) -> {
+
+            new ConfiguracoesController().construir();
 
         });
 

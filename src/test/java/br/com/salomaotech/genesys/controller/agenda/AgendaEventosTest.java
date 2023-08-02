@@ -1,6 +1,8 @@
 package br.com.salomaotech.genesys.controller.agenda;
 
+import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.view.JFagenda;
+import javax.swing.JComboBox;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -30,6 +32,26 @@ public class AgendaEventosTest {
     }
 
     @Test
+    public void testSetComboBoxClientes() {
+
+        boolean isErro = false;
+
+        try {
+
+            agendaEventos.setComboBoxClientes(new ComboBoxClientes(new JComboBox()));
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe AgendaEventos método: setComboBoxClientes");
+        assertEquals(false, isErro);
+
+    }
+
+    @Test
     public void testAddEventos() {
 
         /* adiciona eventos */
@@ -45,6 +67,7 @@ public class AgendaEventosTest {
         assertEquals(true, view.jBpesquisa.getActionListeners().length == 1);
         assertEquals(true, view.jBpaginador.getActionListeners().length == 1);
         assertEquals(true, view.jTpesquisaNomeCliente.getKeyListeners().length == 1);
+        assertEquals(true, view.jBrefreshCliente.getActionListeners().length == 1);
 
     }
 
