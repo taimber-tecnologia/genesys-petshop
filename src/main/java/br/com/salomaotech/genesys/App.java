@@ -1,6 +1,7 @@
 package br.com.salomaotech.genesys;
 
 import br.com.salomaotech.genesys.controller.ativador.AtivadorController;
+import br.com.salomaotech.genesys.controller.novidades.ExibeNovidades;
 import br.com.salomaotech.genesys.controller.principal.PrincipalController;
 import br.com.salomaotech.genesys.model.centro_custo.CentroCustoInicializa;
 import br.com.salomaotech.genesys.view.JFinicializar;
@@ -11,13 +12,15 @@ public class App {
 
     private static void carregarConfiguracoesPadrao() {
 
+        /* conexão */
+        new ConexaoSingleton().abrirConexao("Conexao");
+
+        /* cadastros */
         new CentroCustoInicializa().cadastrar();
 
-    }
-
-    private static void carregarAtivador() {
-
+        /* serviços adicionais */
         new AtivadorController().construir("genesys-petshop-2.0");
+        ExibeNovidades.exibir();
 
     }
 
@@ -28,14 +31,8 @@ public class App {
         new MudaIconeJframe().alterar("animal64x", view);
         view.setVisible(true);
 
-        /* abre a conexão com o banco de dados */
-        new ConexaoSingleton().abrirConexao("Conexao");
-
         /* carrega as configurações padrão */
         carregarConfiguracoesPadrao();
-
-        /* carrega o ativador */
-        carregarAtivador();
 
         /* abre o JFrame principal */
         new PrincipalController().construir();
