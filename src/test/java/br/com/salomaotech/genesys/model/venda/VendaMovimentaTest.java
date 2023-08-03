@@ -74,7 +74,7 @@ public class VendaMovimentaTest {
         System.out.println("Testando classe VendaMovimenta metodo: finalizar checa lançamentos em financeiro");
         JPQL jpql = new JPQL(new FinanceiroModelo());
         jpql.addParametroIgual("idVenda", vendaModelo.getId());
-        assertEquals(true, new Repository(new FinanceiroModelo()).countTodos(jpql.getCondicaoWhere()) == vendaModelo.getNumeroParcelas());
+        assertEquals(true, new Repository(new FinanceiroModelo()).countTodos(jpql.getCondicaoWhere()) == 1);
 
     }
 

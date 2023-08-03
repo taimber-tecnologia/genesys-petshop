@@ -159,7 +159,7 @@ public class VendaIniciaMetodos {
 
         view.jBprodutoAdicionaItem.setEnabled(itemVenda.getId() != 0);
         view.jBprodutoLimpaItem.setEnabled(itemVenda.getId() != 0);
-        view.jBcalcularGranel.setEnabled(itemVenda.getProdutoModelo().getId() != 0);
+        view.jBcalcularGranel.setEnabled(itemVenda.getProdutoModelo().getId() != 0 && itemVenda.getPeso().compareTo(new BigDecimal(0)) == 1);
 
     }
 

@@ -42,14 +42,14 @@ public class FinanceiroMovimentaTest {
         simulaCadastroDeVendas(numeroParcelas);
         financeiroMovimenta.adicionar();
         System.out.println("Testando classe FinanceiroMovimenta metodo: adicionar etapa 01");
-        assertEquals(true, new Repository(new FinanceiroModelo()).countTodos(jpql.getCondicaoWhere()) == numeroParcelas);
+        assertEquals(true, new Repository(new FinanceiroModelo()).countTodos(jpql.getCondicaoWhere()) == 1);
 
-        /* simula cadastro de venda com várias parcelas */
+        /* simula cadastro de venda com várias parcelas porém só pode aparecer uma */
         numeroParcelas = 7;
         simulaCadastroDeVendas(numeroParcelas);
         financeiroMovimenta.adicionar();
         System.out.println("Testando classe FinanceiroMovimenta metodo: adicionar etapa 02");
-        assertEquals(true, new Repository(new FinanceiroModelo()).countTodos(jpql.getCondicaoWhere()) == numeroParcelas);
+        assertEquals(true, new Repository(new FinanceiroModelo()).countTodos(jpql.getCondicaoWhere()) == 1);
 
     }
 

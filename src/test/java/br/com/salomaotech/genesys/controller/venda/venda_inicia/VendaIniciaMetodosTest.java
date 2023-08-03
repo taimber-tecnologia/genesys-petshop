@@ -35,6 +35,7 @@ public class VendaIniciaMetodosTest {
         produtoModelo.setValorVenda(new BigDecimal(100));
         produtoModelo.setQuantidade(new BigDecimal(50));
         produtoModelo.setDescricao("Teste ABC");
+        produtoModelo.setPeso(new BigDecimal(5));
         new Repository(produtoModelo).save();
 
         /* simula seleção de item de produto */
@@ -166,12 +167,14 @@ public class VendaIniciaMetodosTest {
         System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCamposDeAdicionarProduto etapa 01");
         assertEquals(true, view.jBprodutoAdicionaItem.isEnabled());
         assertEquals(true, view.jBprodutoLimpaItem.isEnabled());
+        assertEquals(true, view.jBcalcularGranel.isEnabled());
 
         /* esperados todos os campos não visiveis */
         vendaIniciaMetodos.habilitarCamposDeAdicionarProduto(new ItemVenda());
         System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCamposDeAdicionarProduto etapa 02");
         assertEquals(false, view.jBprodutoAdicionaItem.isEnabled());
         assertEquals(false, view.jBprodutoLimpaItem.isEnabled());
+        assertEquals(false, view.jBcalcularGranel.isEnabled());
 
     }
 

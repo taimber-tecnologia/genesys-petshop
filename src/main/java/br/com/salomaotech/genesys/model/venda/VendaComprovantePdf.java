@@ -133,16 +133,18 @@ public class VendaComprovantePdf {
         gerarPdf.addConteudo("==================== PAGAMENTO ===================");
 
         /* forma de pagamento */
-        pdfPTable = new PdfPTable(3);
+        pdfPTable = new PdfPTable(4);
         pdfPTable.setTotalWidth(250);
         pdfPTable.setLockedWidth(true);
         pdfPTable.setHorizontalAlignment(Element.ALIGN_LEFT);
-        pdfPTable.addCell(createCell("Vencimento", Element.ALIGN_LEFT, Font.BOLD));
-        pdfPTable.addCell(createCell("Valor", Element.ALIGN_LEFT, Font.BOLD));
-        pdfPTable.addCell(createCell("Forma pgto.", Element.ALIGN_LEFT, Font.BOLD));
+        pdfPTable.addCell(createCell("Data", Element.ALIGN_LEFT, Font.BOLD));
+        pdfPTable.addCell(createCell("Total", Element.ALIGN_LEFT, Font.BOLD));
+        pdfPTable.addCell(createCell("Forma", Element.ALIGN_LEFT, Font.BOLD));
+        pdfPTable.addCell(createCell("Parc.", Element.ALIGN_LEFT, Font.BOLD));
         pdfPTable.addCell(createCell(dataBr, Element.ALIGN_LEFT, Font.NORMAL));
         pdfPTable.addCell(createCell(valorTotalBr, Element.ALIGN_LEFT, Font.NORMAL));
         pdfPTable.addCell(createCell(vendaModelo.getFormaPagamento(), Element.ALIGN_LEFT, Font.NORMAL));
+        pdfPTable.addCell(createCell(String.valueOf(vendaModelo.getNumeroParcelas()), Element.ALIGN_LEFT, Font.NORMAL));
         gerarPdf.addConteudo(pdfPTable);
 
         /* rodapé */
