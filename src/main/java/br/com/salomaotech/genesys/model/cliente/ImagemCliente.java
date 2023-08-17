@@ -68,11 +68,8 @@ public class ImagemCliente {
 
     public static boolean remover(String idCliente, JPanel jPanel) {
 
-        /* atualiza a view */
         jPanel.removeAll();
         jPanel.repaint();
-
-        /* remove da view e do disco */
         return RemovePastaDeArquivos.remover(new PastasCliente(idCliente).getSubPastaDeFotosDoPerfil());
 
     }

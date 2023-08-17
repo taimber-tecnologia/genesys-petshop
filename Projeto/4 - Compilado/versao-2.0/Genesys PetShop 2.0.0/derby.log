@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Thu Aug 17 13:38:31 BRT 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018a-045c-e5c1-00000025f7c0 
+on database directory C:\Users\-\Documents\NetBeansProjects\genesys-petshop\Projeto\4 - Compilado\versao-2.0\Genesys PetShop 2.0.0\target\arquivos\banco with class loader sun.misc.Launcher$AppClassLoader@647e05 
+Loaded from file:/C:/Users/-/Documents/NetBeansProjects/genesys-petshop/Projeto/4%20-%20Compilado/versao-2.0/Genesys%20PetShop%202.0.0/Genesys%20PetShop%202.0.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_381-b09
+user.dir=C:\Users\-\Documents\NetBeansProjects\genesys-petshop\Projeto\4 - Compilado\versao-2.0\Genesys PetShop 2.0.0
+os.name=Windows 10
+os.arch=x86
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

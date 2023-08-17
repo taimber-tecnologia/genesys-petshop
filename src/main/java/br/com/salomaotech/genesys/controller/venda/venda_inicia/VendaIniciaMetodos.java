@@ -2,9 +2,11 @@ package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
 import br.com.salomaotech.genesys.model.venda.ItemVenda;
 import br.com.salomaotech.genesys.controller.venda.venda_conclui.VendaConcluiController;
+import br.com.salomaotech.genesys.model.configuracoes.PastasSistema;
 import br.com.salomaotech.genesys.model.produto.ImagemProduto;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.servico.ServicoModelo;
+import br.com.salomaotech.genesys.model.venda.VendaComprovantePdf;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
 import br.com.salomaotech.genesys.model.venda.VendaMovimenta;
@@ -189,6 +191,7 @@ public class VendaIniciaMetodos {
         VendaMovimenta vendaMovimenta = new VendaMovimenta(vendaModelo, null, vendaModeloItemOriginalList);
         vendaMovimenta.excluir();
 
+        new VendaComprovantePdf(new PastasSistema().getSubPastaImpressao(), view.getId()).excluir();
         return new Repository(new VendaModelo()).delete(vendaModelo.getId());
 
     }

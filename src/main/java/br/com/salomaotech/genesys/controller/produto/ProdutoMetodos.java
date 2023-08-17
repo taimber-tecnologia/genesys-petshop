@@ -114,6 +114,7 @@ public class ProdutoMetodos {
 
     public boolean excluir() {
 
+        ImagemProduto.remover(String.valueOf(view.getId()), view.jPdadosPerfilFoto);
         return new Repository(new ProdutoModelo()).delete(view.getId());
 
     }

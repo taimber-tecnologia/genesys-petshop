@@ -16,6 +16,7 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
+import java.io.File;
 import java.math.BigDecimal;
 import javax.swing.JOptionPane;
 
@@ -27,7 +28,7 @@ public class VendaComprovantePdf {
 
     public VendaComprovantePdf(String pathDestino, long idVenda) {
 
-        this.pathDestino = pathDestino + "venda_" + idVenda + ".pdf";
+        this.pathDestino = pathDestino + "venda_" + idVenda;
         this.idVenda = idVenda;
 
     }
@@ -160,6 +161,20 @@ public class VendaComprovantePdf {
         } else {
 
             JOptionPane.showMessageDialog(null, "Falha ao gerar comprovante de venda!");
+            return false;
+
+        }
+
+    }
+
+    public boolean excluir() {
+
+        try {
+
+            return new File(pathDestino + ".pdf").delete();
+
+        } catch (Exception ex) {
+
             return false;
 
         }

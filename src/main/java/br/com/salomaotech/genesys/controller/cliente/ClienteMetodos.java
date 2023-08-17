@@ -121,6 +121,7 @@ public class ClienteMetodos {
 
     public boolean excluir() {
 
+        ImagemCliente.remover(String.valueOf(view.getId()), view.jPdadosPerfilFoto);
         return new Repository(new ClienteModelo()).delete(view.getId());
 
     }

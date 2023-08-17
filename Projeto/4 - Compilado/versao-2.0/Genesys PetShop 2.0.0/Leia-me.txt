@@ -1,0 +1,7 @@
+1 - Do que você precisa: Java 8 instalado
+2 - Start do sistema: Genesys PetShop 2.0.0
+3 - Dúvidas: contato@taimber.com
+
+
+Download do Java
+https://www.java.com/pt-BR/download/

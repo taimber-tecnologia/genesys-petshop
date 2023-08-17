@@ -30,4 +30,14 @@ public class VendaComprovantePdfTest {
 
     }
 
+    @Test
+    public void testExcluir() {
+
+        vendaComprovantePdf.gerar();
+
+        System.out.println("Testando classe VendaRelatorioPdf metodo: excluir");
+        assertEquals(true, vendaComprovantePdf.excluir());
+
+    }
+
 }
