@@ -159,6 +159,39 @@ public class VendaIniciaMetodosTest {
     }
 
     @Test
+    public void TestHabilitarCampos() {
+
+        // Teste 1: Quando vendaModelo.getId() == 0 (nova venda)
+        vendaIniciaMetodos.abrirCadastro(0);
+        vendaIniciaMetodos.habilitarCampos();
+
+        System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCampos - Nova Venda (ID=0)");
+        assertEquals(false, view.jBvendaExcluir.isEnabled());
+        assertEquals(false, view.jBimprimir.isEnabled());
+        assertEquals(true, view.jBvendaFinaliza.isEnabled());
+        assertEquals(true, view.jCprodutoLista.isEnabled());
+        assertEquals(true, view.jBprodutoAdicionaItem.isEnabled());
+        assertEquals(true, view.jBprodutoLimpaItem.isEnabled());
+        assertEquals(true, view.jBprodutoSelecionadoRemoverItem.isEnabled());
+        assertEquals(true, view.jTprodutoQuantidade.isEnabled());
+
+        // Teste 2: Quando vendaModelo.getId() != 0 (venda existente)
+        vendaIniciaMetodos.abrirCadastro(vendaModelo.getId());
+        vendaIniciaMetodos.habilitarCampos();
+
+        System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCampos - Venda Existente (ID!=0)");
+        assertEquals(true, view.jBvendaExcluir.isEnabled());
+        assertEquals(true, view.jBimprimir.isEnabled());
+        assertEquals(false, view.jBvendaFinaliza.isEnabled());
+        assertEquals(false, view.jCprodutoLista.isEnabled());
+        assertEquals(false, view.jBprodutoAdicionaItem.isEnabled());
+        assertEquals(false, view.jBprodutoLimpaItem.isEnabled());
+        assertEquals(false, view.jBprodutoSelecionadoRemoverItem.isEnabled());
+        assertEquals(false, view.jTprodutoQuantidade.isEnabled());
+
+    }
+
+    @Test
     public void testHabilitarCamposDeAdicionarProduto() {
 
         /* esperado todos os campos visiveis */
@@ -174,24 +207,6 @@ public class VendaIniciaMetodosTest {
         assertEquals(false, view.jBprodutoAdicionaItem.isEnabled());
         assertEquals(false, view.jBprodutoLimpaItem.isEnabled());
         assertEquals(false, view.jBcalcularGranel.isEnabled());
-
-    }
-
-    @Test
-    public void testHabilitarCamposDeExcluirVenda() {
-
-        /* esperados todos os campos não visiveis */
-        vendaIniciaMetodos.habilitarCamposDeExcluirVenda();
-        System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCamposDeExcluirVenda etapa 01");
-        assertEquals(false, view.jBvendaExcluir.isEnabled());
-        assertEquals(false, view.jBimprimir.isEnabled());
-
-        /* esperado todos os campos visiveis */
-        vendaIniciaMetodos.abrirCadastro(vendaModelo.getId());
-        vendaIniciaMetodos.habilitarCamposDeExcluirVenda();
-        System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCamposDeExcluirVenda etapa 02");
-        assertEquals(true, view.jBvendaExcluir.isEnabled());
-        assertEquals(true, view.jBimprimir.isEnabled());
 
     }
 

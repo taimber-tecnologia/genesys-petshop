@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
-import br.com.salomaotech.genesys.model.venda.ItemVenda;
 import br.com.salomaotech.genesys.model.venda.ComboBoxItemVenda;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
@@ -28,8 +27,7 @@ public class VendaIniciaController {
         view.setExtendedState(view.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 
         /* metodos */
-        vendaIniciaMetodos.habilitarCamposDeAdicionarProduto(new ItemVenda());
-        vendaIniciaMetodos.habilitarCamposDeExcluirVenda();
+        vendaIniciaMetodos.habilitarCampos();
 
         /* eventos */
         vendaIniciaEventos.addEventos();
@@ -42,7 +40,6 @@ public class VendaIniciaController {
 
         construir();
         vendaIniciaMetodos.abrirCadastro(id);
-        vendaIniciaMetodos.habilitarCamposDeExcluirVenda();
         return view;
 
     }

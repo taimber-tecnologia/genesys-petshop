@@ -155,18 +155,30 @@ public class VendaIniciaMetodos {
 
     }
 
+    public void habilitarCampos() {
+
+        boolean isNovaVenda = vendaModelo.getId() == 0;
+        boolean isVendaExistente = !isNovaVenda;
+
+        // Botões disponíveis apenas para vendas existentes
+        view.jBvendaExcluir.setEnabled(isVendaExistente);
+        view.jBimprimir.setEnabled(isVendaExistente);
+
+        // Campos disponíveis apenas para novas vendas
+        view.jBvendaFinaliza.setEnabled(isNovaVenda);
+        view.jCprodutoLista.setEnabled(isNovaVenda);
+        view.jBprodutoAdicionaItem.setEnabled(isNovaVenda);
+        view.jBprodutoLimpaItem.setEnabled(isNovaVenda);
+        view.jBprodutoSelecionadoRemoverItem.setEnabled(isNovaVenda);
+        view.jTprodutoQuantidade.setEnabled(isNovaVenda);
+
+    }
+
     public void habilitarCamposDeAdicionarProduto(ItemVenda itemVenda) {
 
         view.jBprodutoAdicionaItem.setEnabled(itemVenda.getId() != 0);
         view.jBprodutoLimpaItem.setEnabled(itemVenda.getId() != 0);
         view.jBcalcularGranel.setEnabled(itemVenda.getProdutoModelo().getId() != 0 && itemVenda.getPeso().compareTo(new BigDecimal(0)) == 1);
-
-    }
-
-    public void habilitarCamposDeExcluirVenda() {
-
-        view.jBvendaExcluir.setEnabled(vendaModelo.getId() != 0);
-        view.jBimprimir.setEnabled(vendaModelo.getId() != 0);
 
     }
 
@@ -208,6 +220,9 @@ public class VendaIniciaMetodos {
         }
 
         exibirProdutosSelecionados();
+
+        /* habilita campos */
+        habilitarCampos();
 
     }
 
