@@ -16,7 +16,6 @@ public class ProdutoPesquisa {
     private final JComboBox jCpaginador;
     private String nome;
     private String categoria;
-    private boolean estoqueBaixo;
 
     public ProdutoPesquisa(JTable jTresultados, JComboBox jCpaginador) {
         this.jTresultados = jTresultados;
@@ -31,10 +30,6 @@ public class ProdutoPesquisa {
         this.categoria = categoria;
     }
 
-    public void setEstoqueBaixo(boolean estoqueBaixo) {
-        this.estoqueBaixo = estoqueBaixo;
-    }
-
     private void popularDados(List<ProdutoModelo> produtoModeloList) {
 
         DefaultTableModel defaultTableModel = (DefaultTableModel) jTresultados.getModel();
@@ -47,7 +42,6 @@ public class ProdutoPesquisa {
                 produtoModelo.getId(),
                 produtoModelo.getNome(),
                 ConverteNumeroParaMoedaBr.converter(produtoModelo.getValorVenda().toString()),
-                produtoModelo.getMedida(),
                 produtoModelo.getQuantidade(),
                 produtoModelo.getCategoria()
 
@@ -71,13 +65,6 @@ public class ProdutoPesquisa {
         if (!ValidaStringIsEmpty.isEmpty(categoria)) {
 
             jpql.addParametroIgual("categoria", categoria);
-
-        }
-
-        /* valida o estoque mínimo */
-        if (estoqueBaixo) {
-
-            jpql.addParametroCompararDuasChaves("quantidade", "estoqueMinimo", "<=");
 
         }
 

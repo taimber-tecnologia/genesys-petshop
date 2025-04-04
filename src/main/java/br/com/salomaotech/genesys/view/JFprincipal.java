@@ -53,7 +53,6 @@ public class JFprincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMnotificacoes = new javax.swing.JMenu();
         jMagenda = new javax.swing.JMenuItem();
-        jMestoque = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMfinanceiroPagar = new javax.swing.JMenuItem();
         jMfinanceiroReceber = new javax.swing.JMenuItem();
@@ -260,10 +259,6 @@ public class JFprincipal extends javax.swing.JFrame {
         jMagenda.setText("Agenda");
         jMnotificacoes.add(jMagenda);
 
-        jMestoque.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jMestoque.setText("Estoque");
-        jMnotificacoes.add(jMestoque);
-
         jMenu1.setText("Financeiro");
         jMenu1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
@@ -373,7 +368,6 @@ public class JFprincipal extends javax.swing.JFrame {
     public javax.swing.JMenuItem jMatualizar;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    public javax.swing.JMenuItem jMestoque;
     public javax.swing.JMenuItem jMfinanceiroPagar;
     public javax.swing.JMenuItem jMfinanceiroReceber;
     public javax.swing.JMenu jMnotificacoes;

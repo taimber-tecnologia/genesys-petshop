@@ -26,7 +26,6 @@ public class PrincipalMetodos {
 
         Notificacoes notificacoes = new Notificacoes();
         view.jMagenda.setText("Agenda - " + notificacoes.getAgenda());
-        view.jMestoque.setText("Estoque - " + notificacoes.getProdutoEstoqueMinimo());
         view.jMfinanceiroPagar.setText("Pagar - " + notificacoes.getFinanceiroPagar());
         view.jMfinanceiroReceber.setText("Receber - " + notificacoes.getFinanceiroReceber());
         view.jMnotificacoes.setText("Notificações - " + notificacoes.total());

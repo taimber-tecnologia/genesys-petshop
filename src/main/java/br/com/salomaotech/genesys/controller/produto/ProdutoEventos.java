@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.controller.produto;
 
-import br.com.salomaotech.genesys.controller.fornecedor.FornecedorController;
-import br.com.salomaotech.genesys.model.fornecedor.ComboBoxFornecedores;
 import br.com.salomaotech.genesys.model.produto.ComboBoxProdutoCategoria;
 import br.com.salomaotech.genesys.model.produto.ImagemProduto;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
@@ -20,7 +18,6 @@ public class ProdutoEventos {
     private ProdutoMetodos produtoMetodos;
     private ComboBoxProdutoCategoria comboBoxProdutoCategoriaCadastro;
     private ComboBoxProdutoCategoria comboBoxProdutoCategoriaPesquisa;
-    private ComboBoxFornecedores comboBoxFornecedores;
 
     public ProdutoEventos(JFproduto view) {
         this.view = view;
@@ -32,10 +29,6 @@ public class ProdutoEventos {
 
     public void setComboBoxProdutoCategoriaPesquisa(ComboBoxProdutoCategoria comboBoxProdutoCategoriaPesquisa) {
         this.comboBoxProdutoCategoriaPesquisa = comboBoxProdutoCategoriaPesquisa;
-    }
-
-    public void setComboBoxFornecedores(ComboBoxFornecedores comboBoxFornecedores) {
-        this.comboBoxFornecedores = comboBoxFornecedores;
     }
 
     public void setProdutoMetodos(ProdutoMetodos produtoMetodos) {
@@ -180,20 +173,6 @@ public class ProdutoEventos {
 
             comboBoxProdutoCategoriaCadastro.preencher();
             comboBoxProdutoCategoriaPesquisa.preencher();
-
-        });
-
-        /* refresh para carregar fornecedores */
-        view.jBrefreshFornecedor.addActionListener((ActionEvent e) -> {
-
-            comboBoxFornecedores.preencher();
-
-        });
-
-        /* atalho para cadastrar fornecedor */
-        view.jBpesquisaFornecedor.addActionListener((ActionEvent e) -> {
-
-            new FornecedorController().construir();
 
         });
 

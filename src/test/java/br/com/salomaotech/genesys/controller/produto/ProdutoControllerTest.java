@@ -27,24 +27,4 @@ public class ProdutoControllerTest {
 
     }
 
-    @Test
-    public void testConstruirEstoqueBaixo() {
-
-        boolean isErro = false;
-
-        try {
-
-            produtoController.construirEstoqueBaixo();
-
-        } catch (Exception ex) {
-
-            isErro = true;
-
-        }
-
-        System.out.println("Testando classe ProdutoController metodo: construirEstoqueBaixo");
-        assertEquals(false, isErro);
-
-    }
-
 }

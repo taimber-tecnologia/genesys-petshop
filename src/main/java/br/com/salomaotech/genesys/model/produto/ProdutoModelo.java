@@ -17,17 +17,13 @@ public class ProdutoModelo implements Modelo, Serializable {
     private long id;
 
     private String nome;
-    private BigDecimal valorCusto = new BigDecimal(0);
     private BigDecimal valorVenda = new BigDecimal(0);
 
     @Lob
     private String descricao;
 
     private String categoria;
-    private long idFornecedor;
     private BigDecimal quantidade = new BigDecimal(0);
-    private BigDecimal estoqueMinimo = new BigDecimal(0);
-    private String medida;
     private BigDecimal peso = new BigDecimal(0);
 
     @Override
@@ -46,14 +42,6 @@ public class ProdutoModelo implements Modelo, Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public BigDecimal getValorCusto() {
-        return valorCusto;
-    }
-
-    public void setValorCusto(BigDecimal valorCusto) {
-        this.valorCusto = valorCusto;
     }
 
     public BigDecimal getValorVenda() {
@@ -80,36 +68,12 @@ public class ProdutoModelo implements Modelo, Serializable {
         this.categoria = categoria;
     }
 
-    public long getIdFornecedor() {
-        return idFornecedor;
-    }
-
-    public void setIdFornecedor(long idFornecedor) {
-        this.idFornecedor = idFornecedor;
-    }
-
     public BigDecimal getQuantidade() {
         return quantidade;
     }
 
     public void setQuantidade(BigDecimal quantidade) {
         this.quantidade = quantidade;
-    }
-
-    public BigDecimal getEstoqueMinimo() {
-        return estoqueMinimo;
-    }
-
-    public void setEstoqueMinimo(BigDecimal estoqueMinimo) {
-        this.estoqueMinimo = estoqueMinimo;
-    }
-
-    public String getMedida() {
-        return medida;
-    }
-
-    public void setMedida(String medida) {
-        this.medida = medida;
     }
 
     public BigDecimal getPeso() {

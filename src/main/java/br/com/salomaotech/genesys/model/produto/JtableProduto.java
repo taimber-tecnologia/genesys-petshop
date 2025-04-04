@@ -36,7 +36,6 @@ public class JtableProduto {
             Object[] linhaDefaultTableModel = new Object[]{
                 produtoModelo.getId(),
                 produtoModelo.getNome(),
-                produtoModelo.getMedida(),
                 produtoModelo.getQuantidade(),
                 ConverteNumeroParaMoedaBr.converter(produtoModelo.getValorVenda().toString())
             };

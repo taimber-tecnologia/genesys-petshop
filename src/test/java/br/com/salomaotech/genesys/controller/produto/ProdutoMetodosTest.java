@@ -1,7 +1,5 @@
 package br.com.salomaotech.genesys.controller.produto;
 
-import br.com.salomaotech.genesys.model.fornecedor.ComboBoxFornecedores;
-import br.com.salomaotech.genesys.model.fornecedor.FornecedorModelo;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.view.JFproduto;
 import br.com.salomaotech.sistema.jpa.Repository;
@@ -13,54 +11,20 @@ import static org.junit.Assert.*;
 public class ProdutoMetodosTest {
 
     private final JFproduto view = new JFproduto();
-    private final ComboBoxFornecedores comboBoxFornecedores = new ComboBoxFornecedores(view.jCfornecedor);
-    private final FornecedorModelo fornecedorModelo = new FornecedorModelo();
     private ProdutoModelo produtoModelo = new ProdutoModelo();
     private ProdutoMetodos produtoMetodos = new ProdutoMetodos(view);
 
     public ProdutoMetodosTest() {
 
-        /* simula cadastro de fornecedor */
-        new Repository(new FornecedorModelo()).deleteTodos();
-        fornecedorModelo.setNome("Teste");
-        new Repository(fornecedorModelo).save();
-
         /* simula cadastro de produtos */
         new Repository(new ProdutoModelo()).deleteTodos();
         produtoModelo.setNome("Teste");
-        produtoModelo.setValorCusto(new BigDecimal(0));
         produtoModelo.setValorVenda(new BigDecimal(0));
         produtoModelo.setDescricao("Teste descrição");
         produtoModelo.setCategoria("Teste categoria");
         produtoModelo.setQuantidade(new BigDecimal(0));
-        produtoModelo.setEstoqueMinimo(new BigDecimal(0));
-        produtoModelo.setMedida("UNID");
-        produtoModelo.setIdFornecedor(fornecedorModelo.getId());
         produtoModelo.setPeso(new BigDecimal(10));
         new Repository(produtoModelo).save();
-
-        /* metodos */
-        produtoMetodos.setComboBoxFornecedores(comboBoxFornecedores);
-
-    }
-
-    @Test
-    public void testSetComboBoxFornecedores() {
-
-        boolean isErro = false;
-
-        try {
-
-            produtoMetodos.setComboBoxFornecedores(comboBoxFornecedores);
-
-        } catch (Exception ex) {
-
-            isErro = true;
-
-        }
-
-        System.out.println("Testando classe ProdutoMetodos metodo: setComboBoxFornecedores");
-        assertEquals(false, isErro);
 
     }
 
@@ -74,14 +38,10 @@ public class ProdutoMetodosTest {
         System.out.println("Testando classe ProdutoMetodos metodo: popularFormulario");
         assertEquals(true, view.getId() == produtoModelo.getId());
         assertEquals(true, view.jTnome.getText().equals(produtoModelo.getNome()));
-        assertEquals(true, view.jTvalorCusto.getText().equals(produtoModelo.getValorCusto().toString()));
         assertEquals(true, view.jTvalorVenda.getText().equals(produtoModelo.getValorVenda().toString()));
         assertEquals(true, view.jTdescricao.getText().equals(produtoModelo.getDescricao()));
         assertEquals(true, view.jCcategoria.getEditor().getItem().equals(produtoModelo.getCategoria()));
         assertEquals(true, view.jTquantidade.getText().equals(produtoModelo.getQuantidade().toString()));
-        assertEquals(true, view.jTestoqueMinimo.getText().equals(produtoModelo.getEstoqueMinimo().toString()));
-        assertEquals(true, view.jCmedida.getSelectedItem().equals(produtoModelo.getMedida()));
-        assertEquals(true, comboBoxFornecedores.getIdSelecionado() == produtoModelo.getIdFornecedor());
         assertEquals(true, view.jTpeso.getText().equals(produtoModelo.getPeso().toString()));
 
     }
@@ -96,14 +56,10 @@ public class ProdutoMetodosTest {
         System.out.println("Testando classe ProdutoMetodos metodo: resetarView");
         assertEquals(true, view.getId() == 0);
         assertEquals(true, view.jTnome.getText().equals(""));
-        assertEquals(true, view.jTvalorCusto.getText().equals("0"));
         assertEquals(true, view.jTvalorVenda.getText().equals("0"));
         assertEquals(true, view.jTdescricao.getText().equals(""));
         assertEquals(true, view.jCcategoria.getEditor().getItem().equals(""));
         assertEquals(true, view.jTquantidade.getText().equals("0"));
-        assertEquals(true, view.jTestoqueMinimo.getText().equals("0"));
-        assertEquals(true, view.jCmedida.getEditor().getItem().equals(""));
-        assertEquals(true, comboBoxFornecedores.getIdSelecionado() == 0);
         assertEquals(true, view.jTpeso.getText().equals("0"));
 
     }
@@ -142,11 +98,9 @@ public class ProdutoMetodosTest {
         /* testa se os eventos de pop menu foram adicionados */
         System.out.println("Testando classe ProdutoMetodos metodo: addPopUpMenu");
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTnome));
-        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTvalorCusto));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTvalorVenda));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTdescricao));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTquantidade));
-        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTestoqueMinimo));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTpeso));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTpesquisaNome));
 
@@ -162,17 +116,13 @@ public class ProdutoMetodosTest {
         System.out.println("Testando classe ProdutoMetodos metodo: abrirCadastro");
         assertEquals(true, view.getId() == produtoModelo.getId());
         assertEquals(true, view.jTnome.getText().equals(produtoModelo.getNome()));
-        assertEquals(true, view.jTvalorCusto.getText().equals(produtoModelo.getValorCusto().toString()));
         assertEquals(true, view.jTvalorVenda.getText().equals(produtoModelo.getValorVenda().toString()));
         assertEquals(true, view.jTdescricao.getText().equals(produtoModelo.getDescricao()));
         assertEquals(true, view.jCcategoria.getEditor().getItem().equals(produtoModelo.getCategoria()));
         assertEquals(true, view.jTquantidade.getText().equals(produtoModelo.getQuantidade().toString()));
-        assertEquals(true, view.jTestoqueMinimo.getText().equals(produtoModelo.getEstoqueMinimo().toString()));
-        assertEquals(true, view.jCmedida.getSelectedItem().equals(produtoModelo.getMedida()));
-        assertEquals(true, comboBoxFornecedores.getIdSelecionado() == produtoModelo.getIdFornecedor());
         assertEquals(true, view.jTpeso.getText().equals(produtoModelo.getPeso().toString()));
 
-        /* foto do perfil */
+        /* foto do produto */
         assertEquals(true, view.jPdadosPerfilFoto.getComponents().length == 0);
 
     }
@@ -191,14 +141,10 @@ public class ProdutoMetodosTest {
         System.out.println("Testando classe ProdutoMetodos metodo: salvar");
         assertEquals(true, view.getId() == produtoModelo.getId());
         assertEquals(true, view.jTnome.getText().equals(produtoModelo.getNome()));
-        assertEquals(true, view.jTvalorCusto.getText().equals(produtoModelo.getValorCusto().toString()));
         assertEquals(true, view.jTvalorVenda.getText().equals(produtoModelo.getValorVenda().toString()));
         assertEquals(true, view.jTdescricao.getText().equals(produtoModelo.getDescricao()));
         assertEquals(true, view.jCcategoria.getEditor().getItem().equals(produtoModelo.getCategoria()));
         assertEquals(true, view.jTquantidade.getText().equals(produtoModelo.getQuantidade().toString()));
-        assertEquals(true, view.jTestoqueMinimo.getText().equals(produtoModelo.getEstoqueMinimo().toString()));
-        assertEquals(true, view.jCmedida.getSelectedItem().equals(produtoModelo.getMedida()));
-        assertEquals(true, comboBoxFornecedores.getIdSelecionado() == produtoModelo.getIdFornecedor());
         assertEquals(true, view.jTpeso.getText().equals(produtoModelo.getPeso().toString()));
 
     }
@@ -221,7 +167,6 @@ public class ProdutoMetodosTest {
         /* utilizando filtro: nenhum */
         view.jTpesquisaNome.setText(null);
         view.jCpesquisaCategoria.getEditor().setItem("");
-        view.jCestoqueBaixo.setEnabled(false);
         produtoMetodos = new ProdutoMetodos(view);
         produtoMetodos.pesquisar();
         System.out.println("Testando classe ProdutoMetodos metodo: pesquisar etapa 01");
@@ -230,7 +175,6 @@ public class ProdutoMetodosTest {
         /* utilizando filtro: nome */
         view.jTpesquisaNome.setText(produtoModelo.getNome());
         view.jCpesquisaCategoria.getEditor().setItem("");
-        view.jCestoqueBaixo.setEnabled(false);
         produtoMetodos = new ProdutoMetodos(view);
         produtoMetodos.pesquisar();
         System.out.println("Testando classe ProdutoMetodos metodo: pesquisar etapa 02");
@@ -239,28 +183,17 @@ public class ProdutoMetodosTest {
         /* utilizando filtro: categoria */
         view.jTpesquisaNome.setText(null);
         view.jCpesquisaCategoria.getEditor().setItem(produtoModelo.getCategoria());
-        view.jCestoqueBaixo.setEnabled(false);
         produtoMetodos = new ProdutoMetodos(view);
         produtoMetodos.pesquisar();
         System.out.println("Testando classe ProdutoMetodos metodo: pesquisar etapa 03");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* utilizando filtro: estoque baixo */
-        view.jTpesquisaNome.setText(null);
-        view.jCpesquisaCategoria.getEditor().setItem("");
-        view.jCestoqueBaixo.setEnabled(true);
-        produtoMetodos = new ProdutoMetodos(view);
-        produtoMetodos.pesquisar();
-        System.out.println("Testando classe ProdutoMetodos metodo: pesquisar etapa 04");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
-
         /* utilizando filtro: todos */
         view.jTpesquisaNome.setText(produtoModelo.getNome());
         view.jCpesquisaCategoria.getEditor().setItem(produtoModelo.getCategoria());
-        view.jCestoqueBaixo.setEnabled(false);
         produtoMetodos = new ProdutoMetodos(view);
         produtoMetodos.pesquisar();
-        System.out.println("Testando classe ProdutoMetodos metodo: pesquisar etapa 05");
+        System.out.println("Testando classe ProdutoMetodos metodo: pesquisar etapa 04");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
     }

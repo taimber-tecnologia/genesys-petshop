@@ -34,7 +34,6 @@ public class PrincipalMetodosTest {
         new Repository(new ProdutoModelo()).deleteTodos();
         produtoModelo.setNome("Teste");
         produtoModelo.setQuantidade(new BigDecimal(10));
-        produtoModelo.setEstoqueMinimo(new BigDecimal(5));
         new Repository(produtoModelo).save();
 
     }
@@ -75,7 +74,6 @@ public class PrincipalMetodosTest {
         Notificacoes notificacoes = new Notificacoes();
         System.out.println("Testando classe PrincipalMetodos metodo: carregaNotificacoes");
         assertEquals(true, view.jMagenda.getText().equals("Agenda - " + notificacoes.getAgenda()));
-        assertEquals(true, view.jMestoque.getText().equals("Estoque - " + notificacoes.getProdutoEstoqueMinimo()));
         assertEquals(true, view.jMfinanceiroPagar.getText().equals("Pagar - " + notificacoes.getFinanceiroPagar()));
         assertEquals(true, view.jMfinanceiroReceber.getText().equals("Receber - " + notificacoes.getFinanceiroReceber()));
         assertEquals(true, view.jMnotificacoes.getText().equals("Notificações - " + notificacoes.total()));

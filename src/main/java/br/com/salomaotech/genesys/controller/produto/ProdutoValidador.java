@@ -42,24 +42,6 @@ public class ProdutoValidador {
 
         }
 
-        /* valida unidade de medida */
-        if (view.jCmedida.getSelectedIndex() == -1) {
-
-            mensagensErro = "Informe a unidade de medida.";
-            view.jCmedida.requestFocus();
-            return false;
-
-        }
-
-        /* valida valor de custo */
-        if (!IsStringNumeroValido.isNumeroValido(view.jTvalorCusto.getText()) && !ValidaStringIsEmpty.isEmpty(view.jTvalorCusto.getText())) {
-
-            mensagensErro = "Valor de custo inválido! Use ponto para separar casas decimais exemplo 1.99.";
-            view.jTvalorCusto.requestFocus();
-            return false;
-
-        }
-
         /* valida se o valor de venda é válido */
         if (!IsStringNumeroValido.isNumeroValido(view.jTvalorVenda.getText())) {
 
@@ -74,15 +56,6 @@ public class ProdutoValidador {
 
             mensagensErro = "Quantidade inválida.";
             view.jTquantidade.requestFocus();
-            return false;
-
-        }
-
-        /* valida estoque mínimo */
-        if (!IsStringNumeroValido.isNumeroValido(view.jTestoqueMinimo.getText()) && !ValidaStringIsEmpty.isEmpty(view.jTestoqueMinimo.getText())) {
-
-            mensagensErro = "Estoque mínimo inválido.";
-            view.jTestoqueMinimo.requestFocus();
             return false;
 
         }

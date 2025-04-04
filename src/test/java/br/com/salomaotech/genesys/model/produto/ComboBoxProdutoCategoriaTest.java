@@ -18,7 +18,6 @@ public class ComboBoxProdutoCategoriaTest {
         new Repository(new ProdutoModelo()).deleteTodos();
         produtoModelo.setNome("Teste");
         produtoModelo.setCategoria("Teste categoria");
-        produtoModelo.setValorCusto(new BigDecimal(100));
         produtoModelo.setValorVenda(new BigDecimal(100));
         new Repository(produtoModelo).save();
 

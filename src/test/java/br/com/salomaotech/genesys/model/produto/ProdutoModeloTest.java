@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.model.produto;
 
-import br.com.salomaotech.genesys.model.fornecedor.FornecedorModelo;
 import java.math.BigDecimal;
 import static java.util.Objects.isNull;
 import org.junit.Test;
@@ -41,23 +40,6 @@ public class ProdutoModeloTest {
         produtoModelo.setNome("Teste");
         System.out.println("Testando classe ProdutoModelo metodo: setNome");
         assertEquals(true, produtoModelo.getNome().equals("Teste"));
-
-    }
-
-    @Test
-    public void testGetValorCusto() {
-
-        System.out.println("Testando classe ProdutoModelo metodo: getValorCusto");
-        assertEquals(true, produtoModelo.getValorCusto().equals(new BigDecimal(0)));
-
-    }
-
-    @Test
-    public void testSetValorCusto() {
-
-        produtoModelo.setValorCusto(new BigDecimal(100));
-        System.out.println("Testando classe ProdutoModelo metodo: setValorCusto");
-        assertEquals(true, produtoModelo.getValorCusto().equals(new BigDecimal(100)));
 
     }
 
@@ -116,24 +98,6 @@ public class ProdutoModeloTest {
     }
 
     @Test
-    public void testGetIdFornecedor() {
-
-        System.out.println("Testando classe ProdutoModelo metodo: getIdFornecedor");
-        assertEquals(true, produtoModelo.getIdFornecedor() == 0);
-
-    }
-
-    @Test
-    public void testSetIdFornecedor() {
-
-        FornecedorModelo fornecedor = new FornecedorModelo();
-        produtoModelo.setIdFornecedor(fornecedor.getId());
-        System.out.println("Testando classe ProdutoModelo metodo: setIdFornecedor");
-        assertEquals(true, produtoModelo.getIdFornecedor() == fornecedor.getId());
-
-    }
-
-    @Test
     public void testGetQuantidade() {
 
         System.out.println("Testando classe ProdutoModelo metodo: getQuantidade");
@@ -148,42 +112,6 @@ public class ProdutoModeloTest {
         produtoModelo.setQuantidade(quantidade);
         System.out.println("Testando classe ProdutoModelo metodo: setQuantidade");
         assertEquals(true, produtoModelo.getQuantidade().equals(quantidade));
-
-    }
-
-    @Test
-    public void testGetEstoqueMinimo() {
-
-        System.out.println("Testando classe ProdutoModelo metodo: getEstoqueMinimo");
-        assertEquals(true, produtoModelo.getEstoqueMinimo().equals(new BigDecimal(0)));
-
-    }
-
-    @Test
-    public void testSetEstoqueMinimo() {
-
-        BigDecimal estoqueMinimo = new BigDecimal(100);
-        produtoModelo.setEstoqueMinimo(estoqueMinimo);
-        System.out.println("Testando classe ProdutoModelo metodo: setEstoqueMinimo");
-        assertEquals(true, produtoModelo.getEstoqueMinimo().equals(estoqueMinimo));
-
-    }
-
-    @Test
-    public void testGetMedida() {
-
-        System.out.println("Testando classe ProdutoModelo metodo: getMedida");
-        assertEquals(true, isNull(produtoModelo.getMedida()));
-
-    }
-
-    @Test
-    public void testSetMedida() {
-
-        String medida = "Teste";
-        produtoModelo.setMedida(medida);
-        System.out.println("Testando classe ProdutoModelo metodo: setMedida");
-        assertEquals(true, produtoModelo.getMedida().equals(medida));
 
     }
 

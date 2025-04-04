@@ -20,7 +20,6 @@ public class ComboBoxItemVendaTest {
         /* simula cadastro de produtos */
         new Repository(new ProdutoModelo()).deleteTodos();
         produtoModelo.setNome("Teste");
-        produtoModelo.setValorCusto(new BigDecimal(100));
         produtoModelo.setValorVenda(new BigDecimal(100));
         new Repository(produtoModelo).save();
 

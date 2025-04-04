@@ -108,8 +108,6 @@ public class ProdutoEventosTest {
         assertEquals(true, view.jTpesquisaNome.getKeyListeners().length == 1);
         assertEquals(true, view.jBrefreshCategoria.getActionListeners().length == 1);
         assertEquals(true, view.jBrefreshPesquisaCategoria.getActionListeners().length == 1);
-        assertEquals(true, view.jBrefreshFornecedor.getActionListeners().length == 1);
-        assertEquals(true, view.jBpesquisaFornecedor.getActionListeners().length == 1);
         assertEquals(true, view.jBadicionaFoto.getActionListeners().length == 1);
         assertEquals(true, view.jBremoveFoto.getActionListeners().length == 1);
         assertEquals(true, view.jBpaginador.getActionListeners().length == 1);
