@@ -10,17 +10,22 @@ import br.com.salomaotech.sistema.swing.MudaIconeJframe;
 
 public class App {
 
-    private static void carregarConfiguracoesPadrao() {
+    private static void carregarConexaoBancoDados() {
 
-        /* conexão */
         new ConexaoSingleton().abrirConexao("Conexao");
 
-        /* cadastros */
-        new CentroCustoInicializa().cadastrar();
+    }
 
-        /* serviços adicionais */
+    private static void carregarServicosAdicionais() {
+
         new AtivadorController().construir("genesys-petshop-2.0");
         ExibeNovidades.exibir();
+
+    }
+
+    private static void carregarConfiguracoesPadrao() {
+
+        new CentroCustoInicializa().cadastrar();
 
     }
 
@@ -31,6 +36,9 @@ public class App {
         new MudaIconeJframe().alterar("animal64x", view);
         view.setVisible(true);
 
+        /* carrega a conexão com o banco de dados */
+        carregarConexaoBancoDados();
+
         /* carrega as configurações padrão */
         carregarConfiguracoesPadrao();
 
@@ -39,6 +47,9 @@ public class App {
 
         /* fecha a tela de inicialização */
         view.setVisible(false);
+
+        /* carrega serviços adicionais */
+        //carregarServicosAdicionais();
 
     }
 

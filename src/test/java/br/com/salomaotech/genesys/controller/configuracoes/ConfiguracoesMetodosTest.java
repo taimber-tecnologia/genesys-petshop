@@ -26,6 +26,7 @@ public class ConfiguracoesMetodosTest {
         propriedades.setProperty("senha", "root_xxxxxx");
         propriedades.setProperty("banco", "bd_xxxxxx");
         propriedades.setProperty("pasta_raiz", "pasta_xxxxxx");
+        propriedades.setProperty("porta", "porta_xxxxxx");
 
         /* salva as propriedades */
         arquivoPropriedade = new ArquivoPropriedade(new ConfiguracoesConexao().getPathArquivo());
@@ -47,6 +48,7 @@ public class ConfiguracoesMetodosTest {
         assertEquals(true, view.jTsenha.getText().equals(propriedades.get("senha")));
         assertEquals(true, view.jTbancoDados.getText().equals(propriedades.get("banco")));
         assertEquals(true, view.jTpastaDeArquivos.getText().equals(propriedades.getProperty("pasta_raiz")));
+        assertEquals(true, view.jTporta.getText().equals(propriedades.getProperty("porta")));
 
     }
 
@@ -89,6 +91,7 @@ public class ConfiguracoesMetodosTest {
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTsenha));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTbancoDados));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTpastaDeArquivos));
+        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTporta));
 
     }
 
@@ -99,7 +102,8 @@ public class ConfiguracoesMetodosTest {
         view.jTservidor.setText("0.0.0.0");
         view.jTlogin.setText("A1");
         view.jTsenha.setText("B2");
-        view.jTbancoDados.setText("C2");
+        view.jTbancoDados.setText("C3");
+        view.jTporta.setText("D4");
         configuracoesMetodos.salvar();
 
         /* carrega as propriedades novamente para ver se foram salvas */
@@ -111,6 +115,7 @@ public class ConfiguracoesMetodosTest {
         assertEquals(true, view.jTsenha.getText().equals(propriedades.get("senha")));
         assertEquals(true, view.jTbancoDados.getText().equals(propriedades.get("banco")));
         assertEquals(true, view.jTpastaDeArquivos.getText().equals(propriedades.getProperty("pasta_raiz")));
+        assertEquals(true, view.jTporta.getText().equals(propriedades.getProperty("porta")));
 
     }
 

@@ -52,6 +52,15 @@ public class ConfiguracoesValidador {
 
         }
 
+        /* valida porta */
+        if (ValidaStringIsEmpty.isEmpty(view.jTporta.getText())) {
+
+            mensagensErro = "Informe a porta do servidor.";
+            view.jTporta.requestFocus();
+            return false;
+
+        }
+
         /* valida conexão com servidor */
         if (!configuracoesMetodos.conectar()) {
 

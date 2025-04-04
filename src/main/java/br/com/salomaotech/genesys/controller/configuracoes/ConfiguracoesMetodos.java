@@ -33,6 +33,7 @@ public class ConfiguracoesMetodos {
             view.jTsenha.setText(propriedades.getProperty("senha"));
             view.jTbancoDados.setText(propriedades.getProperty("banco"));
             view.jTpastaDeArquivos.setText(propriedades.getProperty("pasta_raiz"));
+            view.jTporta.setText(propriedades.getProperty("porta"));
 
         } catch (Exception ex) {
 
@@ -74,6 +75,7 @@ public class ConfiguracoesMetodos {
         popUp.adicionarMenu(view.jTsenha);
         popUp.adicionarMenu(view.jTbancoDados);
         popUp.adicionarMenu(view.jTpastaDeArquivos);
+        popUp.adicionarMenu(view.jTporta);
 
     }
 
@@ -84,6 +86,7 @@ public class ConfiguracoesMetodos {
         propriedades.setProperty("senha", view.jTsenha.getText());
         propriedades.setProperty("banco", view.jTbancoDados.getText());
         propriedades.setProperty("pasta_raiz", view.jTpastaDeArquivos.getText());
+        propriedades.setProperty("porta", view.jTporta.getText());
         arquivoPropriedade.salvar(propriedades);
 
     }

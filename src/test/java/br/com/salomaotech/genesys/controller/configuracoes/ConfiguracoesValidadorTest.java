@@ -18,6 +18,7 @@ public class ConfiguracoesValidadorTest {
         view.jTlogin.setText(null);
         view.jTsenha.setText(null);
         view.jTbancoDados.setText(null);
+        view.jTporta.setText(null);
         configuracoesMetodos.conectar();
         System.out.println("Testando classe ConfiguracoesValidador metodo: isValido etapa 01");
         assertEquals(false, configuracoesValidador.isValido());
@@ -27,6 +28,7 @@ public class ConfiguracoesValidadorTest {
         view.jTlogin.setText(null);
         view.jTsenha.setText(null);
         view.jTbancoDados.setText(null);
+        view.jTporta.setText(null);
         configuracoesMetodos.conectar();
         System.out.println("Testando classe ConfiguracoesValidador metodo: isValido etapa 02");
         assertEquals(false, configuracoesValidador.isValido());
@@ -36,6 +38,7 @@ public class ConfiguracoesValidadorTest {
         view.jTlogin.setText("root");
         view.jTsenha.setText(null);
         view.jTbancoDados.setText(null);
+        view.jTporta.setText(null);
         configuracoesMetodos.conectar();
         System.out.println("Testando classe ConfiguracoesValidador metodo: isValido etapa 03");
         assertEquals(false, configuracoesValidador.isValido());
@@ -45,6 +48,7 @@ public class ConfiguracoesValidadorTest {
         view.jTlogin.setText(null);
         view.jTsenha.setText("123456");
         view.jTbancoDados.setText(null);
+        view.jTporta.setText(null);
         configuracoesMetodos.conectar();
         System.out.println("Testando classe ConfiguracoesValidador metodo: isValido etapa 04");
         assertEquals(false, configuracoesValidador.isValido());
@@ -54,8 +58,29 @@ public class ConfiguracoesValidadorTest {
         view.jTlogin.setText(null);
         view.jTsenha.setText(null);
         view.jTbancoDados.setText("bd_teste");
+        view.jTporta.setText(null);
         configuracoesMetodos.conectar();
         System.out.println("Testando classe ConfiguracoesValidador metodo: isValido etapa 05");
+        assertEquals(false, configuracoesValidador.isValido());
+
+        /* usando filtros: porta */
+        view.jTservidor.setText(null);
+        view.jTlogin.setText(null);
+        view.jTsenha.setText(null);
+        view.jTbancoDados.setText(null);
+        view.jTporta.setText("3306");
+        configuracoesMetodos.conectar();
+        System.out.println("Testando classe ConfiguracoesValidador metodo: isValido etapa 06");
+        assertEquals(false, configuracoesValidador.isValido());
+
+        /* usando filtros: todos exceto porta */
+        view.jTservidor.setText("127.0.0.1");
+        view.jTlogin.setText("root");
+        view.jTsenha.setText("root");
+        view.jTbancoDados.setText("bd_teste");
+        view.jTporta.setText(null);
+        configuracoesMetodos.conectar();
+        System.out.println("Testando classe ConfiguracoesValidador metodo: isValido etapa 07");
         assertEquals(false, configuracoesValidador.isValido());
 
         /* usando filtros: todos */
@@ -63,8 +88,9 @@ public class ConfiguracoesValidadorTest {
         view.jTlogin.setText("root");
         view.jTsenha.setText("root");
         view.jTbancoDados.setText("bd_teste");
+        view.jTporta.setText("3306");
         configuracoesMetodos.conectar();
-        System.out.println("Testando classe ConfiguracoesValidador metodo: isValido etapa 06");
+        System.out.println("Testando classe ConfiguracoesValidador metodo: isValido etapa 08");
         assertEquals(false, configuracoesValidador.isValido());
 
     }
@@ -77,6 +103,7 @@ public class ConfiguracoesValidadorTest {
         view.jTlogin.setText(null);
         view.jTsenha.setText(null);
         view.jTbancoDados.setText(null);
+        view.jTporta.setText(null);
         configuracoesMetodos.conectar();
         System.out.println("Testando classe ConfiguracoesValidador metodo: getMensagensErro etapa 01");
         configuracoesValidador.isValido();
@@ -87,6 +114,7 @@ public class ConfiguracoesValidadorTest {
         view.jTlogin.setText(null);
         view.jTsenha.setText(null);
         view.jTbancoDados.setText(null);
+        view.jTporta.setText(null);
         configuracoesMetodos.conectar();
         System.out.println("Testando classe ConfiguracoesValidador metodo: getMensagensErro etapa 02");
         configuracoesValidador.isValido();
@@ -97,6 +125,7 @@ public class ConfiguracoesValidadorTest {
         view.jTlogin.setText("root");
         view.jTsenha.setText(null);
         view.jTbancoDados.setText(null);
+        view.jTporta.setText(null);
         configuracoesMetodos.conectar();
         System.out.println("Testando classe ConfiguracoesValidador metodo: getMensagensErro etapa 03");
         configuracoesValidador.isValido();
@@ -107,6 +136,7 @@ public class ConfiguracoesValidadorTest {
         view.jTlogin.setText(null);
         view.jTsenha.setText("123456");
         view.jTbancoDados.setText(null);
+        view.jTporta.setText(null);
         configuracoesMetodos.conectar();
         System.out.println("Testando classe ConfiguracoesValidador metodo: getMensagensErro etapa 04");
         configuracoesValidador.isValido();
@@ -117,18 +147,31 @@ public class ConfiguracoesValidadorTest {
         view.jTlogin.setText(null);
         view.jTsenha.setText(null);
         view.jTbancoDados.setText("bd_teste");
+        view.jTporta.setText(null);
         configuracoesMetodos.conectar();
         System.out.println("Testando classe ConfiguracoesValidador metodo: getMensagensErro etapa 05");
         configuracoesValidador.isValido();
         assertEquals(true, configuracoesValidador.getMensagensErro().length() > 0);
 
-        /* usando filtros: todos */
+        /* usando filtros: porta */
+        view.jTservidor.setText(null);
+        view.jTlogin.setText(null);
+        view.jTsenha.setText(null);
+        view.jTbancoDados.setText(null);
+        view.jTporta.setText("3306");
+        configuracoesMetodos.conectar();
+        System.out.println("Testando classe ConfiguracoesValidador metodo: getMensagensErro etapa 06");
+        configuracoesValidador.isValido();
+        assertEquals(true, configuracoesValidador.getMensagensErro().length() > 0);
+
+        /* usando filtros: todos exceto porta */
         view.jTservidor.setText("127.0.0.1");
         view.jTlogin.setText("root");
         view.jTsenha.setText("root");
         view.jTbancoDados.setText("bd_teste");
+        view.jTporta.setText(null);
         configuracoesMetodos.conectar();
-        System.out.println("Testando classe ConfiguracoesValidador metodo: getMensagensErro etapa 06");
+        System.out.println("Testando classe ConfiguracoesValidador metodo: getMensagensErro etapa 07");
         configuracoesValidador.isValido();
         assertEquals(true, configuracoesValidador.getMensagensErro().length() > 0);
 
