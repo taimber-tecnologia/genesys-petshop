@@ -45,7 +45,6 @@ public class VendaPesquisaTest {
         vendaModelo.setData(calendar);
         vendaModelo.setVendaModeloItemList(vendaModeloItemList);
         vendaModelo.setFormaPagamento("Credito");
-        vendaModelo.setNumeroParcelas(3);
         new Repository(vendaModelo).save();
 
     }

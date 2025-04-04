@@ -13,10 +13,10 @@ public class VendaConcluiController {
     private final VendaConcluiMetodos vendaConcluiMetodos;
     private final VendaConcluiEventos vendaConcluiEventos;
 
-    public VendaConcluiController(VendaModelo vendaModelo, JFvendaInicia viewVenda, List<VendaModeloItem> vendaModeloItemBaixaList, List<VendaModeloItem> vendaModeloItemDevolveList) {
+    public VendaConcluiController(VendaModelo vendaModelo, JFvendaInicia viewVenda, List<VendaModeloItem> vendaModeloItemBaixaList) {
 
         /* metodos */
-        vendaConcluiMetodos = new VendaConcluiMetodos(view, vendaModelo, viewVenda, vendaModeloItemBaixaList, vendaModeloItemDevolveList);
+        vendaConcluiMetodos = new VendaConcluiMetodos(view, vendaModelo, viewVenda, vendaModeloItemBaixaList);
 
         /* eventos */
         vendaConcluiEventos = new VendaConcluiEventos(view, vendaModelo);

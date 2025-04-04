@@ -20,7 +20,7 @@ public class VendaConcluiEventosTest {
 
         try {
 
-            vendaConcluiEventos.setVendaConcluiMetodos(new VendaConcluiMetodos(view, vendaModelo, jFvendaInicia, null, null));
+            vendaConcluiEventos.setVendaConcluiMetodos(new VendaConcluiMetodos(view, vendaModelo, jFvendaInicia, null));
 
         } catch (Exception ex) {
 

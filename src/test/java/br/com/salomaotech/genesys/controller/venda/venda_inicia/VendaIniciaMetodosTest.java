@@ -51,7 +51,6 @@ public class VendaIniciaMetodosTest {
         vendaModelo.setData(Calendar.getInstance());
         vendaModelo.setVendaModeloItemList(vendaModeloItemList);
         vendaModelo.setFormaPagamento("Credito");
-        vendaModelo.setNumeroParcelas(3);
         new Repository(vendaModelo).save();
 
         /* novo item de venda */

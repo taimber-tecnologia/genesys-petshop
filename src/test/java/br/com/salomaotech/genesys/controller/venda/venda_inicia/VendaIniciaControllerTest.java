@@ -45,7 +45,6 @@ public class VendaIniciaControllerTest {
         vendaModelo.setData(Calendar.getInstance());
         vendaModelo.setVendaModeloItemList(vendaModeloItemList);
         vendaModelo.setFormaPagamento("Debito");
-        vendaModelo.setNumeroParcelas(0);
         new Repository(vendaModelo).save();
 
     }

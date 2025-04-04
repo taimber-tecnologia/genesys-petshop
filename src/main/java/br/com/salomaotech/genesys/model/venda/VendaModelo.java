@@ -33,9 +33,6 @@ public class VendaModelo implements Modelo, Serializable {
     private List<VendaModeloItem> vendaModeloItemList = new ArrayList();
 
     private String formaPagamento;
-    private int numeroParcelas;
-    private boolean isPago;
-    private int revisoes;
 
     @Override
     public long getId() {
@@ -83,30 +80,6 @@ public class VendaModelo implements Modelo, Serializable {
 
     public void setFormaPagamento(String formaPagamento) {
         this.formaPagamento = formaPagamento;
-    }
-
-    public int getNumeroParcelas() {
-        return numeroParcelas;
-    }
-
-    public void setNumeroParcelas(int numeroParcelas) {
-        this.numeroParcelas = numeroParcelas;
-    }
-
-    public boolean isIsPago() {
-        return isPago;
-    }
-
-    public void setIsPago(boolean isPago) {
-        this.isPago = isPago;
-    }
-
-    public int getRevisoes() {
-        return revisoes;
-    }
-
-    public void setRevisoes(int revisoes) {
-        this.revisoes = revisoes;
     }
 
     public BigDecimal getValor() {

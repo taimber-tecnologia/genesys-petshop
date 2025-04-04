@@ -108,63 +108,6 @@ public class VendaModeloTest {
     }
 
     @Test
-    public void testGetNumeroParcelas() {
-
-        System.out.println("Testando classe VendaModelo metodo: getNumeroParcelas");
-        assertEquals(true, vendaModelo.getNumeroParcelas() == 0);
-
-    }
-
-    @Test
-    public void testSetNumeroParcelas() {
-
-        int numeroParcelas = 10;
-        vendaModelo.setNumeroParcelas(numeroParcelas);
-
-        System.out.println("Testando classe VendaModelo metodo: setNumeroParcelas");
-        assertEquals(true, vendaModelo.getNumeroParcelas() == numeroParcelas);
-
-    }
-
-    @Test
-    public void testIsIsPago() {
-
-        System.out.println("Testando classe VendaModelo metodo: isIsPago");
-        assertEquals(false, vendaModelo.isIsPago());
-
-    }
-
-    @Test
-    public void testSetIsPago() {
-
-        boolean isPago = true;
-        vendaModelo.setIsPago(isPago);
-
-        System.out.println("Testando classe VendaModelo metodo: setIsPago");
-        assertEquals(true, vendaModelo.isIsPago());
-
-    }
-
-    @Test
-    public void testGetRevisoes() {
-
-        System.out.println("Testando classe VendaModelo metodo: getRevisoes");
-        assertEquals(true, vendaModelo.getRevisoes() == 0);
-
-    }
-
-    @Test
-    public void testSetRevisoes() {
-
-        int revisoes = 5;
-        vendaModelo.setRevisoes(revisoes);
-
-        System.out.println("Testando classe VendaModelo metodo: setRevisoes");
-        assertEquals(true, vendaModelo.getRevisoes() == revisoes);
-
-    }
-
-    @Test
     public void testGetValor() {
 
         System.out.println("Testando classe VendaModelo metodo: getValor");

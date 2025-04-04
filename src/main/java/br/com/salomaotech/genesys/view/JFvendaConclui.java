@@ -29,8 +29,6 @@ public class JFvendaConclui extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jCforma = new javax.swing.JComboBox<>();
-        jLparcela = new javax.swing.JLabel();
-        jCparcela = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jDdata = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
@@ -58,16 +56,9 @@ public class JFvendaConclui extends javax.swing.JFrame {
         jCforma.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jCforma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Debito", "Credito", "Dinheiro", "Pix" }));
 
-        jLparcela.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLparcela.setText("PARCELAS:");
-
-        jCparcela.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jCparcela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-
         jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel3.setText("DATA:");
 
-        jDdata.setDateFormatString("dd/MM/yyyy");
         jDdata.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -83,11 +74,7 @@ public class JFvendaConclui extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDdata, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLparcela)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCparcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(344, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,8 +85,6 @@ public class JFvendaConclui extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
                         .addComponent(jCforma)
-                        .addComponent(jCparcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLparcela)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -200,7 +185,7 @@ public class JFvendaConclui extends javax.swing.JFrame {
                 .addComponent(jBconcluir)
                 .addGap(18, 18, 18)
                 .addComponent(jBcancelar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBimprimir)
                 .addContainerGap())
         );
@@ -275,14 +260,12 @@ public class JFvendaConclui extends javax.swing.JFrame {
     public javax.swing.JButton jBconcluir;
     public javax.swing.JButton jBimprimir;
     public javax.swing.JComboBox<String> jCforma;
-    public javax.swing.JComboBox<String> jCparcela;
     public com.toedter.calendar.JDateChooser jDdata;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    public javax.swing.JLabel jLparcela;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

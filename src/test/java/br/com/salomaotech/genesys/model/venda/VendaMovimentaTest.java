@@ -16,7 +16,6 @@ public class VendaMovimentaTest {
     private ProdutoModelo produtoModelo = new ProdutoModelo();
     private final List<VendaModeloItem> vendaModeloItemList = new ArrayList();
     private final List<VendaModeloItem> vendaModeloItemBaixaList = new ArrayList();
-    private final List<VendaModeloItem> vendaModeloItemDevolveList = new ArrayList();
     private final VendaModelo vendaModelo = new VendaModelo();
     private final VendaMovimenta vendaMovimenta;
 
@@ -44,15 +43,13 @@ public class VendaMovimentaTest {
         new Repository(new VendaModelo()).deleteTodos();
         vendaModelo.setData(Calendar.getInstance());
         vendaModelo.setVendaModeloItemList(vendaModeloItemList);
-        vendaModelo.setNumeroParcelas(3);
         new Repository(vendaModelo).save();
 
-        /* atualiza listas */
+        /* atualiza lista */
         vendaModeloItemBaixaList.add(vendaModeloItem);
-        vendaModeloItemDevolveList.add(vendaModeloItem);
 
         /* seta venda */
-        vendaMovimenta = new VendaMovimenta(vendaModelo, vendaModeloItemBaixaList, vendaModeloItemDevolveList);
+        vendaMovimenta = new VendaMovimenta(vendaModelo, vendaModeloItemBaixaList);
 
     }
 
@@ -61,10 +58,6 @@ public class VendaMovimentaTest {
 
         vendaMovimenta.finalizar();
         produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(produtoModelo.getId());
-
-        /* testa o número de revisões */
-        System.out.println("Testando classe VendaMovimenta metodo: finalizar checa número de revisões");
-        assertEquals(true, vendaModelo.getRevisoes() == 1);
 
         /* testa a baixa no estoque */
         System.out.println("Testando classe VendaMovimenta metodo: finalizar checa baixa em estoque");
@@ -85,10 +78,6 @@ public class VendaMovimentaTest {
         vendaMovimenta.reabrir();
         produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(produtoModelo.getId());
 
-        /* testa a volta ao estoque */
-        System.out.println("Testando classe VendaMovimenta metodo: reabrir checa entrada em estoque");
-        assertEquals(true, produtoModelo.getQuantidade().equals(new BigDecimal("50.00")));
-
         /* testa se excluiu lançamentos financeiros */
         System.out.println("Testando classe VendaMovimenta metodo: reabrir checa lançamentos em financeiro");
         JPQL jpql = new JPQL(new FinanceiroModelo());
@@ -103,10 +92,6 @@ public class VendaMovimentaTest {
         vendaMovimenta.finalizar();
         vendaMovimenta.excluir();
         produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(produtoModelo.getId());
-
-        /* testa a volta ao estoque */
-        System.out.println("Testando classe VendaMovimenta metodo: excluir checa entrada em estoque");
-        assertEquals(true, produtoModelo.getQuantidade().equals(new BigDecimal("50.00")));
 
         /* testa se excluiu lançamentos financeiros */
         System.out.println("Testando classe VendaMovimenta metodo: excluir checa lançamentos em financeiro");

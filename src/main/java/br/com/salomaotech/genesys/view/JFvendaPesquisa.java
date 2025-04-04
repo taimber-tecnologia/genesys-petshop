@@ -58,7 +58,6 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("Data:");
 
-        jDpesquisaData.setDateFormatString("dd/MM/yyyy");
         jDpesquisaData.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -96,11 +95,11 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Data", "Valor R$", "Parcelas", "Revisões"
+                "Código", "Data", "Valor R$"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -109,18 +108,15 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTresultados);
         if (jTresultados.getColumnModel().getColumnCount() > 0) {
-            jTresultados.getColumnModel().getColumn(0).setMinWidth(85);
-            jTresultados.getColumnModel().getColumn(0).setPreferredWidth(85);
-            jTresultados.getColumnModel().getColumn(0).setMaxWidth(85);
-            jTresultados.getColumnModel().getColumn(1).setMinWidth(90);
-            jTresultados.getColumnModel().getColumn(1).setPreferredWidth(90);
-            jTresultados.getColumnModel().getColumn(1).setMaxWidth(90);
-            jTresultados.getColumnModel().getColumn(3).setMinWidth(90);
-            jTresultados.getColumnModel().getColumn(3).setPreferredWidth(90);
-            jTresultados.getColumnModel().getColumn(3).setMaxWidth(90);
-            jTresultados.getColumnModel().getColumn(4).setMinWidth(90);
-            jTresultados.getColumnModel().getColumn(4).setPreferredWidth(90);
-            jTresultados.getColumnModel().getColumn(4).setMaxWidth(90);
+            jTresultados.getColumnModel().getColumn(0).setMinWidth(100);
+            jTresultados.getColumnModel().getColumn(0).setPreferredWidth(100);
+            jTresultados.getColumnModel().getColumn(0).setMaxWidth(100);
+            jTresultados.getColumnModel().getColumn(1).setMinWidth(100);
+            jTresultados.getColumnModel().getColumn(1).setPreferredWidth(100);
+            jTresultados.getColumnModel().getColumn(1).setMaxWidth(100);
+            jTresultados.getColumnModel().getColumn(2).setMinWidth(150);
+            jTresultados.getColumnModel().getColumn(2).setPreferredWidth(150);
+            jTresultados.getColumnModel().getColumn(2).setMaxWidth(150);
         }
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N

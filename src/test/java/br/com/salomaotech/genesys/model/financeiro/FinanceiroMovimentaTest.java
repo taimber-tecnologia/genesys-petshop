@@ -13,42 +13,31 @@ public class FinanceiroMovimentaTest {
     private FinanceiroMovimenta financeiroMovimenta;
     private JPQL jpql;
 
-    private void simulaCadastroDeVendas(int numeroParcelas) {
+    private void simulaCadastroDeVendas() {
 
-        /* exclui todos os dados do financeiro */
+        /* exclui dados antigos */
+        new Repository(new VendaModelo()).deleteTodos();
         new Repository(new FinanceiroModelo()).deleteTodos();
 
         /* simula cadastro de venda */
-        new Repository(new VendaModelo()).deleteTodos();
         vendaModelo = new VendaModelo();
         vendaModelo.setData(Calendar.getInstance());
-        vendaModelo.setNumeroParcelas(numeroParcelas);
         new Repository(vendaModelo).save();
 
-        /* movimentador financeiro */
+        /* movimenta o financeiro */
         financeiroMovimenta = new FinanceiroMovimenta(vendaModelo);
 
         /* JPQL de pesquisa */
         jpql = new JPQL(new FinanceiroModelo());
-        jpql.addParametroIgual("idVenda", vendaModelo.getId());
 
     }
 
     @Test
     public void testAdicionar() {
 
-        /* simula cadastro de venda com apenas uma parcela */
-        int numeroParcelas = 1;
-        simulaCadastroDeVendas(numeroParcelas);
+        simulaCadastroDeVendas();
         financeiroMovimenta.adicionar();
-        System.out.println("Testando classe FinanceiroMovimenta metodo: adicionar etapa 01");
-        assertEquals(true, new Repository(new FinanceiroModelo()).countTodos(jpql.getCondicaoWhere()) == 1);
-
-        /* simula cadastro de venda com várias parcelas porém só pode aparecer uma */
-        numeroParcelas = 7;
-        simulaCadastroDeVendas(numeroParcelas);
-        financeiroMovimenta.adicionar();
-        System.out.println("Testando classe FinanceiroMovimenta metodo: adicionar etapa 02");
+        System.out.println("Testando classe FinanceiroMovimenta metodo: adicionar");
         assertEquals(true, new Repository(new FinanceiroModelo()).countTodos(jpql.getCondicaoWhere()) == 1);
 
     }
@@ -56,9 +45,7 @@ public class FinanceiroMovimentaTest {
     @Test
     public void testRemover() {
 
-        /* simula cadastro de venda com várias parcelas */
-        int numeroParcelas = 7;
-        simulaCadastroDeVendas(numeroParcelas);
+        simulaCadastroDeVendas();
 
         /* informa os dados do venda e adiciona a movimentação financeira */
         financeiroMovimenta.adicionar();

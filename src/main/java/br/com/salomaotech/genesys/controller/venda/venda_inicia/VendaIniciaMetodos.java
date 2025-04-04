@@ -26,7 +26,6 @@ public class VendaIniciaMetodos {
     private final List<VendaModeloItem> vendaModeloItemList = new ArrayList();
     private final List<VendaModeloItem> vendaModeloItemOriginalList = new ArrayList();
     private final List<VendaModeloItem> vendaModeloItemBaixaList = new ArrayList();
-    private final List<VendaModeloItem> vendaModeloItemDevolveList = new ArrayList();
 
     public VendaIniciaMetodos(JFvendaInicia view) {
         this.view = view;
@@ -92,7 +91,6 @@ public class VendaIniciaMetodos {
 
         try {
 
-            vendaModeloItemDevolveList.add(vendaModeloItemList.get(view.jTprodutoSelecionado.getSelectedRow()));
             vendaModeloItemList.remove(view.jTprodutoSelecionado.getSelectedRow());
             vendaModeloItemBaixaList.remove(view.jTprodutoSelecionado.getSelectedRow());
 
@@ -181,14 +179,14 @@ public class VendaIniciaMetodos {
     public void finalizarVenda() {
 
         vendaModelo.setVendaModeloItemList(vendaModeloItemList);
-        new VendaConcluiController(vendaModelo, view, vendaModeloItemBaixaList, vendaModeloItemDevolveList).construir();
+        new VendaConcluiController(vendaModelo, view, vendaModeloItemBaixaList).construir();
 
     }
 
     public boolean excluir() {
 
         /* volta todos os produtos da venda ao estoque */
-        VendaMovimenta vendaMovimenta = new VendaMovimenta(vendaModelo, null, vendaModeloItemOriginalList);
+        VendaMovimenta vendaMovimenta = new VendaMovimenta(vendaModelo, null);
         vendaMovimenta.excluir();
 
         new VendaComprovantePdf(new PastasSistema().getSubPastaImpressao(), view.getId()).excluir();

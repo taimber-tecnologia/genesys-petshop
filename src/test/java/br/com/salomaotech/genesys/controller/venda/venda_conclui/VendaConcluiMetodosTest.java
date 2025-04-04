@@ -1,13 +1,11 @@
 package br.com.salomaotech.genesys.controller.venda.venda_conclui;
 
-import br.com.salomaotech.genesys.model.financeiro.FinanceiroModelo;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
 import br.com.salomaotech.genesys.view.JFvendaConclui;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
-import br.com.salomaotech.sistema.jpa.JPQL;
 import br.com.salomaotech.sistema.jpa.Repository;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -25,7 +23,6 @@ public class VendaConcluiMetodosTest {
     private final VendaModelo vendaModelo = new VendaModelo();
     private final List<VendaModeloItem> vendaModeloItemList = new ArrayList();
     private final List<VendaModeloItem> vendaModeloItemBaixaList = new ArrayList();
-    private final List<VendaModeloItem> vendaModeloItemDevolveList = new ArrayList();
     private final VendaConcluiMetodos vendaConcluiMetodos;
 
     public VendaConcluiMetodosTest() {
@@ -53,14 +50,12 @@ public class VendaConcluiMetodosTest {
         vendaModelo.setData(Calendar.getInstance());
         vendaModelo.setVendaModeloItemList(vendaModeloItemList);
         vendaModelo.setFormaPagamento("Credito");
-        vendaModelo.setNumeroParcelas(3);
 
-        /* atualiza listas */
+        /* atualiza lista */
         vendaModeloItemBaixaList.add(vendaModeloItem);
-        vendaModeloItemDevolveList.add(vendaModeloItem);
 
         /* metodos */
-        vendaConcluiMetodos = new VendaConcluiMetodos(view, vendaModelo, viewVenda, vendaModeloItemBaixaList, vendaModeloItemDevolveList);
+        vendaConcluiMetodos = new VendaConcluiMetodos(view, vendaModelo, viewVenda, vendaModeloItemBaixaList);
 
     }
 
@@ -83,7 +78,6 @@ public class VendaConcluiMetodosTest {
         assertEquals(true, view.jTvalorRecebido.getText().equals(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString())));
         assertEquals(true, view.jTvalorTroco.getText().equals(ConverteNumeroParaMoedaBr.converter("0")));
         assertEquals(true, view.jCforma.getSelectedItem().equals(vendaModelo.getFormaPagamento()));
-        assertEquals(true, view.jCparcela.getSelectedItem().equals(String.valueOf(vendaModelo.getNumeroParcelas())));
 
     }
 
@@ -108,8 +102,6 @@ public class VendaConcluiMetodosTest {
         assertEquals(true, view.jTvalorRecebido.isEditable());
         assertEquals(true, view.jTvalorRecebido.getText().equals(""));
         assertEquals(true, view.jTvalorTroco.getText().equals(ConverteNumeroParaMoedaBr.converter("0")));
-        assertEquals(false, view.jLparcela.isVisible());
-        assertEquals(false, view.jCparcela.isVisible());
         assertEquals(true, view.jCforma.getSelectedIndex() == 2);
 
         view.jCforma.setSelectedItem("Debito");
@@ -118,8 +110,6 @@ public class VendaConcluiMetodosTest {
         assertEquals(false, view.jTvalorRecebido.isEditable());
         assertEquals(true, view.jTvalorRecebido.getText().equals(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString())));
         assertEquals(true, view.jTvalorTroco.getText().equals(ConverteNumeroParaMoedaBr.converter("0")));
-        assertEquals(false, view.jLparcela.isVisible());
-        assertEquals(false, view.jCparcela.isVisible());
         assertEquals(true, view.jCforma.getSelectedIndex() == 0);
 
         view.jCforma.setSelectedItem("Pix");
@@ -128,8 +118,6 @@ public class VendaConcluiMetodosTest {
         assertEquals(false, view.jTvalorRecebido.isEditable());
         assertEquals(true, view.jTvalorRecebido.getText().equals(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString())));
         assertEquals(true, view.jTvalorTroco.getText().equals(ConverteNumeroParaMoedaBr.converter("0")));
-        assertEquals(false, view.jLparcela.isVisible());
-        assertEquals(false, view.jCparcela.isVisible());
         assertEquals(true, view.jCforma.getSelectedIndex() == 3);
 
         view.jCforma.setSelectedItem("Credito");
@@ -138,8 +126,6 @@ public class VendaConcluiMetodosTest {
         assertEquals(false, view.jTvalorRecebido.isEditable());
         assertEquals(true, view.jTvalorRecebido.getText().equals(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString())));
         assertEquals(true, view.jTvalorTroco.getText().equals(ConverteNumeroParaMoedaBr.converter("0")));
-        assertEquals(true, view.jLparcela.isVisible());
-        assertEquals(true, view.jCparcela.isVisible());
         assertEquals(true, view.jCforma.getSelectedIndex() == 1);
 
     }
@@ -156,7 +142,6 @@ public class VendaConcluiMetodosTest {
         assertEquals(true, view.jBimprimir.isEnabled());
         assertEquals(false, view.jCforma.isEnabled());
         assertEquals(false, view.jTvalorRecebido.isEnabled());
-        assertEquals(false, view.jCparcela.isEnabled());
         assertEquals(true, view.jTvalorRecebido.getText().equals(ConverteNumeroParaMoedaBr.converter(view.jTvalorRecebido.getText())));
 
     }
@@ -168,19 +153,9 @@ public class VendaConcluiMetodosTest {
         vendaConcluiMetodos.finalizarVenda();
         produtoModelo = (ProdutoModelo) new Repository(new ProdutoModelo()).findById(produtoModelo.getId());
 
-        /* testa o número de revisões */
-        System.out.println("Testando classe VendaConcluiMetodos metodo: finalizarVenda checa número de revisões");
-        assertEquals(true, vendaModelo.getRevisoes() == 1);
-
         /* testa a baixa no estoque */
         System.out.println("Testando classe VendaConcluiMetodos metodo: finalizarVenda checa baixa em estoque");
         assertEquals(true, produtoModelo.getQuantidade().equals(new BigDecimal("49.00")));
-
-        /* testa lançamentos financeiros */
-        System.out.println("Testando classe VendaConcluiMetodos metodo: finalizarVenda checa lançamentos em financeiro");
-        JPQL jpql = new JPQL(new FinanceiroModelo());
-        jpql.addParametroIgual("idVenda", vendaModelo.getId());
-        assertEquals(true, new Repository(new FinanceiroModelo()).countTodos(jpql.getCondicaoWhere()) == vendaModelo.getNumeroParcelas());
 
     }
 

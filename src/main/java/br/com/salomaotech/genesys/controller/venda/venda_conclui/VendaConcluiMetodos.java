@@ -18,14 +18,12 @@ public class VendaConcluiMetodos {
     private final VendaModelo vendaModelo;
     private final JFvendaInicia viewVenda;
     private final List<VendaModeloItem> vendaModeloItemBaixaList;
-    private final List<VendaModeloItem> vendaModeloItemDevolveList;
 
-    public VendaConcluiMetodos(JFvendaConclui view, VendaModelo vendaModelo, JFvendaInicia viewVenda, List<VendaModeloItem> vendaModeloItemBaixaList, List<VendaModeloItem> vendaModeloItemDevolveList) {
+    public VendaConcluiMetodos(JFvendaConclui view, VendaModelo vendaModelo, JFvendaInicia viewVenda, List<VendaModeloItem> vendaModeloItemBaixaList) {
         this.view = view;
         this.vendaModelo = vendaModelo;
         this.viewVenda = viewVenda;
         this.vendaModeloItemBaixaList = vendaModeloItemBaixaList;
-        this.vendaModeloItemDevolveList = vendaModeloItemDevolveList;
     }
 
     public VendaModelo getVendaModelo() {
@@ -49,7 +47,6 @@ public class VendaConcluiMetodos {
         view.jTvalorRecebido.setText(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()));
         view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
         view.jCforma.setSelectedItem(vendaModelo.getFormaPagamento());
-        view.jCparcela.setSelectedItem(String.valueOf(vendaModelo.getNumeroParcelas()));
 
     }
 
@@ -77,33 +74,27 @@ public class VendaConcluiMetodos {
                 view.jTvalorRecebido.setEditable(true);
                 view.jTvalorRecebido.setText(null);
                 view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
-                view.jLparcela.setVisible(false);
-                view.jCparcela.setVisible(false);
+
                 break;
 
             case "Debito":
                 view.jTvalorRecebido.setEditable(false);
                 view.jTvalorRecebido.setText(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()));
                 view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
-                view.jLparcela.setVisible(false);
-                view.jCparcela.setVisible(false);
+
                 break;
 
             case "Pix":
                 view.jTvalorRecebido.setEditable(false);
                 view.jTvalorRecebido.setText(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()));
                 view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
-                view.jLparcela.setVisible(false);
-                view.jCparcela.setVisible(false);
+
                 break;
 
             default:
                 view.jTvalorRecebido.setEditable(false);
                 view.jTvalorRecebido.setText(ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()));
                 view.jTvalorTroco.setText(ConverteNumeroParaMoedaBr.converter("0"));
-                view.jLparcela.setVisible(true);
-                view.jCparcela.setVisible(true);
-                view.jCparcela.setSelectedIndex(0);
 
         }
 
@@ -117,7 +108,6 @@ public class VendaConcluiMetodos {
         view.jBimprimir.setEnabled(true);
         view.jCforma.setEnabled(false);
         view.jTvalorRecebido.setEnabled(false);
-        view.jCparcela.setEnabled(false);
         view.jTvalorRecebido.setText(ConverteNumeroParaMoedaBr.converter(view.jTvalorRecebido.getText()));
 
     }
@@ -127,29 +117,8 @@ public class VendaConcluiMetodos {
         vendaModelo.setData(view.jDdata.getCalendar());
         vendaModelo.setHora(Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + ":" + Calendar.getInstance().get(Calendar.MINUTE));
         vendaModelo.setFormaPagamento(view.jCforma.getSelectedItem().toString());
-        vendaModelo.setNumeroParcelas(Integer.parseInt(view.jCparcela.getSelectedItem().toString()));
-        vendaModelo.setIsPago(false);
 
-        switch (view.jCforma.getSelectedItem().toString()) {
-
-            case "Dinheiro":
-                vendaModelo.setIsPago(true);
-                vendaModelo.setNumeroParcelas(0);
-                break;
-
-            case "Debito":
-                vendaModelo.setIsPago(true);
-                vendaModelo.setNumeroParcelas(0);
-                break;
-
-            case "Pix":
-                vendaModelo.setIsPago(true);
-                vendaModelo.setNumeroParcelas(0);
-                break;
-
-        }
-
-        VendaMovimenta vendaMovimenta = new VendaMovimenta(vendaModelo, vendaModeloItemBaixaList, vendaModeloItemDevolveList);
+        VendaMovimenta vendaMovimenta = new VendaMovimenta(vendaModelo, vendaModeloItemBaixaList);
 
         /* se o ID for diferente de zero então está atualizando */
         if (vendaModelo.getId() == 0) {

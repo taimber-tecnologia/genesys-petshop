@@ -47,9 +47,7 @@ public class VendaPesquisa {
             Object[] linhaDefaultTableModel = new Object[]{
                 vendaModelo.getId(),
                 Datas.calendarParaStringBr(vendaModelo.getData()),
-                ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString()),
-                vendaModelo.getNumeroParcelas(),
-                vendaModelo.getRevisoes()
+                ConverteNumeroParaMoedaBr.converter(vendaModelo.getValor().toString())
 
             };
 

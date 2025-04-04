@@ -141,17 +141,15 @@ public class VendaComprovantePdf {
         pdfPTable.addCell(createCell("Data", Element.ALIGN_LEFT, Font.BOLD));
         pdfPTable.addCell(createCell("Total", Element.ALIGN_LEFT, Font.BOLD));
         pdfPTable.addCell(createCell("Forma", Element.ALIGN_LEFT, Font.BOLD));
-        pdfPTable.addCell(createCell("Parc.", Element.ALIGN_LEFT, Font.BOLD));
         pdfPTable.addCell(createCell(dataBr, Element.ALIGN_LEFT, Font.NORMAL));
         pdfPTable.addCell(createCell(valorTotalBr, Element.ALIGN_LEFT, Font.NORMAL));
         pdfPTable.addCell(createCell(vendaModelo.getFormaPagamento(), Element.ALIGN_LEFT, Font.NORMAL));
-        pdfPTable.addCell(createCell(String.valueOf(vendaModelo.getNumeroParcelas()), Element.ALIGN_LEFT, Font.NORMAL));
         gerarPdf.addConteudo(pdfPTable);
 
         /* rodapé */
         gerarPdf.addConteudo("");
         gerarPdf.addConteudo("--------------------------------------------------");
-        gerarPdf.addConteudo("    *** Este ticket não é documento fiscal ***");
+        gerarPdf.addConteudo("    *** Cupom não fiscal ***");
 
         if (gerarPdf.gerar()) {
 

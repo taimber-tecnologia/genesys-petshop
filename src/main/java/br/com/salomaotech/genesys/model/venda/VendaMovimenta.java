@@ -12,13 +12,11 @@ public class VendaMovimenta {
     private final ProdutoMovimenta produtosMovimenta = new ProdutoMovimenta();
     private final FinanceiroMovimenta financeiroMovimenta;
     private final List<VendaModeloItem> vendaModeloItemBaixaList;
-    private final List<VendaModeloItem> vendaModeloItemDevolveList;
 
-    public VendaMovimenta(VendaModelo vendaModelo, List<VendaModeloItem> vendaModeloItemBaixaList, List<VendaModeloItem> vendaModeloItemDevolveList) {
+    public VendaMovimenta(VendaModelo vendaModelo, List<VendaModeloItem> vendaModeloItemBaixaList) {
         this.vendaModelo = vendaModelo;
         financeiroMovimenta = new FinanceiroMovimenta(vendaModelo);
         this.vendaModeloItemBaixaList = vendaModeloItemBaixaList;
-        this.vendaModeloItemDevolveList = vendaModeloItemDevolveList;
     }
 
     private void baixarEstoque() {
@@ -37,25 +35,8 @@ public class VendaMovimenta {
 
     }
 
-    private void voltarEstoque() {
-
-        if (!isNull(vendaModeloItemDevolveList)) {
-
-            vendaModeloItemDevolveList.forEach(vendaModeloItem -> {
-
-                produtosMovimenta.adicionarItemLista(vendaModeloItem.getIdProduto(), vendaModeloItem.getQuantidade());
-
-            });
-
-        }
-
-        produtosMovimenta.movimentar();
-
-    }
-
     public void finalizar() {
 
-        vendaModelo.setRevisoes(vendaModelo.getRevisoes() + 1);
         new Repository(vendaModelo).save();
         baixarEstoque();
         financeiroMovimenta.adicionar();
@@ -65,14 +46,12 @@ public class VendaMovimenta {
     public void reabrir() {
 
         new Repository(vendaModelo).save();
-        voltarEstoque();
         financeiroMovimenta.remover();
 
     }
 
     public void excluir() {
 
-        voltarEstoque();
         financeiroMovimenta.remover();
 
     }
