@@ -56,6 +56,9 @@ public class EmpresaMetodosTest {
         assertEquals(true, view.jTcontatoTelefone.getText().equals(empresaModelo.getTelefone()));
         assertEquals(true, view.jTcontatoEmail.getText().equals(empresaModelo.getEmail()));
 
+        /* foto do perfil */
+        assertEquals(true, view.jPdadosPerfilFoto.getComponents().length == 0);
+
     }
 
     @Test
@@ -90,6 +93,8 @@ public class EmpresaMetodosTest {
         empresaMetodos.habilitarCampos();
         System.out.println("Testando classe EmpresaMetodos metodo: habilitarCampos Etapa 01");
         assertEquals(false, view.jBcadastroExcluir.isEnabled());
+        assertEquals(false, view.jBadicionaFoto.isEnabled());
+        assertEquals(false, view.jBremoveFoto.isEnabled());
 
         /* simula cadastro */
         empresaMetodos.popularFormulario(empresaModelo);
@@ -100,6 +105,8 @@ public class EmpresaMetodosTest {
         empresaMetodos.habilitarCampos();
         System.out.println("Testando classe EmpresaMetodos metodo: habilitarCampos Etapa 02");
         assertEquals(true, view.jBcadastroExcluir.isEnabled());
+        assertEquals(true, view.jBadicionaFoto.isEnabled());
+        assertEquals(true, view.jBremoveFoto.isEnabled());
 
     }
 

@@ -16,7 +16,7 @@ public class EmpresaController {
         new MudaIconeJframe().alterar("empresa64x", view);
         view.setVisible(true);
         view.setExtendedState(view.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-        view.jTbasicoNome.requestFocus();
+        view.jTabaCadastro.setSelectedIndex(0);
 
         /* metodos */
         empresaMetodos.addPopUpMenu();

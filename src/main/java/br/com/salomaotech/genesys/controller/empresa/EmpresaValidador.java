@@ -18,6 +18,7 @@ public class EmpresaValidador {
         if (ValidaStringIsEmpty.isEmpty(view.jTbasicoNome.getText())) {
 
             mensagensErro = "Informe o nome.";
+            view.jTabaCadastro.setSelectedIndex(0);
             view.jTbasicoNome.requestFocus();
             return false;
 
@@ -27,6 +28,7 @@ public class EmpresaValidador {
         if (view.jFbasicoCnpj.getText().equals("  .   .   /    -  ")) {
 
             mensagensErro = "CNPJ inválido.";
+            view.jTabaCadastro.setSelectedIndex(0);
             view.jFbasicoCnpj.requestFocus();
             return false;
 

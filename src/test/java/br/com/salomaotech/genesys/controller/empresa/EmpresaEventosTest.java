@@ -40,6 +40,8 @@ public class EmpresaEventosTest {
         assertEquals(true, view.jBcadastroSalvar.getActionListeners().length == 1);
         assertEquals(true, view.jBcadastroExcluir.getActionListeners().length == 1);
         assertEquals(true, view.jBenderecoBuscarCep.getActionListeners().length == 1);
+        assertEquals(true, view.jBadicionaFoto.getActionListeners().length == 1);
+        assertEquals(true, view.jBremoveFoto.getActionListeners().length == 1);
 
     }
 

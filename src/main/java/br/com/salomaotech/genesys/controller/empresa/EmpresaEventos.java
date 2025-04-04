@@ -1,6 +1,7 @@
 package br.com.salomaotech.genesys.controller.empresa;
 
 import br.com.salomaotech.genesys.model.empresa.EmpresaModelo;
+import br.com.salomaotech.genesys.model.empresa.ImagemEmpresa;
 import br.com.salomaotech.genesys.view.JFempresa;
 import br.com.salomaotech.sistema.algoritmos.BuscaCep;
 import java.awt.event.ActionEvent;
@@ -84,6 +85,28 @@ public class EmpresaEventos {
             view.jTenderecoBairro.setText(buscaCep.getBairro());
             view.jTenderecoCidade.setText(buscaCep.getCidade());
             view.jCenderecoUf.setSelectedItem(buscaCep.getUf());
+
+        });
+
+        /* adicionar foto */
+        view.jBadicionaFoto.addActionListener((ActionEvent e) -> {
+
+            if (ImagemEmpresa.upload(String.valueOf(view.getId())) == true) {
+
+                ImagemEmpresa.exibir(String.valueOf(view.getId()), view.jPdadosPerfilFoto);
+
+            }
+
+        });
+
+        /* remover foto */
+        view.jBremoveFoto.addActionListener((ActionEvent e) -> {
+
+            if (JOptionPane.showConfirmDialog(null, "Excluir foto?") == 0) {
+
+                ImagemEmpresa.remover(String.valueOf(view.getId()), view.jPdadosPerfilFoto);
+
+            }
 
         });
 

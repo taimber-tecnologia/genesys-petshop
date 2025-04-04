@@ -2,6 +2,7 @@ package br.com.salomaotech.genesys.controller.empresa;
 
 import br.com.salomaotech.genesys.model.empresa.EmpresaModelo;
 import br.com.salomaotech.genesys.model.empresa.EmpresaPesquisa;
+import br.com.salomaotech.genesys.model.empresa.ImagemEmpresa;
 import br.com.salomaotech.genesys.view.JFempresa;
 import br.com.salomaotech.sistema.jpa.Repository;
 import br.com.salomaotech.sistema.swing.PopUp;
@@ -31,6 +32,9 @@ public class EmpresaMetodos {
         view.jTcontatoTelefone.setText(empresaModelo.getTelefone());
         view.jTcontatoEmail.setText(empresaModelo.getEmail());
 
+        /* foto do perfil */
+        ImagemEmpresa.exibir(String.valueOf(empresaModelo.getId()), view.jPdadosPerfilFoto);
+
     }
 
     public void resetarView() {
@@ -46,6 +50,8 @@ public class EmpresaMetodos {
 
         boolean isIdAberto = view.getId() != 0;
         view.jBcadastroExcluir.setEnabled(isIdAberto);
+        view.jBadicionaFoto.setEnabled(isIdAberto);
+        view.jBremoveFoto.setEnabled(isIdAberto);
 
     }
 
@@ -100,6 +106,7 @@ public class EmpresaMetodos {
 
     public boolean excluir() {
 
+        ImagemEmpresa.remover(String.valueOf(view.getId()), view.jPdadosPerfilFoto);
         return new Repository(new EmpresaModelo()).delete(view.getId());
 
     }
