@@ -75,6 +75,8 @@ public class FornecedorMetodos {
         Repository repository = new Repository(new FornecedorModelo());
         FornecedorModelo fornecedorModelo = (FornecedorModelo) repository.findById(id);
         popularFormulario(fornecedorModelo);
+        view.jTabaPrincipal.setSelectedIndex(0);
+        view.jTabaCadastro.setSelectedIndex(0);
         habilitarCampos();
 
     }

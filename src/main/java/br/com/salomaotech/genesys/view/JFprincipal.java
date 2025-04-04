@@ -106,7 +106,7 @@ public class JFprincipal extends javax.swing.JFrame {
         jLabel1.setText("Status:");
 
         jCpesquisaStatus.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jCpesquisaStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "1 - Agendado", "2 - Atendido", "3 - Cancelado" }));
+        jCpesquisaStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "1 - Agendado", "2 - Atendido", "3 - Cancelado", "4 - Remarcado" }));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText("Página:");

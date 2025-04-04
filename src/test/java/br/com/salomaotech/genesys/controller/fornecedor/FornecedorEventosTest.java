@@ -41,7 +41,7 @@ public class FornecedorEventosTest {
         assertEquals(true, view.jBcadastroSalvar.getActionListeners().length == 1);
         assertEquals(true, view.jBcadastroExcluir.getActionListeners().length == 1);
         assertEquals(true, view.jTresultados.getMouseListeners().length == 3);
-        assertEquals(true, view.jTresultados.getKeyListeners().length == 2);
+        assertEquals(true, view.jTresultados.getKeyListeners().length == 1);
         assertEquals(true, view.jBpesquisa.getActionListeners().length == 1);
         assertEquals(true, view.jTpesquisaNome.getKeyListeners().length == 1);
         assertEquals(true, view.jTpesquisaCnpj.getKeyListeners().length == 1);

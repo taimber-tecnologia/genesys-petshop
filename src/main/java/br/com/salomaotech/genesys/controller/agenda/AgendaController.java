@@ -49,7 +49,7 @@ public class AgendaController {
 
         construir();
         view.jDpesquisaDataInicio.setDate(Calendar.getInstance().getTime());
-        view.jCdataAnterior.setSelected(true);
+        view.jCpesquisaDataAnterior.setSelected(true);
         agendaMetodos.pesquisar();
 
     }

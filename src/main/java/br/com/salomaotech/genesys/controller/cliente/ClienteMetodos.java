@@ -88,6 +88,8 @@ public class ClienteMetodos {
         ClienteModelo clienteModelo = (ClienteModelo) repository.findById(id);
         popularFormulario(clienteModelo);
         new ImagemCliente().exibir(String.valueOf(id), view.jPdadosPerfilFoto);
+        view.jTabaPrincipal.setSelectedIndex(0);
+        view.jTabaCadastro.setSelectedIndex(0);
         habilitarCampos();
 
     }

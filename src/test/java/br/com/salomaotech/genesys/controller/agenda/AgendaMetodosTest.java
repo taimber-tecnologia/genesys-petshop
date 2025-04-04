@@ -70,6 +70,24 @@ public class AgendaMetodosTest {
     }
 
     @Test
+    public void testResetarViewPesquisa() {
+
+        /* reseta a view de pesquisa */
+        agendaMetodos.resetarViewPesquisa();
+
+        /* testa se os dados da view de pesquisa foram resetados */
+        System.out.println("Testando classe AgendaMetodos metodo: resetarViewPesquisa");
+        assertEquals(true, view.jTpesquisaNomeCliente.getText().equals(""));
+        assertEquals(true, isNull(view.jDpesquisaDataInicio.getDate()));
+        assertEquals(true, isNull(view.jDPesquisaDataFim.getDate()));
+        assertEquals(true, view.jCpesquisaStatus.getSelectedIndex() == 0);
+        assertEquals(true, view.jTabaPesquisa.getSelectedIndex() == 0);
+        assertEquals(false, view.jCpesquisaDataAnterior.isSelected());
+        assertEquals(true, view.jCpaginador.getSelectedIndex() == 0);
+
+    }
+
+    @Test
     public void testHabilitarCampos() {
 
         /* é esperado que o botão de excluir esteja desabilitado */
@@ -128,7 +146,7 @@ public class AgendaMetodosTest {
         view.jDPesquisaDataFim.setDate(null);
         view.jCcadastroNomeCliente.getEditor().setItem(null);
         view.jCpesquisaStatus.setSelectedItem("");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -138,7 +156,7 @@ public class AgendaMetodosTest {
         view.jDPesquisaDataFim.setDate(null);
         view.jCcadastroNomeCliente.getEditor().setItem(null);
         view.jCpesquisaStatus.setSelectedItem("");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 02");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -148,7 +166,7 @@ public class AgendaMetodosTest {
         view.jDPesquisaDataFim.setDate(calendar.getTime());
         view.jCcadastroNomeCliente.getEditor().setItem(null);
         view.jCpesquisaStatus.setSelectedItem("");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 03");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -158,7 +176,7 @@ public class AgendaMetodosTest {
         view.jDPesquisaDataFim.setDate(null);
         view.jCcadastroNomeCliente.getEditor().getItem().equals(agendaModelo.getNomeCliente());
         view.jCpesquisaStatus.setSelectedItem("");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 04");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -168,7 +186,7 @@ public class AgendaMetodosTest {
         view.jDPesquisaDataFim.setDate(null);
         view.jCcadastroNomeCliente.getEditor().setItem(null);
         view.jCpesquisaStatus.setSelectedItem("");
-        view.jCdataAnterior.setSelected(true);
+        view.jCpesquisaDataAnterior.setSelected(true);
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 05");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -178,7 +196,7 @@ public class AgendaMetodosTest {
         view.jDPesquisaDataFim.setDate(null);
         view.jCcadastroNomeCliente.getEditor().setItem(null);
         view.jCpesquisaStatus.setSelectedItem(agendaModelo.getStatus());
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 06");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -188,7 +206,7 @@ public class AgendaMetodosTest {
         view.jDPesquisaDataFim.setDate(null);
         view.jCcadastroNomeCliente.getEditor().getItem().equals(agendaModelo.getNomeCliente());
         view.jCpesquisaStatus.setSelectedItem(agendaModelo.getStatus());
-        view.jCdataAnterior.setSelected(true);
+        view.jCpesquisaDataAnterior.setSelected(true);
         agendaMetodos.pesquisar();
         System.out.println("Testando classe AgendaMetodos metodo: pesquisar etapa 07");
         assertEquals(true, view.jTresultados.getRowCount() > 0);

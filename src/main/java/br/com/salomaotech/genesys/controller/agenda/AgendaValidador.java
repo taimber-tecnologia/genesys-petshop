@@ -17,8 +17,27 @@ public class AgendaValidador {
         /* valida data de agendamento */
         if (!Datas.isCalendarioValido(view.jDcadastroData.getCalendar())) {
 
-            mensagensErro = "Data de agendamento inválida.";
+            mensagensErro = "Data inválida.";
             view.jTabaPrincipal.setSelectedIndex(0);
+            return false;
+
+        }
+
+        /* valida nome do cliente */
+        if (view.jCcadastroNomeCliente.getEditor().getItem().toString().equals("")) {
+
+            mensagensErro = "Informe o nome do cliente.";
+            view.jTabaPrincipal.setSelectedIndex(0);
+            return false;
+
+        }
+
+        /* valida o telefone */
+        if (view.jTcadastroTelefone.getText().equals("")) {
+
+            mensagensErro = "Informe o número do telefone.";
+            view.jTabaPrincipal.setSelectedIndex(0);
+            view.jTcadastroTelefone.requestFocus();
             return false;
 
         }

@@ -16,7 +16,7 @@
         <dependency>
             <groupId>br.com.salomaotech</groupId>
             <artifactId>genesys-kernel</artifactId>
-            <version>2.0.0</version>
+            <version>3.0.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/junit/junit -->

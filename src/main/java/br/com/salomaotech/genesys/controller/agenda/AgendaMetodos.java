@@ -39,6 +39,19 @@ public class AgendaMetodos {
 
     }
 
+    public void resetarViewPesquisa() {
+
+        view.jTpesquisaNomeCliente.setText(null);
+        view.jDpesquisaDataInicio.setDate(null);
+        view.jDPesquisaDataFim.setDate(null);
+        view.jCpesquisaStatus.setSelectedIndex(0);
+        view.jTabaPesquisa.setSelectedIndex(0);
+        view.jCpesquisaDataAnterior.setSelected(false);
+        view.jCpaginador.setSelectedIndex(-1);
+        pesquisar();
+
+    }
+
     public void habilitarCampos() {
 
         view.jBcadastroExcluir.setEnabled(view.getId() != 0);
@@ -72,7 +85,7 @@ public class AgendaMetodos {
         agendaPesquisa.setDataFinalDate(view.jDPesquisaDataFim.getDate());
         agendaPesquisa.setNomeCliente(view.jTpesquisaNomeCliente.getText());
         agendaPesquisa.setStatus(view.jCpesquisaStatus.getSelectedItem().toString());
-        agendaPesquisa.setIsDataAnterior(view.jCdataAnterior.isSelected());
+        agendaPesquisa.setIsDataAnterior(view.jCpesquisaDataAnterior.isSelected());
         agendaPesquisa.pesquisar();
 
     }

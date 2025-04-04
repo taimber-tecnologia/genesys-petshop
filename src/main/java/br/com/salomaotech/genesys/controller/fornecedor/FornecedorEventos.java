@@ -101,46 +101,17 @@ public class FornecedorEventos {
 
         });
 
-        /* jtable de resultados */
+        /* abrir */
         view.jTresultados.addMouseListener(new MouseAdapter() {
 
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                if (e.getClickCount() == 1) {
-
-                    fornecedorMetodos.abrirCadastro((long) view.jTresultados.getModel().getValueAt(view.jTresultados.getSelectedRow(), 0));
-
-                }
-
                 if (e.getClickCount() == 2) {
 
-                    view.jTabaPrincipal.setSelectedIndex(0);
                     fornecedorMetodos.abrirCadastro((long) view.jTresultados.getModel().getValueAt(view.jTresultados.getSelectedRow(), 0));
 
                 }
-
-            }
-
-        });
-
-        /* pesquisa */
-        view.jTresultados.addKeyListener(new KeyListener() {
-
-            @Override
-            public void keyTyped(KeyEvent e) {
-
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-
-                fornecedorMetodos.abrirCadastro((long) view.jTresultados.getModel().getValueAt(view.jTresultados.getSelectedRow(), 0));
 
             }
 

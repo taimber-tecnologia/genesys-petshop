@@ -1,5 +1,6 @@
 package br.com.salomaotech.genesys.controller.agenda;
 
+import br.com.salomaotech.genesys.controller.cliente.ClienteController;
 import br.com.salomaotech.genesys.model.agenda.AgendaModelo;
 import br.com.salomaotech.genesys.model.cliente.ComboBoxClientes;
 import br.com.salomaotech.genesys.view.JFagenda;
@@ -159,6 +160,20 @@ public class AgendaEventos {
         view.jBrefreshCliente.addActionListener((ActionEvent e) -> {
 
             comboBoxClientes.preencher();
+
+        });
+
+        /* limpa filtros de pesquisa */
+        view.jBpesquisaReseta.addActionListener((ActionEvent e) -> {
+
+            agendaMetodos.resetarViewPesquisa();
+
+        });
+
+        /* atalho para cadastrar novo cliente */
+        view.jBatalhoCadastroCliente.addActionListener((ActionEvent e) -> {
+
+            new ClienteController().construir();
 
         });
 

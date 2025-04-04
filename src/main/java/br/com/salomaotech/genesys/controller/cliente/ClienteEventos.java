@@ -130,15 +130,8 @@ public class ClienteEventos {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                if (e.getClickCount() == 1) {
-
-                    clienteMetodos.abrirCadastro((long) view.jTresultados.getModel().getValueAt(view.jTresultados.getSelectedRow(), 0));
-
-                }
-
                 if (e.getClickCount() == 2) {
 
-                    view.jTabaPrincipal.setSelectedIndex(0);
                     clienteMetodos.abrirCadastro((long) view.jTresultados.getModel().getValueAt(view.jTresultados.getSelectedRow(), 0));
 
                 }

@@ -13,16 +13,36 @@ public class AgendaValidadorTest {
     @Test
     public void testIsValido() {
 
-        /* usando filtro: nenhum */
+        /* Etapa 01 - Todos campos inválidos */
         view.jDcadastroData.setCalendar(null);
+        view.jCcadastroNomeCliente.getEditor().setItem("");
+        view.jTcadastroTelefone.setText("");
         agendaValidador = new AgendaValidador(view);
-        System.out.println("Testando classe AgendaValidador metodo: isValido etapa 01");
+        System.out.println("Testando isValido - Etapa 01: Todos inválidos");
         assertEquals(false, agendaValidador.isValido());
 
-        /* usando filtro: data */
+        /* Etapa 02 - Data OK, nome e telefone vazios */
         view.jDcadastroData.setCalendar(Calendar.getInstance());
+        view.jCcadastroNomeCliente.getEditor().setItem("");
+        view.jTcadastroTelefone.setText("");
         agendaValidador = new AgendaValidador(view);
-        System.out.println("Testando classe AgendaValidador metodo: isValido etapa 02");
+        System.out.println("Testando isValido - Etapa 02: Data OK, outros inválidos");
+        assertEquals(false, agendaValidador.isValido());
+
+        /* Etapa 03 - Data e nome OK, telefone vazio */
+        view.jDcadastroData.setCalendar(Calendar.getInstance());
+        view.jCcadastroNomeCliente.getEditor().setItem("Cliente Teste");
+        view.jTcadastroTelefone.setText("");
+        agendaValidador = new AgendaValidador(view);
+        System.out.println("Testando isValido - Etapa 03: Telefone vazio");
+        assertEquals(false, agendaValidador.isValido());
+
+        /* Etapa 04 - Todos válidos */
+        view.jDcadastroData.setCalendar(Calendar.getInstance());
+        view.jCcadastroNomeCliente.getEditor().setItem("Cliente Teste");
+        view.jTcadastroTelefone.setText("11999999999");
+        agendaValidador = new AgendaValidador(view);
+        System.out.println("Testando isValido - Etapa 04: Todos válidos");
         assertEquals(true, agendaValidador.isValido());
 
     }
@@ -30,18 +50,40 @@ public class AgendaValidadorTest {
     @Test
     public void testGetMensagensErro() {
 
-        /* usando filtro: nenhum */
+        /* Etapa 01 - Erro de data */
         view.jDcadastroData.setCalendar(null);
+        view.jCcadastroNomeCliente.getEditor().setItem("");
+        view.jTcadastroTelefone.setText("");
         agendaValidador = new AgendaValidador(view);
         agendaValidador.isValido();
-        System.out.println("Testando classe AgendaValidador metodo: getMensagensErro etapa 01");
-        assertEquals(true, agendaValidador.getMensagensErro().length() != 0);
+        System.out.println("Testando getMensagensErro - Etapa 01");
+        assertEquals(true, agendaValidador.getMensagensErro().length() > 0);
 
-        /* usando filtro: data */
+        /* Etapa 02 - Erro de nome */
         view.jDcadastroData.setCalendar(Calendar.getInstance());
+        view.jCcadastroNomeCliente.getEditor().setItem("");
+        view.jTcadastroTelefone.setText("");
         agendaValidador = new AgendaValidador(view);
         agendaValidador.isValido();
-        System.out.println("Testando classe AgendaValidador metodo: getMensagensErro etapa 02");
+        System.out.println("Testando getMensagensErro - Etapa 02");
+        assertEquals(true, agendaValidador.getMensagensErro().length() > 0);
+
+        /* Etapa 03 - Erro de telefone */
+        view.jDcadastroData.setCalendar(Calendar.getInstance());
+        view.jCcadastroNomeCliente.getEditor().setItem("Cliente Teste");
+        view.jTcadastroTelefone.setText("");
+        agendaValidador = new AgendaValidador(view);
+        agendaValidador.isValido();
+        System.out.println("Testando getMensagensErro - Etapa 03");
+        assertEquals(true, agendaValidador.getMensagensErro().length() > 0);
+
+        /* Etapa 04 - Sem erros */
+        view.jDcadastroData.setCalendar(Calendar.getInstance());
+        view.jCcadastroNomeCliente.getEditor().setItem("Cliente Teste");
+        view.jTcadastroTelefone.setText("11999999999");
+        agendaValidador = new AgendaValidador(view);
+        agendaValidador.isValido();
+        System.out.println("Testando getMensagensErro - Etapa 04");
         assertEquals(true, agendaValidador.getMensagensErro().length() == 0);
 
     }

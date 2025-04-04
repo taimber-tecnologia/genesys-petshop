@@ -68,6 +68,8 @@ public class AgendaEventosTest {
         assertEquals(true, view.jBpaginador.getActionListeners().length == 1);
         assertEquals(true, view.jTpesquisaNomeCliente.getKeyListeners().length == 1);
         assertEquals(true, view.jBrefreshCliente.getActionListeners().length == 1);
+        assertEquals(true, view.jBpesquisaReseta.getActionListeners().length == 1);
+        assertEquals(true, view.jBatalhoCadastroCliente.getActionListeners().length == 1);
 
     }
 
