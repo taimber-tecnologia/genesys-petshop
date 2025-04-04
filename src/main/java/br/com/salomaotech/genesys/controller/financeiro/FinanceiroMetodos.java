@@ -52,6 +52,20 @@ public class FinanceiroMetodos {
 
     }
 
+    public void resetarViewPesquisa() {
+
+        view.jDpesquisaDataInicio.setDate(null);
+        view.jDPesquisaDataFim.setDate(null);
+        comboBoxCentroCusto.selecionarItemPorId(0);
+        view.jCpesquisaIsDespesa.setSelectedIndex(0);
+        view.jCpesquisaPago.setSelectedIndex(0);
+        view.jTabaPesquisa.setSelectedIndex(0);
+        view.jCpesquisaDataAnterior.setSelected(false);
+        view.jCpaginador.setSelectedIndex(-1);
+        pesquisar();
+
+    }
+
     public void habilitarCampos() {
 
         boolean isIdAberto = view.getId() != 0;
@@ -106,7 +120,7 @@ public class FinanceiroMetodos {
         financeiroPesquisa.setDataFinalDate(view.jDPesquisaDataFim.getCalendar());
         financeiroPesquisa.setPagamentoRealizado(view.jCpesquisaPago.getSelectedItem().toString());
         financeiroPesquisa.setPagamentoDespesa(view.jCpesquisaIsDespesa.getSelectedItem().toString());
-        financeiroPesquisa.setIsDataAnterior(view.jCdataAnterior.isSelected());
+        financeiroPesquisa.setIsDataAnterior(view.jCpesquisaDataAnterior.isSelected());
         financeiroPesquisa.pesquisar();
 
     }

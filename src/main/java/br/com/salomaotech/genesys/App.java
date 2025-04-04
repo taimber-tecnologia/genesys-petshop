@@ -18,7 +18,7 @@ public class App {
 
     private static void carregarServicosAdicionais() {
 
-        new AtivadorController().construir("genesys-petshop-2.0");
+        new AtivadorController().construir("genesys-petshop-3.0");
         ExibeNovidades.exibir();
 
     }

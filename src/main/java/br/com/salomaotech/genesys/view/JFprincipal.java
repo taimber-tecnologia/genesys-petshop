@@ -244,7 +244,7 @@ public class JFprincipal extends javax.swing.JFrame {
 
         jLabrirSuporte.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabrirSuporte.setForeground(new java.awt.Color(255, 0, 51));
-        jLabrirSuporte.setText("Versão 2.0     |     www.taimber.com       |       Suporte");
+        jLabrirSuporte.setText("Versão 3.0     |     www.taimber.com       |       Suporte");
         jLabrirSuporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jToolBar2.add(jLabrirSuporte);
 

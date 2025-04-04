@@ -118,6 +118,25 @@ public class FinanceiroMetodosTest {
     }
 
     @Test
+    public void testResetarViewPesquisa() {
+
+        /* reseta a view */
+        financeiroMetodos.resetarViewPesquisa();
+
+        /* testa se os dados populados na view foram resetados */
+        System.out.println("Testando classe FinanceiroMetodos metodo: resetarViewPesquisa");
+        assertEquals(true, isNull(view.jDpesquisaDataInicio.getDate()));
+        assertEquals(true, isNull(view.jDPesquisaDataFim.getDate()));
+        assertEquals(true, comboBoxCentroCusto.getIdSelecionado() == 0);
+        assertEquals(true, view.jCpesquisaIsDespesa.getSelectedIndex() == 0);
+        assertEquals(true, view.jCpesquisaPago.getSelectedIndex() == 0);
+        assertEquals(true, view.jTabaPesquisa.getSelectedIndex() == 0);
+        assertEquals(false, view.jCpesquisaDataAnterior.isSelected());
+        assertEquals(true, view.jCpaginador.getSelectedIndex() == 0);
+
+    }
+
+    @Test
     public void testHabilitarCampos() {
 
         /* é esperado que alguns campos estejam desabilitados */
@@ -212,7 +231,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Todos");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -221,7 +240,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(calendar.getTime());
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Todos");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 02");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -230,7 +249,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(calendar.getTime());
         view.jCpesquisaPago.setSelectedItem("Todos");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 03");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -239,7 +258,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(calendar.getTime());
         view.jDPesquisaDataFim.setDate(calendar.getTime());
         view.jCpesquisaPago.setSelectedItem("Todos");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 04");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -248,7 +267,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(calendar.getTime());
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Todos");
-        view.jCdataAnterior.setSelected(true);
+        view.jCpesquisaDataAnterior.setSelected(true);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 05");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -257,7 +276,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Todos");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 06");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -266,7 +285,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Sim");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 07");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -275,7 +294,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Nao");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 08");
         assertEquals(true, view.jTresultados.getRowCount() == 0);
@@ -284,7 +303,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(calendar.getTime());
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Sim");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 09");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -293,7 +312,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(calendar.getTime());
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Nao");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 10");
         assertEquals(true, view.jTresultados.getRowCount() == 0);
@@ -302,7 +321,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(calendar.getTime());
         view.jDPesquisaDataFim.setDate(null);
         view.jCpesquisaPago.setSelectedItem("Todos");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 11");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -311,7 +330,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(calendar.getTime());
         view.jCpesquisaPago.setSelectedItem("Sim");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 12");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -320,7 +339,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(calendar.getTime());
         view.jCpesquisaPago.setSelectedItem("Nao");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 13");
         assertEquals(true, view.jTresultados.getRowCount() == 0);
@@ -329,7 +348,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(null);
         view.jDPesquisaDataFim.setDate(calendar.getTime());
         view.jCpesquisaPago.setSelectedItem("Todos");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 14");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -338,7 +357,7 @@ public class FinanceiroMetodosTest {
         view.jDpesquisaDataInicio.setDate(calendar.getTime());
         view.jDPesquisaDataFim.setDate(calendar.getTime());
         view.jCpesquisaPago.setSelectedItem("Todos");
-        view.jCdataAnterior.setSelected(false);
+        view.jCpesquisaDataAnterior.setSelected(false);
         financeiroMetodos.pesquisar();
         System.out.println("Testando classe FinanceiroMetodos metodo: pesquisar etapa 15");
         assertEquals(true, view.jTresultados.getRowCount() > 0);

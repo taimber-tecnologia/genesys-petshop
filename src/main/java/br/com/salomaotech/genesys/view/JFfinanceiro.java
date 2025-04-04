@@ -77,23 +77,30 @@ public class JFfinanceiro extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jBpesquisaCentroCusto = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jDpesquisaDataInicio = new com.toedter.calendar.JDateChooser();
-        jLabel2 = new javax.swing.JLabel();
-        jDPesquisaDataFim = new com.toedter.calendar.JDateChooser();
-        jBpesquisa = new javax.swing.JButton();
-        jCpesquisaPago = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
-        jCpesquisaIsDespesa = new javax.swing.JComboBox<>();
-        jLabel10 = new javax.swing.JLabel();
-        jCdataAnterior = new javax.swing.JCheckBox();
         jLabel8 = new javax.swing.JLabel();
         jCpaginador = new javax.swing.JComboBox<>();
         jBpaginador = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTresultados = new javax.swing.JTable();
         jLsaldo = new javax.swing.JLabel();
+        jTabaPesquisa = new javax.swing.JTabbedPane();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jDpesquisaDataInicio = new com.toedter.calendar.JDateChooser();
+        jLabel2 = new javax.swing.JLabel();
+        jDPesquisaDataFim = new com.toedter.calendar.JDateChooser();
+        jCpesquisaDataAnterior = new javax.swing.JCheckBox();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jCpesquisaCentroCusto = new javax.swing.JComboBox<>();
+        jBrefreshPesquisaCentroCusto = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jCpesquisaIsDespesa = new javax.swing.JComboBox<>();
+        jCpesquisaPago = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        jBpesquisa = new javax.swing.JButton();
+        jBpesquisaReseta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Financeiro - Genesys PetShop");
@@ -171,7 +178,6 @@ public class JFfinanceiro extends javax.swing.JFrame {
         jBrefreshCadastroCentroCusto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBrefreshCadastroCentroCusto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/atualizar16x.png"))); // NOI18N
 
-        jDcadastroData.setDateFormatString("dd/MM/yyyy");
         jDcadastroData.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jTcadastroValor.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -251,94 +257,6 @@ public class JFfinanceiro extends javax.swing.JFrame {
 
         jTabaPrincipal.addTab("Formulário", jPanel1);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filtrar pesquisa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
-        jPanel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel1.setText("Data inicial:");
-
-        jDpesquisaDataInicio.setDateFormatString("dd/MM/yyyy");
-        jDpesquisaDataInicio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel2.setText("Data final:");
-
-        jDPesquisaDataFim.setDateFormatString("dd/MM/yyyy");
-        jDPesquisaDataFim.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-
-        jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jBpesquisa.setText("Pesquisar");
-
-        jCpesquisaPago.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jCpesquisaPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Sim", "Nao" }));
-
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel7.setText("Pago:");
-
-        jCpesquisaIsDespesa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jCpesquisaIsDespesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Pagar", "Receber" }));
-
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel10.setText("Contas:");
-
-        jCdataAnterior.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jCdataAnterior.setText("Igual anterior");
-        jCdataAnterior.setMargin(new java.awt.Insets(0, 0, 0, 0));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jDPesquisaDataFim, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCpesquisaPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCpesquisaIsDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBpesquisa))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jDpesquisaDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jCdataAnterior)))
-                .addContainerGap(278, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jDpesquisaDataInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCdataAnterior, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jDPesquisaDataFim, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jCpesquisaIsDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jBpesquisa))
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCpesquisaPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel8.setText("Página:");
 
@@ -388,6 +306,141 @@ public class JFfinanceiro extends javax.swing.JFrame {
         jLsaldo.setText("R$ 0,00");
         jLsaldo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Saldo", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
 
+        jTabaPesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1.setText("Data inicial:");
+
+        jDpesquisaDataInicio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jDpesquisaDataInicio.setPreferredSize(new java.awt.Dimension(110, 24));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2.setText("Data final:");
+
+        jDPesquisaDataFim.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jDPesquisaDataFim.setPreferredSize(new java.awt.Dimension(110, 24));
+
+        jCpesquisaDataAnterior.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jCpesquisaDataAnterior.setText("Anterior ou igual a data inicial");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(12, 12, 12)
+                .addComponent(jDpesquisaDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jCpesquisaDataAnterior)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(12, 12, 12)
+                .addComponent(jDPesquisaDataFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(296, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jDPesquisaDataFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCpesquisaDataAnterior))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jDpesquisaDataInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jTabaPesquisa.addTab("Periodo", jPanel4);
+
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel11.setText("Centro de custo:");
+
+        jCpesquisaCentroCusto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jBrefreshPesquisaCentroCusto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBrefreshPesquisaCentroCusto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/atualizar16x.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCpesquisaCentroCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBrefreshPesquisaCentroCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(462, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jBrefreshPesquisaCentroCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jCpesquisaCentroCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel11)))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jTabaPesquisa.addTab("Categorias", jPanel5);
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel10.setText("Contas:");
+
+        jCpesquisaIsDespesa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jCpesquisaIsDespesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Pagar", "Receber" }));
+
+        jCpesquisaPago.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jCpesquisaPago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Sim", "Nao" }));
+
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel7.setText("Pago:");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addGap(12, 12, 12)
+                .addComponent(jCpesquisaIsDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCpesquisaPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(616, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jCpesquisaPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jCpesquisaIsDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10)))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jTabaPesquisa.addTab("Contas e pagamentos", jPanel3);
+
+        jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBpesquisa.setText("Pesquisar");
+
+        jBpesquisaReseta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBpesquisaReseta.setText("Resetar filtros");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -396,7 +449,6 @@ public class JFfinanceiro extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLsaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel8)
@@ -404,16 +456,26 @@ public class JFfinanceiro extends javax.swing.JFrame {
                         .addComponent(jCpaginador, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jBpaginador))
-                    .addComponent(jScrollPane2))
+                    .addComponent(jScrollPane2)
+                    .addComponent(jTabaPesquisa)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jBpesquisa)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBpesquisaReseta)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBpesquisa)
+                    .addComponent(jBpesquisaReseta))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -492,12 +554,15 @@ public class JFfinanceiro extends javax.swing.JFrame {
     public javax.swing.JButton jBpaginador;
     public javax.swing.JButton jBpesquisa;
     public javax.swing.JButton jBpesquisaCentroCusto;
+    public javax.swing.JButton jBpesquisaReseta;
     public javax.swing.JButton jBrefreshCadastroCentroCusto;
+    public javax.swing.JButton jBrefreshPesquisaCentroCusto;
     public javax.swing.JComboBox<String> jCcadastroCentroCusto;
     public javax.swing.JComboBox<String> jCcadastroIsDespesa;
     public javax.swing.JCheckBox jCcadastroPago;
-    public javax.swing.JCheckBox jCdataAnterior;
     public javax.swing.JComboBox<String> jCpaginador;
+    public javax.swing.JComboBox<String> jCpesquisaCentroCusto;
+    public javax.swing.JCheckBox jCpesquisaDataAnterior;
     public javax.swing.JComboBox<String> jCpesquisaIsDespesa;
     public javax.swing.JComboBox<String> jCpesquisaPago;
     public com.toedter.calendar.JDateChooser jDPesquisaDataFim;
@@ -505,6 +570,7 @@ public class JFfinanceiro extends javax.swing.JFrame {
     public com.toedter.calendar.JDateChooser jDpesquisaDataInicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -517,8 +583,11 @@ public class JFfinanceiro extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JTabbedPane jTabaPesquisa;
     public javax.swing.JTabbedPane jTabaPrincipal;
     public javax.swing.JTextArea jTcadastroDescricao;
     public javax.swing.JTextField jTcadastroValor;

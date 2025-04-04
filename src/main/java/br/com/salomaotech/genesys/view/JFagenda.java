@@ -174,6 +174,7 @@ public class JFagenda extends javax.swing.JFrame {
         jBrefreshCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/atualizar16x.png"))); // NOI18N
 
         jBatalhoCadastroCliente.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBatalhoCadastroCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/buscar16x.png"))); // NOI18N
         jBatalhoCadastroCliente.setText("Novo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -208,7 +209,7 @@ public class JFagenda extends javax.swing.JFrame {
                 .addComponent(jBrefreshCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBatalhoCadastroCliente)
-                .addContainerGap(334, Short.MAX_VALUE))
+                .addContainerGap(314, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -69,7 +69,8 @@ public class FinanceiroEventosTest {
         assertEquals(true, view.jBrefreshCadastroCentroCusto.getActionListeners().length == 1);
         assertEquals(true, view.jBatalhoCentroCusto.getActionListeners().length == 1);
         assertEquals(true, view.jBpesquisaCentroCusto.getActionListeners().length == 1);
-        assertEquals(true, view.jCdataAnterior.getActionListeners().length == 1);
+        assertEquals(true, view.jCpesquisaDataAnterior.getActionListeners().length == 1);
+        assertEquals(true, view.jBpesquisaReseta.getActionListeners().length == 1);
 
     }
 

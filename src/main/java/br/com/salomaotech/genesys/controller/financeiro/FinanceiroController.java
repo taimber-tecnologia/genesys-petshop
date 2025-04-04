@@ -54,7 +54,7 @@ public class FinanceiroController {
         construir();
         view.jDpesquisaDataInicio.setDate(Calendar.getInstance().getTime());
         view.jCpesquisaPago.setSelectedItem("Nao");
-        view.jCdataAnterior.setSelected(true);
+        view.jCpesquisaDataAnterior.setSelected(true);
         view.jCpesquisaIsDespesa.setSelectedItem("Pagar");
         financeiroMetodos.pesquisar();
 
@@ -65,7 +65,7 @@ public class FinanceiroController {
         construir();
         view.jDpesquisaDataInicio.setDate(Calendar.getInstance().getTime());
         view.jCpesquisaPago.setSelectedItem("Nao");
-        view.jCdataAnterior.setSelected(true);
+        view.jCpesquisaDataAnterior.setSelected(true);
         view.jCpesquisaIsDespesa.setSelectedItem("Receber");
         financeiroMetodos.pesquisar();
 

@@ -155,13 +155,20 @@ public class FinanceiroEventos {
         });
 
         /* opção de pesquisar data anterior */
-        view.jCdataAnterior.addActionListener((ActionEvent e) -> {
+        view.jCpesquisaDataAnterior.addActionListener((ActionEvent e) -> {
 
-            if (view.jCdataAnterior.isSelected()) {
+            if (view.jCpesquisaDataAnterior.isSelected()) {
 
                 view.jDPesquisaDataFim.setDate(null);
 
             }
+
+        });
+
+        /* atalho para resetar a pesquisa */
+        view.jBpesquisaReseta.addActionListener((ActionEvent e) -> {
+
+            financeiroMetodos.resetarViewPesquisa();
 
         });
 
