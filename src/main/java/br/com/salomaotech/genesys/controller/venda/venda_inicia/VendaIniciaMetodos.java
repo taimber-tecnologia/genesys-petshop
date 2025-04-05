@@ -11,6 +11,7 @@ import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
 import br.com.salomaotech.genesys.model.venda.VendaMovimenta;
 import br.com.salomaotech.genesys.model.venda.VendaProdutoPesquisa;
+import br.com.salomaotech.genesys.model.venda.VendaServicoPesquisa;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
 import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
@@ -37,6 +38,14 @@ public class VendaIniciaMetodos {
         VendaProdutoPesquisa vendaProdutoPesquisa = new VendaProdutoPesquisa(view.jTprodutoListaDeProdutos);
         vendaProdutoPesquisa.setNome(view.jTpesquisaNomeProduto.getText());
         vendaProdutoPesquisa.pesquisar();
+
+    }
+
+    public void pesquisarServicos() {
+
+        VendaServicoPesquisa vendaServicoPesquisa = new VendaServicoPesquisa(view.jTprodutoListaDeServicos);
+        vendaServicoPesquisa.setNome(view.jTpesquisaNomeServico.getText());
+        vendaServicoPesquisa.pesquisar();
 
     }
 

@@ -61,6 +61,7 @@ public class JFvendaInicia extends javax.swing.JFrame {
         jTpesquisaNomeServico = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTprodutoListaDeServicos = new javax.swing.JTable();
+        jBservicoAdicionaItem = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jTvendaValorTotal = new javax.swing.JTextField();
@@ -97,7 +98,9 @@ public class JFvendaInicia extends javax.swing.JFrame {
             jTitensSelecionados.getColumnModel().getColumn(0).setMinWidth(85);
             jTitensSelecionados.getColumnModel().getColumn(0).setPreferredWidth(85);
             jTitensSelecionados.getColumnModel().getColumn(0).setMaxWidth(85);
-            jTitensSelecionados.getColumnModel().getColumn(1).setPreferredWidth(90);
+            jTitensSelecionados.getColumnModel().getColumn(1).setMinWidth(380);
+            jTitensSelecionados.getColumnModel().getColumn(1).setPreferredWidth(380);
+            jTitensSelecionados.getColumnModel().getColumn(1).setMaxWidth(380);
             jTitensSelecionados.getColumnModel().getColumn(2).setMinWidth(100);
             jTitensSelecionados.getColumnModel().getColumn(2).setPreferredWidth(100);
             jTitensSelecionados.getColumnModel().getColumn(2).setMaxWidth(100);
@@ -183,7 +186,9 @@ public class JFvendaInicia extends javax.swing.JFrame {
             jTprodutoListaDeProdutos.getColumnModel().getColumn(0).setMinWidth(85);
             jTprodutoListaDeProdutos.getColumnModel().getColumn(0).setPreferredWidth(85);
             jTprodutoListaDeProdutos.getColumnModel().getColumn(0).setMaxWidth(85);
-            jTprodutoListaDeProdutos.getColumnModel().getColumn(1).setPreferredWidth(90);
+            jTprodutoListaDeProdutos.getColumnModel().getColumn(1).setMinWidth(380);
+            jTprodutoListaDeProdutos.getColumnModel().getColumn(1).setPreferredWidth(380);
+            jTprodutoListaDeProdutos.getColumnModel().getColumn(1).setMaxWidth(380);
             jTprodutoListaDeProdutos.getColumnModel().getColumn(2).setMinWidth(100);
             jTprodutoListaDeProdutos.getColumnModel().getColumn(2).setPreferredWidth(100);
             jTprodutoListaDeProdutos.getColumnModel().getColumn(2).setMaxWidth(100);
@@ -264,10 +269,11 @@ public class JFvendaInicia extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPdadosPerfilFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTprodutoQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBcalcularGranel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTprodutoQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBcalcularGranel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTprodutoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -355,11 +361,17 @@ public class JFvendaInicia extends javax.swing.JFrame {
             jTprodutoListaDeServicos.getColumnModel().getColumn(0).setMinWidth(85);
             jTprodutoListaDeServicos.getColumnModel().getColumn(0).setPreferredWidth(85);
             jTprodutoListaDeServicos.getColumnModel().getColumn(0).setMaxWidth(85);
-            jTprodutoListaDeServicos.getColumnModel().getColumn(1).setPreferredWidth(90);
+            jTprodutoListaDeServicos.getColumnModel().getColumn(1).setMinWidth(380);
+            jTprodutoListaDeServicos.getColumnModel().getColumn(1).setPreferredWidth(380);
+            jTprodutoListaDeServicos.getColumnModel().getColumn(1).setMaxWidth(380);
             jTprodutoListaDeServicos.getColumnModel().getColumn(2).setMinWidth(100);
             jTprodutoListaDeServicos.getColumnModel().getColumn(2).setPreferredWidth(100);
             jTprodutoListaDeServicos.getColumnModel().getColumn(2).setMaxWidth(100);
         }
+
+        jBservicoAdicionaItem.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jBservicoAdicionaItem.setText("ADICIONA SERVIÇO");
+        jBservicoAdicionaItem.setEnabled(false);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -369,7 +381,10 @@ public class JFvendaInicia extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 972, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 972, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jBservicoAdicionaItem)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -378,7 +393,9 @@ public class JFvendaInicia extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jBservicoAdicionaItem, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -538,6 +555,7 @@ public class JFvendaInicia extends javax.swing.JFrame {
     public javax.swing.JButton jBimprimir;
     public javax.swing.JButton jBprodutoAdicionaItem;
     public javax.swing.JButton jBprodutoSelecionadoRemoverItem;
+    public javax.swing.JButton jBservicoAdicionaItem;
     public javax.swing.JButton jBvendaExcluir;
     public javax.swing.JButton jBvendaFinaliza;
     private javax.swing.JLabel jLabel10;

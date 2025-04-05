@@ -19,6 +19,7 @@ public class VendaIniciaController {
 
         /* metodos */
         vendaIniciaMetodos.pesquisarProdutos();
+        vendaIniciaMetodos.pesquisarServicos();
         vendaIniciaMetodos.habilitarCampos();
 
         /* eventos */

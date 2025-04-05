@@ -190,7 +190,6 @@ public class VendaIniciaEventos {
 
         });
 
-
         /* exibe os dados do itens selecionados */
         view.jTprodutoListaDeProdutos.getSelectionModel().addListSelectionListener(e -> {
 
@@ -219,6 +218,28 @@ public class VendaIniciaEventos {
 
             new VendaPesquisaController().construir();
             view.dispose();
+
+        });
+
+        /* pesquisa servico */
+        view.jTpesquisaNomeServico.addKeyListener(new KeyListener() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+                vendaIniciaMetodos.pesquisarServicos();
+
+            }
 
         });
 
