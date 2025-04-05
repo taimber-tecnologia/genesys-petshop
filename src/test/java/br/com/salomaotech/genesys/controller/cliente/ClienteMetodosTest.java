@@ -109,8 +109,7 @@ public class ClienteMetodosTest {
         /* testa se os campos estão desabilitados */
         System.out.println("Testando classe ClienteMetodos metodo: habilitarCampos Etapa 01");
         assertEquals(false, view.jBcadastroExcluir.isEnabled());
-        assertEquals(false, view.jBadicionaFoto.isEnabled());
-        assertEquals(false, view.jBremoveFoto.isEnabled());
+
 
         /* é esperado que alguns campos estejam habilitados */
         clienteMetodos.popularFormulario(clienteModelo);
@@ -119,8 +118,6 @@ public class ClienteMetodosTest {
         /* é esperado que alguns campos estejam habilitados */
         System.out.println("Testando classe ClienteMetodos metodo: habilitarCampos Etapa 02");
         assertEquals(true, view.jBcadastroExcluir.isEnabled());
-        assertEquals(true, view.jBadicionaFoto.isEnabled());
-        assertEquals(true, view.jBremoveFoto.isEnabled());
 
     }
 
@@ -178,9 +175,6 @@ public class ClienteMetodosTest {
         assertEquals(true, view.jTenderecoComplemento.getText().equals(clienteModelo.getComplemento()));
         assertEquals(true, view.jTcontatoTelefone.getText().equals(clienteModelo.getTelefone()));
         assertEquals(true, view.jTcontatoEmail.getText().equals(clienteModelo.getEmail()));
-
-        /* foto do perfil */
-        assertEquals(true, view.jPdadosPerfilFoto.getComponents().length == 0);
 
     }
 

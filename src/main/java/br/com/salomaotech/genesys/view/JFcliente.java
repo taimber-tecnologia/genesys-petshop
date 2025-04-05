@@ -97,10 +97,6 @@ public class JFcliente extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jCpaginador = new javax.swing.JComboBox<>();
         jBpaginador = new javax.swing.JButton();
-        jToolBar3 = new javax.swing.JToolBar();
-        jBadicionaFoto = new javax.swing.JButton();
-        jBremoveFoto = new javax.swing.JButton();
-        jPdadosPerfilFoto = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Clientes - Genesys PetShop");
@@ -183,7 +179,6 @@ public class JFcliente extends javax.swing.JFrame {
         jCbasicoNacionalidade.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCbasicoNacionalidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Brasileiro", "Extrangeiro" }));
 
-        jDbasicoDataNascimento.setDateFormatString("dd/MM/yyyy");
         jDbasicoDataNascimento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         try {
@@ -220,7 +215,7 @@ public class JFcliente extends javax.swing.JFrame {
                         .addComponent(jTbasicoNomePai, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jTbasicoNomeMae, javax.swing.GroupLayout.Alignment.LEADING))
                     .addComponent(jCbasicoNacionalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(238, Short.MAX_VALUE))
+                .addContainerGap(448, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -352,7 +347,7 @@ public class JFcliente extends javax.swing.JFrame {
                             .addComponent(jTenderecoLote, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jTenderecoBairro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addContainerGap(460, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -490,7 +485,7 @@ public class JFcliente extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTpesquisaCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(336, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -552,7 +547,7 @@ public class JFcliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel21)
@@ -583,66 +578,22 @@ public class JFcliente extends javax.swing.JFrame {
 
         jTabaPrincipal.addTab("Pesquisa", jPanel3);
 
-        jToolBar3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jToolBar3.setFloatable(false);
-        jToolBar3.setRollover(true);
-
-        jBadicionaFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/photo-camera.png"))); // NOI18N
-        jBadicionaFoto.setEnabled(false);
-        jBadicionaFoto.setFocusable(false);
-        jBadicionaFoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBadicionaFoto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar3.add(jBadicionaFoto);
-
-        jBremoveFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/remove-item32x.png"))); // NOI18N
-        jBremoveFoto.setEnabled(false);
-        jBremoveFoto.setFocusable(false);
-        jBremoveFoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBremoveFoto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar3.add(jBremoveFoto);
-
-        jPdadosPerfilFoto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPdadosPerfilFoto.setMaximumSize(new java.awt.Dimension(192, 192));
-        jPdadosPerfilFoto.setMinimumSize(new java.awt.Dimension(192, 192));
-        jPdadosPerfilFoto.setPreferredSize(new java.awt.Dimension(192, 192));
-
-        javax.swing.GroupLayout jPdadosPerfilFotoLayout = new javax.swing.GroupLayout(jPdadosPerfilFoto);
-        jPdadosPerfilFoto.setLayout(jPdadosPerfilFotoLayout);
-        jPdadosPerfilFotoLayout.setHorizontalGroup(
-            jPdadosPerfilFotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPdadosPerfilFotoLayout.setVerticalGroup(
-            jPdadosPerfilFotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 188, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPdadosPerfilFoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToolBar3, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))
+                .addComponent(jTabaPrincipal)
                 .addContainerGap())
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPdadosPerfilFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jToolBar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTabaPrincipal))
+                .addComponent(jTabaPrincipal)
                 .addContainerGap())
         );
 
@@ -716,7 +667,6 @@ public class JFcliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jBadicionaFoto;
     public javax.swing.JButton jBatalhoCadastro;
     public javax.swing.JButton jBatalhoPesquisa;
     public javax.swing.JButton jBcadastroExcluir;
@@ -724,7 +674,6 @@ public class JFcliente extends javax.swing.JFrame {
     public javax.swing.JButton jBenderecoBuscarCep;
     public javax.swing.JButton jBpaginador;
     public javax.swing.JButton jBpesquisa;
-    public javax.swing.JButton jBremoveFoto;
     public javax.swing.JComboBox<String> jCbasicoNacionalidade;
     public javax.swing.JComboBox<String> jCbasicoSexo;
     public javax.swing.JComboBox<String> jCenderecoUf;
@@ -759,7 +708,6 @@ public class JFcliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    public javax.swing.JPanel jPdadosPerfilFoto;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTabbedPane jTabaCadastro;
@@ -777,7 +725,6 @@ public class JFcliente extends javax.swing.JFrame {
     public javax.swing.JTextField jTenderecoQuadra;
     public javax.swing.JTextField jTenderecoRua;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JToolBar jToolBar3;
     public javax.swing.JTextField jTpesquisaCpf;
     public javax.swing.JTextField jTpesquisaNome;
     public javax.swing.JTable jTresultados;

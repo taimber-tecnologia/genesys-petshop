@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.cliente;
 
-import br.com.salomaotech.genesys.model.cliente.ImagemCliente;
 import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.model.cliente.ClientePesquisa;
 import br.com.salomaotech.genesys.view.JFcliente;
@@ -99,28 +98,6 @@ public class ClienteEventos {
         view.jBpesquisa.addActionListener((ActionEvent e) -> {
 
             clienteMetodos.pesquisar();
-
-        });
-
-        /* adicionar foto */
-        view.jBadicionaFoto.addActionListener((ActionEvent e) -> {
-
-            if (ImagemCliente.upload(String.valueOf(view.getId())) == true) {
-
-                new ImagemCliente().exibir(String.valueOf(view.getId()), view.jPdadosPerfilFoto);
-
-            }
-
-        });
-
-        /* remover foto */
-        view.jBremoveFoto.addActionListener((ActionEvent e) -> {
-
-            if (JOptionPane.showConfirmDialog(null, "Excluir foto do cliente?") == 0) {
-
-                ImagemCliente.remover(String.valueOf(view.getId()), view.jPdadosPerfilFoto);
-
-            }
 
         });
 

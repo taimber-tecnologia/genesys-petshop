@@ -1,6 +1,5 @@
 package br.com.salomaotech.genesys.controller.cliente;
 
-import br.com.salomaotech.genesys.model.cliente.ImagemCliente;
 import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.model.cliente.ClientePesquisa;
 import br.com.salomaotech.genesys.view.JFcliente;
@@ -42,8 +41,6 @@ public class ClienteMetodos {
     public void resetarView() {
 
         popularFormulario(new ClienteModelo());
-        view.jPdadosPerfilFoto.removeAll();
-        view.jPdadosPerfilFoto.repaint();
         view.jFbasicoCpf.setValue(null);
         view.jCbasicoSexo.setSelectedIndex(0);
         view.jCenderecoUf.setSelectedIndex(0);
@@ -55,8 +52,6 @@ public class ClienteMetodos {
 
         boolean isIdAberto = view.getId() != 0;
         view.jBcadastroExcluir.setEnabled(isIdAberto);
-        view.jBadicionaFoto.setEnabled(isIdAberto);
-        view.jBremoveFoto.setEnabled(isIdAberto);
 
     }
 
@@ -87,7 +82,6 @@ public class ClienteMetodos {
         Repository repository = new Repository(new ClienteModelo());
         ClienteModelo clienteModelo = (ClienteModelo) repository.findById(id);
         popularFormulario(clienteModelo);
-        new ImagemCliente().exibir(String.valueOf(id), view.jPdadosPerfilFoto);
         view.jTabaPrincipal.setSelectedIndex(0);
         view.jTabaCadastro.setSelectedIndex(0);
         habilitarCampos();
@@ -123,7 +117,6 @@ public class ClienteMetodos {
 
     public boolean excluir() {
 
-        ImagemCliente.remover(String.valueOf(view.getId()), view.jPdadosPerfilFoto);
         return new Repository(new ClienteModelo()).delete(view.getId());
 
     }
