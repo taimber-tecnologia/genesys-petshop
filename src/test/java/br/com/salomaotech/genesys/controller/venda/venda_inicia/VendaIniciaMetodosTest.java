@@ -63,7 +63,7 @@ public class VendaIniciaMetodosTest {
 
     private void simularExibirProdutosSelecionados() {
 
-        DefaultTableModel defaultTableModel = (DefaultTableModel) view.jTprodutoSelecionado.getModel();
+        DefaultTableModel defaultTableModel = (DefaultTableModel) view.jTitensSelecionados.getModel();
         defaultTableModel.setNumRows(0);
         int contador = 0;
 
@@ -131,7 +131,7 @@ public class VendaIniciaMetodosTest {
         vendaIniciaMetodos.adicionarProdutoNaLista(itemVenda);
 
         System.out.println("Testando classe VendaIniciaMetodos metodo: adicionarProdutoNaLista");
-        assertEquals(true, view.jTprodutoSelecionado.getRowCount() == 1);
+        assertEquals(true, view.jTitensSelecionados.getRowCount() == 1);
 
     }
 
@@ -141,7 +141,7 @@ public class VendaIniciaMetodosTest {
         vendaIniciaMetodos.removerProdutoNaLista();
 
         System.out.println("Testando classe VendaIniciaMetodos metodo: removerProdutoNaLista");
-        assertEquals(true, view.jTprodutoSelecionado.getRowCount() == 0);
+        assertEquals(true, view.jTitensSelecionados.getRowCount() == 0);
         assertEquals(false, view.jBprodutoSelecionadoRemoverItem.isEnabled());
 
     }
@@ -219,7 +219,7 @@ public class VendaIniciaMetodosTest {
         assertEquals(false, view.jBprodutoSelecionadoRemoverItem.isEnabled());
 
         /* campo habilitado */
-        view.jTprodutoSelecionado.setRowSelectionInterval(0, 0);
+        view.jTitensSelecionados.setRowSelectionInterval(0, 0);
         vendaIniciaMetodos.habilitarCamposDeExcluirProdutoAdicionado();
         System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCamposDeExcluirProdutoAdicionado etapa 02");
         assertEquals(true, view.jBprodutoSelecionadoRemoverItem.isEnabled());
@@ -265,7 +265,7 @@ public class VendaIniciaMetodosTest {
 
         System.out.println("Testando classe VendaIniciaMetodos metodo: abrirCadastro");
         assertEquals(true, view.getId() == vendaModelo.getId());
-        assertEquals(true, view.jTprodutoSelecionado.getRowCount() > 0);
+        assertEquals(true, view.jTitensSelecionados.getRowCount() > 0);
 
     }
 

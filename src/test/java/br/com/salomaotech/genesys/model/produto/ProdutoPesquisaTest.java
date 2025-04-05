@@ -1,25 +1,66 @@
 package br.com.salomaotech.genesys.model.produto;
 
-import br.com.salomaotech.genesys.view.JFproduto;
 import br.com.salomaotech.sistema.jpa.Repository;
 import java.math.BigDecimal;
+import javax.swing.JTable;
+import javax.swing.JComboBox;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class ProdutoPesquisaTest {
 
-    private final JFproduto view = new JFproduto();
-    private final ProdutoModelo produtoModelo = new ProdutoModelo();
-    private ProdutoPesquisa produtoPesquisa = new ProdutoPesquisa(view.jTresultados, view.jCpaginador);
+    private final JTable jTresultados = new JTable();
+    private final JComboBox<String> jCpaginador = new JComboBox<>();
+    private final ProdutoPesquisa produtoPesquisa = new ProdutoPesquisa(jTresultados, jCpaginador);
 
     public ProdutoPesquisaTest() {
 
-        /* simula cadastro de produtos */
+        /* remove cadastros antigos */
         new Repository(new ProdutoModelo()).deleteTodos();
-        produtoModelo.setNome("Teste");
-        produtoModelo.setCategoria("ABC");
-        produtoModelo.setQuantidade(new BigDecimal(50));
-        new Repository(produtoModelo).save();
+
+        /* 100 produtos: nome = Teste, categoria = ABC */
+        for (int i = 1; i <= 50; i++) {
+
+            ProdutoModelo produtoModelo = new ProdutoModelo();
+            produtoModelo.setNome("Teste");
+            produtoModelo.setCategoria("ABC");
+            produtoModelo.setQuantidade(new BigDecimal(50));
+            new Repository(produtoModelo).save();
+
+        }
+
+        /* 100 produtos: nome = Outro, categoria = XYZ */
+        for (int i = 1; i <= 50; i++) {
+
+            ProdutoModelo produtoModelo = new ProdutoModelo();
+            produtoModelo.setNome("Outro");
+            produtoModelo.setCategoria("XYZ");
+            produtoModelo.setQuantidade(new BigDecimal(25));
+            new Repository(produtoModelo).save();
+
+        }
+
+        /* 25 produtos com nome = NomeTeste */
+        for (int i = 1; i <= 25; i++) {
+
+            ProdutoModelo produtoModelo = new ProdutoModelo();
+            produtoModelo.setNome("NomeTeste");
+            produtoModelo.setCategoria("Unica");
+            produtoModelo.setQuantidade(new BigDecimal(10));
+            new Repository(produtoModelo).save();
+
+        }
+
+        /* 25 produtos com categoria = CategoriaTeste */
+        for (int i = 1; i <= 25; i++) {
+
+            ProdutoModelo produtoModelo = new ProdutoModelo();
+            produtoModelo.setNome("Unico");
+            produtoModelo.setCategoria("CategoriaTeste");
+            produtoModelo.setQuantidade(new BigDecimal(5));
+            new Repository(produtoModelo).save();
+
+        }
 
     }
 
@@ -30,7 +71,7 @@ public class ProdutoPesquisaTest {
 
         try {
 
-            produtoPesquisa.setNome(produtoModelo.getNome());
+            produtoPesquisa.setNome("Teste");
 
         } catch (Exception ex) {
 
@@ -50,7 +91,7 @@ public class ProdutoPesquisaTest {
 
         try {
 
-            produtoPesquisa.setCategoria(produtoModelo.getCategoria());
+            produtoPesquisa.setCategoria("ABC");
 
         } catch (Exception ex) {
 
@@ -66,37 +107,53 @@ public class ProdutoPesquisaTest {
     @Test
     public void testPesquisar() {
 
-        /* utilizando filtro: nenhum */
-        view.jTpesquisaNome.setText(null);
-        view.jCpesquisaCategoria.getEditor().setItem("");
-        produtoPesquisa = new ProdutoPesquisa(view.jTresultados, view.jCpaginador);
+        /* filtro: nenhum */
+        produtoPesquisa.setNome(null);
+        produtoPesquisa.setCategoria(null);
         produtoPesquisa.pesquisar();
-        System.out.println("Testando classe ProdutoPesquisa metodo: pesquisar etapa 01");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        int totalTodos = jTresultados.getRowCount();
+        System.out.println("Pesquisar etapa 01: nenhum filtro");
+        assertEquals(100, totalTodos); // respeitando limite do paginador
 
-        /* utilizando filtro: nome */
-        view.jTpesquisaNome.setText(produtoModelo.getNome());
-        view.jCpesquisaCategoria.getEditor().setItem("");
-        produtoPesquisa = new ProdutoPesquisa(view.jTresultados, view.jCpaginador);
+        /* filtro: nome = Teste */
+        produtoPesquisa.setNome("Teste");
+        produtoPesquisa.setCategoria(null);
         produtoPesquisa.pesquisar();
-        System.out.println("Testando classe ProdutoPesquisa metodo: pesquisar etapa 02");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        int totalNome = jTresultados.getRowCount();
+        System.out.println("Pesquisar etapa 02: nome = Teste");
+        assertEquals(75, totalNome);
 
-        /* utilizando filtro: categoria */
-        view.jTpesquisaNome.setText(null);
-        view.jCpesquisaCategoria.getEditor().setItem(produtoModelo.getCategoria());
-        produtoPesquisa = new ProdutoPesquisa(view.jTresultados, view.jCpaginador);
+        /* filtro: categoria = XYZ */
+        produtoPesquisa.setNome(null);
+        produtoPesquisa.setCategoria("XYZ");
         produtoPesquisa.pesquisar();
-        System.out.println("Testando classe ProdutoPesquisa metodo: pesquisar etapa 03");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        int totalCategoria = jTresultados.getRowCount();
+        System.out.println("Pesquisar etapa 03: categoria = XYZ");
+        assertEquals(50, totalCategoria);
 
-        /* utilizando filtro: todos */
-        view.jTpesquisaNome.setText(produtoModelo.getNome());
-        view.jCpesquisaCategoria.getEditor().setItem(produtoModelo.getCategoria());
-        produtoPesquisa = new ProdutoPesquisa(view.jTresultados, view.jCpaginador);
+        /* filtro: nome = Outro e categoria = XYZ */
+        produtoPesquisa.setNome("Outro");
+        produtoPesquisa.setCategoria("XYZ");
         produtoPesquisa.pesquisar();
-        System.out.println("Testando classe ProdutoPesquisa metodo: pesquisar etapa 04");
-        assertEquals(true, view.jTresultados.getRowCount() > 0);
+        int totalAmbos = jTresultados.getRowCount();
+        System.out.println("Pesquisar etapa 04: nome = Outro, categoria = XYZ");
+        assertEquals(50, totalAmbos);
+
+        /* filtro: nome = NomeTeste */
+        produtoPesquisa.setNome("NomeTeste");
+        produtoPesquisa.setCategoria(null);
+        produtoPesquisa.pesquisar();
+        int totalNomeTeste = jTresultados.getRowCount();
+        System.out.println("Pesquisar etapa 05: nome = NomeTeste");
+        assertEquals(25, totalNomeTeste);
+
+        /* filtro: categoria = CategoriaTeste */
+        produtoPesquisa.setNome(null);
+        produtoPesquisa.setCategoria("CategoriaTeste");
+        produtoPesquisa.pesquisar();
+        int totalCategoriaTeste = jTresultados.getRowCount();
+        System.out.println("Pesquisar etapa 06: categoria = CategoriaTeste");
+        assertEquals(25, totalCategoriaTeste);
 
     }
 

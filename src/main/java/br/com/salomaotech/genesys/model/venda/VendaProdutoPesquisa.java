@@ -1,32 +1,24 @@
-package br.com.salomaotech.genesys.model.produto;
+package br.com.salomaotech.genesys.model.venda;
 
+import br.com.salomaotech.genesys.model.produto.*;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import br.com.salomaotech.sistema.jpa.JPQL;
-import br.com.salomaotech.sistema.jpa.Paginador;
 import br.com.salomaotech.sistema.jpa.Repository;
 import java.util.List;
-import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class ProdutoPesquisa {
+public class VendaProdutoPesquisa {
 
     private final JTable jTresultados;
-    private final JComboBox jCpaginador;
     private String nome;
-    private String categoria;
 
-    public ProdutoPesquisa(JTable jTresultados, JComboBox jCpaginador) {
+    public VendaProdutoPesquisa(JTable jTresultados) {
         this.jTresultados = jTresultados;
-        this.jCpaginador = jCpaginador;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
     }
 
     private void popularDados(List<ProdutoModelo> produtoModeloList) {
@@ -40,9 +32,7 @@ public class ProdutoPesquisa {
             Object[] linhaDefaultTableModel = new Object[]{
                 produtoModelo.getId(),
                 produtoModelo.getNome(),
-                ConverteNumeroParaMoedaBr.converter(produtoModelo.getValorVenda().toString()),
-                produtoModelo.getQuantidade(),
-                produtoModelo.getCategoria()
+                ConverteNumeroParaMoedaBr.converter(produtoModelo.getValorVenda().toString())
 
             };
 
@@ -57,13 +47,11 @@ public class ProdutoPesquisa {
 
         JPQL jpql = new JPQL(new ProdutoModelo());
         jpql.addParametroLike("nome", nome);
-        jpql.addParametroIgual("categoria", categoria);
         jpql.addOrderBy("nome", "ASC");
         jpql.addOrderBy("id", "ASC");
 
-        Paginador paginador = new Paginador(jpql, jCpaginador, new ProdutoModelo());
         Repository repository = new Repository(new ProdutoModelo());
-        List<ProdutoModelo> produtoModeloList = repository.getResultsComPaginador(jpql.construirSelect(), paginador.getPageNumber(), paginador.getPageSize());
+        List<ProdutoModelo> produtoModeloList = repository.getResults(jpql.construirSelect());
         popularDados(produtoModeloList);
 
     }

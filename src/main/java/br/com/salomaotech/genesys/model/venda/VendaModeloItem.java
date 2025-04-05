@@ -19,7 +19,6 @@ public class VendaModeloItem implements Modelo, Serializable {
     private long idServico;
     private BigDecimal valor = new BigDecimal(0);
     private BigDecimal quantidade = new BigDecimal(0);
-    private BigDecimal desconto = new BigDecimal(0);
 
     @Override
     public long getId() {
@@ -61,14 +60,6 @@ public class VendaModeloItem implements Modelo, Serializable {
 
     public void setQuantidade(BigDecimal quantidade) {
         this.quantidade = quantidade;
-    }
-
-    public BigDecimal getDesconto() {
-        return desconto;
-    }
-
-    public void setDesconto(BigDecimal desconto) {
-        this.desconto = desconto;
     }
 
 }

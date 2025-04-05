@@ -63,8 +63,8 @@ public class VendaIniciaEventosTest {
         assertEquals(true, view.jBprodutoAdicionaItem.getActionListeners().length == 1);
         assertEquals(true, view.jBvendaFinaliza.getActionListeners().length == 1);
         assertEquals(true, view.jBvendaExcluir.getActionListeners().length == 1);
-        assertEquals(true, view.jTprodutoSelecionado.getMouseListeners().length == 3);
-        assertEquals(true, view.jTprodutoSelecionado.getKeyListeners().length == 2);
+        assertEquals(true, view.jTitensSelecionados.getMouseListeners().length == 3);
+        assertEquals(true, view.jTitensSelecionados.getKeyListeners().length == 2);
         assertEquals(true, view.jBprodutoSelecionadoRemoverItem.getActionListeners().length == 1);
         assertEquals(true, view.jBimprimir.getActionListeners().length == 1);
         assertEquals(true, view.jBcalcularGranel.getActionListeners().length == 1);

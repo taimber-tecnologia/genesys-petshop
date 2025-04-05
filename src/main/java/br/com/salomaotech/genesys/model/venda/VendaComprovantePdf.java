@@ -77,19 +77,17 @@ public class VendaComprovantePdf {
             pdfPTable.addCell(createCell("Nome", Element.ALIGN_LEFT, Font.BOLD));
             pdfPTable.addCell(createCell("Qtd.", Element.ALIGN_LEFT, Font.BOLD));
             pdfPTable.addCell(createCell("Vr. unt.", Element.ALIGN_LEFT, Font.BOLD));
-            pdfPTable.addCell(createCell("Desc.", Element.ALIGN_LEFT, Font.BOLD));
             pdfPTable.addCell(createCell("Subtotal", Element.ALIGN_LEFT, Font.BOLD));
 
             for (VendaModeloItem vendaModeloItem : vendaModelo.getVendaModeloItemList()) {
 
                 /* calculos */
-                BigDecimal totalProduto = vendaModeloItem.getValor().multiply(vendaModeloItem.getQuantidade()).subtract(vendaModeloItem.getDesconto());
+                BigDecimal totalProduto = vendaModeloItem.getValor().multiply(vendaModeloItem.getQuantidade());
 
                 /* conversão de dados */
                 String nome = "";
                 String quantidade = BigDecimais.formatarParaBigDecimalComCasaDecimal(vendaModeloItem.getQuantidade().toString(), 2).toString();
                 String valorUnidade = BigDecimais.formatarParaBigDecimalComCasaDecimal(vendaModeloItem.getValor().toString(), 2).toString();
-                String desconto = BigDecimais.formatarParaBigDecimalComCasaDecimal(vendaModeloItem.getDesconto().toString(), 2).toString();
                 String total = BigDecimais.formatarParaBigDecimalComCasaDecimal(totalProduto.toString(), 2).toString();
 
                 /* valida se é um produto */
@@ -108,16 +106,9 @@ public class VendaComprovantePdf {
 
                 }
 
-                if (desconto.equals("0.00")) {
-
-                    desconto = "";
-
-                }
-
                 pdfPTable.addCell(createCell(nome, Element.ALIGN_LEFT, Font.NORMAL));
                 pdfPTable.addCell(createCell(quantidade, Element.ALIGN_LEFT, Font.NORMAL));
                 pdfPTable.addCell(createCell(valorUnidade, Element.ALIGN_LEFT, Font.NORMAL));
-                pdfPTable.addCell(createCell(desconto, Element.ALIGN_LEFT, Font.NORMAL));
                 pdfPTable.addCell(createCell(total, Element.ALIGN_LEFT, Font.NORMAL));
 
             }

@@ -89,8 +89,7 @@ public class VendaModelo implements Modelo, Serializable {
         for (VendaModeloItem vendaModeloItem : vendaModeloItemList) {
 
             BigDecimal quantidade = vendaModeloItem.getQuantidade();
-            BigDecimal desconto = vendaModeloItem.getDesconto();
-            BigDecimal valorCalculado = (vendaModeloItem.getValor().multiply(quantidade)).subtract(desconto);
+            BigDecimal valorCalculado = (vendaModeloItem.getValor().multiply(quantidade));
             valorTotal = valorTotal.add(valorCalculado);
 
         }

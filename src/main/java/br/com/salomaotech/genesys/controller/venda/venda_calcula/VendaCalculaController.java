@@ -2,6 +2,7 @@ package br.com.salomaotech.genesys.controller.venda.venda_calcula;
 
 import br.com.salomaotech.genesys.model.venda.ItemVenda;
 import br.com.salomaotech.genesys.controller.venda.venda_inicia.VendaIniciaMetodos;
+import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.view.JFvendaCalcula;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
 
@@ -11,10 +12,10 @@ public class VendaCalculaController {
     private final VendaCalculaMetodos vendaCalculaMetodos = new VendaCalculaMetodos(view);
     private final VendaCalculaEventos vendaCalculaEventos = new VendaCalculaEventos(view);
 
-    public VendaCalculaController(ItemVenda itemVenda, VendaIniciaMetodos vendaIniciaMetodos) {
+    public VendaCalculaController(long id, VendaIniciaMetodos vendaIniciaMetodos) {
 
         /* metodos */
-        vendaCalculaMetodos.setItemVenda(itemVenda);
+        vendaCalculaMetodos.setItemVenda(new ItemVenda(id, new ProdutoModelo()));
         vendaCalculaMetodos.setVendaIniciaMetodos(vendaIniciaMetodos);
 
         /* eventos */

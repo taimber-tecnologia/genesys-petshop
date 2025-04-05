@@ -76,7 +76,7 @@ public class VendaIniciaControllerTest {
 
         System.out.println("Testando classe VendaIniciaController metodo: abrirCadastro");
         assertEquals(true, view.getId() == vendaModelo.getId());
-        assertEquals(true, view.jTprodutoSelecionado.getRowCount() == vendaModeloItemList.size());
+        assertEquals(true, view.jTitensSelecionados.getRowCount() == vendaModeloItemList.size());
         assertEquals(true, view.jBvendaExcluir.isVisible());
 
     }

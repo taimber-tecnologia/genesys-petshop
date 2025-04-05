@@ -1,27 +1,22 @@
 package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
-import br.com.salomaotech.genesys.model.venda.ItemVenda;
 import br.com.salomaotech.genesys.controller.venda.venda_calcula.VendaCalculaController;
+import br.com.salomaotech.genesys.controller.venda.venda_pesquisa.VendaPesquisaController;
 import br.com.salomaotech.genesys.model.configuracoes.PastasSistema;
-import br.com.salomaotech.genesys.model.venda.ComboBoxItemVenda;
 import br.com.salomaotech.genesys.model.venda.VendaComprovantePdf;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
+import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
-import br.com.salomaotech.sistema.patterns.Command;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import static java.util.Objects.isNull;
+import java.math.BigDecimal;
 import javax.swing.JOptionPane;
 
-public class VendaIniciaEventos implements Command {
+public class VendaIniciaEventos {
 
     private final JFvendaInicia view;
     private VendaIniciaMetodos vendaIniciaMetodos;
-    private ComboBoxItemVenda comboBoxItemVenda;
-    private ItemVenda itemVenda = new ItemVenda();
 
     public VendaIniciaEventos(JFvendaInicia view) {
         this.view = view;
@@ -31,20 +26,29 @@ public class VendaIniciaEventos implements Command {
         this.vendaIniciaMetodos = vendaIniciaMetodos;
     }
 
-    public void setComboBoxItemVenda(ComboBoxItemVenda comboBoxItemVenda) {
-        this.comboBoxItemVenda = comboBoxItemVenda;
-    }
+    private void addProdutoLista() {
 
-    private void carregarProduto() {
+        int linha = view.jTprodutoListaDeProdutos.getSelectedRow();
 
-        if (!isNull(comboBoxItemVenda)) {
+        // valida se há um produto selecionado na lista
+        if (linha >= 0) {
 
-            /* carrega o objeto */
-            Object object = comboBoxItemVenda.getObjecHashMap().get(comboBoxItemVenda.getIdSelecionado());
+            // pega a quantidade informada pelo usuário
+            BigDecimal quantidade = BigDecimais.formatarParaBigDecimal(view.jTprodutoQuantidade.getText());
 
-            itemVenda = new ItemVenda(comboBoxItemVenda.getIdSelecionado(), object);
-            vendaIniciaMetodos.exibirProdutoSelecionado(itemVenda);
-            vendaIniciaMetodos.limparCalculosProdutoSelecionado();
+            // se a quantidade for maior do que zero, então permite adicionar
+            if (quantidade.compareTo(BigDecimal.ZERO) > 0) {
+
+                long id = (long) view.jTprodutoListaDeProdutos.getModel().getValueAt(linha, 0);
+                vendaIniciaMetodos.adicionarProdutoNaLista(id);
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Informe a quantidade.");
+                view.jTprodutoQuantidade.setText("");
+                view.jTprodutoQuantidade.requestFocus();
+
+            }
 
         }
 
@@ -52,7 +56,7 @@ public class VendaIniciaEventos implements Command {
 
     public void addEventos() {
 
-        /* quantidade */
+        /* calcula valor total do itens selecionados */
         view.jTprodutoQuantidade.addKeyListener(new KeyListener() {
 
             @Override
@@ -63,50 +67,34 @@ public class VendaIniciaEventos implements Command {
             @Override
             public void keyPressed(KeyEvent e) {
 
-            }
+                if (e.getKeyCode() == 10) {
 
-            @Override
-            public void keyReleased(KeyEvent e) {
+                    addProdutoLista();
 
-                view.jTprodutoTotal.setText(ConverteNumeroParaMoedaBr.converter(vendaIniciaMetodos.calcularProdutoSelecionado(itemVenda).toString()));
-
-            }
-
-        });
-
-        /* desconto */
-        view.jTprodutoDesconto.addKeyListener(new KeyListener() {
-
-            @Override
-            public void keyTyped(KeyEvent e) {
-
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
+                }
 
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
 
-                view.jTprodutoTotal.setText(ConverteNumeroParaMoedaBr.converter(vendaIniciaMetodos.calcularProdutoSelecionado(itemVenda).toString()));
+                int linha = view.jTprodutoListaDeProdutos.getSelectedRow();
+
+                if (linha >= 0) {
+
+                    long id = (long) view.jTprodutoListaDeProdutos.getModel().getValueAt(linha, 0);
+                    view.jTprodutoTotal.setText(ConverteNumeroParaMoedaBr.converter(vendaIniciaMetodos.calcularProdutoSelecionado(id).toString()));
+
+                }
 
             }
-
-        });
-
-        /* limpar produto selecionado */
-        view.jBprodutoLimpaItem.addActionListener((ActionEvent e) -> {
-
-            vendaIniciaMetodos.limparProdutoSelecionado();
 
         });
 
         /* adiciona um item de produto */
         view.jBprodutoAdicionaItem.addActionListener((ActionEvent e) -> {
 
-            vendaIniciaMetodos.adicionarProdutoNaLista(itemVenda);
+            addProdutoLista();
 
         });
 
@@ -139,33 +127,12 @@ public class VendaIniciaEventos implements Command {
 
         });
 
-        /* produto selecionado */
-        view.jTprodutoSelecionado.addMouseListener(new MouseAdapter() {
+        /* habilita campos para excluir item de venda selecionado */
+        view.jTitensSelecionados.getSelectionModel().addListSelectionListener(e -> {
 
-            @Override
-            public void mouseClicked(MouseEvent e) {
+            int linha = view.jTitensSelecionados.getSelectedRow();
 
-                vendaIniciaMetodos.habilitarCamposDeExcluirProdutoAdicionado();
-
-            }
-
-        });
-
-        /* produto selecionado */
-        view.jTprodutoSelecionado.addKeyListener(new KeyListener() {
-
-            @Override
-            public void keyTyped(KeyEvent e) {
-
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
+            if (linha >= 0) {
 
                 vendaIniciaMetodos.habilitarCamposDeExcluirProdutoAdicionado();
 
@@ -173,7 +140,7 @@ public class VendaIniciaEventos implements Command {
 
         });
 
-        /* remover item de produto selecionado */
+        /* remover item de itens selecionados */
         view.jBprodutoSelecionadoRemoverItem.addActionListener((ActionEvent e) -> {
 
             vendaIniciaMetodos.removerProdutoNaLista();
@@ -190,20 +157,70 @@ public class VendaIniciaEventos implements Command {
         /* botão calcular granel */
         view.jBcalcularGranel.addActionListener((ActionEvent e) -> {
 
-            if (!isNull(comboBoxItemVenda)) {
+            int linha = view.jTprodutoListaDeProdutos.getSelectedRow();
 
-                new VendaCalculaController(itemVenda, vendaIniciaMetodos).construir();
+            if (linha >= 0) {
+
+                long id = (long) view.jTprodutoListaDeProdutos.getModel().getValueAt(linha, 0);
+                new VendaCalculaController(id, vendaIniciaMetodos).construir();
 
             }
 
         });
 
-    }
+        /* pesquisa produto */
+        view.jTpesquisaNomeProduto.addKeyListener(new KeyListener() {
 
-    @Override
-    public void executar(Object arg) {
+            @Override
+            public void keyTyped(KeyEvent e) {
 
-        carregarProduto();
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+                vendaIniciaMetodos.pesquisarProdutos();
+
+            }
+
+        });
+
+
+        /* exibe os dados do itens selecionados */
+        view.jTprodutoListaDeProdutos.getSelectionModel().addListSelectionListener(e -> {
+
+            int linha = view.jTprodutoListaDeProdutos.getSelectedRow();
+
+            if (linha >= 0) {
+
+                long id = (long) view.jTprodutoListaDeProdutos.getModel().getValueAt(linha, 0);
+                vendaIniciaMetodos.exibirProdutoSelecionado(id);
+                view.jTprodutoQuantidade.requestFocus();
+
+            }
+
+        });
+
+        /* atalho para venda */
+        view.jBatalhoCadastro.addActionListener((ActionEvent e) -> {
+
+            new VendaIniciaController().construir();
+            view.dispose();
+
+        });
+
+        /* atalho para histórico de vendas */
+        view.jBatalhoPesquisa.addActionListener((ActionEvent e) -> {
+
+            new VendaPesquisaController().construir();
+            view.dispose();
+
+        });
 
     }
 
