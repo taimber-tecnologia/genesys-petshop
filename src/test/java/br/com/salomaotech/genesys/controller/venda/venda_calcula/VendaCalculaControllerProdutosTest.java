@@ -6,15 +6,15 @@ import br.com.salomaotech.genesys.view.JFvendaInicia;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class VendaCalculaControllerTest {
+public class VendaCalculaControllerProdutosTest {
 
     private final JFvendaInicia view = new JFvendaInicia();
     private final VendaIniciaMetodos vendaIniciaMetodos = new VendaIniciaMetodos(view);
-    private final VendaCalculaController vendaCalculaController;
+    private final VendaCalculaControllerProdutos vendaCalculaController;
 
-    public VendaCalculaControllerTest() {
+    public VendaCalculaControllerProdutosTest() {
 
-        vendaCalculaController = new VendaCalculaController(new ItemVenda(), vendaIniciaMetodos);
+        vendaCalculaController = new VendaCalculaControllerProdutos(new ItemVenda(), vendaIniciaMetodos);
 
     }
 

@@ -4,11 +4,11 @@ import br.com.salomaotech.genesys.view.JFvendaCalcula;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class VendaCalculaEventosTest {
+public class VendaCalculaEventosProdutosTest {
 
     private final JFvendaCalcula view = new JFvendaCalcula();
-    private final VendaCalculaMetodos vendaCalculaMetodos = new VendaCalculaMetodos(view);
-    private final VendaCalculaEventos vendaCalculaEventos = new VendaCalculaEventos(view);
+    private final VendaCalculaMetodosProdutos vendaCalculaMetodos = new VendaCalculaMetodosProdutos(view);
+    private final VendaCalculaEventosProdutos vendaCalculaEventos = new VendaCalculaEventosProdutos(view);
 
     @Test
     public void testSetVendaCalculaMetodos() {

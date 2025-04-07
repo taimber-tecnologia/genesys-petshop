@@ -279,8 +279,8 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jTprodutoTotal" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTprodutoQuantidade" max="32767" attributes="0"/>
+                                  <Component id="jTitemTotal" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTitemQuantidade" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jBcalcularGranel" min="-2" max="-2" attributes="0"/>
@@ -297,13 +297,13 @@
                       <Component id="jPdadosPerfilFoto" min="-2" pref="280" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTprodutoQuantidade" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jTitemQuantidade" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jBcalcularGranel" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTprodutoTotal" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jTitemTotal" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -340,7 +340,7 @@
                 </DimensionLayout>
               </Layout>
             </Container>
-            <Component class="javax.swing.JTextField" name="jTprodutoTotal">
+            <Component class="javax.swing.JTextField" name="jTitemTotal">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -379,7 +379,7 @@
                 <Property name="text" type="java.lang.String" value="QUANT:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTprodutoQuantidade">
+            <Component class="javax.swing.JTextField" name="jTitemQuantidade">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="33" red="0" type="rgb"/>
@@ -440,7 +440,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane4" alignment="0" pref="555" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jBprodutoSelecionadoRemoverItem" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jBremoveItemSelecionadoLista" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -454,7 +454,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane4" pref="353" max="32767" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jBprodutoSelecionadoRemoverItem" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBremoveItemSelecionadoLista" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -509,7 +509,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="jBprodutoSelecionadoRemoverItem">
+                <Component class="javax.swing.JButton" name="jBremoveItemSelecionadoLista">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="0"/>
@@ -574,7 +574,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="jTprodutoListaDeProdutos">
+                    <Component class="javax.swing.JTable" name="jTlistaDeProdutos">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="12" style="0"/>
@@ -787,7 +787,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="jTprodutoListaDeServicos">
+                    <Component class="javax.swing.JTable" name="jTlistaDeServicos">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="12" style="0"/>

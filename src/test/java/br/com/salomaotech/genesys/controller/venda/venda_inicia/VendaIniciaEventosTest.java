@@ -57,7 +57,7 @@ public class VendaIniciaEventosTest {
         vendaIniciaEventos.addEventos();
 
         System.out.println("Testando classe VendaIniciaEventos metodo: addEventos");
-        assertEquals(true, view.jTprodutoQuantidade.getKeyListeners().length == 1);
+        assertEquals(true, view.jTitemQuantidade.getKeyListeners().length == 1);
         assertEquals(true, view.jTprodutoDesconto.getKeyListeners().length == 1);
         assertEquals(true, view.jBprodutoLimpaItem.getActionListeners().length == 1);
         assertEquals(true, view.jBprodutoAdicionaItem.getActionListeners().length == 1);
@@ -65,7 +65,7 @@ public class VendaIniciaEventosTest {
         assertEquals(true, view.jBvendaExcluir.getActionListeners().length == 1);
         assertEquals(true, view.jTitensSelecionados.getMouseListeners().length == 3);
         assertEquals(true, view.jTitensSelecionados.getKeyListeners().length == 2);
-        assertEquals(true, view.jBprodutoSelecionadoRemoverItem.getActionListeners().length == 1);
+        assertEquals(true, view.jBremoveItemSelecionadoLista.getActionListeners().length == 1);
         assertEquals(true, view.jBimprimir.getActionListeners().length == 1);
         assertEquals(true, view.jBcalcularGranel.getActionListeners().length == 1);
 

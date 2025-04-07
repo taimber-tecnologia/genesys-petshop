@@ -88,7 +88,7 @@ public class VendaIniciaMetodosTest {
         System.out.println("Testando classe VendaIniciaMetodos metodo: exibirProdutoSelecionado");
         assertEquals(true, view.jTprodutoCodigo.getText().equals(String.valueOf(produtoModelo.getId())));
         assertEquals(true, view.jTprodutoPreco.getText().equals(ConverteNumeroParaMoedaBr.converter(produtoModelo.getValorVenda().toString())));
-        assertEquals(true, view.jTprodutoTotal.getText().equals(ConverteNumeroParaMoedaBr.converter(vendaIniciaMetodos.calcularProdutoSelecionado(itemVenda).toString())));
+        assertEquals(true, view.jTitemTotal.getText().equals(ConverteNumeroParaMoedaBr.converter(vendaIniciaMetodos.calcularProdutoSelecionado(itemVenda).toString())));
         assertEquals(true, view.jBprodutoAdicionaItem.isVisible());
         assertEquals(true, view.jBprodutoLimpaItem.isVisible());
 
@@ -98,17 +98,17 @@ public class VendaIniciaMetodosTest {
     public void testLimparCalculosProdutoSelecionado() {
 
         /* simula a inserção de dados */
-        view.jTprodutoQuantidade.setText("A");
+        view.jTitemQuantidade.setText("A");
         view.jTprodutoDesconto.setText("B");
-        view.jTprodutoTotal.setText("C");
+        view.jTitemTotal.setText("C");
 
         /* limpa os calculos do produto selecionado */
         vendaIniciaMetodos.limparCalculosProdutoSelecionado();
 
         System.out.println("Testando classe VendaIniciaMetodos metodo: limparCalculosProdutoSelecionado");
-        assertEquals(true, view.jTprodutoQuantidade.getText().length() == 0);
+        assertEquals(true, view.jTitemQuantidade.getText().length() == 0);
         assertEquals(true, view.jTprodutoDesconto.getText().length() == 0);
-        assertEquals(true, view.jTprodutoTotal.getText().length() == 0);
+        assertEquals(true, view.jTitemTotal.getText().length() == 0);
 
     }
 
@@ -119,9 +119,9 @@ public class VendaIniciaMetodosTest {
 
         System.out.println("Testando classe VendaIniciaMetodos metodo: limparProdutoSelecionado");
         assertEquals(true, view.jCprodutoLista.getSelectedIndex() == 0);
-        assertEquals(true, view.jTprodutoQuantidade.getText().equals(""));
+        assertEquals(true, view.jTitemQuantidade.getText().equals(""));
         assertEquals(true, view.jTprodutoDesconto.getText().equals(""));
-        assertEquals(true, view.jTprodutoTotal.getText().equals(""));
+        assertEquals(true, view.jTitemTotal.getText().equals(""));
 
     }
 
@@ -142,16 +142,16 @@ public class VendaIniciaMetodosTest {
 
         System.out.println("Testando classe VendaIniciaMetodos metodo: removerProdutoNaLista");
         assertEquals(true, view.jTitensSelecionados.getRowCount() == 0);
-        assertEquals(false, view.jBprodutoSelecionadoRemoverItem.isEnabled());
+        assertEquals(false, view.jBremoveItemSelecionadoLista.isEnabled());
 
     }
 
     @Test
     public void testCalcularProdutoSelecionado() {
 
-        view.jTprodutoQuantidade.setText("2");
+        view.jTitemQuantidade.setText("2");
         view.jTprodutoDesconto.setText("5");
-        BigDecimal valorEsperado = produtoModelo.getValorVenda().multiply(new BigDecimal(view.jTprodutoQuantidade.getText())).subtract(new BigDecimal(view.jTprodutoDesconto.getText()));
+        BigDecimal valorEsperado = produtoModelo.getValorVenda().multiply(new BigDecimal(view.jTitemQuantidade.getText())).subtract(new BigDecimal(view.jTprodutoDesconto.getText()));
 
         System.out.println("Testando classe VendaIniciaMetodos metodo: calcularProdutoSelecionado");
         assertEquals(true, vendaIniciaMetodos.calcularProdutoSelecionado(itemVenda).equals(valorEsperado));
@@ -172,8 +172,8 @@ public class VendaIniciaMetodosTest {
         assertEquals(true, view.jCprodutoLista.isEnabled());
         assertEquals(true, view.jBprodutoAdicionaItem.isEnabled());
         assertEquals(true, view.jBprodutoLimpaItem.isEnabled());
-        assertEquals(true, view.jBprodutoSelecionadoRemoverItem.isEnabled());
-        assertEquals(true, view.jTprodutoQuantidade.isEnabled());
+        assertEquals(true, view.jBremoveItemSelecionadoLista.isEnabled());
+        assertEquals(true, view.jTitemQuantidade.isEnabled());
 
         // Teste 2: Quando vendaModelo.getId() != 0 (venda existente)
         vendaIniciaMetodos.abrirCadastro(vendaModelo.getId());
@@ -186,8 +186,8 @@ public class VendaIniciaMetodosTest {
         assertEquals(false, view.jCprodutoLista.isEnabled());
         assertEquals(false, view.jBprodutoAdicionaItem.isEnabled());
         assertEquals(false, view.jBprodutoLimpaItem.isEnabled());
-        assertEquals(false, view.jBprodutoSelecionadoRemoverItem.isEnabled());
-        assertEquals(false, view.jTprodutoQuantidade.isEnabled());
+        assertEquals(false, view.jBremoveItemSelecionadoLista.isEnabled());
+        assertEquals(false, view.jTitemQuantidade.isEnabled());
 
     }
 
@@ -216,13 +216,13 @@ public class VendaIniciaMetodosTest {
         /* campo desabilitado */
         vendaIniciaMetodos.habilitarCamposDeExcluirProdutoAdicionado();
         System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCamposDeExcluirProdutoAdicionado etapa 01");
-        assertEquals(false, view.jBprodutoSelecionadoRemoverItem.isEnabled());
+        assertEquals(false, view.jBremoveItemSelecionadoLista.isEnabled());
 
         /* campo habilitado */
         view.jTitensSelecionados.setRowSelectionInterval(0, 0);
         vendaIniciaMetodos.habilitarCamposDeExcluirProdutoAdicionado();
         System.out.println("Testando classe VendaIniciaMetodos metodo: habilitarCamposDeExcluirProdutoAdicionado etapa 02");
-        assertEquals(true, view.jBprodutoSelecionadoRemoverItem.isEnabled());
+        assertEquals(true, view.jBremoveItemSelecionadoLista.isEnabled());
 
     }
 

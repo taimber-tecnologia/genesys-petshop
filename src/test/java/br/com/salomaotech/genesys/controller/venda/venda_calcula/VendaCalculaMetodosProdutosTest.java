@@ -12,17 +12,17 @@ import java.math.BigDecimal;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class VendaCalculaMetodosTest {
+public class VendaCalculaMetodosProdutosTest {
 
     private final JFvendaCalcula view = new JFvendaCalcula();
     private final JFvendaInicia jFvendaInicia = new JFvendaInicia();
     private final ProdutoModelo produtoModelo = new ProdutoModelo();
     private final ItemVenda itemVenda;
 
-    private final VendaCalculaMetodos vendaCalculaMetodos = new VendaCalculaMetodos(view);
+    private final VendaCalculaMetodosProdutos vendaCalculaMetodos = new VendaCalculaMetodosProdutos(view);
     private final VendaIniciaMetodos vendaIniciaMetodos = new VendaIniciaMetodos(jFvendaInicia);
 
-    public VendaCalculaMetodosTest() {
+    public VendaCalculaMetodosProdutosTest() {
 
         /* remove vendas antigas */
         new Repository(new VendaModelo()).deleteTodos();
@@ -100,12 +100,12 @@ public class VendaCalculaMetodosTest {
         vendaCalculaMetodos.calcularPorValor(valorDesejado);
         System.out.println("Testando classe VendaCalculaMetodos metodo: calcular");
         assertEquals(true, view.jTresultado.getText().equals(resultadoEsperadoValor.toString()));
-        assertEquals(true, jFvendaInicia.jTprodutoQuantidade.getText().equals(resultadoEsperadoValor.toString()));
+        assertEquals(true, jFvendaInicia.jTitemQuantidade.getText().equals(resultadoEsperadoValor.toString()));
 
         /* calcula por peso */
         vendaCalculaMetodos.calcularPorPeso(pesoDesejado);
         assertEquals(true, view.jTresultado.getText().equals(resultadoEsperadoPeso.toString()));
-        assertEquals(true, jFvendaInicia.jTprodutoQuantidade.getText().equals(resultadoEsperadoPeso.toString()));
+        assertEquals(true, jFvendaInicia.jTitemQuantidade.getText().equals(resultadoEsperadoPeso.toString()));
 
     }
 

@@ -6,16 +6,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class VendaCalculaEventos {
+public class VendaCalculaEventosProdutos {
 
     private final JFvendaCalcula view;
-    private VendaCalculaMetodos vendaCalculaMetodos;
+    private VendaCalculaMetodosProdutos vendaCalculaMetodos;
 
-    public VendaCalculaEventos(JFvendaCalcula view) {
+    public VendaCalculaEventosProdutos(JFvendaCalcula view) {
         this.view = view;
     }
 
-    public void setVendaCalculaMetodos(VendaCalculaMetodos vendaCalculaMetodos) {
+    public void setVendaCalculaMetodos(VendaCalculaMetodosProdutos vendaCalculaMetodos) {
         this.vendaCalculaMetodos = vendaCalculaMetodos;
     }
 

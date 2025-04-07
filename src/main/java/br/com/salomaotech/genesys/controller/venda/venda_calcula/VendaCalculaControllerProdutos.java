@@ -1,22 +1,22 @@
 package br.com.salomaotech.genesys.controller.venda.venda_calcula;
 
 import br.com.salomaotech.genesys.model.venda.ItemVenda;
-import br.com.salomaotech.genesys.controller.venda.venda_inicia.VendaIniciaMetodos;
+import br.com.salomaotech.genesys.controller.venda.venda_inicia.VendaIniciaMetodosProdutos;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.view.JFvendaCalcula;
 import br.com.salomaotech.sistema.swing.MudaIconeJframe;
 
-public class VendaCalculaController {
+public class VendaCalculaControllerProdutos {
 
     private final JFvendaCalcula view = new JFvendaCalcula();
-    private final VendaCalculaMetodos vendaCalculaMetodos = new VendaCalculaMetodos(view);
-    private final VendaCalculaEventos vendaCalculaEventos = new VendaCalculaEventos(view);
+    private final VendaCalculaMetodosProdutos vendaCalculaMetodos = new VendaCalculaMetodosProdutos(view);
+    private final VendaCalculaEventosProdutos vendaCalculaEventos = new VendaCalculaEventosProdutos(view);
 
-    public VendaCalculaController(long id, VendaIniciaMetodos vendaIniciaMetodos) {
+    public VendaCalculaControllerProdutos(long id, VendaIniciaMetodosProdutos vendaIniciaMetodosProdutos) {
 
         /* metodos */
         vendaCalculaMetodos.setItemVenda(new ItemVenda(id, new ProdutoModelo()));
-        vendaCalculaMetodos.setVendaIniciaMetodos(vendaIniciaMetodos);
+        vendaCalculaMetodos.setVendaIniciaMetodosProdutos(vendaIniciaMetodosProdutos);
 
         /* eventos */
         vendaCalculaEventos.setVendaCalculaMetodos(vendaCalculaMetodos);

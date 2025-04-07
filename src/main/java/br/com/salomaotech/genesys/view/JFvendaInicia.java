@@ -48,19 +48,19 @@ public class JFvendaInicia extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPdadosPerfilFoto = new javax.swing.JPanel();
-        jTprodutoTotal = new javax.swing.JTextField();
+        jTitemTotal = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTprodutoQuantidade = new javax.swing.JTextField();
+        jTitemQuantidade = new javax.swing.JTextField();
         jBcalcularGranel = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTitensSelecionados = new javax.swing.JTable();
-        jBprodutoSelecionadoRemoverItem = new javax.swing.JButton();
+        jBremoveItemSelecionadoLista = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTprodutoListaDeProdutos = new javax.swing.JTable();
+        jTlistaDeProdutos = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jTpesquisaNomeProduto = new javax.swing.JTextField();
@@ -70,7 +70,7 @@ public class JFvendaInicia extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTpesquisaNomeServico = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTprodutoListaDeServicos = new javax.swing.JTable();
+        jTlistaDeServicos = new javax.swing.JTable();
         jBservicoAdicionaItem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -174,12 +174,12 @@ public class JFvendaInicia extends javax.swing.JFrame {
             .addGap(0, 276, Short.MAX_VALUE)
         );
 
-        jTprodutoTotal.setEditable(false);
-        jTprodutoTotal.setBackground(new java.awt.Color(0, 0, 0));
-        jTprodutoTotal.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTprodutoTotal.setForeground(new java.awt.Color(0, 204, 153));
-        jTprodutoTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTprodutoTotal.setBorder(null);
+        jTitemTotal.setEditable(false);
+        jTitemTotal.setBackground(new java.awt.Color(0, 0, 0));
+        jTitemTotal.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTitemTotal.setForeground(new java.awt.Color(0, 204, 153));
+        jTitemTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTitemTotal.setBorder(null);
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -189,12 +189,12 @@ public class JFvendaInicia extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("QUANT:");
 
-        jTprodutoQuantidade.setBackground(new java.awt.Color(0, 51, 102));
-        jTprodutoQuantidade.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jTprodutoQuantidade.setForeground(new java.awt.Color(255, 255, 255));
-        jTprodutoQuantidade.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTprodutoQuantidade.setBorder(null);
-        jTprodutoQuantidade.setCaretColor(new java.awt.Color(255, 255, 255));
+        jTitemQuantidade.setBackground(new java.awt.Color(0, 51, 102));
+        jTitemQuantidade.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jTitemQuantidade.setForeground(new java.awt.Color(255, 255, 255));
+        jTitemQuantidade.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTitemQuantidade.setBorder(null);
+        jTitemQuantidade.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jBcalcularGranel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBcalcularGranel.setText("GRANEL");
@@ -216,8 +216,8 @@ public class JFvendaInicia extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTprodutoTotal, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTprodutoQuantidade))
+                            .addComponent(jTitemTotal, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTitemQuantidade))
                         .addGap(18, 18, 18)
                         .addComponent(jBcalcularGranel)))
                 .addContainerGap())
@@ -229,12 +229,12 @@ public class JFvendaInicia extends javax.swing.JFrame {
                 .addComponent(jPdadosPerfilFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTprodutoQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTitemQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBcalcularGranel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTprodutoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTitemTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -269,10 +269,10 @@ public class JFvendaInicia extends javax.swing.JFrame {
             jTitensSelecionados.getColumnModel().getColumn(2).setMaxWidth(100);
         }
 
-        jBprodutoSelecionadoRemoverItem.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jBprodutoSelecionadoRemoverItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/remove-item32x.png"))); // NOI18N
-        jBprodutoSelecionadoRemoverItem.setText("REMOVER ITEM");
-        jBprodutoSelecionadoRemoverItem.setEnabled(false);
+        jBremoveItemSelecionadoLista.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBremoveItemSelecionadoLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/remove-item32x.png"))); // NOI18N
+        jBremoveItemSelecionadoLista.setText("REMOVER ITEM");
+        jBremoveItemSelecionadoLista.setEnabled(false);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -283,7 +283,7 @@ public class JFvendaInicia extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jBprodutoSelecionadoRemoverItem)
+                        .addComponent(jBremoveItemSelecionadoLista)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -293,14 +293,14 @@ public class JFvendaInicia extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jBprodutoSelecionadoRemoverItem)
+                .addComponent(jBremoveItemSelecionadoLista)
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("LISTA DE ITENS ADICIONADOS", jPanel9);
 
-        jTprodutoListaDeProdutos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTprodutoListaDeProdutos.setModel(new javax.swing.table.DefaultTableModel(
+        jTlistaDeProdutos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTlistaDeProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -316,17 +316,17 @@ public class JFvendaInicia extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTprodutoListaDeProdutos);
-        if (jTprodutoListaDeProdutos.getColumnModel().getColumnCount() > 0) {
-            jTprodutoListaDeProdutos.getColumnModel().getColumn(0).setMinWidth(85);
-            jTprodutoListaDeProdutos.getColumnModel().getColumn(0).setPreferredWidth(85);
-            jTprodutoListaDeProdutos.getColumnModel().getColumn(0).setMaxWidth(85);
-            jTprodutoListaDeProdutos.getColumnModel().getColumn(1).setMinWidth(380);
-            jTprodutoListaDeProdutos.getColumnModel().getColumn(1).setPreferredWidth(380);
-            jTprodutoListaDeProdutos.getColumnModel().getColumn(1).setMaxWidth(380);
-            jTprodutoListaDeProdutos.getColumnModel().getColumn(2).setMinWidth(100);
-            jTprodutoListaDeProdutos.getColumnModel().getColumn(2).setPreferredWidth(100);
-            jTprodutoListaDeProdutos.getColumnModel().getColumn(2).setMaxWidth(100);
+        jScrollPane2.setViewportView(jTlistaDeProdutos);
+        if (jTlistaDeProdutos.getColumnModel().getColumnCount() > 0) {
+            jTlistaDeProdutos.getColumnModel().getColumn(0).setMinWidth(85);
+            jTlistaDeProdutos.getColumnModel().getColumn(0).setPreferredWidth(85);
+            jTlistaDeProdutos.getColumnModel().getColumn(0).setMaxWidth(85);
+            jTlistaDeProdutos.getColumnModel().getColumn(1).setMinWidth(380);
+            jTlistaDeProdutos.getColumnModel().getColumn(1).setPreferredWidth(380);
+            jTlistaDeProdutos.getColumnModel().getColumn(1).setMaxWidth(380);
+            jTlistaDeProdutos.getColumnModel().getColumn(2).setMinWidth(100);
+            jTlistaDeProdutos.getColumnModel().getColumn(2).setPreferredWidth(100);
+            jTlistaDeProdutos.getColumnModel().getColumn(2).setMaxWidth(100);
         }
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -417,8 +417,8 @@ public class JFvendaInicia extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jTprodutoListaDeServicos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTprodutoListaDeServicos.setModel(new javax.swing.table.DefaultTableModel(
+        jTlistaDeServicos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTlistaDeServicos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -434,17 +434,17 @@ public class JFvendaInicia extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTprodutoListaDeServicos);
-        if (jTprodutoListaDeServicos.getColumnModel().getColumnCount() > 0) {
-            jTprodutoListaDeServicos.getColumnModel().getColumn(0).setMinWidth(85);
-            jTprodutoListaDeServicos.getColumnModel().getColumn(0).setPreferredWidth(85);
-            jTprodutoListaDeServicos.getColumnModel().getColumn(0).setMaxWidth(85);
-            jTprodutoListaDeServicos.getColumnModel().getColumn(1).setMinWidth(380);
-            jTprodutoListaDeServicos.getColumnModel().getColumn(1).setPreferredWidth(380);
-            jTprodutoListaDeServicos.getColumnModel().getColumn(1).setMaxWidth(380);
-            jTprodutoListaDeServicos.getColumnModel().getColumn(2).setMinWidth(100);
-            jTprodutoListaDeServicos.getColumnModel().getColumn(2).setPreferredWidth(100);
-            jTprodutoListaDeServicos.getColumnModel().getColumn(2).setMaxWidth(100);
+        jScrollPane3.setViewportView(jTlistaDeServicos);
+        if (jTlistaDeServicos.getColumnModel().getColumnCount() > 0) {
+            jTlistaDeServicos.getColumnModel().getColumn(0).setMinWidth(85);
+            jTlistaDeServicos.getColumnModel().getColumn(0).setPreferredWidth(85);
+            jTlistaDeServicos.getColumnModel().getColumn(0).setMaxWidth(85);
+            jTlistaDeServicos.getColumnModel().getColumn(1).setMinWidth(380);
+            jTlistaDeServicos.getColumnModel().getColumn(1).setPreferredWidth(380);
+            jTlistaDeServicos.getColumnModel().getColumn(1).setMaxWidth(380);
+            jTlistaDeServicos.getColumnModel().getColumn(2).setMinWidth(100);
+            jTlistaDeServicos.getColumnModel().getColumn(2).setPreferredWidth(100);
+            jTlistaDeServicos.getColumnModel().getColumn(2).setMaxWidth(100);
         }
 
         jBservicoAdicionaItem.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -574,7 +574,7 @@ public class JFvendaInicia extends javax.swing.JFrame {
     public javax.swing.JButton jBcalcularGranel;
     public javax.swing.JButton jBimprimir;
     public javax.swing.JButton jBprodutoAdicionaItem;
-    public javax.swing.JButton jBprodutoSelecionadoRemoverItem;
+    public javax.swing.JButton jBremoveItemSelecionadoLista;
     public javax.swing.JButton jBservicoAdicionaItem;
     public javax.swing.JButton jBvendaExcluir;
     public javax.swing.JButton jBvendaFinaliza;
@@ -596,14 +596,14 @@ public class JFvendaInicia extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     public javax.swing.JTabbedPane jTabbedPane1;
+    public javax.swing.JTextField jTitemQuantidade;
+    public javax.swing.JTextField jTitemTotal;
     public javax.swing.JTable jTitensSelecionados;
+    public javax.swing.JTable jTlistaDeProdutos;
+    public javax.swing.JTable jTlistaDeServicos;
     private javax.swing.JToolBar jToolBar1;
     public javax.swing.JTextField jTpesquisaNomeProduto;
     public javax.swing.JTextField jTpesquisaNomeServico;
-    public javax.swing.JTable jTprodutoListaDeProdutos;
-    public javax.swing.JTable jTprodutoListaDeServicos;
-    public javax.swing.JTextField jTprodutoQuantidade;
-    public javax.swing.JTextField jTprodutoTotal;
     public javax.swing.JTextField jTvendaValorTotal;
     // End of variables declaration//GEN-END:variables
 }
