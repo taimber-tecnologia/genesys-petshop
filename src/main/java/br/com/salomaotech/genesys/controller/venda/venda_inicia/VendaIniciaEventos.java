@@ -199,7 +199,6 @@ public class VendaIniciaEventos {
 
                 long id = (long) view.jTprodutoListaDeProdutos.getModel().getValueAt(linha, 0);
                 vendaIniciaMetodos.exibirProdutoSelecionado(id);
-                view.jTprodutoQuantidade.requestFocus();
 
             }
 
