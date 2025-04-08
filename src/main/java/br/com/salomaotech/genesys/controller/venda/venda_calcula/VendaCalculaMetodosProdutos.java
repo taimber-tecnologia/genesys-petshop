@@ -1,7 +1,7 @@
 package br.com.salomaotech.genesys.controller.venda.venda_calcula;
 
 import br.com.salomaotech.genesys.model.venda.ItemVenda;
-import br.com.salomaotech.genesys.controller.venda.venda_inicia.VendaIniciaMetodosProdutos;
+import br.com.salomaotech.genesys.controller.venda.venda_inicia.produto.VendaIniciaMetodosProdutos;
 import br.com.salomaotech.genesys.view.JFvendaCalcula;
 import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import java.math.BigDecimal;

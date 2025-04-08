@@ -1,26 +1,20 @@
-package br.com.salomaotech.genesys.controller.venda.venda_inicia;
+package br.com.salomaotech.genesys.controller.venda.venda_inicia.produto;
 
 import br.com.salomaotech.genesys.model.produto.ImagemProduto;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
-import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
 import br.com.salomaotech.genesys.model.venda.VendaProdutoPesquisa;
 import br.com.salomaotech.genesys.model.venda.ItemVenda;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
 import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import java.math.BigDecimal;
-import java.util.List;
 
 public class VendaIniciaMetodosProdutos {
 
     private final JFvendaInicia view;
-    private final List<VendaModeloItem> vendaModeloItemList;
-    private final VendaIniciaMetodosComum vendaIniciaMetodosComum;
 
-    public VendaIniciaMetodosProdutos(JFvendaInicia view, List<VendaModeloItem> vendaModeloItemList, VendaIniciaMetodosComum vendaIniciaMetodosComum) {
+    public VendaIniciaMetodosProdutos(JFvendaInicia view) {
         this.view = view;
-        this.vendaModeloItemList = vendaModeloItemList;
-        this.vendaIniciaMetodosComum = vendaIniciaMetodosComum;
     }
 
     public void pesquisarProdutos() {
@@ -53,30 +47,10 @@ public class VendaIniciaMetodosProdutos {
 
     }
 
-    public void adicionarProdutoNaLista(long id) {
-
-        ItemVenda itemVenda = new ItemVenda(id, new ProdutoModelo());
-        VendaModeloItem vendaModeloItem = new VendaModeloItem();
-        vendaModeloItem.setIdProduto(itemVenda.getProdutoModelo().getId());
-        vendaModeloItem.setValor(itemVenda.getValor());
-        vendaModeloItem.setQuantidade(BigDecimais.formatarParaBigDecimal(view.jTitemQuantidade.getText()));
-        vendaModeloItemList.add(vendaModeloItem);
+    public void adicionarProdutoNaLista() {
 
         habilitarCamposDeAdicionarProduto(new ItemVenda(0, new ProdutoModelo()));
         limparProdutoSelecionado();
-        vendaIniciaMetodosComum.exibirSelecionados();
-        habilitarCamposDeExcluirProdutoAdicionado();
-
-    }
-
-    public void removerProdutoNaLista() {
-
-        try {
-            vendaModeloItemList.remove(view.jTitensSelecionados.getSelectedRow());
-        } catch (Exception ex) {
-        }
-
-        vendaIniciaMetodosComum.exibirSelecionados();
         habilitarCamposDeExcluirProdutoAdicionado();
 
     }

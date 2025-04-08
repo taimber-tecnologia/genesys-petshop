@@ -1,10 +1,16 @@
 package br.com.salomaotech.genesys.controller.venda.venda_inicia;
 
+import br.com.salomaotech.genesys.controller.venda.venda_conclui.VendaConcluiController;
+import br.com.salomaotech.genesys.controller.venda.venda_inicia.servico.VendaIniciaMetodosServicos;
+import br.com.salomaotech.genesys.controller.venda.venda_inicia.produto.VendaIniciaMetodosProdutos;
+import br.com.salomaotech.genesys.model.configuracoes.PastasSistema;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.servico.ServicoModelo;
 import br.com.salomaotech.genesys.model.venda.ItemVenda;
+import br.com.salomaotech.genesys.model.venda.VendaComprovantePdf;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
 import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
+import br.com.salomaotech.genesys.model.venda.VendaMovimenta;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
 import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
@@ -16,15 +22,17 @@ import javax.swing.table.DefaultTableModel;
 public class VendaIniciaMetodosComum {
 
     private final JFvendaInicia view;
-    private final List<VendaModeloItem> vendaModeloItemList;
-    private VendaModelo vendaModelo;
+    private final List<VendaModeloItem> vendaModeloItemListCompartilhado;
+    private final VendaModeloItem vendaModeloItemCompartilhado;
+
+    private VendaModelo vendaModelo = new VendaModelo();
     private VendaIniciaMetodosProdutos vendaIniciaMetodosProdutos;
     private VendaIniciaMetodosServicos vendaIniciaMetodosServicos;
 
-    public VendaIniciaMetodosComum(JFvendaInicia view, List<VendaModeloItem> vendaModeloItemList, VendaModelo vendaModelo) {
+    public VendaIniciaMetodosComum(JFvendaInicia view, List<VendaModeloItem> vendaModeloItemListCompartilhado, VendaModeloItem vendaModeloItemCompartilhado) {
         this.view = view;
-        this.vendaModeloItemList = vendaModeloItemList;
-        this.vendaModelo = vendaModelo;
+        this.vendaModeloItemListCompartilhado = vendaModeloItemListCompartilhado;
+        this.vendaModeloItemCompartilhado = vendaModeloItemCompartilhado;
     }
 
     public void setVendaIniciaMetodosProdutos(VendaIniciaMetodosProdutos vendaIniciaMetodosProdutos) {
@@ -42,7 +50,7 @@ public class VendaIniciaMetodosComum {
         int contador = 0;
         BigDecimal valorTotal = new BigDecimal(0);
 
-        for (VendaModeloItem vendaModeloItem : vendaModeloItemList) {
+        for (VendaModeloItem vendaModeloItem : vendaModeloItemListCompartilhado) {
 
             ItemVenda itemVenda;
 
@@ -99,26 +107,41 @@ public class VendaIniciaMetodosComum {
 
     }
 
-    public void addItemNaLista(VendaModeloItem vendaModeloItem) {
+    public void addItemNaLista() {
 
         // adiciona produto
-        if (vendaModeloItem.getIdProduto() != 0) {
+        if (vendaModeloItemCompartilhado.getIdProduto() != 0) {
 
-            vendaIniciaMetodosProdutos.adicionarProdutoNaLista(vendaModeloItem.getIdProduto());
+            ItemVenda itemVenda = new ItemVenda(vendaModeloItemCompartilhado.getIdProduto(), new ProdutoModelo());
+            VendaModeloItem vendaModeloItem = new VendaModeloItem();
+            vendaModeloItem.setIdProduto(itemVenda.getProdutoModelo().getId());
+            vendaModeloItem.setValor(itemVenda.getValor());
+            vendaModeloItem.setQuantidade(BigDecimais.formatarParaBigDecimal(view.jTitemQuantidade.getText()));
+            vendaModeloItemListCompartilhado.add(vendaModeloItem);
+            vendaIniciaMetodosProdutos.adicionarProdutoNaLista();
 
         }
 
         // adiciona serviço
-        if (vendaModeloItem.getIdServico() != 0) {
+        if (vendaModeloItemCompartilhado.getIdServico() != 0) {
 
-            vendaIniciaMetodosServicos.adicionarServicoNaLista(vendaModeloItem.getIdServico());
+            ItemVenda itemVenda = new ItemVenda(vendaModeloItemCompartilhado.getIdServico(), new ServicoModelo());
+            VendaModeloItem vendaModeloItem = new VendaModeloItem();
+            vendaModeloItem.setIdServico(itemVenda.getServicoModelo().getId());
+            vendaModeloItem.setValor(itemVenda.getValor());
+            vendaModeloItem.setQuantidade(BigDecimais.formatarParaBigDecimal(view.jTitemQuantidade.getText()));
+            vendaModeloItemListCompartilhado.add(vendaModeloItem);
+            vendaIniciaMetodosServicos.adicionarServicoNaLista();
 
         }
 
+        // exibe os itens selecionados
+        exibirSelecionados();
+
         // reseta os IDS
-        vendaModeloItem.setId(0);
-        vendaModeloItem.setIdProduto(0);
-        vendaModeloItem.setIdServico(0);
+        vendaModeloItemCompartilhado.setId(0);
+        vendaModeloItemCompartilhado.setIdProduto(0);
+        vendaModeloItemCompartilhado.setIdServico(0);
 
     }
 
@@ -126,7 +149,7 @@ public class VendaIniciaMetodosComum {
 
         try {
 
-            vendaModeloItemList.remove(view.jTitensSelecionados.getSelectedRow());
+            vendaModeloItemListCompartilhado.remove(view.jTitensSelecionados.getSelectedRow());
 
         } catch (Exception ex) {
 
@@ -164,12 +187,29 @@ public class VendaIniciaMetodosComum {
         /* copia todos os itens de venda para as listas */
         for (VendaModeloItem vendaModeloItem : vendaModelo.getVendaModeloItemList()) {
 
-            vendaModeloItemList.add(vendaModeloItem);
+            vendaModeloItemListCompartilhado.add(vendaModeloItem);
 
         }
 
         exibirSelecionados();
         habilitarCampos();
+
+    }
+
+    public void finalizarVenda() {
+
+        vendaModelo.setVendaModeloItemList(vendaModeloItemListCompartilhado);
+        new VendaConcluiController(vendaModelo, view, vendaModeloItemListCompartilhado).construir();
+
+    }
+
+    public boolean excluir() {
+
+        VendaMovimenta vendaMovimenta = new VendaMovimenta(vendaModelo, null);
+        vendaMovimenta.excluir();
+
+        new VendaComprovantePdf(new PastasSistema().getSubPastaImpressao(), view.getId()).excluir();
+        return new Repository(new VendaModelo()).delete(vendaModelo.getId());
 
     }
 

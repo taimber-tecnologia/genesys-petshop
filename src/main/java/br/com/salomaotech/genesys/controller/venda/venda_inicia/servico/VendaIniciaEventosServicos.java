@@ -1,22 +1,24 @@
-package br.com.salomaotech.genesys.controller.venda.venda_inicia;
+package br.com.salomaotech.genesys.controller.venda.venda_inicia.servico;
 
+import br.com.salomaotech.genesys.controller.venda.venda_inicia.VendaIniciaMetodosComum;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
 import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.math.BigDecimal;
+import javax.swing.JOptionPane;
 
 public class VendaIniciaEventosServicos {
 
     private final JFvendaInicia view;
+    private final VendaIniciaMetodosComum vendaIniciaMetodosComum;
     private final VendaIniciaMetodosServicos vendaIniciaMetodosServicos;
 
-    public VendaIniciaEventosServicos(JFvendaInicia view, VendaIniciaMetodosServicos vendaIniciaMetodosServicos) {
-
+    public VendaIniciaEventosServicos(JFvendaInicia view, VendaIniciaMetodosComum vendaIniciaMetodosComum, VendaIniciaMetodosServicos vendaIniciaMetodosServicos) {
         this.view = view;
+        this.vendaIniciaMetodosComum = vendaIniciaMetodosComum;
         this.vendaIniciaMetodosServicos = vendaIniciaMetodosServicos;
-
     }
 
     private void addItemLista() {
@@ -29,12 +31,11 @@ public class VendaIniciaEventosServicos {
 
             if (quantidade.compareTo(BigDecimal.ZERO) > 0) {
 
-                long id = (long) view.jTlistaDeServicos.getModel().getValueAt(linha, 0);
-                vendaIniciaMetodosServicos.adicionarServicoNaLista(id);
+                vendaIniciaMetodosComum.addItemNaLista();
 
             } else {
 
-                javax.swing.JOptionPane.showMessageDialog(null, "Informe a quantidade.");
+                JOptionPane.showMessageDialog(null, "Informe a quantidade.");
                 view.jTitemQuantidade.setText("");
                 view.jTitemQuantidade.requestFocus();
 

@@ -2,9 +2,9 @@ package br.com.salomaotech.genesys.model.venda;
 
 import org.junit.Test;
 
-public class VendaProdutoPesquisaTest {
+public class VendaServicoPesquisaTest {
 
-    public VendaProdutoPesquisaTest() {
+    public VendaServicoPesquisaTest() {
     }
 
     @Test

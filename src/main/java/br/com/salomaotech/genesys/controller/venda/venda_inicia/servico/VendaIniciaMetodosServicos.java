@@ -1,25 +1,19 @@
-package br.com.salomaotech.genesys.controller.venda.venda_inicia;
+package br.com.salomaotech.genesys.controller.venda.venda_inicia.servico;
 
 import br.com.salomaotech.genesys.model.servico.ServicoModelo;
-import br.com.salomaotech.genesys.model.venda.VendaModeloItem;
 import br.com.salomaotech.genesys.model.venda.VendaServicoPesquisa;
 import br.com.salomaotech.genesys.model.venda.ItemVenda;
 import br.com.salomaotech.genesys.view.JFvendaInicia;
 import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import br.com.salomaotech.sistema.algoritmos.ConverteNumeroParaMoedaBr;
 import java.math.BigDecimal;
-import java.util.List;
 
 public class VendaIniciaMetodosServicos {
 
     private final JFvendaInicia view;
-    private final List<VendaModeloItem> vendaModeloItemList;
-    private final VendaIniciaMetodosComum vendaIniciaMetodosComum;
 
-    public VendaIniciaMetodosServicos(JFvendaInicia view, List<VendaModeloItem> vendaModeloItemList, VendaIniciaMetodosComum vendaIniciaMetodosComum) {
+    public VendaIniciaMetodosServicos(JFvendaInicia view) {
         this.view = view;
-        this.vendaModeloItemList = vendaModeloItemList;
-        this.vendaIniciaMetodosComum = vendaIniciaMetodosComum;
     }
 
     public void pesquisarServicos() {
@@ -50,18 +44,10 @@ public class VendaIniciaMetodosServicos {
 
     }
 
-    public void adicionarServicoNaLista(long id) {
-
-        ItemVenda itemVenda = new ItemVenda(id, new ServicoModelo());
-        VendaModeloItem vendaModeloItem = new VendaModeloItem();
-        vendaModeloItem.setIdServico(itemVenda.getServicoModelo().getId());
-        vendaModeloItem.setValor(itemVenda.getValor());
-        vendaModeloItem.setQuantidade(BigDecimais.formatarParaBigDecimal(view.jTitemQuantidade.getText()));
-        vendaModeloItemList.add(vendaModeloItem);
+    public void adicionarServicoNaLista() {
 
         habilitarCamposDeAdicionarServico(new ItemVenda(0, new ServicoModelo()));
         limparServicoSelecionado();
-        vendaIniciaMetodosComum.exibirSelecionados();
         habilitarCamposDeExcluirServicoAdicionado();
 
     }

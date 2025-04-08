@@ -84,23 +84,4 @@ public class VendaModeloItemTest {
 
     }
 
-    @Test
-    public void testGetDesconto() {
-
-        System.out.println("Testando classe VendaModeloItem metodo: getDesconto");
-        assertEquals(true, vendaModeloItem.getDesconto().equals(new BigDecimal(0)));
-
-    }
-
-    @Test
-    public void testSetDesconto() {
-
-        BigDecimal desconto = new BigDecimal(2.3);
-        vendaModeloItem.setDesconto(desconto);
-
-        System.out.println("Testando classe VendaModeloItem metodo: setDesconto");
-        assertEquals(true, vendaModeloItem.getDesconto().equals(desconto));
-
-    }
-
 }
