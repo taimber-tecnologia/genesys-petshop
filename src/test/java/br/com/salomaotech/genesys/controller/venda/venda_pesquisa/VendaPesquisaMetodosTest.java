@@ -38,7 +38,6 @@ public class VendaPesquisaMetodosTest {
         VendaModeloItem vendaModeloItem = new VendaModeloItem();
         vendaModeloItem.setIdProduto(produtoModelo.getId());
         vendaModeloItem.setValor(produtoModelo.getValorVenda());
-        vendaModeloItem.setDesconto(new BigDecimal(5));
         vendaModeloItem.setQuantidade(new BigDecimal(1));
         vendaModeloItemList.add(vendaModeloItem);
 

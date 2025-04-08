@@ -1,6 +1,6 @@
 package br.com.salomaotech.genesys.controller.venda.venda_calcula;
 
-import br.com.salomaotech.genesys.controller.venda.venda_inicia.VendaIniciaMetodos;
+import br.com.salomaotech.genesys.controller.venda.venda_inicia.produto.VendaIniciaMetodosProdutos;
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.venda.ItemVenda;
 import br.com.salomaotech.genesys.model.venda.VendaModelo;
@@ -20,7 +20,7 @@ public class VendaCalculaMetodosProdutosTest {
     private final ItemVenda itemVenda;
 
     private final VendaCalculaMetodosProdutos vendaCalculaMetodos = new VendaCalculaMetodosProdutos(view);
-    private final VendaIniciaMetodos vendaIniciaMetodos = new VendaIniciaMetodos(jFvendaInicia);
+    private final VendaIniciaMetodosProdutos vendaIniciaMetodosProdutos = new VendaIniciaMetodosProdutos(jFvendaInicia);
 
     public VendaCalculaMetodosProdutosTest() {
 
@@ -49,6 +49,7 @@ public class VendaCalculaMetodosProdutosTest {
         try {
 
             vendaCalculaMetodos.setItemVenda(itemVenda);
+            vendaCalculaMetodos.setItemVenda(null);
 
         } catch (Exception ex) {
 
@@ -56,19 +57,20 @@ public class VendaCalculaMetodosProdutosTest {
 
         }
 
-        System.out.println("Testando classe VendaCalculaMetodos metodo: setItemVenda");
+        System.out.println("Testando classe VendaCalculaMetodosProdutos metodo: setItemVenda");
         assertEquals(false, isErro);
 
     }
 
     @Test
-    public void testSetVendaIniciaMetodos() {
+    public void testSetVendaIniciaMetodosProdutos() {
 
         boolean isErro = false;
 
         try {
 
-            vendaCalculaMetodos.setVendaIniciaMetodos(vendaIniciaMetodos);
+            vendaCalculaMetodos.setVendaIniciaMetodosProdutos(vendaIniciaMetodosProdutos);
+            vendaCalculaMetodos.setVendaIniciaMetodosProdutos(null);
 
         } catch (Exception ex) {
 
@@ -76,36 +78,60 @@ public class VendaCalculaMetodosProdutosTest {
 
         }
 
-        System.out.println("Testando classe VendaCalculaMetodos metodo: setVendaIniciaMetodos");
+        System.out.println("Testando classe VendaCalculaMetodosProdutos metodo: setVendaIniciaMetodosProdutos");
         assertEquals(false, isErro);
 
     }
 
     @Test
-    public void testCalcular() {
+    public void testCalcularPorValor() {
 
-        /* relacionado a valor */
+        /* Caso válido */
         BigDecimal valorDesejado = new BigDecimal(150);
-        BigDecimal resultadoEsperadoValor = BigDecimais.dividir(valorDesejado, itemVenda.getValor());
+        BigDecimal resultadoEsperado = BigDecimais.dividir(valorDesejado, itemVenda.getValor());
 
-        /* relacionado a peso */
-        BigDecimal pesoDesejado = new BigDecimal(35);
-        BigDecimal resultadoEsperadoPeso = BigDecimais.dividir(pesoDesejado, itemVenda.getPeso());
-
-        /* métodos */
         vendaCalculaMetodos.setItemVenda(itemVenda);
-        vendaCalculaMetodos.setVendaIniciaMetodos(vendaIniciaMetodos);
-
-        /* calcula por valor */
+        vendaCalculaMetodos.setVendaIniciaMetodosProdutos(vendaIniciaMetodosProdutos);
         vendaCalculaMetodos.calcularPorValor(valorDesejado);
-        System.out.println("Testando classe VendaCalculaMetodos metodo: calcular");
-        assertEquals(true, view.jTresultado.getText().equals(resultadoEsperadoValor.toString()));
-        assertEquals(true, jFvendaInicia.jTitemQuantidade.getText().equals(resultadoEsperadoValor.toString()));
 
-        /* calcula por peso */
+        System.out.println("Testando classe VendaCalculaMetodosProdutos metodo: calcularPorValor");
+        assertEquals(resultadoEsperado.toString(), view.jTresultado.getText());
+        assertEquals(resultadoEsperado.toString(), jFvendaInicia.jTitemQuantidade.getText());
+        assertEquals(0, view.jTpesoKg.getText().length());
+
+        /* Caso com valor zero */
+        vendaCalculaMetodos.calcularPorValor(BigDecimal.ZERO);
+        assertEquals("0.00", view.jTresultado.getText());
+
+        /* Caso com valor nulo */
+        vendaCalculaMetodos.calcularPorValor(null);
+        assertEquals("0", view.jTresultado.getText());
+
+    }
+
+    @Test
+    public void testCalcularPorPeso() {
+
+        /* Caso válido */
+        BigDecimal pesoDesejado = new BigDecimal(35);
+        BigDecimal resultadoEsperado = BigDecimais.dividir(pesoDesejado, itemVenda.getPeso());
+
+        vendaCalculaMetodos.setItemVenda(itemVenda);
+        vendaCalculaMetodos.setVendaIniciaMetodosProdutos(vendaIniciaMetodosProdutos);
         vendaCalculaMetodos.calcularPorPeso(pesoDesejado);
-        assertEquals(true, view.jTresultado.getText().equals(resultadoEsperadoPeso.toString()));
-        assertEquals(true, jFvendaInicia.jTitemQuantidade.getText().equals(resultadoEsperadoPeso.toString()));
+
+        System.out.println("Testando classe VendaCalculaMetodosProdutos metodo: calcularPorPeso");
+        assertEquals(resultadoEsperado.toString(), view.jTresultado.getText());
+        assertEquals(resultadoEsperado.toString(), jFvendaInicia.jTitemQuantidade.getText());
+        assertEquals(0, view.jTvalorDesejado.getText().length());
+
+        /* Caso com peso zero */
+        vendaCalculaMetodos.calcularPorPeso(BigDecimal.ZERO);
+        assertEquals("0.00", view.jTresultado.getText());
+
+        /* Caso com peso nulo */
+        vendaCalculaMetodos.calcularPorPeso(null);
+        assertEquals("0", view.jTresultado.getText());
 
     }
 
