@@ -20,10 +20,6 @@ public class VendaPesquisaMetodos {
 
     }
 
-    public void addPopUpMenu() {
-
-    }
-
     public void abrirCadastro(long id) {
 
         new VendaIniciaController().abrirCadastro(id);

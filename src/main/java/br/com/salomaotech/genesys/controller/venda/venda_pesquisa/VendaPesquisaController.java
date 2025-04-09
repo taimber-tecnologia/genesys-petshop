@@ -25,9 +25,6 @@ public class VendaPesquisaController {
         view.setVisible(true);
         view.setExtendedState(view.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 
-        /* metodos */
-        vendaPesquisaMetodos.addPopUpMenu();
-
         /* eventos */
         vendaPesquisaEventos.addEventos();
 

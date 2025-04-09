@@ -93,6 +93,7 @@ public class VendaIniciaMetodosProdutosTest {
         assertEquals(true, view.jBprodutoAdicionaItem.isEnabled());
         assertEquals(true, view.jBcalcularGranel.isEnabled());
         assertEquals(true, view.jTitemQuantidade.isEnabled());
+        assertEquals("R$ 0,00", view.jTitemTotal.getText());
 
         // Verifica se a imagem não foi carregada (OBS: imagem não adicionada) (verifica se o painel foi modificado)
         assertTrue(view.jPdadosPerfilFoto.getComponentCount() == 0);
@@ -103,6 +104,7 @@ public class VendaIniciaMetodosProdutosTest {
         assertEquals(false, view.jBprodutoAdicionaItem.isEnabled());
         assertEquals(false, view.jBcalcularGranel.isEnabled());
         assertEquals(true, view.jTitemQuantidade.isEnabled());
+        assertEquals("R$ 0,00", view.jTitemTotal.getText());
 
         // Verifica se a imagem foi removida
         assertEquals("O painel da imagem deveria estar vazio", 0, view.jPdadosPerfilFoto.getComponentCount());
@@ -182,8 +184,8 @@ public class VendaIniciaMetodosProdutosTest {
         assertEquals(true, view.jBprodutoAdicionaItem.isEnabled());
         assertEquals(true, view.jBcalcularGranel.isEnabled());
         assertEquals(true, view.jTitemQuantidade.isEnabled());
-        assertTrue("Total deveria ser R$ 65,25", view.jTitemTotal.getText().equals("R$ 65,25"));
-        assertTrue("Quantidade deveria ser 14.5", view.jTitemQuantidade.getText().equals("14.5"));
+        assertEquals("R$ 65,25", view.jTitemTotal.getText());
+        assertEquals("14.5", view.jTitemQuantidade.getText());
 
         // Verifica se a imagem não foi carregada (já que não existe)
         assertTrue(view.jPdadosPerfilFoto.getComponentCount() == 0);

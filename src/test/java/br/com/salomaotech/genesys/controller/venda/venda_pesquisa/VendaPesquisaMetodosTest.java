@@ -80,11 +80,6 @@ public class VendaPesquisaMetodosTest {
     }
 
     @Test
-    public void testAddPopUpMenu() {
-
-    }
-
-    @Test
     public void testAbrirCadastro() {
 
         boolean isErro = false;

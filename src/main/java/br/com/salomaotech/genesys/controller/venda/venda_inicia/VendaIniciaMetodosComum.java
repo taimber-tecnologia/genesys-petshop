@@ -160,7 +160,7 @@ public class VendaIniciaMetodosComum {
 
     }
 
-    public BigDecimal calcularItemSelecionadao(VendaModeloItem vendaModeloItem) {
+    public BigDecimal calcularItemSelecionado(VendaModeloItem vendaModeloItem) {
 
         ItemVenda itemVenda;
 

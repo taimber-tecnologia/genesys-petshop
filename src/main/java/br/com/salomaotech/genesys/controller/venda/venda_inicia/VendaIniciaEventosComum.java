@@ -111,7 +111,7 @@ public class VendaIniciaEventosComum {
             public void keyReleased(KeyEvent e) {
 
                 /* faz cálculo com base na quantidade de itens adicionados */
-                view.jTitemTotal.setText(ConverteNumeroParaMoedaBr.converter(vendaIniciaMetodosComum.calcularItemSelecionadao(vendaModeloItemCompartilhado).toString()));
+                view.jTitemTotal.setText(ConverteNumeroParaMoedaBr.converter(vendaIniciaMetodosComum.calcularItemSelecionado(vendaModeloItemCompartilhado).toString()));
 
             }
 
