@@ -5,6 +5,7 @@ import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.model.produto.ProdutoPesquisa;
 import br.com.salomaotech.genesys.view.JFproduto;
 import br.com.salomaotech.sistema.algoritmos.BigDecimais;
+import br.com.salomaotech.sistema.algoritmos.ValidaStringIsEmpty;
 import br.com.salomaotech.sistema.jpa.Repository;
 import br.com.salomaotech.sistema.swing.PopUp;
 
@@ -25,6 +26,7 @@ public class ProdutoMetodos {
         view.jCcategoria.getEditor().setItem(produtoModelo.getCategoria());
         view.jTquantidade.setText(produtoModelo.getQuantidade().toString());
         view.jTpeso.setText(produtoModelo.getPeso().toString());
+        view.jCmedida.setSelectedItem(produtoModelo.getMedida());
 
     }
 
@@ -34,6 +36,7 @@ public class ProdutoMetodos {
         view.jPdadosPerfilFoto.removeAll();
         view.jPdadosPerfilFoto.repaint();
         view.jTnome.requestFocus();
+        view.jCmedida.setSelectedIndex(58);
 
     }
 
@@ -78,6 +81,7 @@ public class ProdutoMetodos {
         produtoModelo.setCategoria(view.jCcategoria.getEditor().getItem().toString());
         produtoModelo.setQuantidade(BigDecimais.formatarParaBigDecimal(view.jTquantidade.getText()));
         produtoModelo.setPeso(BigDecimais.formatarParaBigDecimal(view.jTpeso.getText()));
+        produtoModelo.setMedida(String.valueOf(view.jCmedida.getSelectedItem()));
         new Repository(produtoModelo).save();
         return produtoModelo;
 
@@ -93,8 +97,21 @@ public class ProdutoMetodos {
     public void pesquisar() {
 
         ProdutoPesquisa produtoPesquisa = new ProdutoPesquisa(view.jTresultados, view.jCpaginador);
-        produtoPesquisa.setNome(view.jTpesquisaNome.getText());
-        produtoPesquisa.setCategoria(String.valueOf(view.jCpesquisaCategoria.getEditor().getItem()));
+
+        /* valida nome */
+        if (!ValidaStringIsEmpty.isEmpty(view.jTpesquisaNome.getText())) {
+
+            produtoPesquisa.setNome(view.jTpesquisaNome.getText());
+
+        }
+
+        /* valida categoria */
+        if (!ValidaStringIsEmpty.isEmpty(view.jCpesquisaCategoria.getSelectedItem())) {
+
+            produtoPesquisa.setCategoria(String.valueOf(view.jCpesquisaCategoria.getSelectedItem()));
+
+        }
+
         produtoPesquisa.pesquisar();
 
     }

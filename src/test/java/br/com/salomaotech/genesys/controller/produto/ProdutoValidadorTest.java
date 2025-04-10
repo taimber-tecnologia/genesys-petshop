@@ -19,6 +19,7 @@ public class ProdutoValidadorTest {
         new Repository(new ProdutoModelo()).deleteTodos();
         produtoModelo.setNome("Teste");
         produtoModelo.setValorVenda(new BigDecimal(100));
+        produtoModelo.setQuantidade(BigDecimal.ONE);
         new Repository(produtoModelo).save();
 
     }
@@ -30,6 +31,7 @@ public class ProdutoValidadorTest {
         view.jTnome.setText(null);
         view.jTvalorVenda.setText(null);
         view.jTquantidade.setText(null);
+        view.jCmedida.setSelectedIndex(0);
         produtoValidador = new ProdutoValidador(view);
         System.out.println("Testando classe ProdutoValidador metodo: isValido etapa 01");
         assertEquals(false, produtoValidador.isValido());
@@ -38,6 +40,7 @@ public class ProdutoValidadorTest {
         view.jTnome.setText(produtoModelo.getNome());
         view.jTvalorVenda.setText(null);
         view.jTquantidade.setText(null);
+        view.jCmedida.setSelectedIndex(0);
         produtoValidador = new ProdutoValidador(view);
         System.out.println("Testando classe ProdutoValidador metodo: isValido etapa 02");
         assertEquals(false, produtoValidador.isValido());
@@ -46,6 +49,7 @@ public class ProdutoValidadorTest {
         view.jTnome.setText(null);
         view.jTvalorVenda.setText(null);
         view.jTquantidade.setText(null);
+        view.jCmedida.setSelectedIndex(0);
         produtoValidador = new ProdutoValidador(view);
         System.out.println("Testando classe ProdutoValidador metodo: isValido etapa 03");
         assertEquals(false, produtoValidador.isValido());
@@ -54,6 +58,7 @@ public class ProdutoValidadorTest {
         view.jTnome.setText(null);
         view.jTvalorVenda.setText(null);
         view.jTquantidade.setText(null);
+        view.jCmedida.setSelectedIndex(0);
         produtoValidador = new ProdutoValidador(view);
         System.out.println("Testando classe ProdutoValidador metodo: isValido etapa 04");
         assertEquals(false, produtoValidador.isValido());
@@ -62,6 +67,7 @@ public class ProdutoValidadorTest {
         view.jTnome.setText(null);
         view.jTvalorVenda.setText(produtoModelo.getValorVenda().toString());
         view.jTquantidade.setText(null);
+        view.jCmedida.setSelectedIndex(0);
         produtoValidador = new ProdutoValidador(view);
         System.out.println("Testando classe ProdutoValidador metodo: isValido etapa 05");
         assertEquals(false, produtoValidador.isValido());
@@ -70,6 +76,7 @@ public class ProdutoValidadorTest {
         view.jTnome.setText(null);
         view.jTvalorVenda.setText(null);
         view.jTquantidade.setText(produtoModelo.getQuantidade().toString());
+        view.jCmedida.setSelectedIndex(0);
         produtoValidador = new ProdutoValidador(view);
         System.out.println("Testando classe ProdutoValidador metodo: isValido etapa 06");
         assertEquals(false, produtoValidador.isValido());
@@ -78,8 +85,18 @@ public class ProdutoValidadorTest {
         view.jTnome.setText(null);
         view.jTvalorVenda.setText(null);
         view.jTquantidade.setText(null);
+        view.jCmedida.setSelectedIndex(0);
         produtoValidador = new ProdutoValidador(view);
         System.out.println("Testando classe ProdutoValidador metodo: isValido etapa 07");
+        assertEquals(false, produtoValidador.isValido());
+
+        /* validando usando filtro: unidade de medida */
+        view.jTnome.setText(null);
+        view.jCmedida.setSelectedIndex(0);
+        view.jTvalorVenda.setText(null);
+        view.jTquantidade.setText(null);
+        produtoValidador = new ProdutoValidador(view);
+        System.out.println("Testando classe ProdutoValidador metodo: isValido etapa 08");
         assertEquals(false, produtoValidador.isValido());
 
         /* validando usando filtro: todos */
@@ -87,8 +104,9 @@ public class ProdutoValidadorTest {
         view.jTnome.setText("Teste0000001");
         view.jTvalorVenda.setText(produtoModelo.getValorVenda().toString());
         view.jTquantidade.setText(produtoModelo.getQuantidade().toString());
+        view.jCmedida.setSelectedIndex(1);
         produtoValidador = new ProdutoValidador(view);
-        System.out.println("Testando classe ProdutoValidador metodo: isValido etapa 08");
+        System.out.println("Testando classe ProdutoValidador metodo: isValido etapa 09");
         assertEquals(true, produtoValidador.isValido());
 
     }
@@ -100,6 +118,7 @@ public class ProdutoValidadorTest {
         view.jTnome.setText(null);
         view.jTvalorVenda.setText(null);
         view.jTquantidade.setText(null);
+        view.jCmedida.setSelectedIndex(0);
         produtoValidador = new ProdutoValidador(view);
         produtoValidador.isValido();
         System.out.println("Testando classe ProdutoValidador metodo: getMensagensErro etapa 01");
@@ -109,6 +128,7 @@ public class ProdutoValidadorTest {
         view.jTnome.setText(produtoModelo.getNome());
         view.jTvalorVenda.setText(null);
         view.jTquantidade.setText(null);
+        view.jCmedida.setSelectedIndex(0);
         produtoValidador = new ProdutoValidador(view);
         produtoValidador.isValido();
         System.out.println("Testando classe ProdutoValidador metodo: getMensagensErro etapa 02");
@@ -118,6 +138,7 @@ public class ProdutoValidadorTest {
         view.jTnome.setText(null);
         view.jTvalorVenda.setText(null);
         view.jTquantidade.setText(null);
+        view.jCmedida.setSelectedIndex(0);
         produtoValidador = new ProdutoValidador(view);
         produtoValidador.isValido();
         System.out.println("Testando classe ProdutoValidador metodo: getMensagensErro etapa 03");
@@ -127,6 +148,7 @@ public class ProdutoValidadorTest {
         view.jTnome.setText(null);
         view.jTvalorVenda.setText(null);
         view.jTquantidade.setText(null);
+        view.jCmedida.setSelectedIndex(0);
         produtoValidador = new ProdutoValidador(view);
         produtoValidador.isValido();
         System.out.println("Testando classe ProdutoValidador metodo: getMensagensErro etapa 04");
@@ -136,6 +158,7 @@ public class ProdutoValidadorTest {
         view.jTnome.setText(null);
         view.jTvalorVenda.setText(produtoModelo.getValorVenda().toString());
         view.jTquantidade.setText(null);
+        view.jCmedida.setSelectedIndex(0);
         produtoValidador = new ProdutoValidador(view);
         produtoValidador.isValido();
         System.out.println("Testando classe ProdutoValidador metodo: getMensagensErro etapa 05");
@@ -145,6 +168,7 @@ public class ProdutoValidadorTest {
         view.jTnome.setText(null);
         view.jTvalorVenda.setText(null);
         view.jTquantidade.setText(produtoModelo.getQuantidade().toString());
+        view.jCmedida.setSelectedIndex(0);
         produtoValidador = new ProdutoValidador(view);
         produtoValidador.isValido();
         System.out.println("Testando classe ProdutoValidador metodo: getMensagensErro etapa 06");
@@ -154,19 +178,30 @@ public class ProdutoValidadorTest {
         view.jTnome.setText(null);
         view.jTvalorVenda.setText(null);
         view.jTquantidade.setText(null);
+        view.jCmedida.setSelectedIndex(0);
         produtoValidador = new ProdutoValidador(view);
         produtoValidador.isValido();
         System.out.println("Testando classe ProdutoValidador metodo: getMensagensErro etapa 07");
         assertEquals(true, produtoValidador.getMensagensErro().length() > 0);
 
-        /* validando usando filtro: todos */
-        // Obs: neste teste manter o nome diferente do que está no modelo
-        view.jTnome.setText("Teste0000001");
-        view.jTvalorVenda.setText(produtoModelo.getValorVenda().toString());
-        view.jTquantidade.setText(produtoModelo.getQuantidade().toString());
+        /* validando usando filtro: unidade de medida */
+        view.jTnome.setText(null);
+        view.jCmedida.setSelectedIndex(0);
+        view.jTvalorVenda.setText(null);
+        view.jTquantidade.setText(null);
         produtoValidador = new ProdutoValidador(view);
         produtoValidador.isValido();
         System.out.println("Testando classe ProdutoValidador metodo: getMensagensErro etapa 08");
+        assertEquals(true, produtoValidador.getMensagensErro().length() > 0);
+
+        /* validando usando filtro: todos */
+        view.jTnome.setText("Teste0000001");
+        view.jTvalorVenda.setText(produtoModelo.getValorVenda().toString());
+        view.jTquantidade.setText(produtoModelo.getQuantidade().toString());
+        view.jCmedida.setSelectedIndex(1);
+        produtoValidador = new ProdutoValidador(view);
+        produtoValidador.isValido();
+        System.out.println("Testando classe ProdutoValidador metodo: getMensagensErro etapa 09");
         assertEquals(true, produtoValidador.getMensagensErro().length() == 0);
 
     }

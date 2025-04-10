@@ -133,4 +133,22 @@ public class ProdutoModeloTest {
 
     }
 
+    @Test
+    public void testGetMedida() {
+
+        System.out.println("Testando classe ProdutoModelo metodo: getMedida");
+        assertEquals(true, isNull(produtoModelo.getMedida()));
+
+    }
+
+    @Test
+    public void testSetMedida() {
+
+        String medida = "Teste";
+        produtoModelo.setMedida(medida);
+        System.out.println("Testando classe ProdutoModelo metodo: setMedida");
+        assertEquals(true, produtoModelo.getMedida().equals(medida));
+
+    }
+
 }

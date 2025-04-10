@@ -24,6 +24,7 @@ public class ProdutoMetodosTest {
         produtoModelo.setCategoria("Teste categoria");
         produtoModelo.setQuantidade(new BigDecimal(0));
         produtoModelo.setPeso(new BigDecimal(10));
+        produtoModelo.setMedida("UNID");
         new Repository(produtoModelo).save();
 
     }
@@ -43,6 +44,7 @@ public class ProdutoMetodosTest {
         assertEquals(true, view.jCcategoria.getEditor().getItem().equals(produtoModelo.getCategoria()));
         assertEquals(true, view.jTquantidade.getText().equals(produtoModelo.getQuantidade().toString()));
         assertEquals(true, view.jTpeso.getText().equals(produtoModelo.getPeso().toString()));
+        assertEquals(true, view.jCmedida.getSelectedItem().equals(produtoModelo.getMedida()));
 
     }
 
@@ -61,6 +63,7 @@ public class ProdutoMetodosTest {
         assertEquals(true, view.jCcategoria.getEditor().getItem().equals(""));
         assertEquals(true, view.jTquantidade.getText().equals("0"));
         assertEquals(true, view.jTpeso.getText().equals("0"));
+        assertEquals(true, view.jCmedida.getSelectedItem().equals("UNID"));
 
     }
 
@@ -121,6 +124,7 @@ public class ProdutoMetodosTest {
         assertEquals(true, view.jCcategoria.getEditor().getItem().equals(produtoModelo.getCategoria()));
         assertEquals(true, view.jTquantidade.getText().equals(produtoModelo.getQuantidade().toString()));
         assertEquals(true, view.jTpeso.getText().equals(produtoModelo.getPeso().toString()));
+        assertEquals(true, view.jCmedida.getSelectedItem().equals(produtoModelo.getMedida()));
 
         /* foto do produto */
         assertEquals(true, view.jPdadosPerfilFoto.getComponents().length == 0);
@@ -146,6 +150,7 @@ public class ProdutoMetodosTest {
         assertEquals(true, view.jCcategoria.getEditor().getItem().equals(produtoModelo.getCategoria()));
         assertEquals(true, view.jTquantidade.getText().equals(produtoModelo.getQuantidade().toString()));
         assertEquals(true, view.jTpeso.getText().equals(produtoModelo.getPeso().toString()));
+        assertEquals(true, view.jCmedida.getSelectedItem().equals(produtoModelo.getMedida()));
 
     }
 

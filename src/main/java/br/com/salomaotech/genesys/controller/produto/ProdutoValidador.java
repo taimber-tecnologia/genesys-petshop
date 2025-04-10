@@ -60,6 +60,15 @@ public class ProdutoValidador {
 
         }
 
+        /* valida unidade de medida */
+        if (view.jCmedida.getSelectedIndex() == -1) {
+
+            mensagensErro = "Informe a unidade de medida.";
+            view.jCmedida.requestFocus();
+            return false;
+
+        }
+
         return true;
 
     }
