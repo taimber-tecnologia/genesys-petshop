@@ -94,7 +94,7 @@ public class ProdutoMetodos {
 
         ProdutoPesquisa produtoPesquisa = new ProdutoPesquisa(view.jTresultados, view.jCpaginador);
         produtoPesquisa.setNome(view.jTpesquisaNome.getText());
-        produtoPesquisa.setCategoria(view.jCpesquisaCategoria.getEditor().getItem().toString());
+        produtoPesquisa.setCategoria(String.valueOf(view.jCpesquisaCategoria.getEditor().getItem()));
         produtoPesquisa.pesquisar();
 
     }
