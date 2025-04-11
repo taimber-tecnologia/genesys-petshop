@@ -18,6 +18,7 @@ public class VendaPesquisa {
     private final JTable jTresultados;
     private final JComboBox jCpaginador;
     private Date data;
+    private long idPesquisa;
 
     public VendaPesquisa(JTable jTresultados, JComboBox jCpaginador) {
         this.jTresultados = jTresultados;
@@ -31,6 +32,12 @@ public class VendaPesquisa {
             this.data = data.getTime();
 
         }
+
+    }
+
+    public void setIdPesquisa(long idPesquisa) {
+
+        this.idPesquisa = idPesquisa;
 
     }
 
@@ -61,6 +68,14 @@ public class VendaPesquisa {
     public void pesquisar() {
 
         JPQL jpql = new JPQL(new VendaModelo());
+
+        // Valida ID (Código de cadastro) de pesquisa
+        if (idPesquisa > 0) {
+
+            jpql.addParametroIgual("id", idPesquisa);
+
+        }
+
         jpql.addParametroIgual("data", data);
         jpql.addOrderBy("data", "ASC");
         jpql.addOrderBy("id", "ASC");

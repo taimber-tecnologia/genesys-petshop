@@ -40,6 +40,15 @@ public class ProdutoMetodos {
 
     }
 
+    public void resetarViewPesquisa() {
+
+        view.jTpesquisaNome.setText(null);
+        view.jCpesquisaCategoria.setSelectedIndex(-1);
+        view.jCpaginador.setSelectedIndex(-1);
+        pesquisar();
+
+    }
+
     public void habilitarCampos() {
 
         boolean isIdAberto = view.getId() != 0;

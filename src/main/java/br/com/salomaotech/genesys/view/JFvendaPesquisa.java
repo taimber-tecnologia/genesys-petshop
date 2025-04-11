@@ -32,6 +32,9 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jDpesquisaData = new com.toedter.calendar.JDateChooser();
         jBpesquisa = new javax.swing.JButton();
+        jTpesquisaCodigo = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jBpesquisaReseta = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTresultados = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
@@ -63,17 +66,31 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
         jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpesquisa.setText("Pesquisar");
 
+        jTpesquisaCodigo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2.setText("Código:");
+
+        jBpesquisaReseta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBpesquisaReseta.setText("Resetar filtros");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTpesquisaCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDpesquisaData, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBpesquisa)
+                .addGap(18, 18, 18)
+                .addComponent(jBpesquisaReseta)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -82,9 +99,14 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jDpesquisaData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTpesquisaCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jBpesquisa)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBpesquisa)
+                            .addComponent(jBpesquisaReseta))
                         .addGap(0, 1, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -204,13 +226,16 @@ public class JFvendaPesquisa extends javax.swing.JFrame {
     public javax.swing.JButton jBatalhoCadastro;
     public javax.swing.JButton jBpaginador;
     public javax.swing.JButton jBpesquisa;
+    public javax.swing.JButton jBpesquisaReseta;
     public javax.swing.JComboBox<String> jCpaginador;
     public com.toedter.calendar.JDateChooser jDpesquisaData;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar jToolBar1;
+    public javax.swing.JTextField jTpesquisaCodigo;
     public javax.swing.JTable jTresultados;
     // End of variables declaration//GEN-END:variables
 }

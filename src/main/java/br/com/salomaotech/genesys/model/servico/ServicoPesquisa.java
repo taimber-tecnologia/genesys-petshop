@@ -35,9 +35,8 @@ public class ServicoPesquisa {
             Object[] linhaDefaultTableModel = new Object[]{
                 servicoModelo.getId(),
                 servicoModelo.getNome(),
-                ConverteNumeroParaMoedaBr.converter(servicoModelo.getValor().toString()),
-                servicoModelo.getDescricao(),
-                servicoModelo.getNome()
+                ConverteNumeroParaMoedaBr.converter(servicoModelo.getValor().toString())
+
             };
 
             defaultTableModel.insertRow(contador, linhaDefaultTableModel);

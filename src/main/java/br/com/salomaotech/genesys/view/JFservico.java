@@ -55,6 +55,7 @@ public class JFservico extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTpesquisaNome = new javax.swing.JTextField();
         jBpesquisa = new javax.swing.JButton();
+        jBpesquisaReseta = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTresultados = new javax.swing.JTable();
         jLabel21 = new javax.swing.JLabel();
@@ -172,6 +173,9 @@ public class JFservico extends javax.swing.JFrame {
         jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpesquisa.setText("Pesquisa");
 
+        jBpesquisaReseta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBpesquisaReseta.setText("Resetar filtros");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -183,16 +187,21 @@ public class JFservico extends javax.swing.JFrame {
                 .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBpesquisa)
-                .addContainerGap(432, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jBpesquisaReseta)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBpesquisa))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jBpesquisa)
+                        .addComponent(jBpesquisaReseta))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -202,11 +211,11 @@ public class JFservico extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Nome", "Valor R$", "Descrição"
+                "Código", "Nome", "Valor R$"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -218,6 +227,9 @@ public class JFservico extends javax.swing.JFrame {
             jTresultados.getColumnModel().getColumn(0).setMinWidth(85);
             jTresultados.getColumnModel().getColumn(0).setPreferredWidth(85);
             jTresultados.getColumnModel().getColumn(0).setMaxWidth(85);
+            jTresultados.getColumnModel().getColumn(1).setMinWidth(450);
+            jTresultados.getColumnModel().getColumn(1).setPreferredWidth(450);
+            jTresultados.getColumnModel().getColumn(1).setMaxWidth(450);
             jTresultados.getColumnModel().getColumn(2).setMinWidth(125);
             jTresultados.getColumnModel().getColumn(2).setPreferredWidth(125);
             jTresultados.getColumnModel().getColumn(2).setMaxWidth(125);
@@ -239,7 +251,7 @@ public class JFservico extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel21)
@@ -334,6 +346,7 @@ public class JFservico extends javax.swing.JFrame {
     public javax.swing.JButton jBcadastroSalvar;
     public javax.swing.JButton jBpaginador;
     public javax.swing.JButton jBpesquisa;
+    public javax.swing.JButton jBpesquisaReseta;
     public javax.swing.JComboBox<String> jCpaginador;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel21;

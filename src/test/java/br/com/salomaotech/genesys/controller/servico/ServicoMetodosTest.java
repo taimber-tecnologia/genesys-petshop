@@ -56,6 +56,19 @@ public class ServicoMetodosTest {
     }
 
     @Test
+    public void testResetarViewPesquisa() {
+
+        /* reseta a view */
+        servicoMetodos.resetarViewPesquisa();
+
+        /* testa se os dados populados na view foram resetados */
+        System.out.println("Testando classe ServicoMetodos metodo: resetarViewPesquisa");
+        assertEquals(true, view.jTpesquisaNome.getText().equals(""));
+        assertEquals(true, view.jCpaginador.getSelectedIndex() == 0);
+
+    }
+
+    @Test
     public void testHabilitarCampos() {
 
         /* é esperado que o botão de excluir esteja desabilitado */

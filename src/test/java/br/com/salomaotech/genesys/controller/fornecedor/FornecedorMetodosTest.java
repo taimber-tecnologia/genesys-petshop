@@ -88,6 +88,20 @@ public class FornecedorMetodosTest {
     }
 
     @Test
+    public void testResetarViewPesquisa() {
+
+        /* reseta a view */
+        fornecedorMetodos.resetarViewPesquisa();
+
+        /* testa se os dados populados na view foram resetados */
+        System.out.println("Testando classe FornecedorMetodos metodo: resetarViewPesquisa");
+        assertEquals(true, view.jTpesquisaNome.getText().equals(""));
+        assertEquals(true, view.jTpesquisaCnpj.getText().equals(""));
+        assertEquals(true, view.jCpaginador.getSelectedIndex() == 0);
+
+    }
+
+    @Test
     public void testHabilitarCampos() {
 
         /* é esperado que alguns campos estejam desabilitados */

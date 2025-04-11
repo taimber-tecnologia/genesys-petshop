@@ -68,6 +68,20 @@ public class ProdutoMetodosTest {
     }
 
     @Test
+    public void testResetarViewPesquisa() {
+
+        /* reseta a view */
+        produtoMetodos.resetarViewPesquisa();
+
+        /* testa se os dados populados na view foram resetados */
+        System.out.println("Testando classe ProdutoMetodos metodo: resetarViewPesquisa");
+        assertEquals(true, view.jTpesquisaNome.getText().equals(""));
+        assertEquals(true, view.jCpesquisaCategoria.getSelectedIndex() == -1);
+        assertEquals(true, view.jCpaginador.getSelectedIndex() == 0);
+
+    }
+
+    @Test
     public void testHabilitarCampos() {
 
         /* é esperado que alguns campos estejam desabilitados */

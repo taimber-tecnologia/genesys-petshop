@@ -49,6 +49,7 @@ public class JFcentroCusto extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTpesquisaNome = new javax.swing.JTextField();
         jBpesquisa = new javax.swing.JButton();
+        jBpesquisaReseta = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTresultados = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
@@ -152,6 +153,9 @@ public class JFcentroCusto extends javax.swing.JFrame {
         jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpesquisa.setText("Pesquisar");
 
+        jBpesquisaReseta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBpesquisaReseta.setText("Resetar filtros");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -163,7 +167,9 @@ public class JFcentroCusto extends javax.swing.JFrame {
                 .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBpesquisa)
-                .addContainerGap(421, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jBpesquisaReseta)
+                .addContainerGap(292, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +178,8 @@ public class JFcentroCusto extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBpesquisa))
+                    .addComponent(jBpesquisa)
+                    .addComponent(jBpesquisaReseta))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -314,6 +321,7 @@ public class JFcentroCusto extends javax.swing.JFrame {
     public javax.swing.JButton jBcadastroSalvar;
     public javax.swing.JButton jBpaginador;
     public javax.swing.JButton jBpesquisa;
+    public javax.swing.JButton jBpesquisaReseta;
     public javax.swing.JComboBox<String> jCpaginador;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

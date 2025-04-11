@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import static java.util.Objects.isNull;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -76,6 +77,20 @@ public class VendaPesquisaMetodosTest {
         vendaPesquisaMetodos.pesquisar();
         System.out.println("Testando classe VendaPesquisaMetodos metodo: pesquisar etapa 04");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
+
+    }
+
+    @Test
+    public void testResetarViewPesquisa() {
+
+        /* reseta a view */
+        vendaPesquisaMetodos.resetarViewPesquisa();
+
+        /* testa se os dados populados na view foram resetados */
+        System.out.println("Testando classe VendaPesquisaMetodos metodo: resetarViewPesquisa");
+        assertEquals(true, view.jTpesquisaCodigo.getText().equals(""));
+        assertEquals(true, isNull(view.jDpesquisaData.getDate()));
+        assertEquals(true, view.jCpaginador.getSelectedIndex() == 0);
 
     }
 

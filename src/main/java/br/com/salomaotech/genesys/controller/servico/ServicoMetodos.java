@@ -30,6 +30,14 @@ public class ServicoMetodos {
 
     }
 
+    public void resetarViewPesquisa() {
+
+        view.jTpesquisaNome.setText(null);
+        view.jCpaginador.setSelectedIndex(-1);
+        pesquisar();
+
+    }
+
     public void habilitarCampos() {
 
         view.jBcadastroExcluir.setEnabled(view.getId() != 0);

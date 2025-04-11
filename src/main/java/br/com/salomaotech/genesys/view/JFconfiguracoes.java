@@ -47,7 +47,7 @@ public class JFconfiguracoes extends javax.swing.JFrame {
         jTporta = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Configurações");
+        setTitle("Configurações - Genesys PetShop");
         setMinimumSize(new java.awt.Dimension(1024, 694));
 
         jToolBar1.setFloatable(false);

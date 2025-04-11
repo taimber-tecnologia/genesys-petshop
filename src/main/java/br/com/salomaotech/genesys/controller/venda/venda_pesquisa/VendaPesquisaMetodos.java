@@ -16,7 +16,26 @@ public class VendaPesquisaMetodos {
 
         VendaPesquisa vendaPesquisa = new VendaPesquisa(view.jTresultados, view.jCpaginador);
         vendaPesquisa.setData(view.jDpesquisaData.getCalendar());
+
+        // Valida ID (Código de cadastro) de pesquisa
+        try {
+
+            vendaPesquisa.setIdPesquisa(Long.parseLong(view.jTpesquisaCodigo.getText()));
+
+        } catch (NumberFormatException ex) {
+
+        }
+
         vendaPesquisa.pesquisar();
+
+    }
+
+    public void resetarViewPesquisa() {
+
+        view.jTpesquisaCodigo.setText(null);
+        view.jDpesquisaData.setDate(null);
+        view.jCpaginador.setSelectedIndex(-1);
+        pesquisar();
 
     }
 

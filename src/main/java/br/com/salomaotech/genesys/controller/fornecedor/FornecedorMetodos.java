@@ -42,6 +42,15 @@ public class FornecedorMetodos {
 
     }
 
+    public void resetarViewPesquisa() {
+
+        view.jTpesquisaNome.setText(null);
+        view.jTpesquisaCnpj.setText(null);
+        view.jCpaginador.setSelectedIndex(-1);
+        pesquisar();
+
+    }
+
     public void habilitarCampos() {
 
         boolean isIdAberto = view.getId() != 0;

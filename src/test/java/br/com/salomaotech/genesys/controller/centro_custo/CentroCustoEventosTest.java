@@ -45,6 +45,7 @@ public class CentroCustoEventosTest {
         assertEquals(true, view.jBpesquisa.getActionListeners().length == 1);
         assertEquals(true, view.jTpesquisaNome.getKeyListeners().length == 1);
         assertEquals(true, view.jBpaginador.getActionListeners().length == 1);
+        assertEquals(true, view.jBpesquisaReseta.getActionListeners().length == 1);
 
     }
 

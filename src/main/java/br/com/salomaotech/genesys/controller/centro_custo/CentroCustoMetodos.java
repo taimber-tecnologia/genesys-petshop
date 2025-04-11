@@ -28,6 +28,14 @@ public class CentroCustoMetodos {
 
     }
 
+    public void resetarViewPesquisa() {
+
+        view.jTpesquisaNome.setText(null);
+        view.jCpaginador.setSelectedIndex(-1);
+        pesquisar();
+
+    }
+
     public void habilitarCampos() {
 
         Repository repository = new Repository(new CentroCustoModelo());

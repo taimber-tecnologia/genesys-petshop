@@ -83,12 +83,13 @@ public class JFfornecedor extends javax.swing.JFrame {
         jTpesquisaNome = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jTpesquisaCnpj = new javax.swing.JTextField();
-        jBpesquisa = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTresultados = new javax.swing.JTable();
         jLabel21 = new javax.swing.JLabel();
         jCpaginador = new javax.swing.JComboBox<>();
         jBpaginador = new javax.swing.JButton();
+        jBpesquisa = new javax.swing.JButton();
+        jBpesquisaReseta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Fornecedores - Genesys PetShop");
@@ -409,9 +410,6 @@ public class JFfornecedor extends javax.swing.JFrame {
 
         jTpesquisaCnpj.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
-        jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jBpesquisa.setText("Pesquisar");
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -420,14 +418,11 @@ public class JFfornecedor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBpesquisa)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTpesquisaCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTpesquisaCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(328, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -439,8 +434,6 @@ public class JFfornecedor extends javax.swing.JFrame {
                     .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jTpesquisaCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jBpesquisa)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -450,11 +443,11 @@ public class JFfornecedor extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Nome", "CNPJ", "Contato", "Telefone", "E-mail"
+                "Código", "Nome", "Telefone", "E-mail", "CNPJ"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -466,12 +459,15 @@ public class JFfornecedor extends javax.swing.JFrame {
             jTresultados.getColumnModel().getColumn(0).setMinWidth(85);
             jTresultados.getColumnModel().getColumn(0).setPreferredWidth(85);
             jTresultados.getColumnModel().getColumn(0).setMaxWidth(85);
-            jTresultados.getColumnModel().getColumn(2).setMinWidth(150);
-            jTresultados.getColumnModel().getColumn(2).setPreferredWidth(150);
-            jTresultados.getColumnModel().getColumn(2).setMaxWidth(150);
-            jTresultados.getColumnModel().getColumn(4).setMinWidth(120);
-            jTresultados.getColumnModel().getColumn(4).setPreferredWidth(120);
-            jTresultados.getColumnModel().getColumn(4).setMaxWidth(120);
+            jTresultados.getColumnModel().getColumn(2).setMinWidth(120);
+            jTresultados.getColumnModel().getColumn(2).setPreferredWidth(120);
+            jTresultados.getColumnModel().getColumn(2).setMaxWidth(120);
+            jTresultados.getColumnModel().getColumn(3).setMinWidth(275);
+            jTresultados.getColumnModel().getColumn(3).setPreferredWidth(275);
+            jTresultados.getColumnModel().getColumn(3).setMaxWidth(275);
+            jTresultados.getColumnModel().getColumn(4).setMinWidth(150);
+            jTresultados.getColumnModel().getColumn(4).setPreferredWidth(150);
+            jTresultados.getColumnModel().getColumn(4).setMaxWidth(150);
         }
 
         jLabel21.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -481,6 +477,12 @@ public class JFfornecedor extends javax.swing.JFrame {
 
         jBpaginador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpaginador.setText("Abrir");
+
+        jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBpesquisa.setText("Pesquisar");
+
+        jBpesquisaReseta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBpesquisaReseta.setText("Resetar filtros");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -497,7 +499,12 @@ public class JFfornecedor extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addComponent(jCpaginador, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(jBpaginador)))
+                        .addComponent(jBpaginador))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jBpesquisa)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBpesquisaReseta)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -505,6 +512,10 @@ public class JFfornecedor extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBpesquisa)
+                    .addComponent(jBpesquisaReseta))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -649,6 +660,7 @@ public class JFfornecedor extends javax.swing.JFrame {
     public javax.swing.JButton jBenderecoBuscarCep;
     public javax.swing.JButton jBpaginador;
     public javax.swing.JButton jBpesquisa;
+    public javax.swing.JButton jBpesquisaReseta;
     public javax.swing.JComboBox<String> jCenderecoUf;
     public javax.swing.JComboBox<String> jCpaginador;
     public javax.swing.JFormattedTextField jFbasicoCnpj;

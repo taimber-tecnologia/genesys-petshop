@@ -113,6 +113,7 @@ public class AgendaEventos {
         view.jBatalhoPesquisa.addActionListener((ActionEvent e) -> {
 
             view.jTabaPrincipal.setSelectedIndex(1);
+            view.jTabaPesquisa.setSelectedIndex(0);
 
         });
 

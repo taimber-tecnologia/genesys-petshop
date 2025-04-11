@@ -154,6 +154,13 @@ public class CentroCustoEventos {
 
         });
 
+        /* atalho para resetar a pesquisa */
+        view.jBpesquisaReseta.addActionListener((ActionEvent e) -> {
+
+            centroCustoMetodos.resetarViewPesquisa();
+
+        });
+
     }
 
 }

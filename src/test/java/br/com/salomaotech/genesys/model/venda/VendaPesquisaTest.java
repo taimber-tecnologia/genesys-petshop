@@ -69,30 +69,54 @@ public class VendaPesquisaTest {
     }
 
     @Test
+    public void testSetIdPesquisa() {
+
+        boolean isErro = false;
+
+        try {
+
+            vendaPesquisa.setIdPesquisa(0);
+
+        } catch (Exception ex) {
+
+            isErro = true;
+
+        }
+
+        System.out.println("Testando classe VendaPesquisa metodo: setIdPesquisa");
+        assertEquals(false, isErro);
+
+    }
+
+    @Test
     public void testPesquisar() {
 
         /* usando filtro: nenhum */
         view.jDpesquisaData.setCalendar(null);
+        vendaPesquisa.setIdPesquisa(0L);
         vendaPesquisa.pesquisar();
-        System.out.println("Testando classe VendaPesquisa metodo: pesquisar etapa 01");
+        System.out.println("Testando classe VendaPesquisa metodo: pesquisar etapa 01 - nenhum filtro");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: data */
         view.jDpesquisaData.setCalendar(calendar);
+        vendaPesquisa.setIdPesquisa(0L);
         vendaPesquisa.pesquisar();
-        System.out.println("Testando classe VendaPesquisa metodo: pesquisar etapa 02");
+        System.out.println("Testando classe VendaPesquisa metodo: pesquisar etapa 02 - apenas data");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* usando filtro: cliente */
+        /* usando filtro: apenas ID */
         view.jDpesquisaData.setCalendar(null);
+        vendaPesquisa.setIdPesquisa(vendaModelo.getId());
         vendaPesquisa.pesquisar();
-        System.out.println("Testando classe VendaPesquisa metodo: pesquisar etapa 03");
+        System.out.println("Testando classe VendaPesquisa metodo: pesquisar etapa 03 - apenas ID");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* usando filtro: todos */
+        /* usando filtro: ID e data */
         view.jDpesquisaData.setCalendar(calendar);
+        vendaPesquisa.setIdPesquisa(vendaModelo.getId());
         vendaPesquisa.pesquisar();
-        System.out.println("Testando classe VendaPesquisa metodo: pesquisar etapa 04");
+        System.out.println("Testando classe VendaPesquisa metodo: pesquisar etapa 04 - ID + data");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
     }

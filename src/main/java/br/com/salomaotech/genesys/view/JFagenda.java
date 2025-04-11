@@ -279,9 +279,6 @@ public class JFagenda extends javax.swing.JFrame {
             jTresultados.getColumnModel().getColumn(2).setMinWidth(100);
             jTresultados.getColumnModel().getColumn(2).setPreferredWidth(100);
             jTresultados.getColumnModel().getColumn(2).setMaxWidth(100);
-            jTresultados.getColumnModel().getColumn(3).setMinWidth(300);
-            jTresultados.getColumnModel().getColumn(3).setPreferredWidth(300);
-            jTresultados.getColumnModel().getColumn(3).setMaxWidth(300);
             jTresultados.getColumnModel().getColumn(4).setMinWidth(150);
             jTresultados.getColumnModel().getColumn(4).setPreferredWidth(150);
             jTresultados.getColumnModel().getColumn(4).setMaxWidth(150);

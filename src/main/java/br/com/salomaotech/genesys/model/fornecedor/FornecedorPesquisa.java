@@ -41,10 +41,9 @@ public class FornecedorPesquisa {
             Object[] linhaDefaultTableModel = new Object[]{
                 fornecedorModelo.getId(),
                 fornecedorModelo.getNome(),
-                fornecedorModelo.getCnpj(),
-                fornecedorModelo.getContato(),
                 fornecedorModelo.getTelefone(),
-                fornecedorModelo.getEmail()
+                fornecedorModelo.getEmail(),
+                fornecedorModelo.getCnpj()
 
             };
 

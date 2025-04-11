@@ -111,6 +111,7 @@ public class ProdutoEventosTest {
         assertEquals(true, view.jBadicionaFoto.getActionListeners().length == 1);
         assertEquals(true, view.jBremoveFoto.getActionListeners().length == 1);
         assertEquals(true, view.jBpaginador.getActionListeners().length == 1);
+        assertEquals(true, view.jBpesquisaReseta.getActionListeners().length == 1);
 
     }
 

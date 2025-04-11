@@ -52,6 +52,19 @@ public class CentroCustoMetodosTest {
     }
 
     @Test
+    public void testResetarViewPesquisa() {
+
+        /* reseta a view */
+        centroCustoMetodos.resetarViewPesquisa();
+
+        /* testa se os dados populados na view foram resetados */
+        System.out.println("Testando classe CentroCustoMetodos metodo: resetarViewPesquisa");
+        assertEquals(true, view.jTpesquisaNome.getText().equals(""));
+        assertEquals(true, view.jCpaginador.getSelectedIndex() == 0);
+
+    }
+
+    @Test
     public void testHabilitarCampos() {
 
         /* esperado que os campos abaixo estejam desabilitados */

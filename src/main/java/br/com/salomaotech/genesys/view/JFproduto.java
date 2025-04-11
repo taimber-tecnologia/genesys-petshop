@@ -74,10 +74,11 @@ public class JFproduto extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jCpesquisaCategoria = new javax.swing.JComboBox<>();
         jBrefreshPesquisaCategoria = new javax.swing.JButton();
-        jBpesquisa = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jCpaginador = new javax.swing.JComboBox<>();
         jBpaginador = new javax.swing.JButton();
+        jBpesquisa = new javax.swing.JButton();
+        jBpesquisaReseta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Produtos - Genesys PetShop");
@@ -225,12 +226,13 @@ public class JFproduto extends javax.swing.JFrame {
                         .addComponent(jLabel4))
                     .addComponent(jTnome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTvalorVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jCmedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel9)))
+                        .addComponent(jLabel9))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTvalorVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
@@ -366,9 +368,6 @@ public class JFproduto extends javax.swing.JFrame {
 
         jBrefreshPesquisaCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/atualizar16x.png"))); // NOI18N
 
-        jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jBpesquisa.setText("Pesquisar");
-
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -377,9 +376,7 @@ public class JFproduto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBpesquisa))
+                .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -399,8 +396,6 @@ public class JFproduto extends javax.swing.JFrame {
                         .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2)
                         .addComponent(jCpesquisaCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jBpesquisa)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -411,6 +406,12 @@ public class JFproduto extends javax.swing.JFrame {
 
         jBpaginador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpaginador.setText("Abrir");
+
+        jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBpesquisa.setText("Pesquisar");
+
+        jBpesquisaReseta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBpesquisaReseta.setText("Resetar filtros");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -427,7 +428,12 @@ public class JFproduto extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addComponent(jCpaginador, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(jBpaginador)))
+                        .addComponent(jBpaginador))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jBpesquisa)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBpesquisaReseta)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -435,6 +441,10 @@ public class JFproduto extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBpesquisa)
+                    .addComponent(jBpesquisaReseta))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -643,6 +653,7 @@ public class JFproduto extends javax.swing.JFrame {
     public javax.swing.JButton jBcadastroSalvar;
     public javax.swing.JButton jBpaginador;
     public javax.swing.JButton jBpesquisa;
+    public javax.swing.JButton jBpesquisaReseta;
     public javax.swing.JButton jBrefreshCategoria;
     public javax.swing.JButton jBrefreshPesquisaCategoria;
     public javax.swing.JButton jBremoveFoto;
