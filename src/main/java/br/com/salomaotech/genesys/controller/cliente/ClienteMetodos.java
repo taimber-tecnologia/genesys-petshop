@@ -21,8 +21,6 @@ public class ClienteMetodos {
         view.jFbasicoCpf.setText(clienteModelo.getCpf());
         view.jDbasicoDataNascimento.setCalendar(clienteModelo.getNascimento());
         view.jCbasicoSexo.setSelectedItem(clienteModelo.getSexo());
-        view.jTbasicoNomePai.setText(clienteModelo.getNomePai());
-        view.jTbasicoNomeMae.setText(clienteModelo.getNomeMae());
         view.jCbasicoNacionalidade.setSelectedItem(clienteModelo.getNacionalidade());
         view.jFenderecoCep.setText(clienteModelo.getCep());
         view.jTenderecoRua.setText(clienteModelo.getRua());
@@ -48,6 +46,15 @@ public class ClienteMetodos {
 
     }
 
+    public void resetarViewPesquisa() {
+
+        view.jTpesquisaNome.setText(null);
+        view.jTpesquisaCpf.setText(null);
+        view.jCpaginador.setSelectedIndex(-1);
+        pesquisar();
+
+    }
+
     public void habilitarCampos() {
 
         boolean isIdAberto = view.getId() != 0;
@@ -60,8 +67,6 @@ public class ClienteMetodos {
         PopUp popUp = new PopUp();
         popUp.adicionarMenu(view.jTbasicoNome);
         popUp.adicionarMenu(view.jFbasicoCpf);
-        popUp.adicionarMenu(view.jTbasicoNomePai);
-        popUp.adicionarMenu(view.jTbasicoNomeMae);
         popUp.adicionarMenu(view.jFenderecoCep);
         popUp.adicionarMenu(view.jTenderecoRua);
         popUp.adicionarMenu(view.jTenderecoQuadra);
@@ -96,8 +101,6 @@ public class ClienteMetodos {
         clienteModelo.setCpf(view.jFbasicoCpf.getText());
         clienteModelo.setNascimento(view.jDbasicoDataNascimento.getCalendar());
         clienteModelo.setSexo((String) view.jCbasicoSexo.getSelectedItem());
-        clienteModelo.setNomePai(view.jTbasicoNomePai.getText());
-        clienteModelo.setNomeMae(view.jTbasicoNomeMae.getText());
         clienteModelo.setNacionalidade((String) view.jCbasicoNacionalidade.getSelectedItem());
         clienteModelo.setCep(view.jFenderecoCep.getText());
         clienteModelo.setRua(view.jTenderecoRua.getText());

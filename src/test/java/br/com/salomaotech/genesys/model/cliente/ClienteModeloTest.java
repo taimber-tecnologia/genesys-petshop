@@ -123,44 +123,6 @@ public class ClienteModeloTest {
     }
 
     @Test
-    public void testGetNomePai() {
-
-        String resultado = modelo.getNomePai();
-        System.out.println("Testando ClienteModelo metodo: getNomePai");
-        assertEquals(true, isNull(resultado));
-
-    }
-
-    @Test
-    public void testSetNomePai() {
-
-        String nomePai = "Teste";
-        modelo.setNomePai(nomePai);
-        System.out.println("Testando ClienteModelo metodo: getNomePai");
-        assertEquals(true, modelo.getNomePai().equals(nomePai));
-
-    }
-
-    @Test
-    public void testGetNomeMae() {
-
-        String resultado = modelo.getNomeMae();
-        System.out.println("Testando ClienteModelo metodo: getNomeMae");
-        assertEquals(true, isNull(resultado));
-
-    }
-
-    @Test
-    public void testSetNomeMae() {
-
-        String nomeMae = "Teste";
-        modelo.setNomeMae(nomeMae);
-        System.out.println("Testando ClienteModelo metodo: getNomeMae");
-        assertEquals(true, modelo.getNomeMae().equals(nomeMae));
-
-    }
-
-    @Test
     public void testGetCep() {
 
         String resultado = modelo.getCep();

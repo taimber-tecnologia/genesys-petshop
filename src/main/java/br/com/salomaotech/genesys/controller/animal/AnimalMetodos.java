@@ -86,6 +86,15 @@ public class AnimalMetodos {
 
     }
 
+    public void resetarViewPesquisa() {
+
+        view.jTpesquisaNome.setText(null);
+        comboBoxClientesPesquisa.selecionarItemPorId(0);
+        view.jCpaginador.setSelectedIndex(-1);
+        pesquisar();
+
+    }
+
     public void habilitarCampos() {
 
         view.jBcadastroExcluir.setEnabled(view.getId() != 0);

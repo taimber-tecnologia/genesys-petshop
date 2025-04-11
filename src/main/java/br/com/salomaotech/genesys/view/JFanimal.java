@@ -72,13 +72,14 @@ public class JFanimal extends javax.swing.JFrame {
         jCpesquisaNomeCliente = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         jBpesquisaNomeClienteRefresh = new javax.swing.JButton();
-        jBpesquisa = new javax.swing.JButton();
         jBpesquisaClientePesquisa = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTresultados = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         jCpaginador = new javax.swing.JComboBox<>();
         jBpaginador = new javax.swing.JButton();
+        jBpesquisa = new javax.swing.JButton();
+        jBpesquisaReseta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Animais - Genesys PetShop");
@@ -159,7 +160,6 @@ public class JFanimal extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Nascimento:");
 
-        jDnascimentoCadastro.setDateFormatString("dd/MM/yyyy");
         jDnascimentoCadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jTpesoCadastro.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -304,9 +304,6 @@ public class JFanimal extends javax.swing.JFrame {
 
         jBpesquisaNomeClienteRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/atualizar16x.png"))); // NOI18N
 
-        jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jBpesquisa.setText("Pesquisar");
-
         jBpesquisaClientePesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpesquisaClientePesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/buscar16x.png"))); // NOI18N
         jBpesquisaClientePesquisa.setText("Novo");
@@ -319,18 +316,15 @@ public class JFanimal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBpesquisa)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCpesquisaNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBpesquisaNomeClienteRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBpesquisaClientePesquisa)))
+                .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCpesquisaNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jBpesquisaNomeClienteRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jBpesquisaClientePesquisa)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -345,8 +339,6 @@ public class JFanimal extends javax.swing.JFrame {
                         .addComponent(jLabel10)
                         .addComponent(jCpesquisaNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jBpesquisaClientePesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jBpesquisa)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -356,11 +348,11 @@ public class JFanimal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Nome", "Espécie", "Raça", "Sexo", "Nascimento", "Cliente", "Telefone"
+                "Código", "Nome", "Espécie", "Cliente", "Telefone"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -372,15 +364,15 @@ public class JFanimal extends javax.swing.JFrame {
             jTresultados.getColumnModel().getColumn(0).setMinWidth(85);
             jTresultados.getColumnModel().getColumn(0).setPreferredWidth(85);
             jTresultados.getColumnModel().getColumn(0).setMaxWidth(85);
-            jTresultados.getColumnModel().getColumn(4).setMinWidth(90);
-            jTresultados.getColumnModel().getColumn(4).setPreferredWidth(90);
-            jTresultados.getColumnModel().getColumn(4).setMaxWidth(90);
-            jTresultados.getColumnModel().getColumn(5).setMinWidth(95);
-            jTresultados.getColumnModel().getColumn(5).setPreferredWidth(95);
-            jTresultados.getColumnModel().getColumn(5).setMaxWidth(95);
-            jTresultados.getColumnModel().getColumn(7).setMinWidth(120);
-            jTresultados.getColumnModel().getColumn(7).setPreferredWidth(120);
-            jTresultados.getColumnModel().getColumn(7).setMaxWidth(120);
+            jTresultados.getColumnModel().getColumn(2).setMinWidth(200);
+            jTresultados.getColumnModel().getColumn(2).setPreferredWidth(200);
+            jTresultados.getColumnModel().getColumn(2).setMaxWidth(200);
+            jTresultados.getColumnModel().getColumn(3).setMinWidth(250);
+            jTresultados.getColumnModel().getColumn(3).setPreferredWidth(250);
+            jTresultados.getColumnModel().getColumn(3).setMaxWidth(250);
+            jTresultados.getColumnModel().getColumn(4).setMinWidth(120);
+            jTresultados.getColumnModel().getColumn(4).setPreferredWidth(120);
+            jTresultados.getColumnModel().getColumn(4).setMaxWidth(120);
         }
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -390,6 +382,12 @@ public class JFanimal extends javax.swing.JFrame {
 
         jBpaginador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpaginador.setText("Abrir");
+
+        jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBpesquisa.setText("Pesquisar");
+
+        jBpesquisaReseta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBpesquisaReseta.setText("Resetar filtros");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -406,7 +404,12 @@ public class JFanimal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCpaginador, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBpaginador)))
+                        .addComponent(jBpaginador))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jBpesquisa)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBpesquisaReseta)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -414,6 +417,10 @@ public class JFanimal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBpesquisa)
+                    .addComponent(jBpesquisaReseta))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -494,6 +501,7 @@ public class JFanimal extends javax.swing.JFrame {
     public javax.swing.JButton jBpesquisaClienteCadastro;
     public javax.swing.JButton jBpesquisaClientePesquisa;
     public javax.swing.JButton jBpesquisaNomeClienteRefresh;
+    public javax.swing.JButton jBpesquisaReseta;
     public javax.swing.JButton jBrefreshClienteCadastro;
     public javax.swing.JButton jBrefreshEspecieCadastro;
     public javax.swing.JButton jBrefreshRacaCadastro;

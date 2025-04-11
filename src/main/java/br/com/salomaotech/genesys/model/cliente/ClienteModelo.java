@@ -27,8 +27,6 @@ public class ClienteModelo implements Modelo, Serializable {
     private Calendar nascimento;
 
     private String nacionalidade;
-    private String nomePai;
-    private String nomeMae;
     private String cep;
     private String rua;
     private String quadra;
@@ -98,22 +96,6 @@ public class ClienteModelo implements Modelo, Serializable {
 
     public void setNacionalidade(String nacionalidade) {
         this.nacionalidade = nacionalidade;
-    }
-
-    public String getNomePai() {
-        return nomePai;
-    }
-
-    public void setNomePai(String nomePai) {
-        this.nomePai = nomePai;
-    }
-
-    public String getNomeMae() {
-        return nomeMae;
-    }
-
-    public void setNomeMae(String nomeMae) {
-        this.nomeMae = nomeMae;
     }
 
     public String getCep() {

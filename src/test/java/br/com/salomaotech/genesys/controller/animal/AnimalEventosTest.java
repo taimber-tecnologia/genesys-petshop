@@ -136,6 +136,7 @@ public class AnimalEventosTest {
         assertEquals(true, view.jBrefreshRacaCadastro.getActionListeners().length == 1);
         assertEquals(true, view.jBrefreshEspecieCadastro.getActionListeners().length == 1);
         assertEquals(true, view.jBpesquisaClientePesquisa.getActionListeners().length == 1);
+        assertEquals(true, view.jBpesquisaReseta.getActionListeners().length == 1);
 
     }
 

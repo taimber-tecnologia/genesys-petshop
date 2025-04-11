@@ -34,9 +34,9 @@ public class VacinaPesquisa {
             /* popula linhas da DefaultTableModel */
             Object[] linhaDefaultTableModel = new Object[]{
                 VacinaModelo.getId(),
+                Datas.calendarParaStringBr(VacinaModelo.getDataAplicacao()),
                 VacinaModelo.getNome(),
                 VacinaModelo.getDoses(),
-                Datas.calendarParaStringBr(VacinaModelo.getDataAplicacao()),
                 Datas.calendarParaStringBr(VacinaModelo.getDataAplicacaoProxima())
 
             };

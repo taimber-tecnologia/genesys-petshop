@@ -25,8 +25,6 @@ public class ClienteMetodosTest {
         clienteModelo.setSexo("Feminino");
         clienteModelo.setNascimento(calendar);
         clienteModelo.setNacionalidade("Brasileiro");
-        clienteModelo.setNomePai("Teste");
-        clienteModelo.setNomeMae("Teste");
         clienteModelo.setCep("75370-000");
         clienteModelo.setRua("01");
         clienteModelo.setQuadra("02");
@@ -55,8 +53,6 @@ public class ClienteMetodosTest {
         assertEquals(true, view.jFbasicoCpf.getText().equals(clienteModelo.getCpf()));
         assertEquals(true, view.jDbasicoDataNascimento.getCalendar().equals(clienteModelo.getNascimento()));
         assertEquals(true, view.jCbasicoSexo.getSelectedItem().toString().equals(clienteModelo.getSexo()));
-        assertEquals(true, view.jTbasicoNomePai.getText().equals(clienteModelo.getNomePai()));
-        assertEquals(true, view.jTbasicoNomeMae.getText().equals(clienteModelo.getNomeMae()));
         assertEquals(true, view.jFenderecoCep.getText().equals(clienteModelo.getCep()));
         assertEquals(true, view.jTenderecoRua.getText().equals(clienteModelo.getRua()));
         assertEquals(true, view.jTenderecoQuadra.getText().equals(clienteModelo.getQuadra()));
@@ -84,8 +80,6 @@ public class ClienteMetodosTest {
         assertEquals(true, view.jFbasicoCpf.getText().equals("   .   .   -  "));
         assertEquals(true, isNull(view.jDbasicoDataNascimento.getDate()));
         assertEquals(true, view.jCbasicoSexo.getSelectedIndex() == 0);
-        assertEquals(true, view.jTbasicoNomePai.getText().equals(""));
-        assertEquals(true, view.jTbasicoNomeMae.getText().equals(""));
         assertEquals(true, view.jFenderecoCep.getText().equals("     -   "));
         assertEquals(true, view.jTenderecoRua.getText().equals(""));
         assertEquals(true, view.jTenderecoQuadra.getText().equals(""));
@@ -97,6 +91,20 @@ public class ClienteMetodosTest {
         assertEquals(true, view.jTenderecoComplemento.getText().equals(""));
         assertEquals(true, view.jTcontatoTelefone.getText().equals(""));
         assertEquals(true, view.jTcontatoEmail.getText().equals(""));
+
+    }
+
+    @Test
+    public void testResetarViewPesquisa() {
+
+        /* reseta a view */
+        clienteMetodos.resetarViewPesquisa();
+
+        /* testa se os dados populados na view foram resetados */
+        System.out.println("Testando classe ClienteMetodos metodo: resetarViewPesquisa");
+        assertEquals(true, view.jTpesquisaNome.getText().equals(""));
+        assertEquals(true, view.jTpesquisaCpf.getText().equals(""));
+        assertEquals(true, view.jCpaginador.getSelectedIndex() == 0);
 
     }
 
@@ -132,8 +140,6 @@ public class ClienteMetodosTest {
         System.out.println("Testando classe ClienteMetodos metodo: addPopUpMenu");
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTbasicoNome));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jFbasicoCpf));
-        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTbasicoNomePai));
-        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTbasicoNomeMae));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jFenderecoCep));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTenderecoRua));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTenderecoQuadra));
@@ -162,8 +168,6 @@ public class ClienteMetodosTest {
         assertEquals(true, view.jFbasicoCpf.getText().equals(clienteModelo.getCpf()));
         assertEquals(true, view.jDbasicoDataNascimento.getCalendar().equals(clienteModelo.getNascimento()));
         assertEquals(true, view.jCbasicoSexo.getSelectedItem().toString().equals(clienteModelo.getSexo()));
-        assertEquals(true, view.jTbasicoNomePai.getText().equals(clienteModelo.getNomePai()));
-        assertEquals(true, view.jTbasicoNomeMae.getText().equals(clienteModelo.getNomeMae()));
         assertEquals(true, view.jFenderecoCep.getText().equals(clienteModelo.getCep()));
         assertEquals(true, view.jTenderecoRua.getText().equals(clienteModelo.getRua()));
         assertEquals(true, view.jTenderecoQuadra.getText().equals(clienteModelo.getQuadra()));
@@ -195,8 +199,6 @@ public class ClienteMetodosTest {
         assertEquals(true, view.jFbasicoCpf.getText().equals(clienteModelo.getCpf()));
         assertEquals(true, view.jDbasicoDataNascimento.getCalendar().equals(clienteModelo.getNascimento()));
         assertEquals(true, view.jCbasicoSexo.getSelectedItem().toString().equals(clienteModelo.getSexo()));
-        assertEquals(true, view.jTbasicoNomePai.getText().equals(clienteModelo.getNomePai()));
-        assertEquals(true, view.jTbasicoNomeMae.getText().equals(clienteModelo.getNomeMae()));
         assertEquals(true, view.jFenderecoCep.getText().equals(clienteModelo.getCep()));
         assertEquals(true, view.jTenderecoRua.getText().equals(clienteModelo.getRua()));
         assertEquals(true, view.jTenderecoQuadra.getText().equals(clienteModelo.getQuadra()));

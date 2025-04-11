@@ -51,10 +51,6 @@ public class JFcliente extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jCbasicoSexo = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
-        jTbasicoNomePai = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jTbasicoNomeMae = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jCbasicoNacionalidade = new javax.swing.JComboBox<>();
         jDbasicoDataNascimento = new com.toedter.calendar.JDateChooser();
@@ -91,12 +87,13 @@ public class JFcliente extends javax.swing.JFrame {
         jTpesquisaNome = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jTpesquisaCpf = new javax.swing.JTextField();
-        jBpesquisa = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTresultados = new javax.swing.JTable();
         jLabel21 = new javax.swing.JLabel();
         jCpaginador = new javax.swing.JComboBox<>();
         jBpaginador = new javax.swing.JButton();
+        jBpesquisa = new javax.swing.JButton();
+        jBpesquisaReseta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Clientes - Genesys PetShop");
@@ -163,16 +160,6 @@ public class JFcliente extends javax.swing.JFrame {
         jCbasicoSexo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jCbasicoSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
 
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel7.setText("Pai:");
-
-        jTbasicoNomePai.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel8.setText("Mãe:");
-
-        jTbasicoNomeMae.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setText("Nac.:");
 
@@ -198,23 +185,19 @@ public class JFcliente extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTbasicoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCbasicoSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(jFbasicoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(51, 51, 51)
-                            .addComponent(jLabel6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jDbasicoDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jTbasicoNomePai, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTbasicoNomeMae, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addComponent(jCbasicoNacionalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jCbasicoNacionalidade, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jCbasicoSexo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jFbasicoCpf, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE))
+                        .addGap(51, 51, 51)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDbasicoDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(448, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -237,17 +220,9 @@ public class JFcliente extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTbasicoNomePai, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTbasicoNomeMae, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCbasicoNacionalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addGap(300, 300, 300))
+                .addGap(385, 385, 385))
         );
 
         jTabaCadastro.addTab("Básico", jPanel4);
@@ -466,9 +441,6 @@ public class JFcliente extends javax.swing.JFrame {
 
         jTpesquisaCpf.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
-        jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jBpesquisa.setText("Pesquisar");
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -477,14 +449,11 @@ public class JFcliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBpesquisa)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTpesquisaCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTpesquisaCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(336, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -496,8 +465,6 @@ public class JFcliente extends javax.swing.JFrame {
                     .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jTpesquisaCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jBpesquisa)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -507,11 +474,11 @@ public class JFcliente extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Nome", "CPF", "Telefone"
+                "Código", "Nome", "CPF", "Telefone", "E-mail"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -529,6 +496,9 @@ public class JFcliente extends javax.swing.JFrame {
             jTresultados.getColumnModel().getColumn(3).setMinWidth(120);
             jTresultados.getColumnModel().getColumn(3).setPreferredWidth(120);
             jTresultados.getColumnModel().getColumn(3).setMaxWidth(120);
+            jTresultados.getColumnModel().getColumn(4).setMinWidth(275);
+            jTresultados.getColumnModel().getColumn(4).setPreferredWidth(275);
+            jTresultados.getColumnModel().getColumn(4).setMaxWidth(275);
         }
 
         jLabel21.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -538,6 +508,12 @@ public class JFcliente extends javax.swing.JFrame {
 
         jBpaginador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jBpaginador.setText("Abrir");
+
+        jBpesquisa.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBpesquisa.setText("Pesquisar");
+
+        jBpesquisaReseta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jBpesquisaReseta.setText("Resetar filtros");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -554,7 +530,12 @@ public class JFcliente extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addComponent(jCpaginador, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(jBpaginador)))
+                        .addComponent(jBpaginador))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jBpesquisa)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBpesquisaReseta)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -562,6 +543,10 @@ public class JFcliente extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBpesquisa)
+                    .addComponent(jBpesquisaReseta))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -582,7 +567,7 @@ public class JFcliente extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabaPrincipal)
@@ -674,6 +659,7 @@ public class JFcliente extends javax.swing.JFrame {
     public javax.swing.JButton jBenderecoBuscarCep;
     public javax.swing.JButton jBpaginador;
     public javax.swing.JButton jBpesquisa;
+    public javax.swing.JButton jBpesquisaReseta;
     public javax.swing.JComboBox<String> jCbasicoNacionalidade;
     public javax.swing.JComboBox<String> jCbasicoSexo;
     public javax.swing.JComboBox<String> jCenderecoUf;
@@ -699,8 +685,6 @@ public class JFcliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -713,8 +697,6 @@ public class JFcliente extends javax.swing.JFrame {
     public javax.swing.JTabbedPane jTabaCadastro;
     public javax.swing.JTabbedPane jTabaPrincipal;
     public javax.swing.JTextField jTbasicoNome;
-    public javax.swing.JTextField jTbasicoNomeMae;
-    public javax.swing.JTextField jTbasicoNomePai;
     public javax.swing.JTextField jTcontatoEmail;
     public javax.swing.JTextField jTcontatoTelefone;
     public javax.swing.JTextField jTenderecoBairro;

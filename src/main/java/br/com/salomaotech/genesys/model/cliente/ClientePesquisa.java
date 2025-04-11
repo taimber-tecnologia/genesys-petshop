@@ -42,7 +42,8 @@ public class ClientePesquisa {
                 clienteModelo.getId(),
                 clienteModelo.getNome(),
                 clienteModelo.getCpf(),
-                clienteModelo.getTelefone()
+                clienteModelo.getTelefone(),
+                clienteModelo.getEmail()
 
             };
 

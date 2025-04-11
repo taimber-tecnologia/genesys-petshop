@@ -218,6 +218,13 @@ public class ClienteEventos {
 
         });
 
+        /* atalho para resetar a pesquisa */
+        view.jBpesquisaReseta.addActionListener((ActionEvent e) -> {
+
+            clienteMetodos.resetarViewPesquisa();
+
+        });
+
     }
 
 }

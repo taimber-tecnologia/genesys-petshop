@@ -47,9 +47,6 @@ public class AnimalPesquisa {
                 animalModelo.getId(),
                 animalModelo.getNome(),
                 animalModelo.getEspecie(),
-                animalModelo.getRaca(),
-                animalModelo.getSexo(),
-                Datas.calendarParaStringBr(animalModelo.getNascimento()),
                 clienteModelo.getNome(),
                 clienteModelo.getTelefone()
 
