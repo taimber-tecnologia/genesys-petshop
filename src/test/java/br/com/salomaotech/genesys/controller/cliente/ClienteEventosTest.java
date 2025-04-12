@@ -44,7 +44,7 @@ public class ClienteEventosTest {
         assertEquals(true, view.jTresultados.getKeyListeners().length == 2);
         assertEquals(true, view.jBpesquisa.getActionListeners().length == 1);
         assertEquals(true, view.jTpesquisaNome.getKeyListeners().length == 1);
-        assertEquals(true, view.jTpesquisaCpf.getKeyListeners().length == 1);
+        assertEquals(true, view.jTpesquisaTelefone.getKeyListeners().length == 1);
         assertEquals(true, view.jBenderecoBuscarCep.getActionListeners().length == 1);
         assertEquals(true, view.jBatalhoPesquisa.getActionListeners().length == 1);
         assertEquals(true, view.jBpaginador.getActionListeners().length == 1);

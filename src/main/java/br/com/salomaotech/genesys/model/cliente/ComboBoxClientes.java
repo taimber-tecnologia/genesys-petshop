@@ -73,8 +73,9 @@ public class ComboBoxClientes {
         clienteModeloList = new Repository(new ClienteModelo()).getResults(popularJpql().construirSelect());
         clienteModeloList.forEach(cliente -> {
 
-            jComboBox.addItem(cliente.getNome());
-            cadastroDeClientesMap.put(cliente.getNome(), cliente.getId());
+            String nomeComTelefone = cliente.getNome() + " - " + cliente.getTelefone();
+            jComboBox.addItem(nomeComTelefone);
+            cadastroDeClientesMap.put(nomeComTelefone, cliente.getId());
 
         });
 
@@ -89,7 +90,8 @@ public class ComboBoxClientes {
 
             if (cliente.getId() == idCliente) {
 
-                jComboBox.setSelectedItem(cliente.getNome());
+                String nomeComTelefone = cliente.getNome() + " - " + cliente.getTelefone();
+                jComboBox.setSelectedItem(nomeComTelefone);
                 idClienteSelecionado = idCliente;
 
                 if (!isNull(this.command)) {

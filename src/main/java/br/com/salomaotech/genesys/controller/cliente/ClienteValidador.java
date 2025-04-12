@@ -8,6 +8,7 @@ import br.com.salomaotech.sistema.algoritmos.ValidaStringIsEmpty;
 import br.com.salomaotech.sistema.jpa.JPQL;
 import br.com.salomaotech.sistema.jpa.Repository;
 import java.util.List;
+import static java.util.Objects.isNull;
 
 public class ClienteValidador {
 
@@ -33,45 +34,72 @@ public class ClienteValidador {
 
         }
 
-        /* valida CPF */
-        if (!ValidaCpf.isValido(view.jFbasicoCpf.getText())) {
+        /* só validar o CPF se ele for informado */
+        if (!view.jFbasicoCpf.getText().equals("   .   .   -  ")) {
 
-            mensagensErro = "CPF inválido.";
-            view.jFbasicoCpf.requestFocus();
-            return false;
+            /* valida CPF */
+            if (!ValidaCpf.isValido(view.jFbasicoCpf.getText())) {
 
-        } else {
-
-            JPQL jpql = new JPQL(new ClienteModelo());
-            jpql.addParametroIgual("cpf", view.jFbasicoCpf.getText());
-            jpql.addParametroDiferente("id", id);
-            List resultados = repository.getResults(jpql.construirSelect());
-
-            if (!resultados.isEmpty()) {
-
-                mensagensErro = "CPF já em uso.";
+                mensagensErro = "CPF inválido.";
                 view.jFbasicoCpf.requestFocus();
+                return false;
+
+            } else {
+
+                JPQL jpql = new JPQL(new ClienteModelo());
+                jpql.addParametroIgual("cpf", view.jFbasicoCpf.getText());
+                jpql.addParametroDiferente("id", id);
+                List resultados = repository.getResults(jpql.construirSelect());
+
+                if (!resultados.isEmpty()) {
+
+                    mensagensErro = "CPF já em uso.";
+                    view.jFbasicoCpf.requestFocus();
+                    return false;
+
+                }
+
+            }
+
+        }
+
+        /* só validar a data de nascimento se ela for informada */
+        if (!isNull(view.jDbasicoDataNascimento.getCalendar())) {
+
+            /* valida data de nascimento */
+            if (!Datas.isCalendarioValido(view.jDbasicoDataNascimento.getCalendar())) {
+
+                mensagensErro = "Data de nascimento inválida.";
                 return false;
 
             }
 
         }
 
-        /* valida data de nascimento */
-        if (!Datas.isCalendarioValido(view.jDbasicoDataNascimento.getCalendar())) {
-
-            mensagensErro = "Data de nascimento inválida.";
-            return false;
-
-        }
-
         /* valida telefone */
         if (ValidaStringIsEmpty.isEmpty(view.jTcontatoTelefone.getText())) {
 
-            mensagensErro = "Informe o telefone do cliente.";
+            mensagensErro = "Telefone inválido.";
             view.jTabaCadastro.setSelectedIndex(2);
             view.jTcontatoTelefone.requestFocus();
             return false;
+
+        } else {
+
+            JPQL jpql = new JPQL(new ClienteModelo());
+            jpql.addParametroIgual("nome", view.jTbasicoNome.getText());
+            jpql.addParametroIgual("telefone", view.jTcontatoTelefone.getText());
+            jpql.addParametroDiferente("id", id);
+            List resultados = repository.getResults(jpql.construirSelect());
+
+            if (!resultados.isEmpty()) {
+
+                mensagensErro = "Já existe um cadastro com este nome e telefone.";
+                view.jTabaCadastro.setSelectedIndex(2);
+                view.jTcontatoTelefone.requestFocus();
+                return false;
+
+            }
 
         }
 

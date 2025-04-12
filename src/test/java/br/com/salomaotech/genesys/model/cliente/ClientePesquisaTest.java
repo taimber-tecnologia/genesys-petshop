@@ -16,7 +16,7 @@ public class ClientePesquisaTest {
         /* simula cadastro de cliente */
         new Repository(new ClienteModelo()).deleteTodos();
         clienteModelo.setNome("Teste");
-        clienteModelo.setCpf("000.000.000-00");
+        clienteModelo.setTelefone("62 0000-0000");
         new Repository(clienteModelo).save();
 
     }
@@ -42,13 +42,13 @@ public class ClientePesquisaTest {
     }
 
     @Test
-    public void testSetCpf() {
+    public void testSetTelefone() {
 
         boolean isErro = false;
 
         try {
 
-            clientePesquisa.setCpf(clienteModelo.getCpf());
+            clientePesquisa.setTelefone(clienteModelo.getTelefone());
 
         } catch (Exception ex) {
 
@@ -56,7 +56,7 @@ public class ClientePesquisaTest {
 
         }
 
-        System.out.println("Testando classe ClientePesquisa metodo: setCpf");
+        System.out.println("Testando classe ClientePesquisa metodo: setTelefone");
         assertEquals(false, isErro);
 
     }
@@ -67,7 +67,7 @@ public class ClientePesquisaTest {
         /* utilizando filtro: nenhum */
         clientePesquisa = new ClientePesquisa(view.jTresultados, view.jCpaginador);
         clientePesquisa.setNome(null);
-        clientePesquisa.setCpf(null);
+        clientePesquisa.setTelefone(null);
         clientePesquisa.pesquisar();
         System.out.println("Testando classe ClientePesquisa metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -75,15 +75,15 @@ public class ClientePesquisaTest {
         /* utilizando filtro: nome */
         clientePesquisa = new ClientePesquisa(view.jTresultados, view.jCpaginador);
         clientePesquisa.setNome(clienteModelo.getNome());
-        clientePesquisa.setCpf(null);
+        clientePesquisa.setTelefone(null);
         clientePesquisa.pesquisar();
         System.out.println("Testando classe ClientePesquisa metodo: pesquisar etapa 02");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* utilizando filtro: CPF */
+        /* utilizando filtro: telefone */
         clientePesquisa = new ClientePesquisa(view.jTresultados, view.jCpaginador);
         clientePesquisa.setNome(null);
-        clientePesquisa.setCpf(clienteModelo.getCpf());
+        clientePesquisa.setTelefone(clienteModelo.getTelefone());
         clientePesquisa.pesquisar();
         System.out.println("Testando classe ClientePesquisa metodo: pesquisar etapa 03");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
@@ -91,7 +91,7 @@ public class ClientePesquisaTest {
         /* utilizando filtro: todos */
         clientePesquisa = new ClientePesquisa(view.jTresultados, view.jCpaginador);
         clientePesquisa.setNome(clienteModelo.getNome());
-        clientePesquisa.setCpf(clienteModelo.getCpf());
+        clientePesquisa.setTelefone(clienteModelo.getTelefone());
         clientePesquisa.pesquisar();
         System.out.println("Testando classe ClientePesquisa metodo: pesquisar etapa 04");
         assertEquals(true, view.jTresultados.getRowCount() > 0);

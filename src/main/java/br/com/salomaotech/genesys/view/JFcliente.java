@@ -86,7 +86,7 @@ public class JFcliente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTpesquisaNome = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTpesquisaCpf = new javax.swing.JTextField();
+        jTpesquisaTelefone = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTresultados = new javax.swing.JTable();
         jLabel21 = new javax.swing.JLabel();
@@ -147,14 +147,12 @@ public class JFcliente extends javax.swing.JFrame {
         jTbasicoNome.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 0, 0));
         jLabel4.setText("CPF:");
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setText("Sexo:");
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(153, 0, 0));
         jLabel6.setText("Nascimento:");
 
         jCbasicoSexo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -437,9 +435,9 @@ public class JFcliente extends javax.swing.JFrame {
         jTpesquisaNome.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel2.setText("CPF:");
+        jLabel2.setText("Telefone:");
 
-        jTpesquisaCpf.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTpesquisaTelefone.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -453,8 +451,8 @@ public class JFcliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTpesquisaCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(336, Short.MAX_VALUE))
+                .addComponent(jTpesquisaTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(312, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -464,7 +462,7 @@ public class JFcliente extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jTpesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
-                    .addComponent(jTpesquisaCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTpesquisaTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -474,11 +472,11 @@ public class JFcliente extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Nome", "CPF", "Telefone", "E-mail"
+                "Código", "Nome", "Telefone", "E-mail"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -490,15 +488,12 @@ public class JFcliente extends javax.swing.JFrame {
             jTresultados.getColumnModel().getColumn(0).setMinWidth(85);
             jTresultados.getColumnModel().getColumn(0).setPreferredWidth(85);
             jTresultados.getColumnModel().getColumn(0).setMaxWidth(85);
-            jTresultados.getColumnModel().getColumn(2).setMinWidth(120);
-            jTresultados.getColumnModel().getColumn(2).setPreferredWidth(120);
-            jTresultados.getColumnModel().getColumn(2).setMaxWidth(120);
-            jTresultados.getColumnModel().getColumn(3).setMinWidth(120);
-            jTresultados.getColumnModel().getColumn(3).setPreferredWidth(120);
-            jTresultados.getColumnModel().getColumn(3).setMaxWidth(120);
-            jTresultados.getColumnModel().getColumn(4).setMinWidth(275);
-            jTresultados.getColumnModel().getColumn(4).setPreferredWidth(275);
-            jTresultados.getColumnModel().getColumn(4).setMaxWidth(275);
+            jTresultados.getColumnModel().getColumn(2).setMinWidth(125);
+            jTresultados.getColumnModel().getColumn(2).setPreferredWidth(125);
+            jTresultados.getColumnModel().getColumn(2).setMaxWidth(125);
+            jTresultados.getColumnModel().getColumn(3).setMinWidth(275);
+            jTresultados.getColumnModel().getColumn(3).setPreferredWidth(275);
+            jTresultados.getColumnModel().getColumn(3).setMaxWidth(275);
         }
 
         jLabel21.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -707,8 +702,8 @@ public class JFcliente extends javax.swing.JFrame {
     public javax.swing.JTextField jTenderecoQuadra;
     public javax.swing.JTextField jTenderecoRua;
     private javax.swing.JToolBar jToolBar1;
-    public javax.swing.JTextField jTpesquisaCpf;
     public javax.swing.JTextField jTpesquisaNome;
+    public javax.swing.JTextField jTpesquisaTelefone;
     public javax.swing.JTable jTresultados;
     // End of variables declaration//GEN-END:variables
 }

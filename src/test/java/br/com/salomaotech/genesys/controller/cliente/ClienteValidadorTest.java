@@ -4,6 +4,7 @@ import br.com.salomaotech.genesys.model.cliente.ClienteModelo;
 import br.com.salomaotech.genesys.view.JFcliente;
 import br.com.salomaotech.sistema.jpa.Repository;
 import java.util.Calendar;
+import javax.swing.JTextField;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -31,8 +32,6 @@ public class ClienteValidadorTest {
 
         /* usando filtro: nenhum */
         view.jTbasicoNome.setText(null);
-        view.jFbasicoCpf.setValue(null);
-        view.jDbasicoDataNascimento.setDate(null);
         view.jTcontatoTelefone.setText(null);
         clienteValidador = new ClienteValidador(view, clienteModelo.getId());
         System.out.println("Testando classe ClienteValidador metodo: isValido etapa 01");
@@ -40,57 +39,83 @@ public class ClienteValidadorTest {
 
         /* usando filtro: nome */
         view.jTbasicoNome.setText(clienteModelo.getNome());
-        view.jFbasicoCpf.setValue(null);
-        view.jDbasicoDataNascimento.setDate(null);
         view.jTcontatoTelefone.setText(null);
         clienteValidador = new ClienteValidador(view, clienteModelo.getId());
         System.out.println("Testando classe ClienteValidador metodo: isValido etapa 02");
         assertEquals(false, clienteValidador.isValido());
 
-        /* usando filtro: cpf */
+        /* usando filtro: telefone */
         view.jTbasicoNome.setText(null);
-        view.jFbasicoCpf.setText(clienteModelo.getCpf());
-        view.jDbasicoDataNascimento.setDate(null);
-        view.jTcontatoTelefone.setText(null);
+        view.jTcontatoTelefone.setText(clienteModelo.getTelefone());
         clienteValidador = new ClienteValidador(view, clienteModelo.getId());
         System.out.println("Testando classe ClienteValidador metodo: isValido etapa 03");
         assertEquals(false, clienteValidador.isValido());
 
-        /* usando filtro: nascimento */
-        view.jTbasicoNome.setText(null);
-        view.jFbasicoCpf.setValue(null);
-        view.jDbasicoDataNascimento.setCalendar(clienteModelo.getNascimento());
-        view.jTcontatoTelefone.setText(null);
-        clienteValidador = new ClienteValidador(view, clienteModelo.getId());
+        /* usando filtro: nome e telefone iguais (deve falhar) */
+        view.jTbasicoNome.setText(clienteModelo.getNome());
+        view.jTcontatoTelefone.setText(clienteModelo.getTelefone());
+        clienteValidador = new ClienteValidador(view, 0); // ID diferente para simular novo cadastro
         System.out.println("Testando classe ClienteValidador metodo: isValido etapa 04");
         assertEquals(false, clienteValidador.isValido());
 
-        /* usando filtro: telefone */
-        view.jTbasicoNome.setText(null);
-        view.jFbasicoCpf.setValue(null);
-        view.jDbasicoDataNascimento.setCalendar(null);
-        view.jTcontatoTelefone.setText(clienteModelo.getTelefone());
-        clienteValidador = new ClienteValidador(view, clienteModelo.getId());
-        System.out.println("Testando classe ClienteValidador metodo: isValido etapa 05");
-        assertEquals(false, clienteValidador.isValido());
-
-        /* usando filtro: todos */
+        /* usando filtro: nome igual mas telefone diferente (deve passar) */
         view.jTbasicoNome.setText(clienteModelo.getNome());
-        view.jFbasicoCpf.setText(clienteModelo.getCpf());
-        view.jDbasicoDataNascimento.setCalendar(clienteModelo.getNascimento());
+        view.jTcontatoTelefone.setText("62 1111-1111"); // Telefone diferente
+        clienteValidador = new ClienteValidador(view, 0); // ID diferente para simular novo cadastro
+        System.out.println("Testando classe ClienteValidador metodo: isValido etapa 05");
+        assertEquals(true, clienteValidador.isValido());
+
+        /* usando filtro: todos válidos (edição do mesmo registro) */
+        view.jTbasicoNome.setText(clienteModelo.getNome());
         view.jTcontatoTelefone.setText(clienteModelo.getTelefone());
         clienteValidador = new ClienteValidador(view, clienteModelo.getId());
         System.out.println("Testando classe ClienteValidador metodo: isValido etapa 06");
         assertEquals(true, clienteValidador.isValido());
 
-        /* usando filtro: cpf já em uso */
-        view.jTbasicoNome.setText(clienteModelo.getNome());
-        view.jFbasicoCpf.setText(clienteModelo.getCpf());
-        view.jDbasicoDataNascimento.setCalendar(clienteModelo.getNascimento());
-        view.jTcontatoTelefone.setText(clienteModelo.getTelefone());
+        /* usando CPF inválido */
+        view.jTbasicoNome.setText("Novo Cliente");
+        view.jFbasicoCpf.setText("123.456.789-00"); // CPF inválido
+        view.jDbasicoDataNascimento.setDate(calendar.getTime());
+        view.jTcontatoTelefone.setText("62 2222-2222");
         clienteValidador = new ClienteValidador(view, 0);
         System.out.println("Testando classe ClienteValidador metodo: isValido etapa 07");
         assertEquals(false, clienteValidador.isValido());
+
+        /* usando CPF válido mas já existente (deve falhar) */
+        view.jTbasicoNome.setText("Outro Cliente");
+        view.jFbasicoCpf.setText(clienteModelo.getCpf()); // CPF já cadastrado
+        view.jDbasicoDataNascimento.setDate(calendar.getTime());
+        view.jTcontatoTelefone.setText("62 3333-3333");
+        clienteValidador = new ClienteValidador(view, 0);
+        System.out.println("Testando classe ClienteValidador metodo: isValido etapa 08");
+        assertEquals(false, clienteValidador.isValido());
+
+        /* usando CPF válido e novo (deve passar) */
+        view.jTbasicoNome.setText("Cliente Válido");
+        view.jFbasicoCpf.setText("304.364.080-23"); // CPF válido e diferente
+        view.jDbasicoDataNascimento.setDate(calendar.getTime());
+        view.jTcontatoTelefone.setText("62 4444-4444");
+        clienteValidador = new ClienteValidador(view, 0);
+        System.out.println("Testando classe ClienteValidador metodo: isValido etapa 09");
+        assertEquals(true, clienteValidador.isValido());
+
+        /* usando data inválida */
+        view.jTbasicoNome.setText("Cliente com data inválida");
+        view.jFbasicoCpf.setText("703.765.650-36"); // CPF válido
+        ((JTextField) view.jDbasicoDataNascimento.getDateEditor().getUiComponent()).setText("99/99/9999"); // Data inválida
+        view.jTcontatoTelefone.setText("62 5555-5555");
+        clienteValidador = new ClienteValidador(view, 0);
+        System.out.println("Testando classe ClienteValidador metodo: isValido etapa 10");
+        assertEquals(false, clienteValidador.isValido());
+
+        /* usando todos os campos válidos */
+        view.jTbasicoNome.setText("Cliente com data válida");
+        view.jFbasicoCpf.setText("690.241.880-24"); // CPF válido
+        view.jDbasicoDataNascimento.setCalendar(calendar); // Data válida
+        view.jTcontatoTelefone.setText("62 1234-1234"); // Telefone válido
+        clienteValidador = new ClienteValidador(view, 0);
+        System.out.println("Testando classe ClienteValidador metodo: isValido etapa 11");
+        assertEquals(true, clienteValidador.isValido());
 
     }
 
@@ -99,73 +124,107 @@ public class ClienteValidadorTest {
 
         /* usando filtro: nenhum */
         view.jTbasicoNome.setText(null);
-        view.jFbasicoCpf.setValue(null);
         view.jDbasicoDataNascimento.setDate(null);
         view.jTcontatoTelefone.setText(null);
         clienteValidador = new ClienteValidador(view, clienteModelo.getId());
         clienteValidador.isValido();
         System.out.println("Testando classe ClienteValidador metodo: getMensagensErro etapa 01");
-        assertEquals(true, clienteValidador.getMensagensErro().length() > 0);
+        assertTrue(clienteValidador.getMensagensErro().length() > 0);
 
         /* usando filtro: nome */
         view.jTbasicoNome.setText(clienteModelo.getNome());
-        view.jFbasicoCpf.setValue(null);
         view.jDbasicoDataNascimento.setDate(null);
         view.jTcontatoTelefone.setText(null);
         clienteValidador = new ClienteValidador(view, clienteModelo.getId());
         clienteValidador.isValido();
         System.out.println("Testando classe ClienteValidador metodo: getMensagensErro etapa 02");
-        assertEquals(true, clienteValidador.getMensagensErro().length() > 0);
-
-        /* usando filtro: cpf */
-        view.jTbasicoNome.setText(null);
-        view.jFbasicoCpf.setText(clienteModelo.getCpf());
-        view.jDbasicoDataNascimento.setDate(null);
-        view.jTcontatoTelefone.setText(null);
-        clienteValidador = new ClienteValidador(view, clienteModelo.getId());
-        clienteValidador.isValido();
-        System.out.println("Testando classe ClienteValidador metodo: getMensagensErro etapa 03");
-        assertEquals(true, clienteValidador.getMensagensErro().length() > 0);
-
-        /* usando filtro: nascimento */
-        view.jTbasicoNome.setText(null);
-        view.jFbasicoCpf.setValue(null);
-        view.jDbasicoDataNascimento.setCalendar(clienteModelo.getNascimento());
-        view.jTcontatoTelefone.setText(null);
-        clienteValidador = new ClienteValidador(view, clienteModelo.getId());
-        clienteValidador.isValido();
-        System.out.println("Testando classe ClienteValidador metodo: getMensagensErro etapa 04");
-        assertEquals(true, clienteValidador.getMensagensErro().length() > 0);
+        assertTrue(clienteValidador.getMensagensErro().length() > 0);
 
         /* usando filtro: telefone */
         view.jTbasicoNome.setText(null);
-        view.jFbasicoCpf.setValue(null);
-        view.jDbasicoDataNascimento.setCalendar(null);
+        view.jDbasicoDataNascimento.setDate(null);
         view.jTcontatoTelefone.setText(clienteModelo.getTelefone());
         clienteValidador = new ClienteValidador(view, clienteModelo.getId());
         clienteValidador.isValido();
-        System.out.println("Testando classe ClienteValidador metodo: getMensagensErro etapa 05");
-        assertEquals(true, clienteValidador.getMensagensErro().length() > 0);
+        System.out.println("Testando classe ClienteValidador metodo: getMensagensErro etapa 03");
+        assertTrue(clienteValidador.getMensagensErro().length() > 0);
 
-        /* usando filtro: todos */
+        /* usando filtro: nome e telefone iguais (deve falhar) */
         view.jTbasicoNome.setText(clienteModelo.getNome());
-        view.jFbasicoCpf.setText(clienteModelo.getCpf());
+        view.jDbasicoDataNascimento.setCalendar(clienteModelo.getNascimento());
+        view.jTcontatoTelefone.setText(clienteModelo.getTelefone());
+        clienteValidador = new ClienteValidador(view, 0);
+        clienteValidador.isValido();
+        System.out.println("Testando classe ClienteValidador metodo: getMensagensErro etapa 04");
+        assertTrue(clienteValidador.getMensagensErro().length() > 0);
+
+        /* usando filtro: nome igual mas telefone diferente (deve passar) */
+        view.jTbasicoNome.setText(clienteModelo.getNome());
+        view.jDbasicoDataNascimento.setCalendar(clienteModelo.getNascimento());
+        view.jTcontatoTelefone.setText("62 1111-1111");
+        clienteValidador = new ClienteValidador(view, 0);
+        clienteValidador.isValido();
+        System.out.println("Testando classe ClienteValidador metodo: getMensagensErro etapa 05");
+        assertEquals(0, clienteValidador.getMensagensErro().length());
+
+        /* usando filtro: todos válidos (edição do mesmo registro) */
+        view.jTbasicoNome.setText(clienteModelo.getNome());
         view.jDbasicoDataNascimento.setCalendar(clienteModelo.getNascimento());
         view.jTcontatoTelefone.setText(clienteModelo.getTelefone());
         clienteValidador = new ClienteValidador(view, clienteModelo.getId());
         clienteValidador.isValido();
         System.out.println("Testando classe ClienteValidador metodo: getMensagensErro etapa 06");
-        assertEquals(true, clienteValidador.getMensagensErro().length() == 0);
+        assertEquals(0, clienteValidador.getMensagensErro().length());
 
-        /* usando filtro: cpf já em uso */
-        view.jTbasicoNome.setText(clienteModelo.getNome());
-        view.jFbasicoCpf.setText(clienteModelo.getCpf());
-        view.jDbasicoDataNascimento.setCalendar(clienteModelo.getNascimento());
-        view.jTcontatoTelefone.setText(clienteModelo.getTelefone());
+        /* usando CPF inválido */
+        view.jTbasicoNome.setText("Novo Cliente");
+        view.jFbasicoCpf.setText("123.456.789-00"); // CPF inválido
+        view.jDbasicoDataNascimento.setDate(calendar.getTime());
+        view.jTcontatoTelefone.setText("62 2222-2222");
         clienteValidador = new ClienteValidador(view, 0);
         clienteValidador.isValido();
         System.out.println("Testando classe ClienteValidador metodo: getMensagensErro etapa 07");
-        assertEquals(true, clienteValidador.getMensagensErro().length() > 0);
+        assertTrue(clienteValidador.getMensagensErro().length() > 0);
+
+        /* usando CPF válido mas já existente (deve falhar) */
+        view.jTbasicoNome.setText("Outro Cliente");
+        view.jFbasicoCpf.setText(clienteModelo.getCpf()); // CPF já cadastrado
+        view.jDbasicoDataNascimento.setDate(calendar.getTime());
+        view.jTcontatoTelefone.setText("62 3333-3333");
+        clienteValidador = new ClienteValidador(view, 0);
+        clienteValidador.isValido();
+        System.out.println("Testando classe ClienteValidador metodo: getMensagensErro etapa 08");
+        assertTrue(clienteValidador.getMensagensErro().length() > 0);
+
+        /* usando CPF válido e novo (deve passar) */
+        view.jTbasicoNome.setText("Cliente Válido");
+        view.jFbasicoCpf.setText("304.364.080-23"); // CPF válido e diferente
+        view.jDbasicoDataNascimento.setDate(calendar.getTime());
+        view.jTcontatoTelefone.setText("62 4444-4444");
+        clienteValidador = new ClienteValidador(view, 0);
+        clienteValidador.isValido();
+        System.out.println("Testando classe ClienteValidador metodo: getMensagensErro etapa 09");
+        assertEquals(0, clienteValidador.getMensagensErro().length());
+
+        /* usando data inválida */
+        view.jTbasicoNome.setText("Cliente com data inválida");
+        view.jFbasicoCpf.setText("703.765.650-36"); // CPF válido
+        ((JTextField) view.jDbasicoDataNascimento.getDateEditor().getUiComponent()).setText("99/99/9999"); // Data inválida
+        view.jTcontatoTelefone.setText("62 5555-5555");
+        clienteValidador = new ClienteValidador(view, 0);
+        clienteValidador.isValido();
+        System.out.println("Testando classe ClienteValidador metodo: getMensagensErro etapa 10");
+        assertTrue(clienteValidador.getMensagensErro().length() > 0);
+
+        /* usando todos os campos válidos */
+        view.jTbasicoNome.setText("Cliente com data válida");
+        view.jFbasicoCpf.setText("690.241.880-24"); // CPF válido
+        view.jDbasicoDataNascimento.setCalendar(calendar); // Data válida
+        view.jTcontatoTelefone.setText("62 1234-1234"); // Telefone válido
+        clienteValidador = new ClienteValidador(view, 0);
+        clienteValidador.isValido();
+        System.out.println("Testando classe ClienteValidador metodo: getMensagensErro etapa 11");
+        assertEquals(0, clienteValidador.getMensagensErro().length());
 
     }
 

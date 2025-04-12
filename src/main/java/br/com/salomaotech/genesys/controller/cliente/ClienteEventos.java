@@ -166,7 +166,7 @@ public class ClienteEventos {
         });
 
         /* pesquisa */
-        view.jTpesquisaCpf.addKeyListener(new KeyListener() {
+        view.jTpesquisaTelefone.addKeyListener(new KeyListener() {
 
             @Override
             public void keyTyped(KeyEvent e) {

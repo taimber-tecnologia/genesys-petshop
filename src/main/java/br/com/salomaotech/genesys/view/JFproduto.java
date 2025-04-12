@@ -156,6 +156,7 @@ public class JFproduto extends javax.swing.JFrame {
         jBrefreshCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/atualizar16x.png"))); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(153, 0, 0));
         jLabel10.setText("Quantidade:");
 
         jTquantidade.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -168,7 +169,6 @@ public class JFproduto extends javax.swing.JFrame {
         jTpeso.setText("0");
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(153, 0, 0));
         jLabel9.setText("Medida:");
 
         jCmedida.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N

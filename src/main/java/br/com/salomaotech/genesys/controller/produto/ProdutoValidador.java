@@ -2,6 +2,7 @@ package br.com.salomaotech.genesys.controller.produto;
 
 import br.com.salomaotech.genesys.model.produto.ProdutoModelo;
 import br.com.salomaotech.genesys.view.JFproduto;
+import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import br.com.salomaotech.sistema.algoritmos.IsStringNumeroValido;
 import br.com.salomaotech.sistema.algoritmos.ValidaStringIsEmpty;
 import br.com.salomaotech.sistema.jpa.JPQL;
@@ -42,7 +43,7 @@ public class ProdutoValidador {
 
         }
 
-        /* valida se o valor de venda é válido */
+        /* valida o valor */
         if (!IsStringNumeroValido.isNumeroValido(view.jTvalorVenda.getText())) {
 
             mensagensErro = "Valor de venda inválido! Use ponto para separar casas decimais exemplo 1.99.";
@@ -51,20 +52,11 @@ public class ProdutoValidador {
 
         }
 
-        /* valida quantidade */
-        if (!IsStringNumeroValido.isNumeroValido(view.jTquantidade.getText()) && !ValidaStringIsEmpty.isEmpty(view.jTquantidade.getText())) {
+        /* valida a quantidade */
+        if (!IsStringNumeroValido.isNumeroValido(view.jTquantidade.getText()) || BigDecimais.isNegativo(BigDecimais.formatarParaBigDecimal(view.jTquantidade.getText()))) {
 
             mensagensErro = "Quantidade inválida.";
             view.jTquantidade.requestFocus();
-            return false;
-
-        }
-
-        /* valida unidade de medida */
-        if (view.jCmedida.getSelectedIndex() == -1) {
-
-            mensagensErro = "Informe a unidade de medida.";
-            view.jCmedida.requestFocus();
             return false;
 
         }

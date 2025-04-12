@@ -13,7 +13,7 @@ public class ClientePesquisa {
     private final JTable jTresultados;
     private final JComboBox jCpaginador;
     private String nome;
-    private String cpf;
+    private String telefone;
 
     public ClientePesquisa(JTable jTresultados, JComboBox jCpaginador) {
         this.jTresultados = jTresultados;
@@ -24,8 +24,8 @@ public class ClientePesquisa {
         this.nome = nome;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     private void popularDados(List<ClienteModelo> clienteModeloList) {
@@ -41,7 +41,6 @@ public class ClientePesquisa {
             Object[] linhaDefaultTableModel = new Object[]{
                 clienteModelo.getId(),
                 clienteModelo.getNome(),
-                clienteModelo.getCpf(),
                 clienteModelo.getTelefone(),
                 clienteModelo.getEmail()
 
@@ -58,7 +57,7 @@ public class ClientePesquisa {
 
         JPQL jpql = new JPQL(new ClienteModelo());
         jpql.addParametroLike("nome", nome);
-        jpql.addParametroLike("cpf", cpf);
+        jpql.addParametroLike("telefone", telefone);
         jpql.addOrderBy("nome", "ASC");
         jpql.addOrderBy("id", "ASC");
 

@@ -103,7 +103,7 @@ public class ClienteMetodosTest {
         /* testa se os dados populados na view foram resetados */
         System.out.println("Testando classe ClienteMetodos metodo: resetarViewPesquisa");
         assertEquals(true, view.jTpesquisaNome.getText().equals(""));
-        assertEquals(true, view.jTpesquisaCpf.getText().equals(""));
+        assertEquals(true, view.jTpesquisaTelefone.getText().equals(""));
         assertEquals(true, view.jCpaginador.getSelectedIndex() == 0);
 
     }
@@ -151,7 +151,7 @@ public class ClienteMetodosTest {
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTcontatoTelefone));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTcontatoEmail));
         assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTpesquisaNome));
-        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTpesquisaCpf));
+        assertEquals(true, popUp.isMenuPopUpAdicionado(view.jTpesquisaTelefone));
 
     }
 
@@ -230,28 +230,28 @@ public class ClienteMetodosTest {
 
         /* usando filtro: nenhum */
         view.jTpesquisaNome.setText(null);
-        view.jTpesquisaCpf.setText(null);
+        view.jTpesquisaTelefone.setText(null);
         clienteMetodos.pesquisar();
         System.out.println("Testando classe ClienteMetodos metodo: pesquisar etapa 01");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: nome */
         view.jTpesquisaNome.setText(clienteModelo.getNome());
-        view.jTpesquisaCpf.setText(null);
+        view.jTpesquisaTelefone.setText(null);
         clienteMetodos.pesquisar();
         System.out.println("Testando classe ClienteMetodos metodo: pesquisar etapa 02");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
-        /* usando filtro: cpf */
+        /* usando filtro: telefone */
         view.jTpesquisaNome.setText(null);
-        view.jTpesquisaCpf.setText(clienteModelo.getCpf());
+        view.jTpesquisaTelefone.setText(clienteModelo.getTelefone());
         clienteMetodos.pesquisar();
         System.out.println("Testando classe ClienteMetodos metodo: pesquisar etapa 03");
         assertEquals(true, view.jTresultados.getRowCount() > 0);
 
         /* usando filtro: todos */
         view.jTpesquisaNome.setText(clienteModelo.getNome());
-        view.jTpesquisaCpf.setText(clienteModelo.getCpf());
+        view.jTpesquisaTelefone.setText(clienteModelo.getTelefone());
         clienteMetodos.pesquisar();
         System.out.println("Testando classe ClienteMetodos metodo: pesquisar etapa 04");
         assertEquals(true, view.jTresultados.getRowCount() > 0);

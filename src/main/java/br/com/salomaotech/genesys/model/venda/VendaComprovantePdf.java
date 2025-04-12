@@ -65,12 +65,12 @@ public class VendaComprovantePdf {
         gerarPdf.addConteudo("==================================================");
         gerarPdf.addConteudo("================ PRODUTOS/SERVIÇOS ===============");
 
-        PdfPTable pdfPTable = new PdfPTable(5);
+        PdfPTable pdfPTable = new PdfPTable(4);
 
         try {
 
             /* produtos e serviços */
-            pdfPTable.setWidths(new int[]{3, 2, 2, 2, 2});
+            pdfPTable.setWidths(new int[]{3, 2, 2, 2});
             pdfPTable.setTotalWidth(250);
             pdfPTable.setLockedWidth(true);
             pdfPTable.setHorizontalAlignment(Element.ALIGN_LEFT);
@@ -125,7 +125,7 @@ public class VendaComprovantePdf {
         gerarPdf.addConteudo("==================== PAGAMENTO ===================");
 
         /* forma de pagamento */
-        pdfPTable = new PdfPTable(4);
+        pdfPTable = new PdfPTable(3);
         pdfPTable.setTotalWidth(250);
         pdfPTable.setLockedWidth(true);
         pdfPTable.setHorizontalAlignment(Element.ALIGN_LEFT);
@@ -140,7 +140,7 @@ public class VendaComprovantePdf {
         /* rodapé */
         gerarPdf.addConteudo("");
         gerarPdf.addConteudo("--------------------------------------------------");
-        gerarPdf.addConteudo("    *** Cupom não fiscal ***");
+        gerarPdf.addConteudo("    *** Este ticket não é documento fiscal ***");
 
         if (gerarPdf.gerar()) {
 

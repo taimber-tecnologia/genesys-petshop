@@ -49,7 +49,7 @@ public class ClienteMetodos {
     public void resetarViewPesquisa() {
 
         view.jTpesquisaNome.setText(null);
-        view.jTpesquisaCpf.setText(null);
+        view.jTpesquisaTelefone.setText(null);
         view.jCpaginador.setSelectedIndex(-1);
         pesquisar();
 
@@ -78,7 +78,7 @@ public class ClienteMetodos {
         popUp.adicionarMenu(view.jTcontatoTelefone);
         popUp.adicionarMenu(view.jTcontatoEmail);
         popUp.adicionarMenu(view.jTpesquisaNome);
-        popUp.adicionarMenu(view.jTpesquisaCpf);
+        popUp.adicionarMenu(view.jTpesquisaTelefone);
 
     }
 
@@ -128,7 +128,7 @@ public class ClienteMetodos {
 
         ClientePesquisa clientePesquisa = new ClientePesquisa(view.jTresultados, view.jCpaginador);
         clientePesquisa.setNome(view.jTpesquisaNome.getText());
-        clientePesquisa.setCpf(view.jTpesquisaCpf.getText());
+        clientePesquisa.setTelefone(view.jTpesquisaTelefone.getText());
         clientePesquisa.pesquisar();
 
     }
