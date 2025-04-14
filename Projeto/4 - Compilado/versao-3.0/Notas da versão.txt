@@ -1,0 +1,3 @@
+Melhorado o módulo de PDV.
+Melhorado a pesquisa dos módulos.
+Melhorado o cadastro de clientes.
