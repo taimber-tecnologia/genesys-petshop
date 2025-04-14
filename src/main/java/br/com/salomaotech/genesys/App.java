@@ -49,7 +49,7 @@ public class App {
         view.setVisible(false);
 
         /* carrega serviços adicionais */
-        //carregarServicosAdicionais();
+        carregarServicosAdicionais();
 
     }
 

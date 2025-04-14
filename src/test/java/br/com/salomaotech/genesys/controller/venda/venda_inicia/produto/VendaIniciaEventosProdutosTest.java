@@ -31,6 +31,7 @@ public class VendaIniciaEventosProdutosTest {
         assertEquals(1, view.jBcalcularGranel.getActionListeners().length);
         assertEquals(1, view.jTpesquisaNomeProduto.getKeyListeners().length);
         assertEquals(2, ((DefaultListSelectionModel) view.jTlistaDeProdutos.getSelectionModel()).getListSelectionListeners().length);
+        assertEquals(3, view.jTlistaDeProdutos.getMouseListeners().length);
 
     }
 

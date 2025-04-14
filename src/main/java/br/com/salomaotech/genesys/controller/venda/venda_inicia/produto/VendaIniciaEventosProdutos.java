@@ -7,6 +7,8 @@ import br.com.salomaotech.sistema.algoritmos.BigDecimais;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.math.BigDecimal;
 import javax.swing.JOptionPane;
 
@@ -94,6 +96,24 @@ public class VendaIniciaEventosProdutos {
 
                 long id = (long) view.jTlistaDeProdutos.getModel().getValueAt(linha, 0);
                 vendaIniciaMetodosProdutos.exibirProdutoSelecionado(id);
+
+            }
+
+        });
+
+        view.jTlistaDeProdutos.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                int linha = view.jTlistaDeProdutos.getSelectedRow();
+
+                if (linha >= 0) {
+
+                    long id = (long) view.jTlistaDeProdutos.getModel().getValueAt(linha, 0);
+                    vendaIniciaMetodosProdutos.exibirProdutoSelecionado(id);
+
+                }
 
             }
 

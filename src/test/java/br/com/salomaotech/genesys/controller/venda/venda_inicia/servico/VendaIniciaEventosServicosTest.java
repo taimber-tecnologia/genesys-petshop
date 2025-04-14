@@ -30,6 +30,7 @@ public class VendaIniciaEventosServicosTest {
         assertEquals(1, view.jBservicoAdicionaItem.getActionListeners().length);
         assertEquals(1, view.jTpesquisaNomeServico.getKeyListeners().length);
         assertEquals(2, ((DefaultListSelectionModel) view.jTlistaDeServicos.getSelectionModel()).getListSelectionListeners().length);
+        assertEquals(3, view.jTlistaDeServicos.getMouseListeners().length);
 
     }
 
